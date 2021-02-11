@@ -1,0 +1,20 @@
+cd /media/brian/5cd05725-f255-43f9-8216-fe29f09bfbb2/music/music-lib
+alias music_all='ls -alhR | egrep '^-.*$'
+alias music_count='music_all wc -l'
+
+
+# ls -alhR | egrep '^-.*$' | egrep Simple
+# find . -iname *.mp3
+# find . -iname *.ogg
+# find . -iname *.flac
+
+
+# music cache
+find . -iname *.mp3 > ~/script/music_cache.txt
+cat ~/script/music_cache.txt
+
+cat ~/script/music_cache.txt | egrep 'Man'
+diff -y hex.txt diff.txt | grep \|
+
+# number records
+./music_search.sh 'Hello' | sed 's/^/\" 5\"/'
