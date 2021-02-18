@@ -4,4 +4,9 @@
 
 # play song
 #mpg123 --list './songs'
-mpg123 --list $(cat song_list.txt)
+#if $(diff playing playing.last | wc -l) == 0
+
+#elif
+rm playing.last
+cp playing playing.last
+mpg123 --list playing

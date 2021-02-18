@@ -1,0 +1,1 @@
+ls -alhR | egrep '^\-.*.\.c$' | sed s/^.*[[:digit:]][[:digit:]]\:[[:digit:]][[:digit:]][[:blank:]]//
