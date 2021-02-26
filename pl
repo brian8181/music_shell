@@ -1,1 +1,1 @@
-play_song_list.sh
+play_list.sh
