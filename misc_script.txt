@@ -21,3 +21,22 @@ diff -y hex.txt diff.txt | grep \|
 
 ls -alhR | egrep '^\-.*.\.c$' | sed s/^.*[[:digit:]][[:digit:]]\:[[:digit:]][[:digit:]][[:blank:]]//
 
+
+#DEBUG 02-27-2021
+
+# Wall & Pink
+./s 'Wall' ./music_cache.txt | ./s 'Pink'
+
+# All identical counts
+./s "Wall" ./music_cache.txt | ./s "Pink" | wc -l
+./music_search.sh "Wall" ./music_cache.txt | ./music_search.sh "Pink" | wc -l
+./default_search.sh "Wall" | ./s "Pink" | wc -l
+./def "Wall" | ./s "Pink" | wc -l
+
+#
+./music_search.sh "Hello" ./music_cache.tx
+
+
+#
+./default_search.sh "Wall" ./and_search.sh "Pink" | wc -l
+./and_search.sh "Wall" "Pink" | wc -l
