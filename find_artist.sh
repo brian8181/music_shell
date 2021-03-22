@@ -2,7 +2,7 @@
 
 ARTIST=$1
 CACHE=$2
-REXP="^albums\\,$ARTIST\\,[A-Za-z0-9]+\\,[A-Za-z0-9]+\\,.*$"
+REXP="^albums\\,.*$ARTIST.*\\,[A-Za-z0-9]+\\,.*$"
 
 #echo $DATE
 #echo $CACHE
