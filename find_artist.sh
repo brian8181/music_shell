@@ -1,6 +1,13 @@
 #!/usr/bin/bash
 
-NAME=$1
+ARTIST=$1
 CACHE=$2
-REXP="^/.*/music-lib/albums/\\$NAME/.*$"
+REXP="^albums\\,$ARTIST\\,[A-Za-z0-9]+\\,[A-Za-z0-9]+\\,.*$"
+
+#echo $DATE
+#echo $CACHE
+#echo $REXP
+#echo "$REXP"
+#echo '$REXP'
+
 cat $CACHE | egrep "$REXP" | tee playing
