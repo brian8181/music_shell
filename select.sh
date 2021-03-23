@@ -1,16 +1,14 @@
 #! /usr/bin/bash
 
-FILE=./cache_.txt
-FIELDS='1 2 3 4 5 6 7'
+FIELDS=$1
+#DELIMITER=|
+FILE=$2
 
-if [ $# < 2 ]; then
-	echo $#
-	FILE=$2
-fi
+#if [ "$#" == 2 ]; then
+#	echo TWO
+#fi
 
-# echo $FIELDS
-if [ $FIELDS == 0 ]; then
-# 	echo Testing
+if [ "${FIELDS}" == 0 ]; then
 	FIELDS='1 2 3 4 5 6 7'
 fi
 
