@@ -6,3 +6,22 @@ sed s/'\,media\,brian\,Music 2015 Backup\,music-lib\,'// music_cache.csv
 sed s/"\\."/\\,/ m5.txt
 
 cat m4.txt | egrep "([0-9]+\\.[0-9]+\\.)|([0-9]+\\.)" # disc.track
+
+cut -d',' -f "1 2 3 4" m4.txt
+
+
+sed s/^[0-9]*\\.[0-9]*\\.[[:space:]]/xx/ m5.txt
+sed s/"^[0-9]*\\.[0-9]*\\.[[:space:]]"/xx/ m5.txt 
+sed s/"\\(^[0-9]*\\.[0-9]*\\.[[:space:]]\\)"/xx/ m5.txt
+sed s/"\\(\\(^[0-9]*\\.[0-9]*\\.[[:space:]]\\)\\)"/xx/ m5.txt
+
+sed s/"\\(\\(^[0-9.]*\\.[[:space:]]\\)\)"/xx/ m5.txt
+
+
+
+sed -E 's/[[:space:]]-[[:space:]]/\,/' m4.txt
+#comma for track
+sed -E s/\\.[[:space:]]/,/ m4.txt
+
+
+#"^albums\\,[A-Za-z0-9]+\\,[0-9]+\\,.*$ALBUM.*.\\,[A-Za-z0-9]+\\,[A-Za-z0-9]+$"

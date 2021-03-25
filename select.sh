@@ -1,16 +1,35 @@
 #! /usr/bin/bash
 
-FIELDS=$1
-#DELIMITER=|
+# "Usage: ./select.sh [-d] [-f name.txt] [-s '$date $artist $album']"
+
+FIELDS=$3
+DELIMITER=$1
 FILE=$2
 
-#if [ "$#" == 2 ]; then
-#	echo TWO
-#fi
+while getopts ":d:f:s" opt; do
+  case ${opt} in
+    d ) # process option d
+		DELIMITER=$OPTARG
+      ;;
+    f) # process option t
+		FILE=$OPTARG
+      ;;
+	s) # process option t
+		FIELDS=$OPTARG
+	  ;;
+    \? ) echo "Usage: cmd [-d] [-f name] [-s '1 2 3']"
+      ;;
+  esac
+  shift $((OPTIND -1))
+done
 
-if [ "${FIELDS}" == 0 ]; then
+if [ "$#" =~ "2" ]; then
+	$FILE = cache.txt
+fi
+
+if [ "${FIELDS}" =~ 0 ]; then
 	FIELDS='1 2 3 4 5 6 7'
 fi
 
-cut -d'|' -f "$FIELDS" $FILE
+cut -d"$DELIMITER" -f "$FIELDS" $FILE
 
