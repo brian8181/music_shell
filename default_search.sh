@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-./s "$1" ./cache.txt
+./search.sh "$1" ./cache.txt
