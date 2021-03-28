@@ -1,3 +1,0 @@
-folder,artist,date,album,title
-
-
