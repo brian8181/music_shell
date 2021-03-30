@@ -4,7 +4,8 @@ MUSIC_PATH=$1
 PROJECT_PATH=$2
 NAME=$3
 DELIMITER=| # todo
-
+# todo
+# find .. -name "*.flac" -o -name "*.mp3" -o -name "*.wma"
 find "$MUSIC_PATH" -iname "*.mp3" > $PROJECT_PATH/$NAME
 find "$MUSIC_PATH" -iname "*.ogg" >> $PROJECT_PATH/$NAME
 find "$MUSIC_PATH" -iname "*.flac" >> $PROJECT_PATH/$NAME

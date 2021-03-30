@@ -10,3 +10,13 @@ STR="World"
 ./echo.sh 'Hello $STR'
 
 #ls -al $STR
+
+
+git clone git://git.savannah.gnu.org/src-highlite.git
+        
+autoreconf -i
+mkdir build
+cd build
+../configure
+make
+
