@@ -1,11 +1,15 @@
 #!/usr/bin/bash
 
-VBR='-v $1'
 IFILE=$1
 OFILE=$2
+VBR=$3
+OPTIONS=${VBR:='-V2'}
 
-#ART='--ti front.jpg'
-#OPTIONS=$ART
+ART=${IFILE%%/*}/front.jpg
+if [ -f "$ART" ]; then
+    OPTIONS="$OPTIONS --ti $ART"
+fi
 
-#lame $ART $VBR $IFILE $OFILE
-lame -V2 $IFILE $OFILE
+echo "Options: $OPTIONS"
+
+lame $OPTIONS $IFILE $OFILE
