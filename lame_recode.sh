@@ -12,4 +12,10 @@ fi
 
 echo "Options: $OPTIONS"
 
+TAGS=$(~/src/tag/tag $IFILE)
+IFS=, 
+read TITLE ARTIST ALBUM YEAR COMMENT TRACK GENRE <<<$TAGS
+#Verify the result
+echo $TITLE $ARTIST $ALBUM $COMMENT $TRACK $GENRE
+
 lame $OPTIONS $IFILE $OFILE
