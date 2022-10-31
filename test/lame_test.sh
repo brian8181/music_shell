@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 
-# clean up first
-rm *.test_run.mp3
+#../lame_recode.sh ./test1.mp3 ./test1.recode_test.mp3
 
 # run test or comment out test
 ../lame_recode.sh ./test1.mp3 ./test1.test_run.mp3 -V3
