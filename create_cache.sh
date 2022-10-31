@@ -7,3 +7,4 @@ NAME=$3
 find $MUSIC_PATH -iname "*.mp3" > $PROJECT_PATH/$NAME
 find $MUSIC_PATH -iname "*.ogg" >> $PROJECT_PATH/$NAME
 find $MUSIC_PATH -iname "*.flac" >> $PROJECT_PATH/$NAME
+le.test_run.mp3 -V3
