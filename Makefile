@@ -34,15 +34,6 @@ $(APPNAME): $(APPNAME).o
 $(APPNAME).o: 
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/$(APPNAME).$(EXT) -o $(SRCDIR)/$(APPNAME).o
 
-autotools_reconf:
-	cd ../
-	autoreconf -ivfm
-	cd ./make
-
-.PHONY: check
-check:
-	echo "Checking ..."
-
 # install man pages
 .PHONY: man
 man: 
@@ -53,7 +44,7 @@ man:
 # uninstall man pages
 .PHONY: unmanversion variable
 unman:
-	rm $(man1dir)/$(APPNAME).1.gz
+	-rm $(man1dir)/$(APPNAME).1.gz
 	mandb
 
 .PHONY: install
@@ -67,12 +58,13 @@ uninstall: unman
 # delete object files & app executable
 .PHONY: clean
 clean: 
-	-rm -f $(OBJDIR)/*.o $(SRCDIR)/$(APPNAME) 
+	-rm -f $(OBJDIR)/*.o 
+	-rm -f $(SRCDIR)/$(APPNAME) 
 	-rm -f $(SRCDIR)/$(APPNAME)_test
 
 .PHONY: distclean
 distclean: clean 
-	rm ../$(APPNAME) ../config.* ../Makefile ../Makefile.in ../INSTALL ../configure ../stamp-h1 ../aclocal.m4
+	-rm ../$(APPNAME) ../config.* ../Makefile ../Makefile.in ../INSTALL ../configure ../stamp-h1 ../aclocal.m4
 
 dist: 
 	git archive HEAD | gzip > $(SRCDIR)/$(APPNAME).$(BUILD_VERSION).tar.gz
