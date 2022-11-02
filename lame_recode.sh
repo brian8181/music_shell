@@ -14,6 +14,7 @@ for IFILE in $@;
 do
     TAGS=$(./tag "$IFILE")
     echo File: "$IFILE"
+    echo Tags: "$TAGS"
     ARTIST=${TAGS%,*,*,*}
     ALBUM=${TAGS##*,*,}
     TITLE=${TAGS#*,*,*,*} 
