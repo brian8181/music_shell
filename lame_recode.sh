@@ -1,20 +1,24 @@
 #!/bin/bash
+
+DIR=$1
 IFS='|'
+
+# check if art exist
+ART=${DIR%/*}/front.jpg
+echo $ART
+if [ -f "$ART" ]; then
+    OPTIONS="$OPTIONS --ti $ART"
+fi
 
 for IFILE in $@;
 do
-    # check if art exist
-    # ART=${$IFILE%%/*}/front.jpg
-    # if [ -f "$ART" ]; then
-    #     OPTIONS="$OPTIONS --ti $ART"
-    # fi
-
     TAGS=$(./tag "$IFILE")
+    echo File: "$IFILE"
     ARTIST=${TAGS%,*,*,*}
     ALBUM=${TAGS##*,*,}
     TITLE=${TAGS#*,*,*,*} 
-
-    # lame -V2 "$IFILE" "${IFILE%*.mp3}".mp3
-    lame -V2 "$IFILE" "${IFILE}.1"
-    # lame -V2 --ti "$ART" --tt "$TITLE" --ta "$ARTIST" --tl "$ALBUM"--ty "$YEAR" --tc "$COMMENT" --tn "$TRACK" --tg "$GENRE" "$IFILE" "~/tmp/$IFILE"
+    echo "$TITLE"
+    # lame -V4 "$IFILE" "${IFILE%*.mp3}".mp3
+    lame -V4 "$IFILE" "${IFILE}.1"
+    # lame -V4 --ti "$ART" --tt "$TITLE" --ta "$ARTIST" --tl "$ALBUM"--ty "$YEAR" --tc "$COMMENT" --tn "$TRACK" --tg "$GENRE" "$IFILE" "~/tmp/$IFILE"
 done

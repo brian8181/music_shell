@@ -93,8 +93,7 @@ void print_tags(int argc, char *argv[], bool verbose)
             }
             else
             {
-             cout << tag->artist() << ',' << tag->album() << ',' << tag->year() << ',' 
-                        << tag->track() << ',' << tag->genre() << ',' << tag->title() <<  ","  << tag->comment() << endl;
+             cout <<  tag->track() << "," << tag->artist() << ',' << tag->album() << ',' << tag->year() << ',' << tag->title() << ',' << tag->genre() << ","  << tag->comment() << endl;
             }
         }
     }
