@@ -12,10 +12,11 @@ fi
 
 for IFILE in $@;
 do
-    TAGS=$(./tag "$IFILE")
+    TAGS=$(./src/tag "$IFILE")
     echo File: "$IFILE"
     echo Tags: "$TAGS"
-    TRACK=${TAGS#*,}
+    TRACK=TRACK:${TAGS%%,*}
+    echo $TRACK
     ARTIST=${TAGS%,*,*,*}
     ALBUM=${TAGS##*,*,}
     TITLE=${TAGS#*,*,*,*} 
