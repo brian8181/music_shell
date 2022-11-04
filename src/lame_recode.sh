@@ -15,8 +15,8 @@ do
     TAGS=$(./src/tag "$IFILE")
     echo File: "$IFILE"
     echo Tags: "$TAGS"
-    TRACK=TRACK:${TAGS%%,*}
-    echo $TRACK
+    TRACK=${TAGS%%,*}
+    echo TRACK:$TRACK
     ARTIST=${TAGS%,*,*,*}
     ALBUM=${TAGS##*,*,}
     TITLE=${TAGS#*,*,*,*} 
