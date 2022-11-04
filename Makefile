@@ -9,8 +9,8 @@ INCLUDES= -I/usr/local/include/taglib/
 
 APPNAME = tag
 EXT = cpp
-SRCDIR = .
-OBJDIR = .
+SRCDIR = ./src
+OBJDIR = ./src
 
 prefix = /usr/local
 mandir = $(prefix)/share/man
