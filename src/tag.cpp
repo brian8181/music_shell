@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <iomanip>
 #include <stdio.h>
@@ -7,7 +8,9 @@
 #include <taglib/tag.h>
 
 #include <getopt.h>
+#include <filesystem>
 #include "bash_color.hpp"
+//#include <attachedpictureframe.h>
 
 using namespace std;
 
@@ -72,6 +75,19 @@ int main(int argc, char *argv[])
 
 void print_tags(int argc, char *argv[], bool verbose)
 {
+    ifstream fs;
+    string file(argv[1]);
+    string file_path = filesystem::path(file).parent_path();
+    fs.open(file_path + "/front.jpg");
+    vector<unsigned char> buffer;
+        
+    unsigned char c;
+    while(fs.read((char*)&c, 1))
+    {
+        //cout << c;
+        buffer.push_back(c);
+    }
+
     for(int i = 1; i < argc; i++)
     {
         TagLib::FileRef f(argv[i]);
@@ -93,7 +109,10 @@ void print_tags(int argc, char *argv[], bool verbose)
             }
             else
             {
-                cout <<  tag->track() << "," << tag->artist() << ',' << tag->album() << ',' << tag->year() << ',' << tag->title() << ',' << tag->genre() << "," << "COMMENT" << endl;
+
+                //AttachedPictureFrame pic();
+
+                cout <<  tag->track() << '|' << tag->artist() << '|' << tag->album() << '|' << tag->year() << '|' << tag->title() << '|' << tag->genre() << '|' << tag->comment() << endl;
             }
         }
     }

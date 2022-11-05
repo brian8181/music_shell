@@ -1,7 +1,7 @@
 # BUILD_VERSION = 0.1.0
 
 CXX = g++
-CXXFLAGS = -Wall -std=c++11 -std=c++17 --std=c++2a
+CXXFLAGS = -Wall -std=c++17
 LDFLAGS = -ltag -L/usr/local/lib/ -lz
 INCLUDES= -I/usr/local/include/taglib/
 # LDFLAGS += -static -lcppunit -L/usr/local/lib/
