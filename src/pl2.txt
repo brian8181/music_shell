@@ -1,0 +1,19 @@
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K/01. Speak to Me-Breathe.mp3
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K/02. On the Run.mp3
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K/03. Time.mp3
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K/04. The Great Gig in the Sky.mp3
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K/05. Money.mp3
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K/06. Us and Them.mp3
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K/07. Any Colour You Like.mp3
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K/08. Brain Damage.mp3
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K/09. Eclipse.mp3
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K (U.S 30th Anniversary 180gram Vinyl)/A1. Speak to Me.flac
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K (U.S 30th Anniversary 180gram Vinyl)/A2. Breathe.flac
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K (U.S 30th Anniversary 180gram Vinyl)/A3. On the Run.flac
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K (U.S 30th Anniversary 180gram Vinyl)/A4. Time (Breathe Reprise).flac
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K (U.S 30th Anniversary 180gram Vinyl)/A5. The Great Gig in the Sky.flac
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K (U.S 30th Anniversary 180gram Vinyl)/B1. Money.flac
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K (U.S 30th Anniversary 180gram Vinyl)/B2. Us and Them.flac
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K (U.S 30th Anniversary 180gram Vinyl)/B3. Any Colour You Like.flac
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K (U.S 30th Anniversary 180gram Vinyl)/B4. Brain Damage.flac
+/mnt/music/music-lib/albums/Pink Floyd/[01;31m[K1973 - Dark Side of the Moon[m[K (U.S 30th Anniversary 180gram Vinyl)/B5. Eclipse.flac
