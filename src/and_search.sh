@@ -1,3 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-./music_search.sh "$1" ./music_cache.txt | ./music_search.sh "$2"
+# TODO ONLY DO INTERSECT !
+./search.sh "$1" ./cache.txt | ./search.sh "$2" ./cache.txt
