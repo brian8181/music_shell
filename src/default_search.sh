@@ -1,3 +1,4 @@
 #!/usr/bin/bash
 
-./search.sh "$1" ../cache.txt
+# creates a playlist through --> create_playlist.sh --> search.sh
+./create_playlist.sh "$1" ../cache.txt

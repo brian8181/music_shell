@@ -1,12 +1,10 @@
 #!/usr/bin/bash
 
-LINK=$(readlink -f sp)
-echo $LINK
-NAME=$(md5sum $LINK)
-echo ${NAME%$LINK}
-./music_search.sh "$1" $LINK > ${NAME%$LINK}
+# LINK=$(readlink -f sp)
+# echo $LINK
+# NAME=$(md5sum $LINK)
+# echo ${NAME%$LINK}
+./search.sh $1 > my_playlist
 
-
-rm sp
-ln -s ${NAME%$LINK} sp
-
+# rm sp
+# ln -s $LINK sp
