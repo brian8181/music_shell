@@ -12,16 +12,19 @@ SRC=src
 
 debug: all
 
-all: $(BLD)/tools
+all: $(BLD)/tools $(BLD)/intersect
 
-$(BLD)/tools: $(BLD)/tools.o $(BLD)/main.o $(BLD)/intersect.o #@@PREREQUISTE@@
-	 $(CXX) $(CXXFLAGS) $(BLD)/tools.o $(BLD)/main.o -o $(BLD)/tools $(BLD)/intersect.o #@@CLASS_NAME@@
+$(BLD)/tools: $(BLD)/tools.o $(BLD)/main.o #@@PREREQUISTE@@
+	 $(CXX) $(CXXFLAGS) $(BLD)/tools.o $(BLD)/main.o -o $(BLD)/tools #@@CLASS_NAME@@
 
 $(BLD)/tools.o: $(SRC)/tools.cpp
 	$(CXX) $(CXXFLAGS) -c $(SRC)/tools.cpp -o $(BLD)/tools.o
 
 $(BLD)/main.o: $(SRC)/main.cpp
 	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(BLD)/main.o
+
+$(BLD)/intersect: $(BLD)/intersect.o
+	$(CXX) $(CXXFLAGS) $(BLD)/intersect.o -o $(BLD)/intersect
 
 $(BLD)/intersect.o: $(SRC)/intersect.cpp
 	 $(CXX) $(CXXFLAGS) -c $(SRC)/intersect.cpp -o $(BLD)/intersect.o
