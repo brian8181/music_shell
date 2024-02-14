@@ -1,31 +1,34 @@
 #// License:    None
 #// File Name:  ./Makefile
-#// Build Date: Tue Nov 14 04:08:48 PM CST 2023
+#// BLD Date: Tue Nov 14 04:08:48 PM CST 2023
 #// Version:    0.0.1
 
-CXX = g++
-CXXFLAGS = -Wall -std=c++17 -DDEBUG -g
-APPNAME = tools
-BUILD = build
-OBJ =  build
-SRC = src
+CXX=g++
+CXXFLAGS=-Wall -std=c++17 -DDEBUG -g
+APPNAME=tools
+BLD=build
+OBJ=build
+SRC=src
 
 debug: all
 
-all: tools
+all: $(BLD)/tools
 
-tools: tools.o main.o #@@PREREQUISTE@@
-	 $(CXX) $(CXXFLAGS) $(BUILD)/tools.o $(BUILD)/main.o -o $(BUILD)/tools #@@CLASS_NAME@@
+$(BLD)/tools: $(BLD)/tools.o $(BLD)/main.o $(BLD)/intersect.o #@@PREREQUISTE@@
+	 $(CXX) $(CXXFLAGS) $(BLD)/tools.o $(BLD)/main.o -o $(BLD)/tools $(BLD)/intersect.o #@@CLASS_NAME@@
 
-tools.o:
-	$(CXX) $(CXXFLAGS) -c $(SRC)/tools.cpp -o $(BUILD)/tools.o
-	
-main.o:
-	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(BUILD)/main.o
+$(BLD)/tools.o: $(SRC)/tools.cpp
+	$(CXX) $(CXXFLAGS) -c $(SRC)/tools.cpp -o $(BLD)/tools.o
+
+$(BLD)/main.o: $(SRC)/main.cpp
+	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(BLD)/main.o
+
+$(BLD)/intersect.o: $(SRC)/intersect.cpp
+	 $(CXX) $(CXXFLAGS) -c $(SRC)/intersect.cpp -o $(BLD)/intersect.o
 
 #AUTO_INSERT_POINT_DO_NOT_REMOVE#
 
+.PHONY: clean
 clean:
 	-rm -f $(OBJ)/*.
-	-rm -f $(BUILD)/*
-	
+	-rm -f $(BLD)/*
