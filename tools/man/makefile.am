@@ -1,0 +1,2 @@
+# automake for tools 
+man_MANS = tools.1

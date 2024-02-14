@@ -1,0 +1,4 @@
+## Process this file with automake to produce Makefile.in 
+bin_PROGRAMS = tools
+tools_SOURCES = main.cpp tools.cpp
+#tools_LDFLAGS = -static -lcppunit -L/usr/local/lib/
