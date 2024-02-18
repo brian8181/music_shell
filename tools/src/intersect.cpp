@@ -25,9 +25,17 @@
 #include <string>
 #include <getopt.h>
 #include "intersect.hpp"
+//#include <set>
+
+void open_file();
+
 
 int stdin_ready (int filedes)
 {
+	// std::set<string> s;
+	// s.insert("1");
+	// s.insert("2");
+
 	fd_set set;
 	// declare/initialize zero timeout
 	struct timespec timeout = { .tv_sec = 0 };
@@ -61,7 +69,18 @@ int main(int argc, char* argv[])
 	}
 }
 
+
+void print_help()
+{
+
+}
+
 int parse_options(int argc, char* argv[])
 {
     return 0;
+}
+
+void open_file()
+{
+
 }
