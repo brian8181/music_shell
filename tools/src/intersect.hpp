@@ -1,12 +1,24 @@
-// License:    None
-// File Name:  music_shell/tools/intersect.cpp
-// Build Date: Wed Feb 14 04:03:20 PM CST 2024
-// Version:    0.0.1
+// File Name:  fileio.cpp
+// Build Date: Sat Nov 25 06:03:48 AM CST 2023
+// Version:    3.6.7
 
-#ifndef __intersect_HPP
-#define __intersect_HPP
+#ifndef _INTERSECT_HPP
+#define _INTERSECT_HPP
 
-void print_help();
-int parse_options(int argc, char* argv[]);
+#include <string>
+#include <map>
+#include <vector>
+
+using namespace std;
+
+void inti)
+{
+
+}
+
+void add(string s)
+{
+
+}
 
 #endif

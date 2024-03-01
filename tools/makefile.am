@@ -1,2 +1,0 @@
-# automake for tools 
-SUBDIRS = src

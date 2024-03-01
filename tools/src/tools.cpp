@@ -22,14 +22,20 @@
 #include <getopt.h>
 #include "bash_color.h"
 #include "tools.hpp"
+#include <set>
 
 using namespace std;
 
 int parse_options(int argc, char* argv[])
 {
-	cout << FMT_FG_BLUE << "Hello World!"  << FMT_RESET << endl;
-	cout << FMT_FG_RED << "Hello World!"  << FMT_RESET << endl;
-	cout << FMT_FG_GREEN << "Hello World!"  << FMT_RESET << endl;
-	cout << FMT_FG_YELLOW << "Hello World!"  << FMT_RESET << endl;
-	return 0;
+	std::set<char> a;
+    a.insert('G');
+    a.insert('F');
+    a.insert('G');
+    for (auto& str : a)
+	{
+        std::cout << str << ' ';
+    }
+    std::cout << '\n';
+    return 0;
 }

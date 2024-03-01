@@ -7,4 +7,10 @@ TEE_OPTION='-a'
 # and_search.sh
 
 # TODO ONLY DO INTERSECT !
-./search.sh "$1" ../cache.txt '-a'
+
+# add
+# new
+# append - end
+# next where is the pointer // a link called next, beg end & now (just next -1)
+# now - is there a now
+# location (#)
