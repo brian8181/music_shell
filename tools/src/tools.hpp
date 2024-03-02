@@ -25,7 +25,6 @@
 using std::string;
 
 void print_help();
-void print_match_header(const string& pattern, const string& src, const bool single_flag, const bool pretty_flag);
 int parse_options(int argc, char* argv[]);
 
 #endif

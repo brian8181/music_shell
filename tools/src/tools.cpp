@@ -32,6 +32,9 @@ int parse_options(int argc, char* argv[])
     a.insert('G');
     a.insert('F');
     a.insert('G');
+    a.insert('G');
+    a.insert('G');
+    a.insert('A');
     for (auto& str : a)
 	{
         std::cout << str << ' ';

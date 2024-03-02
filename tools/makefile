@@ -12,7 +12,7 @@ SRC=src
 
 debug: all
 
-all: $(BLD)/tools
+all: $(BLD)/tools $(BLD)/intersect
 
 $(BLD)/tools: $(BLD)/tools.o $(BLD)/main.o #@@PREREQUISTE@@
 	 $(CXX) $(CXXFLAGS) $(BLD)/tools.o $(BLD)/main.o -o $(BLD)/tools #@@CLASS_NAME@@
