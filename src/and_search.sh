@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
+# param 1 & parm 2
 
-# TODO ONLY DO INTERSECT !
-./search.sh "$1" ./cache.txt | ./search.sh "$2" ./cache.txt
+cat ../cache.txt | egrep --color=always -i "$1" | egrep --color=always -i "$2"

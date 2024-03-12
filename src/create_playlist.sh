@@ -1,5 +1,8 @@
 #!/usr/bin/bash
-TEE_OPTION=$2
 
-# creates a playlist through --> search.sh
-./search.sh "$1" ../cache.txt "${TEE_OPTION}"
+SEARCH_TERM=$1
+PLAYLIST_NAME=$2
+TEE_OPTION=$3
+
+
+./search.sh "$SEARCH_TERM" | tee "$PLAYLIST_NAME" | ./pub_search.sh
