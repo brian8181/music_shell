@@ -19,7 +19,7 @@ $(BLD)\tag: $(BLD)\tag.o
 
 # compile only
 $(BLD)\tag.o: $(SRC)/tag.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $(SRC)/tag.cpp -o $(BLD)/tag.o
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $(SRC)/tag.cpp -o $(OBJ)/tag.o
 
 
 .PHONY: clean
