@@ -1,7 +1,9 @@
 #!/usr/bin/bash
 
-LIST=$1
-PLAYLIST_NAME=$2
-TEE_OPTION=$3
+SEARCH_TERM=$1
+CACHE_NAME=$2
+PLAYLIST_NAME=$3
+TEE_OPTION=$4
 
-echo LIST > "$PLAYLIST_NAME"
+cat "$CACHE_NAME" | egrep --color=always -i "$SEARCH_TERM" | tee $PLAYLIST_NAME
+echo -e "Match Count: \e[31m$(cat playing | wc -l) / $(cat "$CACHE_NAME" | wc -l)\e[0m ... searching for -> \e[31m\""$SEARCH_TERM"\"\e[0m"
