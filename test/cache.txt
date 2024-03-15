@@ -1,73 +1,893 @@
-/mnt/music/audio/transcode_tmp/Phone/2000s/[01;31m[KZola[m[K Jesus - 2011 - Lick the Palm of the Burning Handshake.mp3
-/mnt/music/audio/transcode_tmp/Phone/2000s/[01;31m[KZola[m[K Jesus - 2011 - Seekir.mp3
-/mnt/music/audio/transcode_tmp/Phone/2000s/[01;31m[KZola[m[K Jesus - 2011 - Swords.mp3
-/mnt/music/audio/transcode_tmp/Phone/2010s/[01;31m[KZola[m[K Jesus - 2011 - Lick the Palm of the Burning Handshake.mp3
-/mnt/music/audio/transcode_tmp/Phone/2010s/[01;31m[KZola[m[K Jesus - 2011 - Seekir.mp3
-/mnt/music/audio/transcode_tmp/Phone/2010s/[01;31m[KZola[m[K Jesus - 2011 - Swords.mp3
-/mnt/music/audio/transcode_tmp/Phone/Girly/[01;31m[KZola[m[K Jesus - Lick the Palm of the Burning Handshake.mp3
-/mnt/music/music-lib/albums/M83/2011 - Hurry Up, We're Dreaming/01. Intro (Ft [01;31m[KZola[m[K Jesus).mp3
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2013 - Versions/01. Avalanche (Slow).mp3
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2013 - Versions/02. Fall Back.mp3
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2013 - Versions/03. Hikikomori.mp3
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2013 - Versions/04. Run Me Out.mp3
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2013 - Versions/05. Seekir.mp3
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2013 - Versions/06. Sea Talk.mp3
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2013 - Versions/07. Night.mp3
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2013 - Versions/08. In Your Nature.mp3
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2013 - Versions/09. Collapse.mp3
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2013 - Versions/10. Vessel.mp3
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - New Amsterdam/01. Odessa (Recorded Live at WNYU).flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - New Amsterdam/02. Dog (Recorded Live at WNYU).flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - New Amsterdam/03. Orthodox (Recorded Live at WNYU).flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - New Amsterdam/04. Last Day (Recorded Live at WNYU).flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - New Amsterdam/05. New Amsterdam.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - New Amsterdam/06. Lady Maslenitsa.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - New Amsterdam/07. Nativity.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - New Amsterdam/08. Little Girl.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - New Amsterdam/09. Be Your Virgin.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - New Amsterdam/10. Lady in the Radiator.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/01. Six Feet (From My Baby).flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/02. Crowns.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/03. Sinfonia and the Shrew.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/04. Sink the Dynasty.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/05. Devil Take You.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/06. Lullaby in Tongues.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/07. Smirenye.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/08. Clay Bodies.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/09. In Hiding from the Crow.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/10. Tell It to the Willow.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/11. Soeur Sewer.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/12. Odessa.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/13. Poor Sons.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/14. The Way.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2009 - The Spoils/15. Dog.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum EP/01. Night.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum EP/02. Trust Me.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum EP/03. I Can't Stand.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum EP/04. Stridulum.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum EP/05. Run Me Out.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum EP/06. Manifest Destiny.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum II/01. Night.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum II/02. Trust Me.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum II/03. I Can't Stand.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum II/04. Stridulum.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum II/05. Run Me Out.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum II/06. Manifest Destiny.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum II/07. Tower.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum II/08. Sea Talk.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Stridulum II/09. Lightsick.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Valusia EP/01. Poor Animal.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Valusia EP/02. Tower.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Valusia EP/03. Sea Talk.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2010 - Valusia EP/04. Lightsick.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2011 - Conatus/01. Swords.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2011 - Conatus/02. Avalanche.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2011 - Conatus/03. Vessel.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2011 - Conatus/04. Hikikomori.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2011 - Conatus/05. Ixode.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2011 - Conatus/06. Seekir.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2011 - Conatus/07. In Your Nature.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2011 - Conatus/08. Lick the Palm of the Burning Handshake.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2011 - Conatus/09. Shivers.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2011 - Conatus/10. Skin.flac
-/mnt/music/music-lib/albums/[01;31m[KZola[m[K Jesus/2011 - Conatus/11. Collapse.flac
+/mnt/music/audio/Poetry Second Installment/Poetry of Ireland/mp3/Poetry of Ireland CD2-08 - Bagpipe Music - Louis MacNeice - [01;31m[KBob[m[K Geldof.mp3
+/mnt/music/audio/prune/disco/Disco Hits/153. DJ [01;31m[KBob[m[Ko - Celebration (remake).mp3
+/mnt/music/audio/transcode_tmp/Phone/50s/[01;31m[KBob[m[Kby Darin - 2004 - Dream Lover.mp3
+/mnt/music/audio/transcode_tmp/Phone/50s/[01;31m[KBob[m[Kby Darin - 2004 - Splish Splash.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/[01;31m[KBob[m[K Dylan - 1963 - Blowin' in the Wind.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/[01;31m[KBob[m[K Dylan - 1965 - Like a Rolling Stone.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/[01;31m[KBob[m[K Dylan - 1965 - Mr. Tambourine Man.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/[01;31m[KBob[m[K Dylan - 1965 - Subterranean Homesick Blues.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/[01;31m[KBob[m[K Dylan - 1967 - All Along The Watchtower.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/[01;31m[KBob[m[K Dylan - 1969 - Lay Lady Lay.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/[01;31m[KBob[m[K Dylan - 2000 - Forever Young.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/[01;31m[KBob[m[K Dylan - 2000 - Knockin' on Heaven's Door.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/[01;31m[KBob[m[K Dylan - 2000 - Rainy Day Women #12 & 35.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/Janis Joplin - 1995 - Me and [01;31m[KBob[m[Kby McGee.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/[01;31m[KBob[m[K Dylan - 1966 - Just Like a Woman.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/The [01;31m[KBob[m[Kby Fuller Four - 1965 - I Fought the Law.mp3
+/mnt/music/audio/transcode_tmp/Phone/60s/The [01;31m[KBob[m[Kby Fuller Four - 1965 - Let Her Dance.mp3
+/mnt/music/audio/transcode_tmp/Phone/70s/[01;31m[KBob[m[K Dylan - 1974 - Forever Young.mp3
+/mnt/music/audio/transcode_tmp/Phone/70s/[01;31m[KBob[m[K Dylan - 1975 - Shelter from the Storm.mp3
+/mnt/music/audio/transcode_tmp/Phone/70s/[01;31m[KBob[m[K Dylan - 1975 - Tangled up in Blue.mp3
+/mnt/music/audio/transcode_tmp/Phone/70s/[01;31m[KBob[m[K Dylan - 2000 - Forever Young.mp3
+/mnt/music/audio/transcode_tmp/Phone/70s/[01;31m[KBob[m[K Seger - 1994 - Turn the Page.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - All Along the Watchtower.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Blowin' in the Wind.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Buckets of Rain.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Forever Young.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Knockin' on Heaven's Door.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Lay Lady Lay.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Like a Rolling Stone.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Maggie's Farm.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Rainy Day Women #12 and 35.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Shelter from the Storm.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Subterranean Homesick Blues.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Tangled up in Blue.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - The Times They Are A-Changin'.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Seger - Turn the Page.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/Janis Joplin - Me and [01;31m[KBob[m[Kby McGee.mp3
+/mnt/music/audio/transcode_tmp/Phone/blues rock/[01;31m[KBob[m[K Dylan - Mr. Tambourine Man.mp3
+/mnt/music/audio/transcode_tmp/Phone/Folk/[01;31m[KBob[m[K Dylan - Boots Of Spanish Leather.mp3
+/mnt/music/audio/transcode_tmp/Phone/Folk/[01;31m[KBob[m[K Dylan - Highway 61 Revisited.mp3
+/mnt/music/audio/transcode_tmp/Phone/Folk/[01;31m[KBob[m[K Dylan - Tangled up in Blue.mp3
+/mnt/music/audio/transcode_tmp/Phone/Funny/[01;31m[KBob[m[K Rivers & Twisted Radio - What If God Smoked Cannabis.mp3
+/mnt/music/audio/transcode_tmp/Phone/hippy/[01;31m[KBob[m[K Dylan - All Along the Watchtower.mp3
+/mnt/music/audio/transcode_tmp/Phone/hippy/[01;31m[KBob[m[K Dylan - Blowin' in the Wind.mp3
+/mnt/music/audio/transcode_tmp/Phone/Love & War/[01;31m[KBob[m[K Marley & The Wailers - 1984 - No Woman, No Cry.mp3
+/mnt/music/audio/transcode_tmp/Phone/Punk/NOFX - 1992 - [01;31m[KBob[m[K.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/001 - [01;31m[KBob[m[K Dylan- (1965) Highway 61 Revisited - Like a Rolling Stone.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/037 - [01;31m[KBob[m[K Marley & The Wailers- (1974) Natty Dread - No Woman, No Cry.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/066 - [01;31m[KBob[m[K Marley & The Wailers- (1990) Uprising - Redemption Song.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/068 - [01;31m[KBob[m[K Dylan- (1975) Blood on the Tracks - Tangled up in Blue.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/148 - Janis Joplin- (1995) 18 Essential Songs - Me and [01;31m[KBob[m[Kby McGee.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/112 - [01;31m[KBob[m[K Dylan- (1965) Bringing It All Back Home - Mr. Tambourine Man.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/187 - [01;31m[KBob[m[K Dylan- (1965) Highway 61 Revisited - Desolation Row.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/192 - [01;31m[KBob[m[K Dylan- (2000) Essential [01;31m[KBob[m[K Dylan - Knockin' on Heaven's Door.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/206 - [01;31m[KBob[m[K Dylan- (2000) Essential [01;31m[KBob[m[K Dylan - Positively 4th Street.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/177 - The [01;31m[KBob[m[Kby Fuller Four- (1965) I Fought the Law & KRLA King of the Wheels - I Fought the Law.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/232 - [01;31m[KBob[m[K Dylan- (1966) Blonde on Blonde - Just Like a Woman.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/255 - [01;31m[KBob[m[Kby Darin- (2004) Ultimate [01;31m[KBob[m[Kby Darin - Mack the Knife.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/301 - [01;31m[KBob[m[K Marley & The Wailers- (1984) Legend - Get Up, Stand Up.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/260 - [01;31m[KBob[m[K Dylan- (2001) Love and Theft - Mississippi.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/339 - [01;31m[KBob[m[K Dylan- (1965) Bringing It All Back Home - Subterranean Homesick Blues.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/372 - [01;31m[KBob[m[K Dylan- (1965) Highway 61 Revisited - Highway 61 Revisited.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/412 - [01;31m[KBob[m[K Dylan- (1966) Blonde on Blonde - Visions of Johanna.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/418 - [01;31m[KBob[m[Kbie Gentry- (1967) Ode to Billy Joe - Ode to Billy Joe.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/449 - [01;31m[KBob[m[K Marley & The Wailers- (1984) Legend - I Shot the Sheriff.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/001 - [01;31m[KBob[m[K Dylan- (1965) Highway 61 Revisited - Like a Rolling Stone.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/014 - [01;31m[KBob[m[K Dylan- (1963) The Freewheelin' [01;31m[KBob[m[K Dylan - Blowin' in the Wind.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/037 - [01;31m[KBob[m[K Marley & The Wailers- (1974) Natty Dread - No Woman, No Cry.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/060 - [01;31m[KBob[m[K Dylan- (1964) The Times They Are A-Changin'  - The Times They Are A-Changin'.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/066 - [01;31m[KBob[m[K Marley & The Wailers- (1990) Uprising - Redemption Song.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/068 - [01;31m[KBob[m[K Dylan- (1975) Blood on the Tracks - Tangled up in Blue.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/112 - [01;31m[KBob[m[K Dylan- (1965) Bringing It All Back Home - Mr. Tambourine Man.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/148 - Janis Joplin- (1995) 18 Essential Songs - Me and [01;31m[KBob[m[Kby McGee.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/177 - The [01;31m[KBob[m[Kby Fuller Four- (1965) I Fought the Law & KRLA King of the Wheels - I Fought the Law.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/192 - [01;31m[KBob[m[K Dylan- (2000) Essential [01;31m[KBob[m[K Dylan - Knockin' on Heaven's Door.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/206 - [01;31m[KBob[m[K Dylan- (2000) Essential [01;31m[KBob[m[K Dylan - Positively 4th Street.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/187 - [01;31m[KBob[m[K Dylan- (1965) Highway 61 Revisited - Desolation Row.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/232 - [01;31m[KBob[m[K Dylan- (1966) Blonde on Blonde - Just Like a Woman.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/255 - [01;31m[KBob[m[Kby Darin- (2004) Ultimate [01;31m[KBob[m[Kby Darin - Mack the Knife.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/301 - [01;31m[KBob[m[K Marley & The Wailers- (1984) Legend - Get Up, Stand Up.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/260 - [01;31m[KBob[m[K Dylan- (2001) Love and Theft - Mississippi.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/339 - [01;31m[KBob[m[K Dylan- (1965) Bringing It All Back Home - Subterranean Homesick Blues.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/372 - [01;31m[KBob[m[K Dylan- (1965) Highway 61 Revisited - Highway 61 Revisited.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/412 - [01;31m[KBob[m[K Dylan- (1966) Blonde on Blonde - Visions of Johanna.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/418 - [01;31m[KBob[m[Kbie Gentry- (1967) Ode to Billy Joe - Ode to Billy Joe.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/V4/449 - [01;31m[KBob[m[K Marley & The Wailers- (1984) Legend - I Shot the Sheriff.mp3
+/mnt/music/music-lib/misc/1952 - Anthology of American Folk Music/5.10. Memphis Jug Band - [01;31m[KBob[m[K Lee Junior Blues.mp3
+/mnt/music/music-lib/misc/1993 - No Alternative/09. [01;31m[KBob[m[K Mould - Can't Fight It.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.13. Baby Madonna.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.01. You Don't Smell Like Flowers.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.02. Take A Whack On The U.S. Side.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.03. Three Inch Tool.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.04. Downtown In The 90's.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.05. What An Ugly Man He Was.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.06. Minimum Wage.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.07. Free As A Turd.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.08. The Old Man.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.09. Spinning Reel.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.10. PLO's & Israeli's.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.11. Middle Age Waistline.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.12. Strawberry Rehabs Forever.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.14. Ass Hole Son.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/1.15. Magic Comet Ride.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.01. Hello, I Love You.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.02. I'm Just A Singer In A Holiday Inn.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.03. What If God Smoked Cannibis.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.04. Beat Up Old Jetliner.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.05. Read It In The Tabloids.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.06. Mr. Magoo.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.07. When A Man Loves A Chicken.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.08. I Used To Rock And Roll All Night.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.09. Getting Fatter All The Time.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.10. I'm A Weight Watcher.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.11. Officer Fuhrman.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.12. OJ's Trial Thing.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.13. How It Feels.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.14. Bowel Moves.mp3
+/mnt/music/music-lib/misc/1997 - [01;31m[KBob[m[K Rivers - Best Of Twisted Tunes Vol.1 & 2/2.15. Wrong Foot Amputated.mp3
+/mnt/music/music-lib/misc/1997 - Paint It, Blue - Songs of the Rolling Stones/10. [01;31m[KBob[m[Kby Womack - It's All Over Now.mp3
+/mnt/music/music-lib/misc/2002 - Like, Omigod! The 80s Pop Culture Box (Totally)/2.10. [01;31m[KBob[m[K & Doug McKenzie - Take Off.mp3
+/mnt/music/music-lib/misc/2002 - Like, Omigod! The 80s Pop Culture Box (Totally)/7.18. [01;31m[KBob[m[Kby McFerrin - Don't Worry Be Happy.mp3
+/mnt/music/music-lib/misc/2003 - Martin Scorsese Presents The Blues - A Musical Journey/3.22. [01;31m[KBob[m[Kby 'Blue' Bland - Farther Up The Road.mp3
+/mnt/music/music-lib/misc/2003 - Martin Scorsese Presents The Blues - A Musical Journey/4.09. [01;31m[KBob[m[K Dylan - Highway 61 Revisited.mp3
+/mnt/music/music-lib/misc/2005 - Nasty Rockabilly Vol.1/12. [01;31m[KBob[m[Kby Dewitt - Annie Mae.mp3
+/mnt/music/music-lib/misc/1992 - Reggae Classics/1.16. [01;31m[KBob[m[K Marley & The Wailers - Soul Rebel.mp3
+/mnt/music/music-lib/misc/2002 - NOFX & Rancid - BYO Split Series (Vol. III)/03. Rancid - [01;31m[KBob[m[K.mp3
+/mnt/music/music-lib/misc/2007 - 100 Huge Hits Of Reggae/1.08. [01;31m[KBob[m[K Marley & The Wailers - Lively Up Yourself.mp3
+/mnt/music/music-lib/misc/2007 - 100 Huge Hits Of Reggae/2.06. [01;31m[KBob[m[K Marley & Funkstar Deluxe - Sun Is Shining.mp3
+/mnt/music/music-lib/misc/2007 - 100 Huge Hits Of Reggae/2.08. [01;31m[KBob[m[K & Marcia - Pied Piper.mp3
+/mnt/music/music-lib/misc/2007 - 100 Huge Hits Of Reggae/3.09. [01;31m[KBob[m[K Marley & The Wailers - Trenchtown Rock.mp3
+/mnt/music/music-lib/misc/2007 - 100 Huge Hits Of Reggae/4.08. [01;31m[KBob[m[K Marley & The Wailers - Small Axe.mp3
+/mnt/music/music-lib/misc/2007 - 100 Huge Hits Of Reggae/3.24. [01;31m[KBob[m[K Marley & The Wailers - Sun Is Shining.mp3
+/mnt/music/music-lib/misc/2007 - 100 Huge Hits Of Reggae/4.01. [01;31m[KBob[m[K & Marcia - Young Gifted And Black.mp3
+/mnt/music/music-lib/misc/2007 - 100 Huge Hits Of Reggae/4.19. [01;31m[KBob[m[K Marley & Funkstar Deluxe - Rainbow Country.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.01. Johnny Cash - One Too Many Mornings.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.02. Raphael Saadiq - Leopard Skin Pill Box Hat.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.03. Patti Smith - Drifters Escape.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.04. Rise Against - Ballad Of Hollis Brown.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.05. Tom Morello - The Night Watchman.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.06. Pete Townshend - Corrina Corrina.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.07. Bettye LaVette - Most Of The Time.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.08. Charlie Winston - This Wheels On Fire.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.09. Diana Krall - Simple Twist Of Fate.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.10. Brett Dennen - You Aint Goin Nowhere.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.12. Ziggy Marley - Blowin In The Wind.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.13. The Gaslight Anthem - Changing Of The Gaurds.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.14. Silversun Pickups - Not Dark Yet.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.15. My Morning Jacket - Youre A Big Girl Now.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.16. The Airborne Toxic Event - Boots Of Spanish Leather.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.17. Sting - Girl From The North Country.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.18. Mark Knopfler - Restless Farewell.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.19. Queens Of The Stone Age - Outlaw Blues.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.20. Lenny Kravitz - Rainy Day Woman.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.21. Steve Earle - One More Cup Of Coffee.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.22. Blake Mills - Heart Of Mine.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.24. Billy Bragg - Lay Down Your Weary Tune.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.25. Elvis Costello - License To Kill.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.26. Angelique Kidjo - Lady Lady Lady.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.27. Natasha Bedingfield - Ring Them Bells.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.28. Jackson Browne - Love Minus Zero.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.29. Joan Baez - Seven Curses.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.30. The Belle Brigade - Time To Think.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.31. Sugarland - Tonight Ill Be Staying Here With You.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.32. Jacks Mannequin - Mr Tambourine Man.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.33. Oren Lavie - 4th Time Around.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.34. Sussan Deyhim - All I Really Want To Do.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.36. Knaan - With God On Our Side.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.37. Ximena Sarinana - I Want You.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.38. Neil Finn - She Belongs To Me.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.39. Bryan Ferry - [01;31m[KBob[m[K Dylans Dream.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.40. Zee Avi - Tomorrow Is A Long Time.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.41. Carly Simon - Just Like A Woman.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.42. Flogging Molly - The Times They Are A Changin.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.43. Fistful Of Mercy - Buckets Of Rain.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.44. Joe Perry - Man Of Peace.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.45. Bad Religion - Its All Over Now Baby Blue.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.46. My Chemical Romance - Desolation Row.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.48. Rodgers and Lofgren - Abandoned Love.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.49. Darren Criss - New Morning.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.50. Cage The Elephant - The Lonesome Death.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.51. Band Of Skulls - It Aint Me Babe.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.52. Sinead OConnor - Property Of Jesus.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.53. Ed Roland Sweet Tea - Shelter From The Storm.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.54. Kesha - Dont Think Twice Its Alright.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.55. Kronos Quartet - Dont Think Twice Its Alright.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.56. Maroon 5 - I Shall Be Released.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.57. Seal Jeff Beck - Like A Rolling Stone.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.58. Caronlina Chocolate Drops - Political World.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.60. Dierks Bentley - Senor.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.61. Mick Hucknall - One Of Us Must Know.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.62. Thea Gilmore - Ill Remember You.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.63. State Radio - John Brown.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.64. Dave Matthews Band - All Along The Watchtower.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.65. Micheal Franti - Subterranean Homesick Blues.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.66. We Are Augustines - Mama You Been On My Mind.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.67. Lucinda Williams - Tryin To Get To Heaven.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.68. Kris Kirstofferson - Quinn The Eskimo.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.69. Eric Burdon - Gotta Serve Somebody.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.70. Evan Rachel Wood - Id Have You Anytime.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.71. Marianne Faithfull - Baby Let Me Follow You Down.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.72. Pete Seeger - Forever Young.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.73. Outernational - When The Ship Comes In.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.74. Silverstein - Song To Woody.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.75. Daniel Bedingfield - Man In The Long Black Coat.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/1.11. Mariachi El Bronx - Love Sick.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.23. Miley cyrus - Youre Gonna Make Me Lonesome.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/2.35. Adele - Make You Feel My Love.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/3.47. RedOne - Knockin On Heavens Door.mp3
+/mnt/music/music-lib/misc/2012 - Chimes of Freedom- The Songs of [01;31m[KBob[m[K Dylan/4.59. Taj Mahal - [01;31m[KBob[m[K Dylans 115th Dream.mp3
+/mnt/music/music-lib/misc/2013 - The Rise & Fall of Paramount Records, Volume 1 (1917-1927)/1.227. Ukulele ''[01;31m[KBob[m[K'' Williams - Go Long Mule (Pm 12247, 9082-2).mp3
+/mnt/music/music-lib/misc/2013 - The Rise & Fall of Paramount Records, Volume 1 (1917-1927)/2.199. [01;31m[KBob[m[Kby Grant - Nappy Head Blues (Pm 12595, 20204-3).mp3
+/mnt/music/music-lib/misc/2013 - The Rise & Fall of Paramount Records, Volume 1 (1917-1927)/3.198. Ukulele ''[01;31m[KBob[m[K'' Williams - West Indies Blues (Pm 12247, 9081-2).mp3
+/mnt/music/music-lib/misc/Pink-O-Rama/2002 - Punk-O-Rama 7/14. Rancid - [01;31m[KBob[m[K.mp3
+/mnt/music/music-lib/misc/Punk Covers/Butt First - No Woman No Cry ([01;31m[KBob[m[K Marley).mp3
+/mnt/music/music-lib/singles/[01;31m[KBob[m[K Rivers & Twisted Radio - Best Of Twisted Tunes, Vol. 2 (1997) - What If God Smoked Cannabis.mp3
+/mnt/music/music-lib/soundtrack/1973 - 41 Original Hits from the Soundtrack of American Graffiti/2.07. [01;31m[KBob[m[Kby Freeman - Do You Wanna Dance.mp3
+/mnt/music/music-lib/soundtrack/1978 - Animal House/04. [01;31m[KBob[m[Kby Lewis - Tossin' and Turnin'.mp3
+/mnt/music/music-lib/soundtrack/1980 - Urban Cowboy/04. [01;31m[KBob[m[K Seger & The Silver Bullet Band - Nine Tonight.mp3
+/mnt/music/music-lib/soundtrack/1986 - Stand by Me/09. The [01;31m[KBob[m[Kbettes - Mr. Lee.mp3
+/mnt/music/music-lib/soundtrack/1989 - Road House/02. [01;31m[KBob[m[K Seger - Blue Monday.mp3
+/mnt/music/music-lib/soundtrack/1994 - Forrest Gump/1.10. [01;31m[KBob[m[K Dylan - Rainy Day Women #12 & 35.mp3
+/mnt/music/music-lib/soundtrack/1994 - Forrest Gump/2.17. [01;31m[KBob[m[K Seger & The Silver Bullet Band - Against the Wind.mp3
+/mnt/music/music-lib/soundtrack/1998 - Fear & Loathing in Las Vegas Soundtrack/09. [01;31m[KBob[m[K Dylan - Stuck Inside of Mobile with the Memphis Blues Again.mp3
+/mnt/music/music-lib/soundtrack/2014 - Boyhood Soundtrack/10. [01;31m[KBob[m[K Dylan - Beyond The Horizon.mp3
+/mnt/music/music-lib/albums/Beastie Boys/1996 - The in Sound from Way Out!/08. [01;31m[KBob[m[Ko on the Corner.mp3
+/mnt/music/music-lib/albums/Black Grape/1995 - It's Great When You're Straight...Yeah/10. Little [01;31m[KBob[m[K.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Bringing It All Back Home/01. Subterranean Homesick Blues.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Bringing It All Back Home/02. She Belongs to Me.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Bringing It All Back Home/03. Maggie's Farm.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Bringing It All Back Home/04. Love Minus Zero-No Limit.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Bringing It All Back Home/05. Outlaw Blues.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Bringing It All Back Home/06. On the Road Again.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Bringing It All Back Home/07. [01;31m[KBob[m[K Dylan's 115th Dream.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Bringing It All Back Home/08. Mr. Tambourine Man.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Bringing It All Back Home/09. Gates of Eden.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Bringing It All Back Home/10. It's Alright, Ma (I'm Only Bleeding).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Bringing It All Back Home/11. It's All over Now, Baby Blue.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Highway 61 Revisited/01. Like a Rolling Stone.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Highway 61 Revisited/02. Tombstone Blues.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Highway 61 Revisited/03. It Takes a Lot to Laugh, It Takes a Train to Cry.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Highway 61 Revisited/04. From a Buick 6.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Highway 61 Revisited/05. Ballad of a Thin Man.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Highway 61 Revisited/06. Queen Jane Approximately.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Highway 61 Revisited/07. Highway 61 Revisited.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Highway 61 Revisited/08. Just Like Tom Thumb's Blues.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1965 - Highway 61 Revisited/09. Desolation Row.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/01. Rainy Day Women #12 and 35.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/02. Pledging My Time.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/03. Visions of Johanna.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/04. One of Us Must Know (Sooner or Later).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/05. I Want You.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/06. Stuck Inside of Mobile with the Memphis Blues Ag...mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/07. Leopard-Skin Pill-Box Hat.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/08. Just Like a Woman.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/09. Most Likely You Go Your Way and I'll Go Mine.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/10. Temporary Like Achilles.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/11. Absolutely Sweet Marie.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/12. 4th Time Around.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/13. Obviously 5 Believers.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1966 - Blonde on Blonde/14. Sad Eyed Lady of the Lowlands.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/01. John Wesley Harding.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/02. As I Went out One Morning.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/03. I Dreamed I Saw St. Augustine.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/04. All Along the Watchtower.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/05. The Ballad of Frankie Lee and Judas Priest.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/06. Drifter's Escape.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/07. Dear Landlord.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/08. I Am a Lonesome Hobo.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/09. I Pity the Poor Immigrant.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/10. The Wicked Messenger.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/11. Down Along the Cove.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1967 - John Wesley Harding/12. I'll Be Your Baby Tonight.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1969 - Nashville Skyline/01. Girl from the North Country.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1969 - Nashville Skyline/02. Nashville Skyline Rag.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1969 - Nashville Skyline/03. To Be Alone with You.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1969 - Nashville Skyline/04. I Threw It All Away.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1969 - Nashville Skyline/05. Peggy Day.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1969 - Nashville Skyline/06. Lay Lady Lay.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1969 - Nashville Skyline/07. One More Night.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1969 - Nashville Skyline/08. Tell Me That It Isn't True.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1969 - Nashville Skyline/09. Country Pie.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1969 - Nashville Skyline/10. Tonight I'll Be Staying Here with You.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1974 - Planet Waves/01. On a Night Like This.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1974 - Planet Waves/02. Going, Going, Gone.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1974 - Planet Waves/03. Tough Mama.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1974 - Planet Waves/04. Hazel.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1974 - Planet Waves/05. Something There Is About You.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1974 - Planet Waves/06. Forever Young.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1974 - Planet Waves/07. Forever Young.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1974 - Planet Waves/08. Dirge.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1974 - Planet Waves/09. You Angel You.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1974 - Planet Waves/10. Never Say Goodbye.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1974 - Planet Waves/11. Wedding Song.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Blood on the Tracks/01. Tangled up in Blue.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Blood on the Tracks/02. Simple Twist of Fate.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Blood on the Tracks/03. You're a Big Girl Now.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Blood on the Tracks/04. Idiot Wind.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Blood on the Tracks/05. You're Gonna Make Me Lonesome When You Go.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Blood on the Tracks/06. Meet Me in the Morning.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Blood on the Tracks/07. Lily, Rosemary and the Jack of Hearts.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Blood on the Tracks/08. If You See Her, Say Hello.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Blood on the Tracks/09. Shelter from the Storm.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Blood on the Tracks/10. Buckets of Rain.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1979 - Slow Train Coming/01. Gotta Serve Somebody.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1979 - Slow Train Coming/02. Precious Angel.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1979 - Slow Train Coming/03. I Believe in You.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1979 - Slow Train Coming/04. Slow Train.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1979 - Slow Train Coming/05. Gonna Change My Way of Thinking.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1979 - Slow Train Coming/06. Do Right to Me Baby (Do Unto Others).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1979 - Slow Train Coming/07. When You Gonna Wake Up.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1979 - Slow Train Coming/08. Man Gave Names to All the Animals.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1979 - Slow Train Coming/09. When He Returns.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1983 - Infidels/01. Jokerman.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1983 - Infidels/02. Sweetheart Like You.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1983 - Infidels/03. Neighborhood Bully.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1983 - Infidels/04. License to Kill.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1983 - Infidels/05. Man of Peace.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1983 - Infidels/06. Union Sundown.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1983 - Infidels/07. I and I.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1983 - Infidels/08. Don't Fall Apart on Me Tonight.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1989 - Oh Mercy/01. Political World.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1989 - Oh Mercy/02. Where Teardrops Fall.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1989 - Oh Mercy/03. Everything Is Broken.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1989 - Oh Mercy/04. Ring Them Bells.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1989 - Oh Mercy/05. Man in the Long Black Coat.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1989 - Oh Mercy/06. Most of the Time.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1989 - Oh Mercy/07. What Good Am I.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1989 - Oh Mercy/08. Disease of Conceit.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1989 - Oh Mercy/09. What Was It You Wanted.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1989 - Oh Mercy/10. Shooting Star.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.13. All Along the Watchtower.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.01. Blowin' in the Wind.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.02. Don't Think Twice, It's All Right.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.03. The Times They Are A-Changin'.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.04. It Ain't Me, Babe.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.05. Maggie's Farm.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.06. It's All over Now, Baby Blue.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.07. Mr. Tambourine Man.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.08. Subterranean Homesick Blues.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.09. Like a Rolling Stone.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.10. Positively 4th Street.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.11. Just Like a Woman.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.12. Rainy Day Women #12 & 35.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.14. Quinn the Eskimo (The Mighty Quinn).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/1.15. I'll Be Your Baby Tonight.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.01. Lay, Lady, Lay.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.02. If Not for You.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.03. I Shall Be Released.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.04. You Ain't Goin' Nowhere.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.05. Knockin' on Heaven's Door.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.06. Forever Young.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.07. Tangled up in Blue.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.08. Shelter from the Storm.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.09. Hurricane.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.10. Gotta Serve Somebody.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.11. Jokerman.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.12. Silvio.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.13. Everything Is Broken.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.14. Not Dark Yet.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2000 - Essential [01;31m[KBob[m[K Dylan/2.15. Things Have Changed.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/01. I Was Young When I Left Home.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/01. Tweedle Dee & Tweedle Dum.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/02. Mississippi.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/02. The Times They Are A-Changin' (Alternate Version).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/03. Summer Days.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/04. Bye and Bye.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/05. Lonesome Day Blues.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/06. Floater (Too Much to Ask).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/07. High Water (For Charley Patton).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/08. Moonlight.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/09. Honest with Me.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/10. Po' Boy.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/11. Cry a While.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2001 - Love and Theft/12. Sugar Baby.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2012 - Tempest/01. Duquesne Whistle.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2012 - Tempest/02. Soon After Midnight.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2012 - Tempest/03. Narrow Way.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2012 - Tempest/04. Long and Wasted Years.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2012 - Tempest/05. Pay in Blood.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2012 - Tempest/06. Scarlet Town.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2012 - Tempest/07. Early Roman Kings.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2012 - Tempest/08. Tin Angel.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2012 - Tempest/09. Tempest.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/2012 - Tempest/10. Roll on John.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/01. Concrete Jungle.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/02. Stir It Up.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/03. High Tide or Low Tide.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/04. Stop the Train.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/05. 400 Years.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/06. Baby We've Got a Date.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/07. Midnight Ravers.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/08. All Day All Night.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/09. Slave Driver.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/10. Kinky Reggae.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/11. No More Trouble.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/12. Concrete Jungle.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/13. Slave Driver.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/14. 400 Years.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/15. Stop the Train.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/16. Baby We've Got a Date.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/17. Stir It Up.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/18. Kinky Reggae.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/19. No More Trouble.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1973 - Catch a Fire/20. Midnight Ravers.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1974 - Natty Dread/01. Lively up Yourself.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1974 - Natty Dread/02. No Woman, No Cry.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1974 - Natty Dread/03. Them Belly Full (But We Hungry).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1974 - Natty Dread/04. Rebel Music (3 O'Clock Roadblock).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1974 - Natty Dread/05. So Jah Seh.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1974 - Natty Dread/06. Natty Dread.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1974 - Natty Dread/07. Bend Down Low.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1974 - Natty Dread/08. Talkin' Blues.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1974 - Natty Dread/09. Revolution.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1977 - Exodus/01. Natural Mystic.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1977 - Exodus/02. So Much Things to Say.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1977 - Exodus/03. Guiltiness.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1977 - Exodus/04. Heathen.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1977 - Exodus/05. Exodus.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1977 - Exodus/06. Jamming.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1977 - Exodus/07. Waiting in Vain.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1977 - Exodus/08. Turn Your Lights Down Low.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1977 - Exodus/09. Three Little Birds.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1977 - Exodus/10. One Love-People Get Ready.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1979 - Survival/01. So Much Trouble in the World.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1979 - Survival/02. Zimbabwe.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1979 - Survival/03. Top Rankin.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1979 - Survival/04. Babylon System.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1979 - Survival/05. Survival.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1979 - Survival/06. Africa Unite.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1979 - Survival/07. One Drop.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1979 - Survival/08. Ride Natty Ride.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1979 - Survival/09. Ambush in the Night.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1979 - Survival/10. Wake up and Live.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/01. Is This Love.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/02. No Woman, No Cry.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/03. Could You Be Loved.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/04. Three Little Birds.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/05. Buffalo Soldier.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/06. Get Up, Stand Up.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/07. Stir It Up.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/08. One Love-People Get Ready.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/09. I Shot the Sheriff.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/10. Waiting in Vain.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/11. Redemption Song.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/12. Satisfy My Soul.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/13. Exodus.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1984 - Legend/14. Jamming.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1990 - Uprising/01. Coming in from the Cold.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1990 - Uprising/02. Real Situation.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1990 - Uprising/03. Bad Card.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1990 - Uprising/04. We and Dem.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1990 - Uprising/05. Work.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1990 - Uprising/06. Zion Train.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1990 - Uprising/07. Pimper's Paradise.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1990 - Uprising/08. Could You Be Loved.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1990 - Uprising/09. Forever Loving Jah.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1990 - Uprising/10. Redemption Song.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/01. Natural Mystic.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/02. Easy Skanking.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/03. Iron Lion Zion.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/04. Crazy Baldheads.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/05. So Much Trouble in the World.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/06. War.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/07. Africa Unite.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/08. Trenchtown Rock (Live).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/09. Keep on Moving.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/10. Sun Is Shining.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/11. Who the Cap Fit.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/12. One Drop.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/13. Roots, Rock, Reggae.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/14. Pimpers Paradise.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/1995 - Natural Mystic- the Legend Lives On/15. Time Will Tell.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/01. Positive Vibration.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/02. Punky Reggae Party.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/03. Exodus.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/04. Stir It Up.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/05. Rat Race.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/06. Concrete Jungle.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/07. Kinky Reggae.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/08. Lively up Yourself.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/09. Rebel Music (3 O'Clock Road Block).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/10. War-No More Trouble.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/11. Is This Love.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/12. Heathen.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2000 - Babylon by Bus/13. Jamming.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2002 - Rebel Music/01. Rebel Music (3 O'Clock Roadblock).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2002 - Rebel Music/02. So Much Trouble in the World.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2002 - Rebel Music/03. Them Belly Full (But We Hungry).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2002 - Rebel Music/04. Rat Race.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2002 - Rebel Music/05. War-No More Trouble [Live].mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2002 - Rebel Music/06. Roots.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2002 - Rebel Music/07. Slave Driver.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2002 - Rebel Music/08. Ride Natty Ride.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2002 - Rebel Music/09. Crazy Baldhead.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2002 - Rebel Music/10. Get up Stand up [Live].mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2002 - Rebel Music/11. Wake up and Live (Parts 1 & 2).mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.14. Crazy Bladhead.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.01. Stir It Up.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.02. Slave Dancer.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.03. Concrete Jungle.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.04. Get Up, Stand Up.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.05. I Shot the Sheriff.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.06. Burnin' and Lootin'.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.07. Lively up Yourself.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.08. Rebel Music (3 O'clock Roadblo.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.09. Trenchtown Rock.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.10. No Woman No Cry.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.11. Jah Live.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.12. Positive Vibration.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.13. Roots, Rock, Reggae.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.15. Natural Mystic.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.16. Exodus.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/1.17. Jamming.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.01. One Love-People Get Ready.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.02. Waiting in Vain.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.03. Punky Reggae Party.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.04. Is This Love.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.05. Sun Is Shining.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.06. Satisfy My Soul.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.07. Kinky Reggae.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.08. War-No More Trouble.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.09. So Much Trouble in the World.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.10. Africa Unite.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.11. One Drop.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.12. Could You Be Loved.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.13. Coming in from the Cold.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.14. Redemption Song.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.15. Buffalo Soldier.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.16. Rastaman Live Up!.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Marley & The Wailers/2005 - Gold/2.17. Iron Lion Zion.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1989 - Workbook/01. Sunspots.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1989 - Workbook/02. Wishing Well.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1989 - Workbook/03. Heartbreak a Stranger.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1989 - Workbook/04. See a Little Light.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1989 - Workbook/05. Poison Years.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1989 - Workbook/06. Sinners and Their Repentances.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1989 - Workbook/07. Brasilia Crossed with Trenton.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1989 - Workbook/08. Compositions for the Young and Old.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1989 - Workbook/09. Lonely Afternoon.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1989 - Workbook/10. Dreaming, I Am.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1989 - Workbook/11. Whichever Way the Wind Blows.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1990 - Black Sheets of Rain/01. Black Sheets of Rain.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1990 - Black Sheets of Rain/02. Stand Guard.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1990 - Black Sheets of Rain/03. It's Too Late.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1990 - Black Sheets of Rain/04. One Good Reason.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1990 - Black Sheets of Rain/05. Stop Your Crying.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1990 - Black Sheets of Rain/06. Hanging Tree.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1990 - Black Sheets of Rain/07. The Last Night.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1990 - Black Sheets of Rain/08. Hear Me Calling.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1990 - Black Sheets of Rain/09. Out of Your Life.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1990 - Black Sheets of Rain/10. Disappointed.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1990 - Black Sheets of Rain/11. Sacrifice - Let There Be Peace.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/01. New #1.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/02. Moving Trucks.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/03. Taking Everything.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/04. First Drag of the Day.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/05. Classifieds.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/06. Who Was Around.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/07. Skintrade.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/08. Vaporub.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/09. Sweet Serene.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/10. Megamanic.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/11. Reflecting Pool.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1998 - The Last Dog and Pony Show/12. Along the Way.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/01. 180 Rain.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/02. Sunset Safety Glass.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/03. Semper Fi.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/04. Homecoming Parade.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/05. Lost Zoloft.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/06. Without.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/07. Slay-Sway.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/08. The Receipt.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/09. Quasar.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/10. Soundonsound.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/11. Hornery.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/12. Comeonstrong.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/13. Trade.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2002 - Modulate/14. Author's Lament.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/01. Circles.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/02. (Shine Your) Light Love Hope.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/03. Paralyzed.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/04. I Am Vision, I Am Sound.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/05. Underneath Days.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/06. Always Tomorrow.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/07. Days of Rain.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/08. Best Thing.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/09. High Fidelity.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/10. Missing You.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/11. Gauze of Friendship.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2005 - Body of Song/12. Beating Heart the Prize.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2008 - District Line/01. Stupid Now.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2008 - District Line/02. Who Needs to Dream.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2008 - District Line/03. Again and Again.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2008 - District Line/04. Old Highs New Lows.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2008 - District Line/05. Return to Dust.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2008 - District Line/06. The Silence Between Us.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2008 - District Line/07. Shelter Me.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2008 - District Line/08. Very Temporary.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2008 - District Line/09. Miniature Parade.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/2008 - District Line/10. Walls in Time.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/13. C'est La Vie.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/01. Roll Me Away.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/02. Night Moves.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/03. Turn the Page.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/04. You'll Accomp'ny Me.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/05. Hollywood Nights.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/06. Still the Same.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/07. Old Time Rock & Roll.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/08. We've Got Tonight.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/09. Against the Wind.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/10. Mainstreet.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/11. The Fire Inside.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/12. Like a Rock.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Seger/1994 - Greatest Hits/14. In Your Time.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kbie Gentry/1967 - Ode to Billy Joe/01. Mississippi Delta.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kbie Gentry/1967 - Ode to Billy Joe/02. I Saw an Angel Die.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kbie Gentry/1967 - Ode to Billy Joe/03. Chickasaw County Child.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kbie Gentry/1967 - Ode to Billy Joe/04. Sunday Best.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kbie Gentry/1967 - Ode to Billy Joe/05. Niki Hoeky.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kbie Gentry/1967 - Ode to Billy Joe/06. Papa, Won't You Take Me to Town with You.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kbie Gentry/1967 - Ode to Billy Joe/07. Bugs.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kbie Gentry/1967 - Ode to Billy Joe/08. Hurry, Tuesday Child.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kbie Gentry/1967 - Ode to Billy Joe/09. Lazy Willie.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kbie Gentry/1967 - Ode to Billy Joe/10. Ode to Billy Joe.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/01. Splish Splash.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/02. Queen of the Hop.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/03. Plain Jane.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/04. Dream Lover.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/05. Mack the Knife.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/06. Clementine.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/07. Bill Bailey Won't You Come Home.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/08. Lazy River.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/09. You Must Have Been a Beautiful Baby.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/10. Irresistible You.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/11. Multiplication.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/12. Things.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/13. I'll Be There.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/14. Early in the Morning.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/15. Artificial Flowers.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/16. Somebody to Love.mp3
+/mnt/music/music-lib/albums/[01;31m[KBob[m[Kby Darin/2004 - Ultimate [01;31m[KBob[m[Kby Darin/17. Beyond the Sea.mp3
+/mnt/music/music-lib/albums/Bruce Springsteen/1984 - Born in the U.S.A/08. [01;31m[KBob[m[Kby Jean.mp3
+/mnt/music/music-lib/albums/Butthole Surfers/1983 - Butthole Surfers - Live Pcppep/08. Cowboy [01;31m[KBob[m[K (Live).mp3
+/mnt/music/music-lib/albums/Butthole Surfers/1984 - Psychic ... Powerless ... Another Mans Sac/10. Cowboy [01;31m[KBob[m[K.mp3
+/mnt/music/music-lib/albums/Casiotone For The Painfully Alone/2006 - Etiquette/10. [01;31m[KBob[m[Kby Malone Moves Home.mp3
+/mnt/music/music-lib/albums/Chaotic Dischord/1988 - Very Fucking Bad + Goat Fucking Virgin Killerz from Hell/19. [01;31m[KBob[m[K & the Boys.Mp3
+/mnt/music/music-lib/albums/Chubby Checker/1993 - Greatest Hits/04. Hey [01;31m[KBob[m[Kba Needle.mp3
+/mnt/music/music-lib/albums/Dada/1996 - El Subliminoso/03. [01;31m[KBob[m[K the Drummer.mp3
+/mnt/music/music-lib/albums/Das Racist/2010 - Sit Down, Man/01. Wkcr Stretch and [01;31m[KBob[m[Kbito Show W. Quincy Jones (Intro).mp3
+/mnt/music/music-lib/albums/David Bowie/1971 - Hunky Dory/09. Song for [01;31m[KBob[m[K Dylan.mp3
+/mnt/music/music-lib/albums/David Bowie/2009 - Ziggy Stardust Remixed/08. Easy Hypocrites (David Bowie Vs [01;31m[KBob[m[K Marley).mp3
+/mnt/music/music-lib/albums/Fleetwood Mac/1999 - The Complete Blue Horizon Sessions 1967–1969/4.12. [01;31m[KBob[m[Kby's Rock.mp3
+/mnt/music/music-lib/albums/Frank Zappa/1979 - Sheik Yerbouti/09. [01;31m[KBob[m[Kby Brown Goes Down.mp3
+/mnt/music/music-lib/albums/Gorillaz/2010 - The Fall/13. [01;31m[KBob[m[Kby in Phoenix.mp3
+/mnt/music/music-lib/albums/Happy Mondays/1990 - Pills 'N' Thrills and Bellyaches/07. [01;31m[KBob[m[K's Yer Uncle.mp3
+/mnt/music/music-lib/albums/Happy Mondays/1994 - Loads/09. [01;31m[KBob[m[K's Yer Uncle.mp3
+/mnt/music/music-lib/albums/Happy Mondays/1994 - Loads More/03. [01;31m[KBob[m[K's Yer Uncle (Perfecto 12 Mix).mp3
+/mnt/music/music-lib/albums/Jane's Addiction/2009 - A Cabinet of Curiosities/29. [01;31m[KBob[m[Khaus (Live 1989).mp3
+/mnt/music/music-lib/albums/Janis Joplin/1995 - 18 Essential Songs/18. Me and [01;31m[KBob[m[Kby McGee.mp3
+/mnt/music/music-lib/albums/Joan Baez/2003 - The Complete A&M Recordings/1.07. To [01;31m[KBob[m[Kby.mp3
+/mnt/music/music-lib/albums/Julianna Barwick/2011 - The Magic Place/07. [01;31m[KBob[m[K in Your Gait.mp3
+/mnt/music/music-lib/albums/Kid Rock/2003 - Kid Rock/04. Black [01;31m[KBob[m[K.mp3
+/mnt/music/music-lib/albums/L7/1988 - L7/05. Uncle [01;31m[KBob[m[K.mp3
+/mnt/music/music-lib/albums/Lil Wayne/2008 - Tha Carter III/09. Mrs. Officer (Featuring [01;31m[KBob[m[Kby Valentino).mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/01. One Too Many Morninigs #1.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/02. One Too Many Morninigs #2.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/03. Good Old Mountain Dew.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/04. I Still Miss Someone.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/05. Careless Love.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/06. Matchbox.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/07. That's Alright Mama.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/08. Big River.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/09. Girl of the North Country.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/10. I Walk the Line.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/11. You Are My Sunshine.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/12. Ring of Fire.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/13. Guess Things Happen That Way.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/14. Just a Closer Walk with Thee.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/15. Blues Yodel #1.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/16. Blues Yodel #5.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/17. I Therew All Away.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/18. Livin' the Blues.mp3
+/mnt/music/music-lib/albums/Johnny Cash/1969 - Nashville Sessions (Johnny Cash & [01;31m[KBob[m[K Dylan)/19. Girl of the North Country.mp3
+/mnt/music/music-lib/albums/Minutemen/1982 - What Makes a Man Start Fires/01. [01;31m[KBob[m[K Dylan Wrote Propaganda Songs.mp3
+/mnt/music/music-lib/albums/Minutemen/1986 - Ballot Result/23. [01;31m[KBob[m[K Dylan Wrote Propaganda Songs.mp3
+/mnt/music/music-lib/albums/Minutemen/1987 - Post-Mersh Vol. 1/19. [01;31m[KBob[m[K Dylan Wrote Propaganda Songs.mp3
+/mnt/music/music-lib/albums/NOFX/1992 - White Trash, Two Heebs and a Bean/03. [01;31m[KBob[m[K.mp3
+/mnt/music/music-lib/albums/NOFX/1995 - I Heard They Suck Live/06. [01;31m[KBob[m[K.mp3
+/mnt/music/music-lib/albums/NOFX/1995 - Maximum Rocknroll/16. [01;31m[KBob[m[K Turkee.mp3
+/mnt/music/music-lib/albums/NOFX/2004 - The Greatest Songs Ever Written (By Us)/03. [01;31m[KBob[m[K.mp3
+/mnt/music/music-lib/albums/Primus/1997 - Brown Album/09. [01;31m[KBob[m[K's Party Time Lounge.mp3
+/mnt/music/music-lib/albums/Public Image limited/1990 - The Greatest Hits, So Far/07. Rise ([01;31m[KBob[m[K Clearmountain Remix).mp3
+/mnt/music/music-lib/albums/Pulp/2001 - We Love Life/08. [01;31m[KBob[m[K Lind (The Only Way Is Down).mp3
+/mnt/music/music-lib/albums/Richard David James/1995 - APX - Hangable Auto Bulb EP/B.01. Laughable Butane [01;31m[KBob[m[K.mp3
+/mnt/music/music-lib/albums/Richard David James/2005 - AFX - Hangable Auto Bulb/03. Laughable Butane [01;31m[KBob[m[K.mp3
+/mnt/music/music-lib/albums/Rocket from the Crypt/1998 - All Systems Go 2/25. No[01;31m[Kbob[m[Kby.mp3
+/mnt/music/music-lib/albums/Scissor Sisters/2008 - Da-Tah/11. Might Tell You That's All Tonight (Feat. Genesis & [01;31m[KBob[m[Kby Martini).mp3
+/mnt/music/music-lib/albums/Soul Tornados/2005 - Complete Recordings/06. [01;31m[KBob[m[Kby's Mood.Mp3
+/mnt/music/music-lib/albums/T-Bone Walker/2004 - The Best of T-Bone Walker/16. [01;31m[KBob[m[Kby Sox Blues.mp3
+/mnt/music/music-lib/albums/The Adverts/1978 - Crossing the Red Sea with the Adverts/07. [01;31m[KBob[m[Kmbsite Boy.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/13. Little Annie Lou.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/01. Thunder Reef.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/02. Wolfman.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/03. She's My Girl.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/04. King of the Wheels.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/05. The Lonely Dragster.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/06. The Phantom Dragster.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/07. KRLA Top Eliminator.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/08. Let Her Dance.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/09. Julie.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/10. A New Shade of Blue.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/11. Only When I Dream.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/12. You Kiss Me.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/14. I Fought the Law.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/15. Another Sad and Lonely Night.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/16. Saturday Night.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/17. Take My Word.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/18. Fool of Love.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/19. Never to Be Forgotten.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/20. Love's Made a Fool of You.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/21. Don't Ever Let Me Know.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/22. My True Love.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/23. The Magic Touch.mp3
+/mnt/music/music-lib/albums/The [01;31m[KBob[m[Kby Fuller Four/1965 - I Fought the Law & KRLA King of the Wheels/24. I'm a Lucky Guy.mp3
+/mnt/music/music-lib/albums/The La's/1980 - The La's (Deluxe Edition)/2.18. Feelin' [[01;31m[KBob[m[K Andrew Mix].mp3
+/mnt/music/music-lib/albums/The La's/1980 - The La's (Deluxe Edition)/2.19. Clean Prophet [[01;31m[KBob[m[K Andrew Mix].mp3
+/mnt/music/music-lib/albums/Weird Al/2003 - Poodle Hat/10. [01;31m[KBob[m[K.mp3
+/mnt/music/audio/transcode_tmp/Phone/RS500/014 - [01;31m[KBob[m[K Dylan- (1963) The Freewheelin' [01;31m[KBob[m[K Dylan - Blowin' in the Wind.flac
+/mnt/music/audio/transcode_tmp/Phone/RS500/060 - [01;31m[KBob[m[K Dylan- (1964) The Times They Are A-Changin'  - The Times They Are A-Changin'.flac
+/mnt/music/music-lib/misc/2003 - Malt Shop Memories/4.11. [01;31m[KBob[m[Kby Rydell - Wild One.flac
+/mnt/music/music-lib/misc/2003 - Malt Shop Memories/10.08. Marcie Blane - [01;31m[KBob[m[Kby's Girl.flac
+/mnt/music/music-lib/misc/2003 - Malt Shop Memories/9.09. [01;31m[KBob[m[Kby Vee - Devil or Angel.flac
+/mnt/music/music-lib/misc/2003 - Malt Shop Memories/4.14. [01;31m[KBob[m[Kby Rydell - Volare.flac
+/mnt/music/music-lib/misc/2003 - Malt Shop Memories/5.03. [01;31m[KBob[m[Kby Darin - Dream Lover.flac
+/mnt/music/music-lib/misc/2003 - Malt Shop Memories/5.05. [01;31m[KBob[m[Kby Freeman - Do You Wanna Dance.flac
+/mnt/music/music-lib/misc/2003 - Malt Shop Memories/9.04. [01;31m[KBob[m[Kby Vee - Take Good Care of My Baby.flac
+/mnt/music/music-lib/misc/2007 - Flower Power/7.15. [01;31m[KBob[m[K Dylan - It's All Over Now, Baby Blue.flac
+/mnt/music/music-lib/misc/2007 - Flower Power/8.13. [01;31m[KBob[m[K Dylan - Subterranean Homesick Blues.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.11. The Weavers - Darling Corey.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.23. Phil Ochs - I Ain't Marching Anymore.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.10. John Jacob Niles - Go 'Way From My Window.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.01. Pete Seeger - New York City.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.02. Woody Guthrie - Pretty Boy Floyd.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.03. Cisco Houston - Ramblin', Gamblin' Man.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.04. New Lost City Ramblers - When First Unto This Country.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.05. Barbara Dane - Little Maggie.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.06. John Lee Hooker - Crawling King Snake.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.07. Allen Ginsberg - Howl.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.08. Sonny Terry & Brownie McGhee - Step It Up And Go.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.09. Brownie McGhee - Pallet On The Floor.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.10. Elizabeth Cotten - Oh Babe It Ain't No Lie.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.12. The Tarriers - The Banana Boat Song.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.13. Erik Darling - Pretty Polly.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.14. Odetta - No More Cane On The Brazos.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.15. Oscar Brand - Red Wing.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.16. Brother John Sellers - Jack Of Diamonds.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.17. Ed McCurdy - Barbara Allen.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.18. Dave Van Ronk - Duncan And Brady.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.19. The Foc'sle Singers - Rio Grande.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.20. Paul Clayton - Who's Gonna Buy You Ribbons (When I'm Gone).flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.21. Lenny Bruce - The Steve Allen Show.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.22. José Feliciano - The Flight Of The Bumble Bee.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.24. Judy Collins - Turn, Turn, Turn.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/1.25. Simon & Garfunkel - The Sound Of Silence.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.01. Lead Belly - New York City.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.02. Ramblin' Jack Elliott - Cocaine.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.03. Theodore Bikel - Buffalo Boy.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.04. Clancy Brothers - The Parting Glass.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.05. Kenneth Patchen - State Of The Nation.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.06. Bukka White - Fixin' To Die.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.07. Big Joe Williams - Baby Please Don't Go.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.08. Lonnie Johnson - You Will Need Me.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.09. Kossoy Sisters - The Wagoner's Lad.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.11. Roosevelt Skyes - Driving Wheel.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.12. Jack Kerouac - On The Road.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.13. Joan Baez - Silver Dagger.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.14. [01;31m[KBob[m[K Gibson - A Wayfaring Stranger.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.15. Jean Ritchie - Nottamun Town.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.16. Rev. Gary Davis - Death Don't Have No Mercy.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.17. Josh White - In My Time Of Dying.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.18. Staple Singers - Uncloudy Day.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.19. Harry Belafonte - Rocks And Gravel.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.20. Lightnin' Hopkins - Mojo Hand.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.21. Kingston Trio - New York Girls.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.22. Buffy Sainte-Marie - Little Wheel Spin And Spin.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.23. Tom Paxton - Ramblin' Boy.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.24. The Greenbriar Boys - Roll On Buddy.flac
+/mnt/music/music-lib/misc/2011 - [01;31m[KBob[m[K Dylan's Greenwich Village - Sounds From The Scene In 1961/2.25. Peter, Paul & Mary - If I Had A Hammer.flac
+/mnt/music/music-lib/misc/Phil Spector- Back to Mono (1958-1969)/1.12. [01;31m[KBob[m[K B. Soxx & The Blue Jeans - Zip-A-Dee-Doo-Dah.flac
+/mnt/music/music-lib/misc/Phil Spector- Back to Mono (1958-1969)/1.15. [01;31m[KBob[m[K B. Soxx & The Blue Jeans - Why Do Lovers Break Each Others Hearts.flac
+/mnt/music/music-lib/misc/Phil Spector- Back to Mono (1958-1969)/1.21. [01;31m[KBob[m[K B. Soxx & The Blue Jeans - Not Too Young to Get Married.flac
+/mnt/music/music-lib/misc/Phil Spector- Back to Mono (1958-1969)/1.22. Darlene Love - Wait Til My [01;31m[KBob[m[Kby Gets Home.flac
+/mnt/music/music-lib/misc/Phil Spector- Back to Mono (1958-1969) (A Christmas Gift For You)/4.03. [01;31m[KBob[m[K B. Soxx & The Blue Jeans - The Bells Of St. Mary.flac
+/mnt/music/music-lib/misc/Phil Spector- Back to Mono (1958-1969) (A Christmas Gift For You)/4.12. [01;31m[KBob[m[K B. Soxx & The Blue Jeans - Here Comes Santa Claus.flac
+/mnt/music/music-lib/soundtrack/1994 - Natural Born Killers/06. [01;31m[KBob[m[K Dylan - You Belong to Me.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/01. You're No Good.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/02. Talkin' New York.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/03. In My Time of Dyin'.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/04. Man of Constant Sorrow.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/05. Fixin' to Die.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/06. Pretty Peggy-O.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/07. Highway 51 Blues.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/08. Gospel Plow.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/09. Baby, Let Me Follow You Down.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/10. House of the Risin' Sun.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/11. Freight Train Blues.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/12. Song to Woody.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1961 - [01;31m[KBob[m[K Dylan/13. See That My Grave Is Kept Clean.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/01. Blowin' in the Wind.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/02. Girl from the North Country.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/03. Masters of War.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/04. Down the Highway.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/05. [01;31m[KBob[m[K Dylan's Blues.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/06. Hard Rain's A-Gonna Fall.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/07. Don't Think Twice, It's All Right.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/08. [01;31m[KBob[m[K Dylan's Dream.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/09. Oxford Town.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/10. Talkin' World War III Blues.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/11. Corrina, Corrina.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/12. Honey, Just Allow Me One More Chance.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1963 - The Freewheelin' [01;31m[KBob[m[K Dylan/13. I Shall Be Free.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - Another Side of [01;31m[KBob[m[K Dylan/01. All I Really Want to Do.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - Another Side of [01;31m[KBob[m[K Dylan/02. Black Crow Blues.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - Another Side of [01;31m[KBob[m[K Dylan/03. Spanish Harlem Incident.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - Another Side of [01;31m[KBob[m[K Dylan/04. Chimes of Freedom.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - Another Side of [01;31m[KBob[m[K Dylan/05. I Shall Be Free No 10.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - Another Side of [01;31m[KBob[m[K Dylan/06. To Ramona.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - Another Side of [01;31m[KBob[m[K Dylan/07. Motorpsycho Nightmare.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - Another Side of [01;31m[KBob[m[K Dylan/08. My Back Pages.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - Another Side of [01;31m[KBob[m[K Dylan/09. I Don't Believe You.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - Another Side of [01;31m[KBob[m[K Dylan/10. Ballad in Plain D.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - Another Side of [01;31m[KBob[m[K Dylan/11. It Ain't Me Babe.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - The Times They Are A-Changin'/01. The Times They Are A-Changin'.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - The Times They Are A-Changin'/02. Ballad of Hollis Brown.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - The Times They Are A-Changin'/03. With God on Our Side.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - The Times They Are A-Changin'/04. One Too Many Mornings.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - The Times They Are A-Changin'/05. North Country Blues.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - The Times They Are A-Changin'/06. Only a Pawn in Their Game.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - The Times They Are A-Changin'/07. Boots of Spanish Leather.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - The Times They Are A-Changin'/08. When the Ship Comes In.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - The Times They Are A-Changin'/09. The Lonesome Death of Hattie Carroll.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1964 - The Times They Are A-Changin'/10. Restless Farewell.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Dylan/01. Lily of the West.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Dylan/02. Can't Help Falling in Love.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Dylan/03. Sarah Jane.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Dylan/04. The Ballad of Ira Hayes.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Dylan/05. Mr.Bojangles.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Dylan/06. Mary Ann.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Dylan/07. Big Yellow Taxi.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Dylan/08. A Fool Such as I.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Dylan/09. Spanish Is the Loving Tongue.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Pat Garrett & Billy the Kid/01. Main Title Theme (Billy).flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Pat Garrett & Billy the Kid/02. Cantina Theme (Workin' for the Law).flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Pat Garrett & Billy the Kid/03. Billy 1.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Pat Garrett & Billy the Kid/04. Bunkhouse Theme.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Pat Garrett & Billy the Kid/05. River Theme.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Pat Garrett & Billy the Kid/06. Turkey Chase.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Pat Garrett & Billy the Kid/07. Knockin' on Heaven's Door.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Pat Garrett & Billy the Kid/08. Final Theme.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Pat Garrett & Billy the Kid/09. Billy 4.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1973 - Pat Garrett & Billy the Kid/10. Billy 7.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Desire/01. Hurricane.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Desire/02. Isis.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Desire/03. Mozambique.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Desire/04. One More Cup of Coffee.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Desire/05. Oh, Sister.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Desire/06. Joey.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Desire/07. Romance in Durango.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Desire/08. Black Diamond Bay.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1975 - Desire/09. Sara.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1978 - Street Legal/01. Changing of the Guards.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1978 - Street Legal/02. New Pony.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1978 - Street Legal/03. No Time to Think.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1978 - Street Legal/04. Baby, Stop Crying.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1978 - Street Legal/05. Is Your Love in Vain.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1978 - Street Legal/06. Señor (Tales of Yankee Power).flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1978 - Street Legal/07. True Love Tends to Forget.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1978 - Street Legal/08. We Better Talk This Over.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Dylan/1978 - Street Legal/09. Where Are You Tonight (Journey Through Dark Heat).flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1996 - [01;31m[KBob[m[K Mould/01. Anymore Time Between.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1996 - [01;31m[KBob[m[K Mould/02. I Hate Alternative Rock.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1996 - [01;31m[KBob[m[K Mould/03. Fort Knox, King Solomon.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1996 - [01;31m[KBob[m[K Mould/04. Next Time That You Leave.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1996 - [01;31m[KBob[m[K Mould/05. Egoverride.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1996 - [01;31m[KBob[m[K Mould/06. Thumbtack.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1996 - [01;31m[KBob[m[K Mould/07. Hair Stew.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1996 - [01;31m[KBob[m[K Mould/08. Deep Karma Canyon.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1996 - [01;31m[KBob[m[K Mould/09. Art Crisis.flac
+/mnt/music/music-lib/albums/[01;31m[KBob[m[K Mould/1996 - [01;31m[KBob[m[K Mould/10. Roll over and Die.flac
+/mnt/music/music-lib/albums/Everlast/1998 - Whitey Ford Sings the Blues/12. Today (Watch Me Shine) Feat. Bronx Style [01;31m[KBob[m[K.flac
+/mnt/music/music-lib/albums/Primus/1993 - Pork Soda/04. [01;31m[KBob[m[K.flac
+/mnt/music/music-lib/albums/Primus/1998 - Rhinoplasty/09. [01;31m[KBob[m[K's Party Time Lounge.flac
+/mnt/music/music-lib/albums/Roxy Music/1972 - Roxy Music/06. The [01;31m[KBob[m[K (Medley).flac
