@@ -9,6 +9,3 @@ echo $(date.sh)
 find "$MUSIC_PATH" -iname "*.mp3" > $PROJECT_PATH/$NAME
 find "$MUSIC_PATH" -iname "*.ogg" >> $PROJECT_PATH/$NAME
 find "$MUSIC_PATH" -iname "*.flac" >> $PROJECT_PATH/$NAME
-
-
-echo $(date.sh)
