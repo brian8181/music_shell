@@ -1,4 +1,5 @@
-#!/usr/bin/bash
+#!/bin/bash
+
 FIELD=$1
 
 ARTIST=2

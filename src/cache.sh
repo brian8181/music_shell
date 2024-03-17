@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 MUSIC_PATH=$1
 PROJECT_PATH=$2

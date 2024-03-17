@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 LINK=$(readlink -f sp)
 echo $LINK

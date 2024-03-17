@@ -1,3 +1,3 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 sort -u $1

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 SEARCH_TERM1=$1
 SEARCH_TERM2=$2

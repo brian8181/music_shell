@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 SEARCH_TERM=$1
 CACHE_NAME=$2

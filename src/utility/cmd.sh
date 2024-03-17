@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 # "Usage: ./select.sh [-d] [-f name.txt] [-s '$date $artist $album']"
 
@@ -32,4 +32,3 @@ if [ "${FIELDS}" =~ 0 ]; then
 fi
 
 cut -d"$DELIMITER" -f "$FIELDS" $FILE
-

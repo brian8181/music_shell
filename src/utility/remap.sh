@@ -1,3 +1,5 @@
+#!/bin/bash
+
 FILE_NAME=$1
 PREFIX=$2
 NEW_PREFIX=$3

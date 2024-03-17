@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 DATE=$1
 CACHE=$2

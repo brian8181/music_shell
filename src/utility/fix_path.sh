@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 FILE=$1
 MUSIC=$2

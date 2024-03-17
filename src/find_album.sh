@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 #OPTS=$1
 ALBUM=$1

@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 export FOLDER=0
 export ARTIST=1
