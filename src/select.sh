@@ -10,4 +10,4 @@ FIELDS=$1
 # TRACK=6
 # TITLE=7
 
-./show_all.sh | cut -d "|" -f "$FIELDS"
+cat ../test/cache.txt | cut -d "|" -f "$FIELDS"
