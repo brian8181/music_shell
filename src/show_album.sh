@@ -2,4 +2,4 @@
 
 ALBUM=4
 
-cut -d "|" -f $ALBUM ../test/cache.txt
+cut -d "|" -f $ALBUM cache/cache.txt

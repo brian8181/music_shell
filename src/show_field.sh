@@ -9,4 +9,4 @@ DISC=5
 TRACK=6
 TITLE=7
 
-cut -d"|" -f "$FIELD" ../test/cache.txt
+cut -d"|" -f "$FIELD" ccahe/cache.txt

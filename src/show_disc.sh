@@ -2,4 +2,4 @@
 
 DISC=5
 
-cut -d "|" -f $DISC ../test/cache.txt
+cut -d "|" -f $DISC cache/cache.txt

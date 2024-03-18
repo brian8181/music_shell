@@ -2,4 +2,4 @@
 
 DATE=3
 
-cut -d "|" -f $DATE ../test/cache.txt
+cut -d "|" -f $DATE cache/cache.txt

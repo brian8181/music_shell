@@ -2,4 +2,4 @@
 
 TRACK=6
 
-cut -d "|" -f $TRACK ../test/cache.txt
+cut -d "|" -f $TRACK cache/cache.txt

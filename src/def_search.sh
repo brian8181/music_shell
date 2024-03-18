@@ -1,4 +1,4 @@
 #!/bin/bash
 
 SEARCH_TERM=$1
-./search.sh "$SEARCH_TERM"  "../test/cache.txt"
+./search.sh "$SEARCH_TERM"  "cache/cache.txt"
