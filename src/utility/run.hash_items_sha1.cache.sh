@@ -1,0 +1,1 @@
+./hash_items_sha1.sh ../cache/cache.txt > ../cache/cache.hash.sha1.txt
