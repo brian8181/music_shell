@@ -41,3 +41,6 @@ ls -alhR | egrep '^\-.*.\.c$' | sed s/^.*[[:digit:]][[:digit:]]\:[[:digit:]][[:d
 ./default_search.sh "Wall" ./and_search.sh "Pink" | wc -l
 ./and_search.sh "Wall" "Pink" | wc -l
 sed s/\\//|/g music_cache.txt
+
+# hash | cut line numbers
+cat artist.txt | cut -f 2 | ../utility/hash_items.sh > ../cache.artist.hash.txt
