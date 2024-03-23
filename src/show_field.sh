@@ -1,7 +1,5 @@
 #!/bin/bash
-
 FIELD=$1
-
 ARTIST=2
 DATE=3
 ALBUM=4
