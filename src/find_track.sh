@@ -11,3 +11,4 @@ REXP="^albums\\,[A-Za-z0-9[:space:]]+\\,[0-9]+\\,[A-Za-z0-9[:space:]]+\\,$TRACK\
 #echo '$REXP'
 
 cat $CACHE | egrep "$REXP" | tee playing
+git 
