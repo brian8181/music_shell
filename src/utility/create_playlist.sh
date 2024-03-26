@@ -5,5 +5,10 @@ CACHE_NAME=$2
 PLAYLIST_NAME=$3
 TEE_OPTION=$4
 
-cat "$CACHE_NAME" | egrep --color=always -i "$SEARCH_TERM" | tee $PLAYLIST_NAME
+if [[ ! -r "$CACHE_NAME" ]]; then
+    echo "error: $CACHE_NAME does not exists"
+    exit
+fi
+
+cat "$CACHE_NAME" | egrep --color=always -i  | tee $PLAYLIST_NAME
 echo -e "Match Count: \e[31m$(cat playing | wc -l) / $(cat "$CACHE_NAME" | wc -l)\e[0m ... searching for -> \e[31m\""$SEARCH_TERM"\"\e[0m"
