@@ -21,4 +21,4 @@ cut -d"|" -f "$ARTIST $DATE $ALBUM $TRACK $TITLE" cache/cache.txt > s.txt
 
 
 R=
-cat s.txt | sed -E s/"([[:alnum:][:blank:]]+)\|([[:digit:]]{4})"/\\2\\1/g
+cat s.txt | sed -E s/"([[:alnum:][:blank:]]+)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]+)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]+)\.(mp3|ogg|flac)"/\\6\\4\\3\\2\\1/g
