@@ -16,6 +16,9 @@ VALID_CHARS="[-a-zA-Z0-9_ ]"
 RECORD="^\(${VALID_CHARS}*\)\|\([0-9][0-9][0-9][0-9]\)\|\(${VALID_CHARS}*\)\|\([0-9][0-9]\)?\|\([0-9][0-9]\)?\|\(${VALID_CHARS}*\)\.\(mp3|ogg|flac\)$"
 
 cut -d"|" -f "$ARTIST $DATE $ALBUM $TRACK $TITLE" cache/cache.txt > s.txt
-#cat s.txt | sed 's/^\([a-zA-Z ]*\)|\([0-9][0-9][0-9][0-9]\)|\([a-zA-Z ]*\)|\([0-9][0-9]\)|\([a-zA-Z ]*\)\..*$/\5\4\3\2\1/g'
+#cat s.txt | sed 's/^\([a-zA-Z ]*\)|\([0-9][0-9][0-9][0-9]\)|\([a-zA-Z ]*\)|\([0-9][0-9]\)|\([a-zA-Z ]*\)\..*$/ARTIST:\1 ALBUM:\2-\3 TITLE:\4:\5/g'
+#cat s.txt | sed -E "s/(\w*)\|/\1/"
 
-cat s.txt | sed 's/^\([a-zA-Z ]*\)|\([0-9][0-9][0-9][0-9]\)|\([a-zA-Z ]*\)|\([0-9][0-9]\)|\([a-zA-Z ]*\)\..*$/ARTIST:\1 ALBUM:\2-\3 TITLE:\4:\5/g'
+
+R=
+cat s.txt | sed -E s/"([[:alnum:][:blank:]]+)\|([[:digit:]]{4})"/\\2\\1/g
