@@ -43,8 +43,8 @@ VALID_CHARS="[-a-zA-Z0-9_ ]"
 RECORD="^\(${VALID_CHARS}*\)\|\([0-9][0-9][0-9][0-9]\)\|\(${VALID_CHARS}*\)\|\([0-9][0-9]\)?\|\([0-9][0-9]\)?\|\(${VALID_CHARS}*\)\.\(mp3|ogg|flac\)$"
 RECORD="^\(${VALID_CHARS}*\|\)\\([0-9][0-9][0-9][0-9]\\|\\)\\(${VALID_CHARS}*\\|\\)\\([0-9][0-9]?\\|\\)\\([0-9][0-9]?\\|\\)\\(${VALID_CHARS}*\\)\\.(mp3|ogg|flac)$"
 #./show_all.sh | sed "s/^\\(${VALID_CHARS}*\\)\\|\\([0-9][0-9][0-9][0-9]\\)/{\2\1}/g"
-cut -d"|" -f "$ARTIST $DATE $ALBUM $TRACK" cache/cache.txt > s.txt
-cat s.txt | sed 's/^\([a-zA-Z ]*\)|\([0-9][0-9][0-9][0-9]\)|\([a-zA-Z ]*\)|\([0-9][0-9]\)/\4\3\2\1/g'
+cut -d"|" -f "$ARTIST $DATE $ALBUM $TRACK $TITLE" cache/cache.txt > s.txt
+cat s.txt | sed 's/^\([a-zA-Z ]*\)|\([0-9][0-9][0-9][0-9]\)|\([a-zA-Z ]*\)|\([0-9][0-9]\)|\([a-zA-Z ]*\)\..*$/\5\4\3\2\1/g'
 
 # what the fuck can't seem to get this to match as expected (match the artist) ...
 #./show_all.sh | cut -d "|" -f "1 2 5" | sed -E s/[a-zA-Z]*/xxx/g
