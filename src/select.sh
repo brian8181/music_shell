@@ -25,4 +25,6 @@ DISC_EXP="([[:digit:]]{2}?)"
 TRACK_EXP="([[:digit:]]{2})"
 EXT_EXP="(mp3|ogg|flac)"
 
-cat cache/cache.txt | sed -E "s/([[:alnum:]]+)\|([[:alnum:][:blank:]]*)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]*)\|([[:digit:]]{2}?)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]*)\.(mp3|ogg|flac)$/\\$EXT \\$ALBUM  \\$ARTIST \\$DATE \\$ALBUM \\$TRACK \\$TITLE/g"
+
+#([[:alnum:]]+)\|([[:alnum:][:blank:]]*)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]*)\|([[:digit:]]{2}?)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]*)\.(mp3|ogg|flac)$
+cat cache/cache.txt | sed -E "s/([[:alnum:]]+)\|([[:alnum:][:blank:]]*)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]*)\|([[:digit:]]{2}?)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]*)\.(mp3|ogg|flac)$/\\${EXT} \\${ALBUM} \\${ARTIST} \\${DATE} \\${ALBUM} \\${TRACK} \\${TITLE}/g"
