@@ -14,7 +14,7 @@ albums|The New Pornographers|2003|Electric Version||09|[01;31m[KTest[m[Kamen
 albums|Bikini Kill|1992|The CD Version of the First Two Records||08|This Is Not a [01;31m[KTest[m[K.mp3
 albums|Morphine|1992|Good||10|[01;31m[KTest[m[K-Tube Baby-Shoot'm Down.mp3
 albums|Anti|1981|I Dont Want to Die in Your War||06|Acid [01;31m[KTest[m[K.mp3
-albums|Anti|1997|The Hardcore Years||06|Acid [01;31m[KTest[m[K.mp3
+albums|Anti|1997|The Hardcore Years||06|Acid [01;31m[KTest[m[K.mp3sh
 albums|Chaotic Dischord|1988|Very Fucking Bad + Goat Fucking Virgin Killerz from Hell||25|Royal [01;31m[KTest[m[K Tube Baby.mp3
 albums|The Flaming Lips|2002|Yoshimi Battles the Pink Robots||01|Fight [01;31m[KTest[m[K.mp3
 albums|Pennywise|2003|From The Ashes||09|This Is Only A [01;31m[KTest[m[K.mp3
