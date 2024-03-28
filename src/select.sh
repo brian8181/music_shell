@@ -17,13 +17,13 @@ cut -d"|" -f "$ARTIST $DATE $ALBUM $TRACK $TITLE" cache/cache.txt > s.txt
 
 #  ^(1)FOLDER       |(2)ARTIST     |(3)DATE     |(4)ALBUM      |(5)Disc     |(6)TRACK     |(7)TITLE      .(8)EXT$
 REGX="^${FOLDER_EXP}\|${STRING_EXP}\|${DATE_EXP}\|${STRING_EXP}\|${DISC_EXP}\|${TRACK_EXP}\|${STRING_EXP}\.${EXT_EXP}$"
-FOLDER_EXP="([[:alnum:]]+)"
-STRING_EXP="([[:alnum:][:blank:]]*)"
+PUNCT="[ }{][|\~@#$%^&*()-_+=]"
+STRING_EXP="([[:alnum:][:blank:][ }{][|\~@#$%^&*()-_+=]+)"
 DATE_EXP="([[:digit:]]{4})"
 DISC_EXP="([[:digit:]]{2}?)"
 TRACK_EXP="([[:digit:]]{2})"
-EXT_EXP="(mp3|ogg|flac)"
+EXT_EXP="((mp3|ogg|flac)|([[:alnum:]]{3}))"
 
 # PARAMS="s/${REGX}/\\${EXT} \\${ALBUM} \\${ARTIST} \\${DATE} \\${ALBUM} \\${TRACK} \\${TITLE}/g"
-# cat cache/cache.txt | sed -E "$PARAMS" cache/cxche.txt
-sed -E "s/([[:alnum:]]+)\|([[:alnum:][:blank:]]*)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]*)\|([[:digit:]]{2}?)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]*)\.(mp3|ogg|flac)$/\\${EXT} \\${ALBUM} \\${ARTIST} \\${DATE} \\${ALBUM} \\${TRACK} \\${TITLE}/g" cache/cache.txt
+# sed -E "$PARAMS" cache/cxche.txt
+sed -E "s/([[:alnum:][:blank:]~!@#$%^&*)(_+=]+)\|([[:alnum:][:blank:]]*)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]*)\|([[:digit:]]{2}?)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]*)\.(mp3|ogg|flac)$/\\${EXT} \\${ALBUM} \\${ARTIST} \\${DATE} \\${ALBUM} \\${TRACK} \\${TITLE}/g" cache/cache.txt
