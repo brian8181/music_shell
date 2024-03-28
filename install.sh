@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp -rf ./src/* ~/bin
+cp -rf ../src/* ~/bin
