@@ -19,6 +19,5 @@ cut -d"|" -f "$ARTIST $DATE $ALBUM $TRACK $TITLE" cache/cache.txt > s.txt
 #cat s.txt | sed 's/^\([a-zA-Z ]*\)|\([0-9][0-9][0-9][0-9]\)|\([a-zA-Z ]*\)|\([0-9][0-9]\)|\([a-zA-Z ]*\)\..*$/ARTIST:\1 ALBUM:\2-\3 TITLE:\4:\5/g'
 #cat s.txt | sed -E "s/(\w*)\|/\1/"
 
-
-R=
-cat s.txt | sed -E s/"([[:alnum:][:blank:]]+)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]+)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]+)\.(mp3|ogg|flac)"/\\6\\4\\3\\2\\1/g
+#                      ^ARTIST                |DATE             |ALBUM                   |TRACK            |TITLE                   .EXT$
+cat s.txt | sed -E s/"([[:alnum:][:blank:]]+)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]+)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]+)\.(mp3|ogg|flac)"/\\6\\5\\4\\3\\2\\1/g
