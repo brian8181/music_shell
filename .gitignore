@@ -1,5 +1,5 @@
 
-queue*
+src/queue
 src/cache/*
 
 #mpg123
