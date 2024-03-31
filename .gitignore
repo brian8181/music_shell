@@ -1,5 +1,6 @@
 
-playing*
+queue*
+src/cache/*
 
 #mpg123
 #test1.mp3
@@ -15,4 +16,3 @@ test/*.test_run.mp3
 
 *.o
 tag
-
