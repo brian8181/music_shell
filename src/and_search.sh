@@ -2,11 +2,11 @@
 
 SEARCH_TERM1=$1
 SEARCH_TERM2=$2
-CACHE_NAME=$3
+CACHE_NAME="/home/brian/.music_shell/cache/$3"
 IGNORE_CASE=$4
 
-echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> ./.music_shell/cache/search_history_all
-cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" | tee ./.music_shell/queue
+echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> /home/brian/.music_shell/cache/search_history_all
+cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" | tee ~/.music_shell/queue
 
 
 #cp queue cache/hist_"$date $SEARCH_TERM1_&&_$SEARCH_TERM2".txt

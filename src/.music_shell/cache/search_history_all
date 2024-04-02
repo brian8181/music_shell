@@ -32,3 +32,6 @@ Stone or Roll
 Stone and Roll 
 Stone <AND> Roll 
 Stone <OR> Roll 
+ 
+Stone <AND> Roll 
+Stone <AND> Roll -i
