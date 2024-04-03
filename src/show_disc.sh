@@ -1,4 +1,7 @@
 #!/bin/bash
-DISC=5
 
-cut -d "|" -f $DISC cache/cache.txt
+./settings.sh
+
+#DISC=5
+
+cut -d "|" -f $DISC $HOME/.music_shell/cache/cache.txt
