@@ -1,9 +1,11 @@
 #!/bin/bash
 
-HOME='/home/brian'
+# load export settings
+./settings.sh
+
 SEARCH_TERM1=$1
 SEARCH_TERM2=$2
-CACHE_NAME="/home/brian/.music_shell/cache/$3"
+CACHE_NAME="$HOME/.music_shell/cache/$3"
 IGNORE_CASE=$4
 
 echo "$SEARCH_TERM1 <OR> $SEARCH_TERM2 $IGNORE_CASE" >> /home/brian/.music_shell/cache/search_history_all
