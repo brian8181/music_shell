@@ -4,3 +4,5 @@ md -p ~/.music_shell/cache
 cp -rf ../src/* ~/bin
 
 ln ./def_search.sh s
+touch ~/.music_shell/queue
+touch ~/.music_shell/config.txt

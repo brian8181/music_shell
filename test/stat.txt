@@ -1,0 +1,3 @@
+CURRENT="test"
+LAST="last"
+COUNT=2
