@@ -1,16 +1,18 @@
 #!/bin/bash
 
+./settings.sh
+
 MUSIC_PATH=$1
 PROJECT_PATH=$2
 NAME=$3
 DELIMITER=| # todo
 
 # find .. -name "*.flac" -o -name "*.mp3" -o -name "*.wma"
-find "$MUSIC_PATH" -iname "*.mp3" > $PROJECT_PATH/$NAME
-find "$MUSIC_PATH" -iname "*.ogg" >> $PROJECT_PATH/$NAME
-find "$MUSIC_PATH" -iname "*.flac" >> $PROJECT_PATH/$NAME
+find "$MUSIC_PATH" -iname "*.mp3" > $HOME/.music_shell/$NAME
+find "$MUSIC_PATH" -iname "*.ogg" >> $HOME/.music_shell/$NAME
+find "$MUSIC_PATH" -iname "*.flac" >> $HOME/.music_shell/$NAME
 
-TIMESTAMP=$(/home/brian/bin/date.sh)
+TIMESTAMP=$($HOME/.music_shell/bin/date.sh)
 TMP_NAME="tmp_${TIMESTAMP}.txt"
 CACHE_NAME="${PROJECT_PATH}/${NAME%.*}_${TIMESTAMP}.txt"
 

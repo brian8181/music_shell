@@ -1,2 +1,5 @@
 #!/bin/bash
-cat queue
+
+./settings.sh
+
+cat $HOME/.music_shell/queue
