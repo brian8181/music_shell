@@ -1,10 +1,12 @@
 #!/bin/bash
 
-SEARCH_TERM=$1
-CACHE_NAME=$2
-IGNORE_CASE=$3
-LINE_NUMBER=$4
+./settings.sh
 
-echo "$SEARCH_TERM $IGNORE_CASE" >> cache/search_history_all
-head -"$LINE_NUMBER queue > queue
-cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" >> queue
+INSERT=$2
+LINE_NUMBER=$1
+
+tail -"$LINE_NUMBER $HOME/.music_shell/queue > queue_tail
+head -"$LINE_NUMBER $HOME/.music_shell/queue > $HOME/.music_shell/queue
+echo $INSERT >> $HOME/.music_shell/queue
+cat queue_tail >> $HOME/.music_shell/queue
+rm queue_tail
