@@ -11,4 +11,4 @@ if [[ ! -r "$CACHE_NAME" ]]; then
 fi
 
 cat "$CACHE_NAME" | egrep --color=always -i  | tee $PLAYLIST_NAME
-echo -e "Match Count: \e[31m$(cat playing | wc -l) / $(cat "$CACHE_NAME" | wc -l)\e[0m ... searching for -> \e[31m\""$SEARCH_TERM"\"\e[0m"
+#echo -e "Match Count: \e[31m$(cat playing | wc -l) / $(cat "$CACHE_NAME" | wc -l)\e[0m ... searching for -> \e[31m\""$SEARCH_TERM"\"\e[0m"
