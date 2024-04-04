@@ -2,7 +2,7 @@
 
 ~/src/music_shell/src/utility/fields.sh
 
-#FIELDS=$1
+# FIELDS=$1
 # FOLDER=1
 # ARTIST=2
 # DATE=3
