@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./settings.sh$LIST_NAME
+./settings.sh
 
 LINE_NUMBER=$1
 INSERT=$2

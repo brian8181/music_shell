@@ -27,4 +27,5 @@ cut -d"|" -f "$ARTIST $DATE $ALBUM $TRACK $TITLE" cache/cache.txt > cache/$NAME
 
 # # PARAMS="s/${REGX}/\\${EXT} \\${ALBUM} \\${ARTIST} \\${DATE} \\${ALBUM} \\${TRACK} \\${TITLE}/g"
 # # sed -E "$PARAMS" cache/cxche.txt
-sed -E "s/([[:alnum:][:blank:]]*)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]*)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]*)\.(mp3|ogg|flac)/\\2 \\3 \\4 \\5/g" cache/$NAME
+#sed -E "s/([[:alnum:][:blank:]]*)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]*)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]*)\.(mp3|ogg|flac)/\\2 \\3 \\4 \\5/g" cache/$NAME
+sed -E "s/([[:alnum:][:blank:]][}{~!@#$%^&*)(_+=,.><:;]+)\|([[:alnum:][:blank:]]*)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]*)\|([[:digit:]]{2}?)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]*)\.(mp3|ogg|flac)$/\\${EXT} \\${ALBUM} \\${ARTIST} \\${DATE} \\${ALBUM} \\${TRACK} \\${TITLE}/g" cache/cache.txt
