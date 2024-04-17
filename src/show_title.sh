@@ -1,4 +1,6 @@
 #!/bin/bash
-TITLE=7
 
+./settings.sh
+
+TITLE=7
 cut -d "|" -f $TITLE cache/cache.txt
