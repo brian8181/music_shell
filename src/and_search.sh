@@ -10,9 +10,8 @@ CACHE_NAME=$3
 CACHE_PATH="$HOME/.music_shell/cache/$CACHE_NAME"
 IGNORE_CASE=$4
 
-# error ?
-#if [ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]; then
-if [ -z "$SEARCH_TERM1" ]; then
+# check parmaters
+if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
     echo "Error: no "SEARCH_TERM1 or SEARCHTERM2 or CACHE_NAME"  specified ..."
     exit
 fi
