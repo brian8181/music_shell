@@ -7,4 +7,9 @@ DISC=5
 TRACK=6
 TITLE=7
 
-cut -d"|" -f "$FIELD" $HOME/.music_shell/cache/cache.txt
+# exit
+if [ -n "$FIELD" ]; then
+    cut -d"|" -f "$FIELD" $HOME/.music_shell/cache/cache.txt
+else
+    echo "Error: No field specified"
+fi
