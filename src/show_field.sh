@@ -12,4 +12,5 @@ if [ -n "$FIELD" ]; then
     cut -d"|" -f "$FIELD" $HOME/.music_shell/cache/cache.txt
 else
     echo "Error: No field specified"
+    exit
 fi
