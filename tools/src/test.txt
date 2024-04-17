@@ -1,5 +1,0 @@
-// License:    GPL
-// Author:     Brian K Preston
-// File Name:  no file name
-// Build Date: Wed Feb 14 11:29:22 AM CST 2024
-// Version:    3.6.7

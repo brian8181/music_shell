@@ -1,5 +1,5 @@
 src/queue
 src/cache/*
-src/music_shell/cache/*
+src/.music_shell/cache/*
 s
 sp
