@@ -1,6 +1,13 @@
 #!/bin/bash
 
-md -p ~/.music_shell/cache
+if [ -e "~/.music_shell/cache" ]
+    md -p ~/.music_shell/cache
+fi
+
+if [ -e "~/bin" ]; then
+    md ~/bin
+fi
+
 cp -rf ../src/* ~/bin
 
 ln ./def_search.sh s
