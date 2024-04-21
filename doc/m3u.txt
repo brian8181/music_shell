@@ -1,0 +1,207 @@
+M3U
+
+Tools
+From Wikipedia, the free encyclopedia
+M3U
+Filename extensions
+.m3u, .m3u8
+Internet media type	various; see § Internet media types
+Initial release	c. 1996
+Type of format	Playlist
+Extended to	HTTP Live Streaming playlist
+M3U (MP3 URL[1][2] or Moving Picture Experts Group Audio Layer 3 Uniform Resource Locator[3] in full) is a computer file format for a multimedia playlist. One common use of the M3U file format is creating a single-entry playlist file pointing to a stream on the Internet. The created file provides easy access to that stream and is often used in downloads from a website, for emailing, and for listening to Internet radio.
+
+Although originally designed for audio files, such as MP3, it is commonly used to point media players to audio and video sources, including online sources. M3U was originally developed by Fraunhofer for use with their Winplay3 software,[4] but numerous media players and software applications now support the format.
+
+Careless handling of M3U playlists has been the cause of vulnerabilities in many music players such as VLC media player,[5] iTunes,[6] Winamp,[7] and many others.[8]
+
+File format
+There is no formal specification for the M3U format; it is a de facto standard.
+
+An M3U file is a plain text file that specifies the locations of one or more media files. The file is saved with the "m3u" filename extension if the text is encoded in the local system's default non-Unicode encoding (e.g., a Windows codepage), or with the "m3u8" extension if the text is UTF-8 encoded.[9]
+
+Each entry carries one specification. The specification can be any one of the following:
+
+an absolute local pathname; e.g., C:\My Music\Heavysets.mp3
+a local pathname relative to the M3U file location; e.g. Heavysets.mp3
+a URL
+Each entry ends with a line break which separates it from the following one. Furthermore, some devices only accept line breaks represented as CR LF, but do not recognize a single LF.
+
+Extended M3U
+The M3U file can also include comments, prefaced by the "#" character. In extended M3U, "#" also introduces extended M3U directives which are terminated by a colon ":" if they support parameters.
+
+M3U extensions
+Directive	Description	Example	Required	Standard
+#EXTM3U	file header, must be the first line of the file	#EXTM3U	1×	Yes
+#EXTINF:	track information: runtime in seconds and display title of the following resource	#EXTINF:123,Artist Name – Track Title	No	Yes
+additional properties as key-value pairs	#EXTINF:123 logo="cover.jpg",Track Title	No	IPTV
+#PLAYLIST:	playlist display title	#PLAYLIST:Music TV	1×	IPTV
+#EXTGRP:	begin named grouping	#EXTGRP:Foreign Channels	No	IPTV
+#EXTALB:	album information, title in particular	#EXTALB:Album Title (2009)	1×	AL,[10] M3A[11]
+#EXTART:	album artist	#EXTART:Various	1×	AL,[10] M3A[11]
+#EXTGENRE:	album genre	#EXTGENRE:Jazz Fusion	1×	AL[10]
+#EXTM3A	playlist for tracks or chapters of an album in a single file	#EXTM3A	1×	M3A[11]
+#EXTBYT:	file size in bytes	#EXTBYT:34124	No	M3A[11]
+#EXTBIN:	binary data follows, usually concatenated MP3s	#EXTBIN:	No	M3A[11]
+#EXTENC:	text encoding, must be the second line of the file	#EXTENC:UTF-8	1×	No
+#EXTIMG:	cover, logo or other image	#EXTIMG:cover.jpg	No	No
+Apple used the extended M3U format as a base for their HTTP Live Streaming (HLS)[12] which was documented in an Independent Submission Stream RFC in 2017 as RFC 8216.[13] Therein, a master playlist references segment playlists which usually contain URLs for short parts of the media stream. Some tags only apply to the former type and some only to the latter type of playlist, but they all begin with #EXT-X-.
+
+HLS M3U extensions
+Directive	Example	Description
+#EXT-X-START:	TIME-OFFSET=0
+#EXT-X-INDEPENDENT-SEGMENTS	Toggle without parameters
+#EXT-X-PLAYLIST-TYPE:	VOD or EVENT
+#EXT-X-TARGETDURATION:	10	The maximum Media Segment duration in seconds
+#EXT-X-VERSION:	4
+#EXT-X-MEDIA-SEQUENCE:	0	The Media Sequence Number of the first Media Segment appearing in the playlist file
+#EXT-X-MEDIA:	NAME="English", TYPE=AUDIO, GROUP-ID="audio-stereo-64", LANGUAGE="en", DEFAULT=YES, AUTOSELECT=YES, URI="english.m3u8"
+#EXT-X-STREAM-INF:	BANDWIDTH=1123000, CODECS="avc1.64001f,mp4a.40.2"	Parameters have either one combined value or one per stream, separated by commas
+#EXT-X-BYTERANGE:	1024@256000
+#EXT-X-DISCONTINUITY	toggle without parameters	The segment represents the start of a new period
+#EXT-X-DISCONTINUITY-SEQUENCE:	2	Indicates start of numbering of periods
+#EXT-X-GAP	toggle without parameters	The segment represents a "spacer" before a new period
+#EXT-X-KEY:	METHOD=NONE	Indicates encryption method used and decryption key
+#EXT-X-MAP:	URI=MediaInitializationSection
+#EXT-X-PROGRAM-DATE-TIME:	2010-02-19T14:54:23.031+08:00	ISO 8601 format
+#EXT-X-DATERANGE:	ID=foo
+#EXT-X-I-FRAMES-ONLY	i-frame Toggle without parameters
+#EXT-X-SESSION-DATA:	DATA-ID=com.example.movie.title
+#EXT-X-SESSION-KEY:
+#EXT-X-ENDLIST	End-of-list signal without parameters
+M3U8
+The Unicode version of M3U is M3U8, which uses UTF-8-encoded characters. M3U8 files are the basis for the HTTP Live Streaming (HLS) format originally developed by Apple to stream video and radio to iOS devices, and which is now a popular format for adaptive streaming in general.
+
+The 2015 proposal for the HLS playlist format uses UTF-8 exclusively and does not distinguish between the "m3u" and "m3u8" file name extensions.[14]
+
+Internet media types
+The only Internet media type registered for M3U and M3U8 is application/vnd.apple.mpegurl, registered in 2009 and only referring to the playlist format as used in HLS applications.[15][16]
+
+The current proposal for the HLS playlist format acknowledges two media types which it treats as equivalent: application/vnd.apple.mpegurl and audio/mpegurl.[14] Likewise, these are the two types recommended for HLS use by Microsoft.[17]
+
+For non-HLS applications, no media types were standardized or registered with the IANA, but a number of media types are nonetheless associated with the historical and ongoing use of the M3U and M3U8 formats for general playlists:
+
+application/mpegurl
+application/x-mpegurl
+audio/mpegurl
+audio/x-mpegurl[1][2]
+These types, plus application/vnd.apple.mpegurl and application/vnd.apple.mpegurl.audio, are supported for HLS applications by (for example) Microsoft's Windows 10[17] and Internet Explorer 9,[18] and LG's WebOS.[19]
+
+Examples
+
+This section may contain excessive or irrelevant examples. Please help improve the article by adding descriptive text and removing less pertinent examples. (August 2016)
+Example 1
+This is an example of an extended M3U file on the Windows platform. Sample.mp3 and Example.ogg are the media files. 123 and 321 are the lengths in seconds.[20] A length of -1 or 0 may be used when the media file is a streaming file, as there is no actual, predefined length value. The value after the length is the title to be shown, which is generally the same as the location of the file which is on the second line. On the macOS and Linux platforms, Unix paths are used.
+
+#EXTM3U
+
+#EXTINF:123, Sample artist - Sample title
+C:\Documents and Settings\I\My Music\Sample.mp3
+
+#EXTINF:321,Example Artist - Example title
+C:\Documents and Settings\I\My Music\Greatest Hits\Example.ogg
+Example 2
+This example shows how to create an m3u file linking to a specified directory (for example, a flash drive, or CD-ROM). The m3u file should contain only one string: the path to the directory. After starting, the media player will play all contents of the directory:
+
+C:\Music
+Example 3
+Here is another example, using relative format. The M3U file is placed in the same directory as the music, and directories must be preserved when moving the playlist to another device if subdirectories are used. This method is more flexible, as it does not rely on the file path staying the same.
+
+This is the same file as above, saved as sample.m3u in C:\Documents and Settings\User\My Music\
+
+#EXTM3U
+
+#EXTINF:123, Sample artist - Sample title
+Sample.mp3
+
+#EXTINF:321,Example Artist - Example title
+Greatest Hits\Example.ogg
+This format in an M3U allows copying to another device for playback. All files and directories referred to must also be copied.
+
+Example 4
+Here is a mixed example:
+
+Alternative\Band - Song.mp3
+Classical\Other Band - New Song.mp3
+Stuff.mp3
+D:\More Music\Foo.mp3
+..\Other Music\Bar.mp3
+http://www.example.com:8000/Listen.mp3
+http://www.example.com/~user/Mine.mp3
+Notes:
+
+Alternative and Classical are sub-directories of the directory that this playlist is stored in.
+"Song" and "New Song" are in sub-directories of the directory that this playlist is stored in.
+"Stuff" is in the same directory that the playlist is stored in.
+"Foo" is in the specified (Windows) volume and directory, which may or may not be the same directory the playlist is in.
+"Bar" is in a different directory at the same level as the playlist directory. The double-dots reference the parent directory of the playlist directory, then into the sub-directory "Other Music" to reach "Bar".
+"Listen" is a Shoutcast stream.
+"Mine" is an MP3 stored on a web server.
+Example 5
+References to other M3U playlists, for example, are generally not well-supported.
+
+AnotherPlayList.m3u
+Example 6
+The following is an example of a M3U playlist file for "Jar of Flies" album by "Alice in Chains" that was created by Mp3tag with the following custom option settings:[21][22][23]
+
+playlist extended info format = "%artist% - %title%"
+playlist filename format = "%artist%_%album%_00_Playlist.m3u"
+tag to filename conversion format = "%artist%_%album%_$num(%track%,2)_%title%"
+ #EXTM3U
+ #EXTINF:419,Alice in Chains - Rotten Apple
+ Alice in Chains_Jar of Flies_01_Rotten Apple.mp3
+ #EXTINF:260,Alice in Chains - Nutshell
+ Alice in Chains_Jar of Flies_02_Nutshell.mp3
+ #EXTINF:255,Alice in Chains - I Stay Away
+ Alice in Chains_Jar of Flies_03_I Stay Away.mp3
+ #EXTINF:256,Alice in Chains - No Excuses
+ Alice in Chains_Jar of Flies_04_No Excuses.mp3
+ #EXTINF:157,Alice in Chains - Whale And Wasp
+ Alice in Chains_Jar of Flies_05_Whale And Wasp.mp3
+ #EXTINF:263,Alice in Chains - Don't Follow
+ Alice in Chains_Jar of Flies_06_Don't Follow.mp3
+ #EXTINF:245,Alice in Chains - Swing On This
+ Alice in Chains_Jar of Flies_07_Swing On This.mp3
+Software
+Tag editors
+See also: Category:Tag editors
+The following tag editor software allows users to edit the ID3 tags in MP3 files, and has support for creating M3U files.
+
+Linux
+Kid3, Puddletag.
+Windows
+Mp3tag, Puddletag.
+Media players
+See also: Category:Media players
+The following media player software supports playing M3U files.
+
+Multi-platform
+Programs	Platforms
+Windows	macOS	Linux	Android	Other
+Amarok	Yes	No	Yes	No	No
+Audacious	Yes	No	Yes	No	No
+Banshee	Yes	Yes	Yes	No	Yes
+Clementine	Yes	Yes	Yes	No	Yes
+GNOME Videos	No	No	Yes	No	No
+Kodi	Yes	Yes	Yes	Yes	Yes
+MPlayer	Yes	Yes	Yes	Yes	Yes
+mpv	Yes	Yes	Yes	Yes	Yes
+VLC media player	Yes	Yes	Yes	Yes	Yes
+iTunes	Yes	Yes	No	No	No
+Android
+Astro Player,[24][25][26] Kodi, N7Player,[27][28] Musicolet[29]
+macOS
+Music, QuickTime Player
+Nintendo
+New Nintendo 3DS (including XL and 2DS XL variants) with Internet Browser app
+Nintendo Switch with the YouTube (site-specific) app
+Wii U with the Internet Browser or YouTube app
+Windows
+foobar2000, JRiver Media Center, JuK, MediaMonkey, PotPlayer, Winamp, Windows Media Player, XMPlay[30]
+See also
+List of tag editors
+Other playlist file formats
+ASX - Windows media
+PLS - SHOUTcast
+XSPF - Xiph.Org Foundation
+WPL - Windows Media Player
