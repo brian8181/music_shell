@@ -3,6 +3,7 @@
 export HOME='/home/brian'
 export CACHE_NAME='cache.m3u'
 export QUEUE_NAME='queue.m3u'
+export PREFIX='/mnt/music/music-lib'
 
 # export CURRENT_PLAYLIST=$1
 # export CURRENT_SONG=$2
