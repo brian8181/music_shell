@@ -12,7 +12,7 @@ IGNORE_CASE=$4
 
 # check parmaters
 if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
-    echo "Error: no "SEARCH_TERM1 or SEARCHTERM2 or CACHE_NAME"  specified ..."
+    echo "Error: no "SEARCH_TERM1 or SEARCH_TERM2 or CACHE_NAME"  specified ..."
     exit
 fi
 

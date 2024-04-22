@@ -1,11 +1,14 @@
 #!/bin/bash
 
-SRC=$1
-DEST=$2
+# merge 2 playlists
 
-# append to dest
-cp "${DEST}" "${DEST}".swp
-cat "${SRC}" >> "${DEST}".swp
+SRC=$1
+DST=$2
+
+# append to DST
+cp "${DST}" "${DST}".swp
+cat "${SRC}" >> "${DST}".swp
+
 # sort & remove duplicates
-cat "${DEST}".swp | sort -u > "${DEST}"
-#rm "${DEST}".swp
+cat "${DST}".swp | sort -u > "${DST}"
+rm "${DST}".swp
