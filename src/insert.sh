@@ -3,13 +3,23 @@
 LINE_NUMBER=$1
 SRC_LIST=$2
 DST_LIST=$3
-LEN=$(cat "$DST_LIST" | wc -l)
-TAIL_N=$(($LEN - $LINE_NUMBER))
 
-tail -$TAIL_N "$DST_LIST" > dst_tail
-head -$LINE_NUMBER "$DST_LIST" > dst_head
+#  get length of file
+LEN=$(cat "$DST_LIST" | wc -l)
+LEN_TAIL=$(($LEN - $LINE_NUMBER))
+
+# get head and tail @ line number
+head -$LINE_NUMBER "$DST_LIST" > dst_head.swp
+tail -$LEN_TAIL "$DST_LIST" > dst_tail.swp
+
+# make head to destination
 rm "$DST_LIST"
-mv dst_head $DST_LIST
+mv dst_head.swp $DST_LIST
+
+# insert after head
 cat "$SRC_LIST" >> $DST_LIST
-cat dst_tail >> $DST_LIST
-rm dst_tail
+# append tail
+cat dst_tail.swp >> $DST_LIST
+
+# remove tmp file
+rm dst_tail.swp
