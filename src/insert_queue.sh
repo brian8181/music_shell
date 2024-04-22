@@ -3,7 +3,7 @@
 ./settings.sh
 
 LINE_NUMBER=$1
-INSERT=$2
-LIST_NAME=$3
+SRC_LIST=$2
 
-./insert "$INSERT" $HOME/.music_shell/$queue"
+
+./insert $LINE_NUMBER "$SRC_LIST" "$HOME/.music_shell/$queue"
