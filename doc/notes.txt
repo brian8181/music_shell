@@ -1,0 +1,2 @@
+# find files
+find . -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)\)$'

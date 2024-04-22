@@ -13,7 +13,5 @@ if [[ ! -r "$PLAYLIST_PATH" ]]; then
 fi
 
 mkdir -p ${DEST_PATH}
-cp ${PLAYLIST_PATH} ${DEST_PATH}/${PLAYLIST_NAME}
-
-#iter rate lines copy each file
-copy_file.sh ${SRC_FILE} ${DEST_FILE}
+# iter lines copy each file
+cp ${SRC_FILE} ${DEST_FILE}

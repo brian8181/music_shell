@@ -1,8 +1,6 @@
 #!/bin/bash
 
-./settings.sh
+SRC_LIST=$1
+DST_LIST=$2
 
-INSERT=$1
-LIST_NAME=$2
-
-echo "$INSERT" >> "$HOME/.music_shell/$LIST_NAME"
+cat "$SRC_LIST" >> "$LIST_NAME"
