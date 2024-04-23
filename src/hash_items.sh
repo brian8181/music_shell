@@ -1,5 +1,5 @@
 #! /bin/bash
 
 cat "$@" | while read -r line; do
-    printf %s "$line" | sha1sum | cut -f1 -d' '
+    printf %s "$line" | md5sum
 done

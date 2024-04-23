@@ -14,5 +14,5 @@ if [ -z "$SEARCH_TERM" ]; then
 fi
 
 echo "$SEARCH_TERM $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
-cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" | tee $HOME/.music_shell/queue
+cat "$CACHE_NAME" | egrep --color=never $IGNORE_CASE "$SEARCH_TERM" | tee $HOME/.music_shell/queue
 #cp music_shell/queue music_shell/cache/hist_"$(date.sh) \"$SEARCH_TERM\"".txt

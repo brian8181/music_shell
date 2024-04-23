@@ -21,4 +21,4 @@ fi
 
 cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" | tee -a $HOME/"${PLAYLIST_NAME}.m3u.swp"
 cat $HOME/"${PLAYLIST_NAME}.m3u.swp" | sort -u > $HOME/"${PLAYLIST_NAME}.m3u"
-#rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
+rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
