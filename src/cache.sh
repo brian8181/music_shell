@@ -3,8 +3,9 @@
 ./settings.sh
 
 MUSIC_PATH=$1
-#DATA_PATH=$2
+DATA_PATH=$2
 DEST_PATH=$3
+NAME=cache.m3u
 DELIMITER=| # todo
 
 # find .. -name "*.flac" -o -name "*.mp3" -o -name "*.wma"

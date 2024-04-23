@@ -46,8 +46,8 @@ PRINT_INFO "$FILE -> Running... @ $DATE"
 
 PRINT_INFO "Installing script to ~/bin ..."
 
-if [ -e "~/bin" ]; then
-    cp -rf ../src/* ~/bin
+if [ -d "~/bin" ]; then
+    cp -rf ./src/* ~/bin
 fi
 
 if [ -e "./def_search.sh" ]; then
