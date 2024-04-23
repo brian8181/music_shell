@@ -44,11 +44,10 @@ PRINT_INFO "$FILE -> Running... @ $DATE"
 #     touch ~/.music_shell/config.txt
 # fi
 
-PRINT_INFO "Installing script to ~/bin ..."
-
-if [ -d "~/bin" ]; then
+#if [ -d "~/bin" ]; then
+    PRINT_INFO "copy all to ~/bin ..."
     cp -rf ./src/* ~/bin
-fi
+#fi
 
 if [ -e "./def_search.sh" ]; then
     ln ./def_search.sh s
