@@ -3,10 +3,10 @@
 # load export settings
 ./settings.sh
 
-OPTIONS=NULL
-SEARCH_TERM=$1
-CACHE_NAME="$HOME/.music_shell/cache/$2"
-IGNORE_CASE=$3
+OPTIONS=$1
+SEARCH_TERM=$2
+# CACHE_NAME="$HOME/.music_shell/cache/$2"
+# IGNORE_CASE=$3
 
 if [ -z "$SEARCH_TERM" ]; then
     echo "Error: no "SEARCH_TERM" specified ..."
