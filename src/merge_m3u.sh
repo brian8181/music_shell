@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # merge 2 playlists
-
 SRC=$1
 DST=$2
 

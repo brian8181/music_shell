@@ -1,0 +1,1 @@
+[$swapprefix(%album artist%) - ]['['%date%']' ]$if2(%SET NAME%,%album%)|[[%discnumber%.]%tracknumber%. ][%track artist% - ]%title%

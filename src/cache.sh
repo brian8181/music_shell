@@ -12,6 +12,7 @@ DELIMITER=| # todo
 find "$MUSIC_PATH" -iname "*.mp3" > $HOME/.music_shell/$NAME
 find "$MUSIC_PATH" -iname "*.ogg" >> $HOME/.music_shell/$NAME
 find "$MUSIC_PATH" -iname "*.flac" >> $HOME/.music_shell/$NAME
+find "$MUSIC_PATH" -iname "*.wma" >> $HOME/.music_shell/$NAME
 
 TIMESTAMP=$($HOME/bin/date.sh)
 TMP_NAME="tmp_${TIMESTAMP}.txt"
