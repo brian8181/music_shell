@@ -7,7 +7,7 @@ OPTIONS=NULL
 SEARCH_TERM1=$1
 SEARCH_TERM2=$2
 CACHE_NAME=$3
-CACHE_PATH="$HOME/.music_shell/cache/$CACHE_NAME"
+CACHE_PATH="${CONFIF_PREFIX}/cache/$CACHE_NAME"
 IGNORE_CASE=$4
 
 # check parmaters
@@ -16,6 +16,6 @@ if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
     exit
 fi
 
-echo "$SEARCH_TERM1 <OR> $SEARCH_TERM2 $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
-cat "$CACHE_PATH" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | tee $HOME/.music_shell/queue
-cat "$CACHE_PATH" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" | sort -u | tee -a $HOME/.music_shell/queue
+echo "$SEARCH_TERM1 <OR> $SEARCH_TERM2 $IGNORE_CASE" >> ${CONFIF_PREFIX}/cache/search_history_all
+cat "$CACHE_PATH" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | tee ${CONFIF_PREFIX}/queue
+cat "$CACHE_PATH" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" | sort -u | tee -a ${CONFIF_PREFIX}/queue

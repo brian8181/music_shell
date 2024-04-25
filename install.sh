@@ -47,11 +47,13 @@ PRINT_INFO "$FILE -> Running... @ $DATE"
 #if [ -d "~/bin" ]; then
     PRINT_INFO "copy all to ~/bin ..."
     cp -rf ./src/* ~/bin
-#fi
+#fi\
 
 if [ -e "./def_search.sh" ]; then
     ln ./def_search.sh s
 fi
+
+chmod +x ~/bin/*.sh
 
 PRINT_INFO "Finished installing scripts."
 
