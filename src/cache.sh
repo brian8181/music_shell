@@ -1,15 +1,13 @@
 #!/bin/bash
 
 # settings.sh
-# MUSIC_PATH=${STORE_PREFIX}
-# DEST_PATH=${CONFIF_PREFIX}/%CACHE_NAME
-
-MUSIC_PATH='/mnt/music/music-lib'
-DEST_PATH='/home/brian/.music_shell'
-CACHE_NAME='cache.m3u'
+HOME="/home/brian"
+STORE_PREFIX="/mnt/music/music-lib"
+CONFIF_PREFIX="${HOME}/.music_shell"
+CACHE_NAME="cache.m3u"
 TIME_STAMP="$(date.sh)"
 
-find "${MUSIC_PATH}" -iname "*.mp3" > "${DEST_PATH}/${TIME_STAMP}_${CACHE_NAME}"
-find "${MUSIC_PATH}" -iname "*.ogg" >> "${DEST_PATH}/${TIME_STAMP}_${CACHE_NAME}"
-find "${MUSIC_PATH}" -iname "*.flac" >> "${DEST_PATH}/${TIME_STAMP}_${CACHE_NAME}"
-find "${MUSIC_PATH}" -iname "*.wma" >> "${DEST_PATH}/${TIME_STAMP}_${CACHE_NAME}"
+find "${STORE_PREFIX}" -iname "*.mp3" > "${CONFIF_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
+find "${STORE_PREFIX}" -iname "*.ogg" >> "${CONFIF_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
+find "${STORE_PREFIX}" -iname "*.flac" >> "${CONFIF_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
+find "${STORE_PREFIX}" -iname "*.wma" >> "${CONFIF_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
