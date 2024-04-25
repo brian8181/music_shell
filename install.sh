@@ -43,19 +43,26 @@ PRINT_INFO "$FILE -> Running... @ $DATE"
 #     touch ~/.music_shell/queue
 #     touch ~/.music_shell/config.txt
 # fi
+PRINT_DEBUG "error: wrinting config ..."
+
 
 #if [ -d "~/bin" ]; then
     PRINT_INFO "copy all to ~/bin ..."
     cp -rf ./src/* ~/bin
-#fi\
+#fi
 
-if [ -e "./def_search.sh" ]; then
-    ln ./def_search.sh s
-fi
+# if [ -e "./src/def_search.sh" ]; then
+#     PRINT_INFO "removing soft/link to def_search.sh, "s" ..."
+#     rm ./src/s
+#     PRINT_INFO "creating soft/link to def_search.sh, "s" ..."
+#     ln -s ./src/def_search.sh s
+#     else
+#     PRINT_DEBUG "error: creating soft/link to def_search.sh, "s" ..."
+# fi
+PRINT_DEBUG "error: creating soft/link to def_search.sh, "s" ..."
 
 chmod +x ~/bin/*.sh
 
 PRINT_INFO "Finished installing scripts."
-
 ##{ END YOUR CODE  }##
 PRINT_INFO "$FILE -> Exiting.   @ $DATE"
