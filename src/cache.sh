@@ -19,7 +19,7 @@ DEBUG=1
 if [ -n $VERBOSE ]
 then
 	echo ${VERBOSE:+"File - $FILE"}
-	echo ${VERBOSE:+"Version - $VERSION"}+
+	echo ${VERBOSE:+"Version - $VERSION"}
 	echo ${VERBOSE:+"Date - $FILE_DATE"}
 fi
 
@@ -39,11 +39,11 @@ PRINT_INFO "$FILE -> Running... @ $DATE"
 ##{ BEGIN YOUR CODE  }##
 
 # settings.sh
-    HOME="/home/brian"
-    STORE_PREFIX="/mnt/music/music-lib"
-    CONFIF_PREFIX="${HOME}/.music_shell"
-    CACHE_NAME="cache.m3u"
-    TIME_STAMP="$(date.sh)"
+HOME="/home/brian"
+STORE_PREFIX="/mnt/music/music-lib"
+CONFIF_PREFIX="${HOME}/.music_shell"
+CACHE_NAME="cache.m3u"
+TIME_STAMP="$(date.sh)"
 
 PRINT_INFO "searching \"${STORE_PREFIX}\", wrting cache too \"${CONFIF_PREFIX}/${TIME_STAMP}_${CACHE_NAME}\" ..."
 
