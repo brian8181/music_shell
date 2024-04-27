@@ -47,21 +47,19 @@ PRINT_INFO "\"$FILE\" -> Running... @ $DATE"
 SEARCH_TERM=$1
 CACHE_NAME="$HOME/.music_shell/cache/$2"
 PLAYLIST_NAME=$3
-IGNORE_CASE=$4
+IGNORE_CASE=$3
 
 # if [[ ! -r "$CACHE_NAME" ]]; then
 #     echo "error: $CACHE_NAME does not exists"
 #     exit
 # fi
 
-if [ -z "$SEARCH_TERM" ]; then
-    echo "Error: no "SEARCH_TERM" specified ..."
-    exitrm
-fi
-
-cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" | tee -a $HOME/"${PLAYLIST_NAME}.m3u.swp"
-cat $HOME/"${PLAYLIST_NAME}.m3u.swp" | sort -u > $HOME/"${PLAYLIST_NAME}.m3u"
+#
+cat "$CACHE_NAME" | egrep --color=always "$SEARCH_TERM" >> "$HOME/${PLAYLIST_NAME}.m3u.swp"
+#cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" | tee -a $HOME/"${PLAYLIST_NAME}.m3u.swp"
+cat "$HOME/${PLAYLIST_NAME}.m3u.swp" | sort -u > "$HOME/${PLAYLIST_NAME}.m3u"
 rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
+
 
 ##{ END YOUR CODE  }##
 PRINT_INFO "\"$FILE\" -> Exiting.   @ $DATE"
