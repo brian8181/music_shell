@@ -42,7 +42,6 @@ PRINT_INFO "\"$FILE\" -> Running... @ $DATE"
 ##{ BEGIN YOUR CODE  }##
 
 PRINT_INFO "creating playlist ..."
-
 HOME="/home/brian"
 
 while getopts aon option
@@ -70,7 +69,6 @@ do
 
         o )
             PRINT_INFO "OR ..."
-
             SEARCH_TERM1=$2
             SEARCH_TERM2=$3
             CACHE_NAME="$HOME/.music_shell/cache/$4"
@@ -92,7 +90,6 @@ do
 
         n )
             PRINT_INFO "BEGIN cache ..."
-
             SEARCH_TERM=$2
             CACHE_NAME="$HOME/.music_shell/cache/$3"
             PLAYLIST_NAME=$4
@@ -118,10 +115,6 @@ do
     esac
 done
 
-
-
-
-PRINT_INFO "finished creating playlist ..."
-
 ##{ END YOUR CODE  }##
+PRINT_INFO "finished creating playlist ..."
 PRINT_INFO "\"$FILE\" -> Exiting.   @ $DATE"
