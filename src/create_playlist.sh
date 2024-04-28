@@ -49,31 +49,29 @@ while getopts aon option
 do
     case "${option}"
         in
-        a)  echo "AND";;
+        a)  #echo "AND";;
+            SEARCH_TERM1=$2
+            SEARCH_TERM2=$3
+            CACHE_NAME="$HOME/.music_shell/cache/$4"
+            PLAYLIST_NAME=$5
+            IGNORE_CASE=$6
 
-            # SEARCH_TERM1=$2
-            # SEARCH_TERM2=$3
-            # CACHE_NAME="$4"
-            # PLAYLIST_NAME=$5
-            # CACHE_PATH="$HOME/.music_shell/cache/$CACHE_NAME"
-            # IGNORE_CASE=$6
+            # check parmaters
+            if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
+                echo "Error: no "SEARCH_TERM1 or SEARCH_TERM2 or CACHE_NAME"  specified ..."
+                exit
+            fi
 
-            # # check parmaters
-            # if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
-            #     echo "Error: no "SEARCH_TERM1 or SEARCH_TERM2 or CACHE_NAME"  specified ..."
-            #     exit
-            # fi
+            #echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
+            cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" > "${PLAYLIST_NAME}".m3u
+            ;;
 
-            # #echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
-            # cat "$CACHE_PATH" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" > "${PLAYLIST_NAME}".m3u
-            
         o)  echo "OR";;
 
             # SEARCH_TERM1=$2
             # SEARCH_TERM2=$3
-            # CACHE_NAME="$4"
+            # CACHE_NAME="$HOME/.music_shell/cache/$4"
             # PLAYLIST_NAME=$5
-            # CACHE_PATH="$HOME/.music_shell/cache/$CACHE_NAME"
             # IGNORE_CASE=$6
 
             # # check parmaters
@@ -82,8 +80,8 @@ do
             #     exit
             # fi
 
-            # echo "$SEARCH_TERM1 <OR> $SEARCH_TERM2 $IGNORE_CASE" >> ${CONFIF_PREFIX}/cache/search_history_all
-            # cat "$CACHE_PATH" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | tee "${PLAYLIST_NAME}".m3u.swp
+            # echo "${SEARCH_TERM1} <OR> ${SEARCH_TERM2} ${IGNORE_CASE}" >> ${CONFIF_PREFIX}/cache/search_history_all
+            # cat "${CACHE_NAME}" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | tee "${PLAYLIST_NAME}".m3u.swp
             # cat "${PLAYLIST_NAME}".m3u.swp | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" | sort -u | tee -a "${PLAYLIST_NAME}".m3u
 
         n)  echo "NONE"
