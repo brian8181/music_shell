@@ -48,9 +48,9 @@ HOME="/home/brian"
 while getopts aon option
 do
     case "${option}"
-        in
-        a)  #echo "AND";;
-
+    in
+        a )
+            ehco "AND ..."
             SEARCH_TERM1=$2
             SEARCH_TERM2=$3
             CACHE_NAME="$HOME/.music_shell/cache/$4"
@@ -67,7 +67,8 @@ do
             cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" > "${PLAYLIST_NAME}".m3u
             ;;
 
-        o)  # echo "OR";;
+        o )
+            ehco "OR ..."
 
             SEARCH_TERM1=$2
             SEARCH_TERM2=$3
@@ -87,7 +88,8 @@ do
             rm "${PLAYLIST_NAME}".m3u.swp
             ;;
 
-        n)  echo "NONE"
+        n )
+            echo "BEGIN cache ..."
 
             SEARCH_TERM=$2
             CACHE_NAME="$HOME/.music_shell/cache/$3"
@@ -100,8 +102,17 @@ do
             rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
 
             ;;
+        h )
+            show_help;
+            exit 1
+            ;;
+        \? )
+            echo error "Invalid option: -$OPTARG" >&2
+            exit 1
+          ;;
         * )
             echo "DEFAULT"
+            exit 1;
         ;;
     esac
 done
