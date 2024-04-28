@@ -50,12 +50,13 @@ do
     case "${option}"
     in
         a )
-            ehco "AND ..."
+            PRINT_INFO "AND ..."
             SEARCH_TERM1=$2
             SEARCH_TERM2=$3
             CACHE_NAME="$HOME/.music_shell/cache/$4"
             PLAYLIST_NAME=$5
             IGNORE_CASE=$6
+            PRINT_INFO "\"$SEARCH_TERM1\" <AND> \"$SEARCH_TERM2\" $IGNORE_CASE"
 
             # check parmaters
             if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
@@ -68,13 +69,14 @@ do
             ;;
 
         o )
-            ehco "OR ..."
+            PRINT_INFO "OR ..."
 
             SEARCH_TERM1=$2
             SEARCH_TERM2=$3
             CACHE_NAME="$HOME/.music_shell/cache/$4"
             PLAYLIST_NAME=$5
             IGNORE_CASE=$6
+            PRINT_INFO "\"$SEARCH_TERM1\" <OR> \"$SEARCH_TERM2\" $IGNORE_CASE"
 
             # check parmaters
             if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
@@ -89,7 +91,7 @@ do
             ;;
 
         n )
-            echo "BEGIN cache ..."
+            PRINT_INFO "BEGIN cache ..."
 
             SEARCH_TERM=$2
             CACHE_NAME="$HOME/.music_shell/cache/$3"
@@ -100,18 +102,17 @@ do
             #cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" | tee -a "$HOME/${PLAYLIST_NAME}.m3u.swp"
             cat "$HOME/${PLAYLIST_NAME}.m3u.swp" | sort -u > "$HOME/${PLAYLIST_NAME}.m3u"
             rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
-
             ;;
         h )
-            show_help;
+            #show_help;
             exit 1
             ;;
         \? )
-            echo error "Invalid option: -$OPTARG" >&2
+            PRINT_DEBUG error "Invalid option: -$OPTARG" >&2
             exit 1
           ;;
         * )
-            echo "DEFAULT"
+            PRINT_DEBUG "DEFAULT"
             exit 1;
         ;;
     esac
