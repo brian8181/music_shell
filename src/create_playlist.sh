@@ -100,6 +100,9 @@ do
             rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
 
             ;;
+        * )
+            echo "DEFAULT"
+        ;;
     esac
 done
 
