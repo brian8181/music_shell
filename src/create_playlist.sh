@@ -82,8 +82,9 @@ do
             fi
 
             #echo "${SEARCH_TERM1} <OR> ${SEARCH_TERM2} ${IGNORE_CASE}" >> ${CONFIF_PREFIX}/cache/search_history_all
-            cat "${CACHE_NAME}" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | tee "${PLAYLIST_NAME}".m3u.swp
-            cat "${PLAYLIST_NAME}".m3u.swp | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" | sort -u | tee -a "${PLAYLIST_NAME}".m3u
+            cat "${CACHE_NAME}" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" > "${PLAYLIST_NAME}".m3u.swp
+            cat "${PLAYLIST_NAME}".m3u.swp | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" | sort -u > "${PLAYLIST_NAME}".m3u
+            rm "${PLAYLIST_NAME}".m3u.swp
             ;;
 
         n)  echo "NONE"
