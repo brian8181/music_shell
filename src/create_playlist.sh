@@ -43,6 +43,15 @@ PRINT_INFO "\"$FILE\" -> Running... @ $DATE"
 
 PRINT_INFO "creating playlist ..."
 
+while getopts a:o: option
+do
+    case "${option}"
+        in
+        a)and=${OPTARG};;
+        o)or=${OPTARG};;
+    esac
+done
+
 HOME="/home/brian"
 SEARCH_TERM=$1
 CACHE_NAME="$HOME/.music_shell/cache/$2"
