@@ -49,30 +49,32 @@ while getopts aon option
 do
     case "${option}"
         in
-        a)  echo "AND";;
-            # SEARCH_TERM1=$2
-            # SEARCH_TERM2=$3
-            # CACHE_NAME="$4"
-            # CACHE_PATH="$HOME/.music_shell/cache/$CACHE_NAME"
-            # IGNORE_CASE=$5
+        a)  #echo "AND";;
 
-            # # check parmaters
-            # if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
-            #     echo "Error: no "SEARCH_TERM1 or SEARCH_TERM2 or CACHE_NAME"  specified ..."
-            #     exit
-            # fi
+            SEARCH_TERM1=$2
+            SEARCH_TERM2=$3
+            CACHE_NAME="$4"
+            PLAYLIST_NAME=$5
+            CACHE_PATH="$HOME/.music_shell/cache/$CACHE_NAME"
+            IGNORE_CASE=$6
 
-            # echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
-            # cat "$CACHE_PATH" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" | tee $HOME/.music_shell/queue
-            # ;;
+            # check parmaters
+            if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
+                echo "Error: no "SEARCH_TERM1 or SEARCH_TERM2 or CACHE_NAME"  specified ..."
+                exit
+            fi
+
+            echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
+            cat "$CACHE_PATH" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" > "${PLAYLIST_NAME}".m3u
+            ;;
 
         o)  echo "OR";;
 
-            # SEARCH_TERM1=$1
-            # SEARCH_TERM2=$2
-            # CACHE_NAME=$3
+            # SEARCH_TERM1=$2
+            # SEARCH_TERM2=$3
+            # CACHE_NAME=$4
             # CACHE_PATH="${CONFIF_PREFIX}/cache/$CACHE_NAME"
-            # IGNORE_CASE=$4
+            # IGNORE_CASE=$5
 
             # # check parmaters
             # if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
