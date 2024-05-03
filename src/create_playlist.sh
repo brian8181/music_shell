@@ -46,7 +46,7 @@ HOME="/home/brian"
 CONFIG_PATH="$HOME/.music_shell"
 CACHE_PATH="${CONFIG_PATH}/cache"
 
-while getopts aoin:c:p: option
+while getopts aoihn:c:p: option
 do
     case "${option}"
     in
@@ -93,7 +93,7 @@ do
             ;;
 
         n)
-            PRINT_INFO "BEGIN cache ..."
+            PRINT_INFO "single search term ..."
 
             SEARCH_TERM="$2"
             PLAYLIST_NAME="${CONFIG_PATH}/${3:=new_playlist}"
@@ -105,11 +105,19 @@ do
             #rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
             ;;
         h)
+            echo
+            echo "Usage:"
+            echo "create_playlist.sh [-aioh] search_term [search_term] [name=~/.music_shell/new_playlist.m3u] [cache=~/.music_shell/cache/cache.m3u]"
+            echo "create_playlist.sh -n \"Pink Floyd\" pink_floyd"
+            echo "create_playlist.sh -ni \"Pink Floyd\" pink_floyd # ignore case"
+            echo "create_playlist.sh -a \"Pink\" \"Floyd\" pink_floyd # Pink \"and\" Floyd"
+            echo "create_playlist.sh -o \"Pink\" \"Floyd\" pink_floyd # Pink \"or\" Floyd"
+            echo
             ;;
         c)
             CACHE_NAME="$HOME/.music_shell/cache/$OPTARG";
             #shift 2;
-            echo c$CACHE_NAME
+            echo $CACHE_NAME
             ;;
         p)
             PLAYLIST_NAME="$OPTARG";
@@ -123,11 +131,8 @@ do
         \?)
             PRINT_DEBUG error "Invalid option: -$OPTARG" >&2
             exit 1
-          ;;
-        *)
-            PRINT_DEBUG "DEFAULT"
-            exit 1;
-        ;;
+            ;;
+
     esac
 done
 
