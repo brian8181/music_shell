@@ -100,6 +100,12 @@ do
             CACHE_NAME="${CACHE_PATH}/${4:-cache.m3u}"
             IGNORE_CASE="$5"
 
+            # check parmaters
+            if [[ -z "$SEARCH_TERM" ]]; then
+                echo "Error: no "SEARCH_TERM" specified ..."
+                exit
+            fi
+
             cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" > "${PLAYLIST_NAME}.m3u.swp"
             cat "${PLAYLIST_NAME}.m3u.swp" | sort -u > "${PLAYLIST_NAME}.m3u"
             #rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
