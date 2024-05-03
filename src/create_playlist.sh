@@ -72,14 +72,14 @@ do
 
         o)
             PRINT_INFO "OR ..."
-
             CONFIG_PATH="$HOME/.music_shell"
             SEARCH_TERM1="$2"
             SEARCH_TERM2="$3"
-            PLAYLIST_NAME="${CONFIG_PATH}/${4:=}"
+            PLAYLIST_NAME="${CONFIG_PATH}/${4:=new_playlist}"
             CACHE_PATH="${CONFIG_PATH}/cache"
-            CACHE_NAME="${CACHE_NAME}/${5:=cache.m3u}"
+            CACHE_NAME="${CACHE_PATH}/${5:-cache.m3u}"
             IGNORE_CASE="$6"
+            PRINT_INFO "\"$SEARCH_TERM1\" <OR> \"$SEARCH_TERM2\" $IGNORE_CASE"
 
             # check parmaters
             if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
