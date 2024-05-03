@@ -43,6 +43,8 @@ PRINT_INFO "\"$FILE\" -> Running... @ $DATE"
 
 PRINT_INFO "creating playlist ..."
 HOME="/home/brian"
+CONFIG_PATH="$HOME/.music_shell"
+CACHE_PATH="${CONFIG_PATH}/cache"
 
 while getopts aoin:c:p: option
 do
@@ -51,11 +53,9 @@ do
         a)
             PRINT_INFO "AND ..."
 
-            CONFIG_PATH="$HOME/.music_shell"
             SEARCH_TERM1="$2"
             SEARCH_TERM2="$3"
             PLAYLIST_NAME="${CONFIG_PATH}/${4:=new_playlist}"
-            CACHE_PATH="${CONFIG_PATH}/cache"
             CACHE_NAME="${CACHE_PATH}/${5:-cache.m3u}"
             IGNORE_CASE="$6"
             PRINT_INFO "\"$SEARCH_TERM1\" <AND> \"$SEARCH_TERM2\" $IGNORE_CASE"
@@ -66,17 +66,16 @@ do
                 exit
             fi
 
-            #echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
+            rm "${PLAYLIST_NAME}".m3u # todo error file exsit
             cat "${CACHE_NAME}" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" > "${PLAYLIST_NAME}".m3u
             ;;
 
         o)
             PRINT_INFO "OR ..."
-            CONFIG_PATH="$HOME/.music_shell"
+
             SEARCH_TERM1="$2"
             SEARCH_TERM2="$3"
             PLAYLIST_NAME="${CONFIG_PATH}/${4:=new_playlist}"
-            CACHE_PATH="${CONFIG_PATH}/cache"
             CACHE_NAME="${CACHE_PATH}/${5:-cache.m3u}"
             IGNORE_CASE="$6"
             PRINT_INFO "\"$SEARCH_TERM1\" <OR> \"$SEARCH_TERM2\" $IGNORE_CASE"
@@ -87,19 +86,22 @@ do
                 exit
             fi
 
-            #echo "${SEARCH_TERM1} <OR> ${SEARCH_TERM2} ${IGNORE_CASE}" >> ${CONFIF_PREFIX}/cache/search_history_all
+            rm "${PLAYLIST_NAME}".m3u # todo error file exsit
             cat "${CACHE_NAME}" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" > "${PLAYLIST_NAME}".m3u.swp
-            cat "${PLAYLIST_NAME}".m3u.swp | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" | sort -u > "${PLAYLIST_NAME}".m3u
+            cat "${PLAYLIST_NAME}".m3u.swp | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" | sort -u >> "${PLAYLIST_NAME}".m3u
             rm "${PLAYLIST_NAME}".m3u.swp
             ;;
 
         n)
             PRINT_INFO "BEGIN cache ..."
 
-            SEARCH_TERM=$OPTARG
-            cat "$CACHE_NAME" | egrep "$SEARCH_TERM" > "$HOME/${PLAYLIST_NAME}.m3u.swp"
-            #cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" | tee -a "$HOME/${PLAYLIST_NAME}.m3u.swp"
-            cat "$HOME/${PLAYLIST_NAME}.m3u.swp" | sort -u > "$HOME/${PLAYLIST_NAME}.m3u"
+            SEARCH_TERM="$2"
+            PLAYLIST_NAME="${CONFIG_PATH}/${3:=new_playlist}"
+            CACHE_NAME="${CACHE_PATH}/${4:-cache.m3u}"
+            IGNORE_CASE="$5"
+
+            cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" > "${PLAYLIST_NAME}.m3u.swp"
+            cat "${PLAYLIST_NAME}.m3u.swp" | sort -u > "${PLAYLIST_NAME}.m3u"
             #rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
             ;;
         h)
@@ -112,7 +114,7 @@ do
         p)
             PLAYLIST_NAME="$OPTARG";
             #shift 2;
-            echo p$PLAYLIST_NAME
+            echo $PLAYLIST_NAME
             ;;
         i)
             IGNORE_CASE='-i';
