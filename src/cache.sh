@@ -41,18 +41,18 @@ PRINT_INFO "$FILE -> Running... @ $DATE"
 # settings.sh
 HOME="/home/brian"
 STORE_PREFIX="/mnt/music/music-lib"
-CONFIF_PREFIX="${HOME}/.music_shell"
+CONFIG_PREFIX="${HOME}/.music_shell"
 CACHE_NAME="cache.m3u"
 TIME_STAMP="$(date.sh)"
 
-PRINT_INFO "searching \"${STORE_PREFIX}\", wrting cache too \"${CONFIF_PREFIX}/${TIME_STAMP}_${CACHE_NAME}\" ..."
+PRINT_INFO "searching \"${STORE_PREFIX}\", wrting cache too \"${CONFIG_PREFIX}/${TIME_STAMP}_${CACHE_NAME}\" ..."
 
-find "${STORE_PREFIX}" -iname "*.mp3" > "${CONFIF_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
-find "${STORE_PREFIX}" -iname "*.ogg" >> "${CONFIF_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
-find "${STORE_PREFIX}" -iname "*.flac" >> "${CONFIF_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
-find "${STORE_PREFIX}" -iname "*.wma" >> "${CONFIF_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
+find "${STORE_PREFIX}" -iname "*.mp3" > "${CONFIG_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
+find "${STORE_PREFIX}" -iname "*.ogg" >> "${CONFIG_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
+find "${STORE_PREFIX}" -iname "*.flac" >> "${CONFIG_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
+find "${STORE_PREFIX}" -iname "*.wma" >> "${CONFIG_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
 
-PRINT_INFO "finished writing cache too \"${CONFIF_PREFIX}/${TIME_STAMP}_${CACHE_NAME}\" ..."
+PRINT_INFO "finished writing cache too \"${CONFIG_PREFIX}/${TIME_STAMP}_${CACHE_NAME}\" ..."
 
 ##{ END YOUR CODE  }##
 PRINT_INFO "$FILE -> Exiting.   @ $DATE"

@@ -43,8 +43,8 @@ PRINT_INFO "\"$FILE\" -> Running... @ $DATE"
 
 PRINT_INFO "creating playlist ..."
 HOME="/home/brian"
-CONFIG_PATH="$HOME/.music_shell"
-CACHE_PATH="${CONFIG_PATH}/cache"
+CONFIG_PREFIX="$HOME/.music_shell"
+CACHE_PATH="${CONFIG_PREFIX}/cache"
 
 while getopts aoihn:c:p: option
 do
@@ -55,7 +55,7 @@ do
 
             SEARCH_TERM1="$2"
             SEARCH_TERM2="$3"
-            PLAYLIST_NAME="${CONFIG_PATH}/${4:=new_playlist}"
+            PLAYLIST_NAME="${CONFIG_PREFIX}/${4:=new_playlist}"
             CACHE_NAME="${CACHE_PATH}/${5:-cache.m3u}"
             IGNORE_CASE="$6"
             PRINT_INFO "\"$SEARCH_TERM1\" <AND> \"$SEARCH_TERM2\" $IGNORE_CASE"
@@ -75,7 +75,7 @@ do
 
             SEARCH_TERM1="$2"
             SEARCH_TERM2="$3"
-            PLAYLIST_NAME="${CONFIG_PATH}/${4:=new_playlist}"
+            PLAYLIST_NAME="${CONFIG_PREFIX}/${4:=new_playlist}"
             CACHE_NAME="${CACHE_PATH}/${5:-cache.m3u}"
             IGNORE_CASE="$6"
             PRINT_INFO "\"$SEARCH_TERM1\" <OR> \"$SEARCH_TERM2\" $IGNORE_CASE"
@@ -96,7 +96,7 @@ do
             PRINT_INFO "single search term ..."
 
             SEARCH_TERM="$2"
-            PLAYLIST_NAME="${CONFIG_PATH}/${3:=new_playlist}"
+            PLAYLIST_NAME="${CONFIG_PREFIX}/${3:=new_playlist}"
             CACHE_NAME="${CACHE_PATH}/${4:-cache.m3u}"
             IGNORE_CASE="$5"
 
