@@ -44,17 +44,20 @@ PRINT_INFO "\"$FILE\" -> Running... @ $DATE"
 PRINT_INFO "creating playlist ..."
 HOME="/home/brian"
 
-while getopts aon option
+while getopts aoin:c:p: option
 do
     case "${option}"
     in
-        a )
+        a)
             PRINT_INFO "AND ..."
-            SEARCH_TERM1=$2
-            SEARCH_TERM2=$3
-            CACHE_NAME="$HOME/.music_shell/cache/$4"
-            PLAYLIST_NAME=$5
-            IGNORE_CASE=$6
+
+            CONFIG_PATH="$HOME/.music_shell"
+            SEARCH_TERM1="$2"
+            SEARCH_TERM2="$3"
+            PLAYLIST_NAME="${CONFIG_PATH}/${4:=new_playlist}"
+            CACHE_PATH="${CONFIG_PATH}/cache"
+            CACHE_NAME="${CACHE_PATH}/${5:-cache.m3u}"
+            IGNORE_CASE="$6"
             PRINT_INFO "\"$SEARCH_TERM1\" <AND> \"$SEARCH_TERM2\" $IGNORE_CASE"
 
             # check parmaters
@@ -64,17 +67,19 @@ do
             fi
 
             #echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
-            cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" > "${PLAYLIST_NAME}".m3u
+            cat "${CACHE_NAME}" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" > "${PLAYLIST_NAME}".m3u
             ;;
 
-        o )
+        o)
             PRINT_INFO "OR ..."
-            SEARCH_TERM1=$2
-            SEARCH_TERM2=$3
-            CACHE_NAME="$HOME/.music_shell/cache/$4"
-            PLAYLIST_NAME=$5
-            IGNORE_CASE=$6
-            PRINT_INFO "\"$SEARCH_TERM1\" <OR> \"$SEARCH_TERM2\" $IGNORE_CASE"
+
+            CONFIG_PATH="$HOME/.music_shell"
+            SEARCH_TERM1="$2"
+            SEARCH_TERM2="$3"
+            PLAYLIST_NAME="${CONFIG_PATH}/${4:=}"
+            CACHE_PATH="${CONFIG_PATH}/cache"
+            CACHE_NAME="${CACHE_NAME}/${5:=cache.m3u}"
+            IGNORE_CASE="$6"
 
             # check parmaters
             if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
@@ -88,27 +93,36 @@ do
             rm "${PLAYLIST_NAME}".m3u.swp
             ;;
 
-        n )
+        n)
             PRINT_INFO "BEGIN cache ..."
-            SEARCH_TERM=$2
-            CACHE_NAME="$HOME/.music_shell/cache/$3"
-            PLAYLIST_NAME=$4
-            IGNORE_CASE=$5
 
+            SEARCH_TERM=$OPTARG
             cat "$CACHE_NAME" | egrep "$SEARCH_TERM" > "$HOME/${PLAYLIST_NAME}.m3u.swp"
             #cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" | tee -a "$HOME/${PLAYLIST_NAME}.m3u.swp"
             cat "$HOME/${PLAYLIST_NAME}.m3u.swp" | sort -u > "$HOME/${PLAYLIST_NAME}.m3u"
-            rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
+            #rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
             ;;
-        h )
-            #show_help;
-            exit 1
+        h)
             ;;
-        \? )
+        c)
+            CACHE_NAME="$HOME/.music_shell/cache/$OPTARG";
+            #shift 2;
+            echo c$CACHE_NAME
+            ;;
+        p)
+            PLAYLIST_NAME="$OPTARG";
+            #shift 2;
+            echo p$PLAYLIST_NAME
+            ;;
+        i)
+            IGNORE_CASE='-i';
+            shift;
+            ;;
+        \?)
             PRINT_DEBUG error "Invalid option: -$OPTARG" >&2
             exit 1
           ;;
-        * )
+        *)
             PRINT_DEBUG "DEFAULT"
             exit 1;
         ;;

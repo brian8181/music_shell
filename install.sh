@@ -19,7 +19,7 @@ DEBUG=1
 if [ -n $VERBOSE ]
 then
 	echo ${VERBOSE:+"File - $FILE"}
-	echo ${VERBOSE:+"Version - $VERSION"}+
+	echo ${VERBOSE:+"Version - $VERSION"}
 	echo ${VERBOSE:+"Date - $FILE_DATE"}
 fi
 
@@ -43,7 +43,7 @@ PRINT_INFO "$FILE -> Running... @ $DATE"
 #     touch ~/.music_shell/queue
 #     touch ~/.music_shell/config.txt
 # fi
-PRINT_DEBUG "error: wrinting config ..."
+PRINT_DEBUG "error: writing config ..."
 
 
 #if [ -d "~/bin" ]; then
