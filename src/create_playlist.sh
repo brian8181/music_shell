@@ -106,9 +106,8 @@ do
                 exit
             fi
 
-            cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" > "${PLAYLIST_NAME}.m3u.swp"
-            cat "${PLAYLIST_NAME}.m3u.swp" | sort -u > "${PLAYLIST_NAME}.m3u"
-            #rm $HOME/"${PLAYLIST_NAME}.m3u.swp"
+            rm "${PLAYLIST_NAME}".m3u # todo error file exsit
+            cat "$CACHE_NAME" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM" > "${PLAYLIST_NAME}.m3u"
             ;;
         h)
             echo
