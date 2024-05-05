@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# load export settings
-
 HOME="/home/brian"
 CONFIG_PREFIX="$HOME/.music_shell"
 CACHE_PATH="${CONFIG_PREFIX}/cache"

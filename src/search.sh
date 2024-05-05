@@ -9,11 +9,19 @@ PLAYLIST_NAME="${CONFIG_PREFIX}/${2:-new_playlist}"
 CACHE_NAME="${CACHE_PATH}/${3:-cache.m3u}"
 IGNORE_CASE="${4:-i}"
 
-# check parmaters
-if [[ -z "$SEARCH_TERM" ]]; then
-    echo "Error: no "SEARCH_TERM" specified ..."
-    exit
-fi
 
-#echo "$SEARCH_TERM $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
-cat "$CACHE_NAME" | egrep --color=always "$SEARCH_TERM" | tee $HOME/.music_shell/queue
+
+
+function SEARCH
+{
+    # check parmaters
+    if [[ -z "$SEARCH_TERM" ]]; then
+        echo "Error: no "SEARCH_TERM" specified ..."
+        exit
+    fi
+
+    #echo "$SEARCH_TERM $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
+    cat "$CACHE_NAME" | egrep --color=always "$SEARCH_TERM" | tee $HOME/.music_shell/queue
+}
+
+SEARCH $SEARCH_TERM $CACHE_NAME

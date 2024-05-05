@@ -38,30 +38,26 @@ function PRINT_INFO
 PRINT_INFO "$FILE -> Running... @ $DATE"
 ##{ BEGIN YOUR CODE  }##
 
-# if [ -e "~/.music_shell/cache" ]
-#     md -p ~/.music_shell/cache
+settings.sh
+
+if [ -e "$HOME/.music_shell/cache" ]; then
+      mkdir -p $HOME/.music_shell/cache
 #     touch ~/.music_shell/queue
 #     touch ~/.music_shell/config.txt
-# fi
-PRINT_DEBUG "error: writing config ..."
+    else
+    PRINT_DEBUG "error: writing config ..."
+fi
 
-
-#if [ -d "~/bin" ]; then
+if [ -d "$HOME/bin" ]; then
     PRINT_INFO "copy all to ~/bin ..."
-    cp -rf ./src/* ~/bin
-#fi
+    #cp -rf "./src/*" "$HOME/bin"
+fi
 
-# if [ -e "./src/def_search.sh" ]; then
-#     PRINT_INFO "removing soft/link to def_search.sh, "s" ..."
-#     rm ./src/s
-#     PRINT_INFO "creating soft/link to def_search.sh, "s" ..."
-#     ln -s ./src/def_search.sh s
-#     else
-#     PRINT_DEBUG "error: creating soft/link to def_search.sh, "s" ..."
-# fi
-PRINT_DEBUG "error: creating soft/link to def_search.sh, "s" ..."
+PRINT_INFO "creating soft/link to def_search.sh, \"s\" ..."
+#ln -s "$HOME/src/def_search.sh" s
+#ln -s "$HOME/bin/search.sh" search
+#chmod +x "$HOME/bin/*"
 
-chmod +x ~/bin/*.sh
 
 PRINT_INFO "Finished installing scripts."
 ##{ END YOUR CODE  }##
