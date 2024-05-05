@@ -41,7 +41,7 @@ PRINT_INFO "$FILE -> Running... @ $DATE"
 # settings.sh
 HOME="/home/brian"
 STORE_PREFIX="/mnt/music/music-lib"
-CONFIG_PREFIX="${HOME}/.music_shell"
+~/="${HOME}/.music_shell"
 CACHE_NAME="cache.m3u"
 TIME_STAMP="$(date.sh)"
 

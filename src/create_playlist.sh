@@ -42,7 +42,7 @@ PRINT_INFO "\"$FILE\" -> Running... @ $DATE"
 ##{ BEGIN YOUR CODE  }##
 
 PRINT_INFO "creating playlist ..."
-HOME="/home/brian"
+HOME="~/"
 CONFIG_PREFIX="$HOME/.music_shell"
 CACHE_PATH="${CONFIG_PREFIX}/cache"
 

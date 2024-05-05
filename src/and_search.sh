@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # load export settings
-./settings.sh
+HOME="~/"
+CONFIG_PREFIX="$HOME/.music_shell"
+CACHE_PATH="${CONFIG_PREFIX}/cache"
 
 OPTIONS=NULL
 SEARCH_TERM1=$1
