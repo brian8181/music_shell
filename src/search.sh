@@ -1,5 +1,4 @@
 #!/bin/bash
-settings.sh
 
 HOME="/home/brian"
 CONFIG_PREFIX="$HOME/.music_shell"

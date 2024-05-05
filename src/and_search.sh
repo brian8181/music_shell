@@ -1,15 +1,12 @@
 #!/bin/bash
-
-# load export settings
-HOME="~/"
+HOME="/home/brian"
 CONFIG_PREFIX="$HOME/.music_shell"
 CACHE_PATH="${CONFIG_PREFIX}/cache"
 
-OPTIONS=NULL
 SEARCH_TERM1=$1
 SEARCH_TERM2=$2
-CACHE_NAME=$3
-CACHE_PATH="$HOME/.music_shell/cache/$CACHE_NAME"
+PLAYLIST_NAME="${CONFIG_PREFIX}/${2:-new_playlist}"
+CACHE_NAME="${CACHE_PATH}/${3:-cache.m3u}"
 IGNORE_CASE=$4
 
 # check parmaters
@@ -18,5 +15,5 @@ if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
     exit
 fi
 
-echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
-cat "$CACHE_PATH" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM1" | egrep --color=always $IGNORE_CASE "$SEARCH_TERM2" | tee $HOME/.music_shell/queue
+#echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
+cat "$CACHE_NAME" | egrep --color=always "$SEARCH_TERM1" | egrep --color=always "$SEARCH_TERM2" | tee $HOME/.music_shell/queue
