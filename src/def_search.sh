@@ -4,7 +4,7 @@ settings.sh
 
 SEARCH_TERM=$1
 IGNORE_CASE=$2
-CACHE_NAME="cache.txt"
+CACHE_NAME="cache.m3u"
 
 search.sh "$SEARCH_TERM" "${CONFIG_PREFIX}/cache/$CACHE_NAME" "$IGNORE_CASE"
 
