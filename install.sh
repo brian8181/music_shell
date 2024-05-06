@@ -48,16 +48,30 @@ if [ -e "$HOME/.music_shell/cache" ]; then
     PRINT_DEBUG "error: writing config ..."
 fi
 
+# copy all music_shell/src to $HOME/bin
 if [ -d "$HOME/bin" ]; then
-    PRINT_INFO "copy all to ~/bin ..."
-    #cp -rf "./src/*" "$HOME/bin"
+    PRINT_INFO "copy all to $HOME/bin ..."
+    cp -rf "$HOME/src/music_shell/src/*" "$HOME/bin/"
 fi
 
 PRINT_INFO "creating soft/link to def_search.sh, \"s\" ..."
-#ln -s "$HOME/src/def_search.sh" s
-#ln -s "$HOME/bin/search.sh" search
-#chmod +x "$HOME/bin/*"
 
+# check for sym links, and delete
+# check for links not file !
+# if [ -f "$HOME/bin/s" ]; then
+#     rm s
+# fi
+
+# if [ -f "$HOME/bin/search" ]; then
+#     rm search
+# fi
+
+# make sym links
+# just remove for now
+rm "$HOME/bin/s"
+rm "$HOME/bin/search"
+ln -s "$HOME/bin/search.sh" search
+ln -s "$HOME/bin/search.sh" s
 
 PRINT_INFO "Finished installing scripts."
 ##{ END YOUR CODE  }##
