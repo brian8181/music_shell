@@ -22,7 +22,6 @@ $(BLD)\tag.o: $(SRC)/tag.cpp
 install:
 	./install.sh
 
-
 .PHONY: clean
 clean:
 	-rm -f $(OBJ)/*.o
