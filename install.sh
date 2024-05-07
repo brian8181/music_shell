@@ -1,7 +1,7 @@
 #!/bin/bash
 FILE='install.sh'
 VERSION='0.0.1'
-FILE_DATE='Tue Apr 23 01:36:23 AM CDT 2024'
+FILE_DATE='Tue May  7 12:03:53 AM CDT 2024'
 
 FMT_FG_RED='\e[31m'
 FMT_FG_GREEN='\e[32m'
@@ -51,10 +51,10 @@ fi
 # copy all music_shell/src to $HOME/bin
 if [ -d "$HOME/bin" ]; then
     PRINT_INFO "copy all to $HOME/bin ..."
-    cp -rf "$HOME/src/music_shell/src/*" "$HOME/bin/"
+    cp -r "$HOME/src/music_shell/src/*" "$HOME/bin/"
 fi
 
-PRINT_INFO "creating soft/link to def_search.sh, \"s\" ..."
+PRINT_INFO "creating soft/link to search.sh, \"s\" ..."
 
 # check for sym links, and delete
 # check for links not file !
@@ -70,8 +70,8 @@ PRINT_INFO "creating soft/link to def_search.sh, \"s\" ..."
 # just remove for now
 rm "$HOME/bin/s"
 rm "$HOME/bin/search"
-ln -s "$HOME/bin/search.sh" search
-ln -s "$HOME/bin/search.sh" s
+ln -s "$HOME/bin/search.sh" "$HOME/bin/search"
+ln -s "$HOME/bin/search.sh" "$HOME/bin/s"
 
 PRINT_INFO "Finished installing scripts."
 ##{ END YOUR CODE  }##
