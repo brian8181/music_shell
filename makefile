@@ -21,6 +21,10 @@ $(BLD)\tag: $(BLD)\tag.o
 $(BLD)\tag.o: $(SRC)/tag.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $(SRC)/tag.cpp -o $(OBJ)/tag.o
 
+.PHONY: install
+install:
+	./install.sh
+
 
 .PHONY: clean
 clean:
