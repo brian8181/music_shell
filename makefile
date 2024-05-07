@@ -1,12 +1,9 @@
 # BUILD_VERSION = 0.1.0
-
 CXX = g++
 CXXFLAGS = -Wall -std=c++17 -DEBUG -ggdb
 LDFLAGS = -ltag -L/usr/local/lib/ -lz
 INCLUDES= -I/usr/local/include/taglib/
 
-
-APPNAME=tag
 SRC=./src
 OBJ=./build
 BLD=./build
