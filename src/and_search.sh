@@ -20,5 +20,4 @@ if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE_NAME"  ]]; then
     exit
 fi
 
-#echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
 cat "$CACHE_NAME" | egrep --color=always "$SEARCH_TERM1" | egrep --color=always "$SEARCH_TERM2" | tee $HOME/.music_shell/queue

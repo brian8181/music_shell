@@ -20,7 +20,6 @@ function SEARCH
         echo "Error: no "SEARCH_TERM" specified ..."
         exit
     fi
-    #echo "$SEARCH_TERM $IGNORE_CASE" >> $HOME/.music_shell/cache/search_history_all
     cat "$CACHE_NAME" | egrep --color=always "$SEARCH_TERM" | tee $HOME/.music_shell/queue
 }
 
