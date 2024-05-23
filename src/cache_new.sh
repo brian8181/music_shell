@@ -1,17 +1,18 @@
 #!/bin/bash
 
-./settings.sh
+HOME="/home/brian"
+STORE_PREFIX="/mnt/music/music-lib"
+CONFIG_PREFIX="$HOME/.music_shell"
+CACHE_NAME="cache.m3u"
+QUEUE_NAME="queue.m3u"
+TIME_STAMP="$(date.sh)"
 
-MUSIC_PATH=$1
-CACHE_PATH=$2
-# NAME=${CACHE_PATH}
-# DEST_PATH=${CACHE_PATH}
+echo "searching \"${STORE_PREFIX}\", wrting cache too \"${CONFIG_PREFIX}/${TIME_STAMP}_${CACHE_NAME}\" ..."
+find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(wma\)\)\)$' > "${CONFIG_PREFIX}/${TIME_STAMP}_${CACHE_NAME}"
+echo "finished writing cache too \"${CONFIG_PREFIX}/${TIME_STAMP}_${CACHE_NAME}\" ..."
 
-# find .. -name "*.flac" -o -name "*.mp3" -o -name "*.wma"
-find "$MUSIC_PATH" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)\)$'
-
-TIMESTAMP=$($HOME/bin/date.sh)
-TMP_NAME="tmp_${TIMESTAMP}.txt"
+# TIMESTAMP=$($HOME/bin/date.sh)
+# TMP_NAME="tmp_${TIMESTAMP}.txt"
 #CACHE_NAME="${DEST_PATH}/${NAME%.*}_${TIMESTAMP}.txt"
 
 # trim off root                                             # replace delimiter   # create date & album columns

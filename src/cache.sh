@@ -38,10 +38,11 @@ function PRINT_INFO
 PRINT_INFO "$FILE -> Running... @ $DATE"
 ##{ BEGIN YOUR CODE  }##
 
-settings.sh
-# HOME="/home/brian"
-# STORE_PREFIX="/mnt/music/music-lib"
-# CACHE_NAME="cache.m3u"
+HOME="/home/brian"
+STORE_PREFIX="/mnt/music/music-lib"
+CONFIG_PREFIX="$HOME/.music_shell"
+CACHE_NAME="cache.m3u"
+QUEUE_NAME="queue.m3u"
 TIME_STAMP="$(date.sh)"
 
 PRINT_INFO "searching \"${STORE_PREFIX}\", wrting cache too \"${CONFIG_PREFIX}/${TIME_STAMP}_${CACHE_NAME}\" ..."
