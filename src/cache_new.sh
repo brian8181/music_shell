@@ -1,11 +1,17 @@
 #!/bin/bash
 
-HOME="/home/brian"
-STORE_PREFIX="/mnt/music/music-lib"
-CONFIG_PREFIX="$HOME/.music_shell"
+HOME="${1}"
+STORE_PREFIX="${2}"
+CONFIG_PREFIX="${3}"
 TIME_STAMP="$(date.sh)"
-CACHE_PATH="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
-QUEUE_NAME="queue.m3u"
+CACHE_PATH="${4}"
+
+# HOME="/home/brian"
+# STORE_PREFIX="/mnt/music/music-lib"
+# CONFIG_PREFIX="$HOME/.music_shell"
+# TIME_STAMP="$(date.sh)"
+# CACHE_PATH="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
+# QUEUE_NAME="queue.m3u"
 
 echo "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE_PATH}\" ..."
 find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(wma\)\)$' > "${CACHE_PATH}"
