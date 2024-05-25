@@ -1,2 +1,0 @@
-0  type    |1  artist  |2  date    |3  album   |4  disc    |5  track   |6  title   |7  .EXT    |
-   string  |   string  |   int     |   int     |   sting   |   string  |   string  |   string  |

@@ -54,13 +54,15 @@ fi
 # copy all music_shell/src to $HOME/bin
 if [ -d "$HOME/bin" ]; then
     PRINT_INFO "copy all to \"$HOME/bin\" ..."
-    cp -r "$HOME/src/music_shell/src/*" "$HOME/bin/"
+    echo "DEBUG: cp $HOME/src/music_shell/src/*.sh $HOME/bin/"
+    cp -r "$HOME/src/music_shell/src/*.sh" "$HOME/bin/"
 fi
 
 PRINT_INFO "creating soft/link to search.sh, \"s\" ..."
 
 # check for sym links, and delete
 if [ -f "$HOME/bin/s" ]; then
+    PRINT_INFO "remove link \"$HOME/bin/s\" ..."
     PRINT_INFO "remove link \"$HOME/bin/s\" ..."
     rm "$HOME/bin/s"
 fi
