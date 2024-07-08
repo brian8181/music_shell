@@ -1,7 +1,6 @@
 #! /bin/bash
 
 # Example
-
 # ./hash_list.sh ~/test/songs.m3u
 # @music_shell/src >$ ./hash_list.sh ../test/songs.m3u
 # 09db530afad81cb1c43ae45d0e760a93 @ albums|Pink Floyd|1983|The Final Cut||12|Not Now John.mp3

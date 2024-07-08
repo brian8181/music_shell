@@ -35,10 +35,7 @@ function PRINT_DEBUG
 function PRINT_INFO
 {
     MSG=${INFO_MSG}$1
-    echo -e ${VERBOSE:+"$MSG"}
-}
-
-PRINT_INFO "\"$FILE\" -> Running... @ $DATE"
+    echo -e ${VERBOSE:+"$MSG"}u/0/#inbox
 ##{ BEGIN YOUR CODE  }##
 
 PRINT_INFO "creating playlist ..."
@@ -46,7 +43,7 @@ HOME="~/"
 CONFIG_PREFIX="$HOME/.music_shell"
 CACHE_PATH="${CONFIG_PREFIX}/cache"
 
-while getopts aoihn:c:p: option
+while getopts aoihn:c:p:f option
 do
     case "${option}"
     in
@@ -137,7 +134,6 @@ do
             PRINT_DEBUG error "Invalid option: -$OPTARG" >&2
             exit 1
             ;;
-
     esac
 done
 
