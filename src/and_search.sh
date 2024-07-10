@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE='src/create_playlist.sh'
+FILE='src/and_search.sh'
 VERSION='0.0.1'
 FILE_DATE='Sat Apr 27 04:26:33 PM CDT 2024'
 
@@ -10,7 +10,7 @@ CACHE_PATH="${CONFIG_PREFIX}/cache"
 
 SEARCH_TERM1=$1
 SEARCH_TERM2=$2
-PLAYLIST_NAME="${CONFIG_PREFIX}/${2:-new_playlist}"
+#PLAYLIST_NAME="${CONFIG_PREFIX}/${3:-new_playlist}"
 CACHE_NAME="${CACHE_PATH}/${3:-cache.m3u}"
 IGNORE_CASE=$4
 

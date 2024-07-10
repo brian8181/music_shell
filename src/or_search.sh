@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE='src/create_playlist.sh'
+FILE='src/or_saerch.sh'
 VERSION='0.0.1'
 FILE_DATE='Sat Apr 27 04:26:33 PM CDT 2024'
 

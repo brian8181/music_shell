@@ -9,6 +9,5 @@ CONFIG_PREFIX="$HOME/.music_shell"
 CACHE_PATH="${CONFIG_PREFIX}/cache"
 
 SEARCH_TERM="$1"
-FILTER="$2"
 
-search.sh "$SEARCH_TERM" | sed "/$FILTER/d"
+search.sh "$SEARCH_TERM" | sed s/ *$//
