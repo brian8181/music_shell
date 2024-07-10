@@ -1,4 +1,7 @@
 #!/bin/bash
+FILE='src/search_footer.sh'
+VERSION='0.1.1'
+FILE_DATE='Wed Jul 10 12:07:23 PM CDT 2024'
 
 SEARCH_TERM=$1
 CACHE_NAME=$2

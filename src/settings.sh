@@ -1,5 +1,9 @@
 #!/bin/bash
 
+FILE='src/settings.sh'
+VERSION='0.1.1'
+FILE_DATE='Wed Jul 10 12:07:23 PM CDT 2024'
+
 export HOME="/home/brian"
 export STORE_PREFIX="/mnt/music/music-lib"
 export CONFIG_PREFIX="$HOME/.music_shell"

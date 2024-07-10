@@ -1,4 +1,7 @@
 #!/bin/bash
+FILE='src/insert.sh'
+VERSION='0.1.1'
+FILE_DATE='Wed Jul 10 12:07:23 PM CDT 2024'
 
 LINE_NUMBER=$1
 SRC_LIST=$2

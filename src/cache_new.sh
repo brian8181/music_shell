@@ -1,4 +1,7 @@
 #!/bin/bash
+FILE='src/cacahe_new.sh'
+VERSION='0.1.1'
+FILE_DATE='Wed Jul 10 12:07:23 PM CDT 2024'
 
 HOME="${1}"
 STORE_PREFIX="${2}"
