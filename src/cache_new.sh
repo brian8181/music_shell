@@ -19,6 +19,8 @@ sed -E "s/(\|[[:digit:]][[:digit:]]\|)/\|\1/" "${CACHE}.tmp" | sed -E "s/([[:dig
 
 # nomalize date, album, disc, & track fields
 # "date - album"
-# s/\([[:digit:]]\{4\}\) - /\1|/g'
+# 's/\([[:digit:]]\{4\}\) - /\1|/g'
 # "disc.track. "  "1.01., 2.01."
-#'s/\(|\(\([[:digit:]]\)\.\)\([[:digit:]][[:digit:]]\)\. \)\|\(|\([[:digit:]][[:digit:]]\)\. \)/|\3|\4\6|/g'
+# 's/\(|\(\([[:digit:]]\)\.\)\([[:digit:]][[:digit:]]\)\. \)\|\(|\([[:digit:]][[:digit:]]\)\. \)/|\3|\4\6|/g'
+# file, ext
+# "s/\\.\\([[:alpha:]][[:alpha:]][[:alpha:]]\\)$/|\1|/g"

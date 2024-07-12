@@ -3,4 +3,4 @@
 ./settings.sh
 
 #ARTIST=2
-cut -d "|" -f $ARTIST $HOME/.music_shell/cache/cache.txt
+cut -d "|" -f $ARTIST $HOME/.music_shell/cache/cache.m3u

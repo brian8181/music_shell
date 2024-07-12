@@ -1,5 +1,4 @@
 #!/bin/bash
-
 FILE='src/search.sh'
 VERSION='0.1.2'
 FILE_DATE='Thu Jul 11 07:03:20 PM CDT 2024'

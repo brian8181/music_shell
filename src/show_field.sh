@@ -9,7 +9,7 @@ TITLE=7
 
 # exit
 if [ -n "$FIELD" ]; then
-    cut -d"|" -f "$FIELD" $HOME/.music_shell/cache/cache.txt
+    cut -d"|" -f "$FIELD" $HOME/.music_shell/cache/cache.m3u
 else
     echo "Error: no field specified ..."
     exit

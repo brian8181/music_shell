@@ -7,7 +7,6 @@ FILE_DATE='Wed Jul 10 12:07:23 PM CDT 2024'
 ./settings.sh
 
 # read config file pairs
-
 while read line; do
 	NAME=${line%%=*}  # gets name
     VALUE=${line##*=} # gets value

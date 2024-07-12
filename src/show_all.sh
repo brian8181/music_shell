@@ -9,4 +9,4 @@
 # TRACK=6
 # TITLE=7
 
-cut -d"|" -f "$ARTIST $DATE $ALBUM $DISC $TRACK $TITLE" $HOME/.music_shell/cache/cache.txt
+cut -d"|" -f "$ARTIST $DATE $ALBUM $DISC $TRACK $TITLE" $HOME/.music_shell/cache/cache.m3u

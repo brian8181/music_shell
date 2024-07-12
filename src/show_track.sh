@@ -3,4 +3,4 @@
 ./settings.sh
 
 TRACK=6
-cut -d "|" -f $TRACK cache/cache.txt
+cut -d "|" -f $TRACK cache/cache.m3u
