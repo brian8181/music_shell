@@ -1,7 +1,8 @@
 #!/bin/bash
-FILE='src/caahe_new.sh'
-VERSION='0.1.1'
-FILE_DATE='Wed Jul 10 12:07:23 PM CDT 2024'
+
+# FILE 'src/cache_new.sh'
+# VERSION '0.0.1'
+# FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
 
 STORE_PREFIX="/mnt/music/music-lib"
 CONFIG_PREFIX="$HOME/.music_shell"

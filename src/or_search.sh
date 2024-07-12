@@ -1,8 +1,9 @@
 #!/bin/bash
 
-FILE='src/or_saerch.sh'
-VERSION='0.1.2'
-FILE_DATE='Thu Jul 11 07:03:20 PM CDT 2024'
+
+# FILE 'src/or_search.sh'
+# VERSION '0.0.1'
+# FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
 
 CONFIG_PREFIX="$HOME/.music_shell"
 SEARCH_TERM1="$1"

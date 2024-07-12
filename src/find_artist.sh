@@ -1,8 +1,8 @@
 #!/bin/bash
 
-FILE='src/find_artist.sh'
-VERSION='0.0.1'
-FILE_DATE='Sat Apr 27 04:26:33 PM CDT 2024'
+# FILE 'src/find_artist.sh'
+# VERSION '0.0.1'
+# FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
 
 HOME="/home/brian"
 CONFIG_PREFIX="$HOME/.music_shell"

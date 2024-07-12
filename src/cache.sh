@@ -1,7 +1,8 @@
 #!/bin/bash
-FILE='src/cache.sh'
-VERSION='0.1.1'
-FILE_DATE='Wed Jul 10 12:07:23 PM CDT 2024'
+
+# FILE 'src/cache.sh'
+# VERSION '0.0.1'
+# FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
 
 FMT_FG_RED='\e[31m'
 FMT_FG_GREEN='\e[32m'
