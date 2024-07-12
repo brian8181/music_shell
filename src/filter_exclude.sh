@@ -1,12 +1,11 @@
 #!/bin/bash
 
+# FILE 'src/exfilter.sh'
+# VERSION '0.1.1'
+# FILE_DATE 'Wed Jul 10 12:07:23 PM CDT 2024'
+
 # exclusive filter
 # filter all but [filter text]
-FILE='src/exfilter.sh'
-VERSION='0.1.1'
-FILE_DATE='Wed Jul 10 12:07:23 PM CDT 2024'
-
-HOME="/home/brian"
 CONFIG_PREFIX="$HOME/.music_shell"
 CACHE_PATH="${CONFIG_PREFIX}/cache"
 
