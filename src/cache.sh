@@ -38,6 +38,11 @@ function PRINT_INFO
 PRINT_INFO "$FILE -> Running... @ $DATE"
 ##{ BEGIN YOUR CODE  }##
 
+# STORE_PREFIX="/mnt/music/music-lib"
+# CONFIG_PREFIX="$HOME/.music_shell"
+# TIME_STAMP="$(date.sh)"
+# CACHE_PATH="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
+
 HOME="${1}"
 STORE_PREFIX="${2}"
 CONFIG_PREFIX="${3}"

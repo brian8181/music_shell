@@ -38,7 +38,6 @@ function PRINT_INFO
 PRINT_INFO "$FILE -> Running... @ $DATE"
 ##{ BEGIN YOUR CODE  }##
 
-HOME="/home/brian"
 STORE_PREFIX="/mnt/music/music-lib"
 CONFIG_PREFIX="$HOME/.music_shell"
 TIME_STAMP="$(date.sh)"
