@@ -5,5 +5,5 @@
 # FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
 
 CONFIG_PREFIX="$HOME/.music_shell"
-QUEUE_LEN=$(cat "$CONFIG_PREFIX/queue" | wc -l)
-echo $QUEUE_LEN
+LEN=$(cat "$CONFIG_PREFIX/queue" | wc -l)
+echo $LEN

@@ -5,6 +5,6 @@
 # FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
 
 CONFIG_PREFIX="$HOME/.music_shell"
-FILE="$CONFIG_PREFIX/index"
+FILE="$CONFIG_PREFIX/inde"
 
 cat "${FILE}"
