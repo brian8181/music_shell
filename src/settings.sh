@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# FILE 'src/settings.sh'
-# VERSION '0.0.1'
-# FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
+# FILE: 'src/settings.sh'
+# VERSION: '0.0.1'
+# FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
+# INFO:
 
 export HOME="/home/brian"
 export STORE_PREFIX="/mnt/music/music-lib"
