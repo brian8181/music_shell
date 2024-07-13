@@ -5,9 +5,9 @@
 # FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
 
 INDEX=$1
+NEXT=((${INDEX}+1))
 
 CONFIG_PREFIX="$HOME/.music_shell"
 FILE="$CONFIG_PREFIX/index"
 
-echo -e "${FILE}"
-echo -e "${INDEX}" > "${FILE}"
+cat "${FILE}"

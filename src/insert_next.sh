@@ -4,9 +4,9 @@
 # VERSION '0.0.1'
 # FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
 
-LINE_INDEX=$1
-SRC_LIST=$2
-DST_LIST=$3
+LINE_INDEX=$(get_index.sh)
+SRC_LIST=$1
+DST_LIST=$2
 
 #  get length of file
 LEN=$(cat "$DST_LIST" | wc -l)
