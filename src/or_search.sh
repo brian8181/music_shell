@@ -1,9 +1,9 @@
 #!/bin/bash
 
-
-# FILE 'src/or_search.sh'
-# VERSION '0.0.1'
-# FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
+# FILE: 'src/or_search.sh'
+# VERSION: '0.0.1'
+# FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
+# INFO: OR search (a OR b)
 
 CONFIG_PREFIX="$HOME/.music_shell"
 SEARCH_TERM1="$1"

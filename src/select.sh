@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# FILE 'src/select.sh'
-# VERSION '0.0.1'
-# FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
+# FILE: 'src/select.sh'
+# VERSION: '0.0.1'
+# FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
+# INFO: select fields
 
 ~/src/music_shell/src/utility/fields.sh
 

@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# FILE 'src/cache_new.sh'
-# VERSION '0.0.1'
-# FILE_DATE 'Fri Jul 12 07:03:30 AM CDT 2024'
+# FILE: 'src/cache2.0.sh'
+# VERSION: '0.0.1'
+# FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
+# INFO: builds a new cache.sh
 
 STORE_PREFIX="/mnt/music/music-lib"
 CONFIG_PREFIX="$HOME/.music_shell"
