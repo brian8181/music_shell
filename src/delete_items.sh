@@ -7,7 +7,7 @@
 
 FILE="$1"
 BEG="$2"
-END="${X:-${BEG}}"
+END="${3:-${BEG}}"
 
 TIME_STAMP="$(date.sh)"
 cp "$FILE" "${FILE}.${TIME_STAMP}"
