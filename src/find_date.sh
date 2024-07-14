@@ -3,11 +3,26 @@
 # FILE: 'src/find_album.sh'
 # VERSION: '0.0.1'
 # FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
-# INFO: find album
+# INFO: find date
 
-DATE=$1
-CACHE=$2
-REXP="^albums\\,[A-Za-z0-9]+\\,$DATE\\,[A-Za-z0-9]+\\,.*$"
+CONFIG_PREFIX="$HOME/.music_shell"
+CACHE_PATH="${CONFIG_PREFIX}/cache"
 
-cat $CACHE | egrep "$REXP" | tee playing
-#./search $REXP "$(date.sh)${ALBUM}.m3u"
+FIELD=$1
+REXP=
+PLAYLIST_NAME="$HOME/.music_shell/queue"
+CACHE_NAME="${CACHE_PATH}/${2:-cache.m3u}"
+IGNORE_CASE="${3:-i}" # not used
+
+function SEARCH
+{
+    # check parmaters
+    if [[ -z "$FIELD" ]]; then
+        echo "Error: no "$FIELD" specified ..."
+        exit
+    fi
+    cat "$CACHE_NAME" | egrep --color=always "$REXP" | tee $PLAYLIST_NAME
+}
+
+SEARCH "$REXP"  $CACHE_NAME
+./search_footer.sh "$REXP" "$CACHE_NAME" "$PLAYLIST_NAME"
