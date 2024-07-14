@@ -4,6 +4,7 @@ TRACK=$1
 CACHE=$2
 REXP="^albums\\,[A-Za-z0-9[:space:]]+\\,[0-9]+\\,[A-Za-z0-9[:space:]]+\\,$TRACK\\,[A-Za-z0-9[:space:]]+\\.[A-Za-z0-9]+$"
 
+./search $REXP
 #echo $DATE
 #echo $CACHE
 #echo $REXP
@@ -11,4 +12,4 @@ REXP="^albums\\,[A-Za-z0-9[:space:]]+\\,[0-9]+\\,[A-Za-z0-9[:space:]]+\\,$TRACK\
 #echo '$REXP'
 
 cat $CACHE | egrep "$REXP" | tee playing
-git 
+git

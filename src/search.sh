@@ -8,7 +8,7 @@
 CONFIG_PREFIX="$HOME/.music_shell"
 SEARCH_TERM="$1"
 PLAYLIST=${CONFIG_PREFIX}/${3:-queue}
-CACHE="${CONFIG_PREFIX}/cache/${3:-cache.m3u}"
+CACHE=${CONFIG_PREFIX}/cache/${2:-cache.m3u}
 IGNORE_CASE="$4"
 
 function SEARCH
