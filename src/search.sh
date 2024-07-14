@@ -18,7 +18,7 @@ function SEARCH
         echo "Error: no "SEARCH_TERM" specified ..."
         exit
     fi
-    cat "$CACHE" | egrep --color=always "$SEARCH_TERM" | tee "$PLAYLIST"
+    cat "$CACHE" | egrep --color=never "$SEARCH_TERM" | tee "$PLAYLIST"
 }
 
 SEARCH "$SEARCH_TERM" "$CACHE" "$PLAYLIST"

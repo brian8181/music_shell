@@ -6,8 +6,10 @@
 # INFO: delete item
 
 FILE="$1"
-INDEX="$2"
-TIME_STAMP="$(date.sh)"
+BEG="$2"
+END="${X:-${BEG}}"
 
+TIME_STAMP="$(date.sh)"
 cp "$FILE" "${FILE}.${TIME_STAMP}"
-sed -i "${INDEX}d" "${FILE}"
+
+sed -i "${BEG},${END}d" "${FILE}"

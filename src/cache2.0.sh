@@ -20,9 +20,11 @@ sed 's/\/mnt\/music\/music-lib\///' "${CACHE}" | sed s/\\//\|/g | sed s/' - '/\|
 sed -E "s/(\|[[:digit:]][[:digit:]]\|)/\|\1/" "${CACHE}.tmp" | sed -E "s/([[:digit:]]+)\\./\1\|/" > "${CACHE}"
 
 # nomalize date, album, disc, & track fields
+#1 's/\/mnt\/music\/music-lib\///'
+#2 sed s/\\//\|/g | sed s/' - '/\|/ | sed s/\\.[[:space:]]/\|/
 # "date - album"
-# 's/\([[:digit:]]\{4\}\) - /\1|/g'
+#3 's/\([[:digit:]]\{4\}\) - /\1|/g'
 # "disc.track. "  "1.01., 2.01."
-# 's/\(|\(\([[:digit:]]\)\.\)\([[:digit:]][[:digit:]]\)\. \)\|\(|\([[:digit:]][[:digit:]]\)\. \)/|\3|\4\6|/g'
+#4 's/\(|\(\([[:digit:]]\)\.\)\([[:digit:]][[:digit:]]\)\. \)\|\(|\([[:digit:]][[:digit:]]\)\. \)/|\3|\4\6|/g'
 # file, ext
-# "s/\\.\\([[:alpha:]][[:alpha:]][[:alpha:]]\\)$/|\1|/g"
+#5 "s/\\.\\([[:alpha:]][[:alpha:]][[:alpha:]]\\)$/|\1|/g"

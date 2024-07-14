@@ -16,8 +16,7 @@ INFO_MSG="$PRINT_GREEN_INFO: "
 VERBOSE=1
 DEBUG=1
 
-if [ -n $VERBOSE ]
-then
+if [ -n $VERBOSE ]; then
 	echo ${VERBOSE:+"File - $FILE"}
 	echo ${VERBOSE:+"Version - $VERSION"}
 	echo ${VERBOSE:+"Date - $FILE_DATE"}
@@ -42,40 +41,42 @@ PRINT_INFO "$FILE -> Running... @ $DATE"
 PRINT_INFO "load settings ..."
 settings.sh
 
-if [ -e "$HOME/.music_shell/cache" ]; then
+PREFIX="$HOME/.music_shell"
+
+if [ ! -d "$PREFIX/cache" ]; then
     PRINT_INFO "make directory  \"$HOME/.music_shell/cache\" ..."
-    mkdir -p $HOME/.music_shell/cache
-#   touch ~/.music_shell/queue
-#   touch ~/.music_shell/config.txt
-    else
-    PRINT_DEBUG "error: writing config ..."
+    mkdir -p "$HOME/cache"
+    touch "$PREFIX/queue"
+    touch "$PREFIX/config.txt"
 fi
 
 # copy all music_shell/src to $HOME/bin
 if [ -d "$HOME/bin" ]; then
     PRINT_INFO "copy all to \"$HOME/bin\" ..."
-    echo "DEBUG: cp $HOME/src/music_shell/src/*.sh $HOME/bin/"
-    cp -r "$HOME/src/music_shell/src/*.sh" "$HOME/bin/"
+    cp "${HOME}"/src/music_shell/src/*.sh "$HOME/bin/"
 fi
 
 PRINT_INFO "creating soft/link to search.sh, \"s\" ..."
 
 # check for sym links, and delete
-if [ -f "$HOME/bin/s" ]; then
-    PRINT_INFO "remove link \"$HOME/bin/s\" ..."
+if [ -h "$HOME/bin/s" ]; then
     PRINT_INFO "remove link \"$HOME/bin/s\" ..."
     rm "$HOME/bin/s"
 fi
 
-if [ -f "$HOME/bin/search" ]; then
+# create link
+PRINT_INFO "create link \"$HOME/bin/s\" ..."
+ln -s "$HOME/bin/search.sh" "$HOME/bin/s"
+
+if [ -h "$HOME/bin/search" ]; then
     PRINT_INFO "remove link \"$HOME/bin/search\" ..."
     rm "$HOME/bin/search"
+
 fi
 
-# make sym links
-# just remove for now
+# create link
+PRINT_INFO "create link \"$HOME/bin/search\" ..."
 ln -s "$HOME/bin/search.sh" "$HOME/bin/search"
-ln -s "$HOME/bin/search.sh" "$HOME/bin/s"
 
 PRINT_INFO "Finished installing scripts."
 ##{ END YOUR CODE  }##

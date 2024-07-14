@@ -19,5 +19,5 @@ if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE"  ]]; then
 fi
 
 echo "$SEARCH_TERM1 <AND> $SEARCH_TERM2 $IGNORE_CASE" >> ${CONFIG_PREFIX}/cache/search_history_all
-cat "$CACHE" | egrep "$SEARCH_TERM1" | egrep "$SEARCH_TERM2" | tee $PLAYLIST
+cat "$CACHE" | egrep --color=never "$SEARCH_TERM1" | egrep --color=never "$SEARCH_TERM2" | tee $PLAYLIST
 ./search_footer.sh "$SEARCH_TERM1 <and> $SEARCH_TERM2" "$CACHE" "$PLAYLIST"
