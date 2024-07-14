@@ -9,4 +9,4 @@ CONFIG_PREFIX="$HOME/.music_shell"
 FILE="${CONFIG_PREFIX}/queue"
 INDEX="$1"
 
-./delete_item.sh $FILE $INDEX
+./delete.sh $FILE $INDEX
