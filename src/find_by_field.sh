@@ -9,6 +9,7 @@ CONFIG_PREFIX="$HOME/.music_shell"
 CACHE_PATH="${CONFIG_PREFIX}/cache"
 
 FIELD=$1
+FIELD_NAME=$4
 REXP=$2
 PLAYLIST_NAME="$HOME/.music_shell/queue"
 CACHE_NAME="${CACHE_PATH}/${2:-cache.m3u}"
@@ -21,7 +22,7 @@ function SEARCH
         echo "Error: no "$FIELD" specified ..."
         exit
     fi
-    cat "$CACHE_NAME" | egrep --color=always "$REXP" | tee $PLAYLIST_NAME
+    cat "$CACHE_NAME" | egrep --color=never "$REXP" | tee $PLAYLIST_NAME
 }
 
 SEARCH "$REXP"  $CACHE_NAME

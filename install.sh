@@ -45,15 +45,15 @@ PREFIX="$HOME/.music_shell"
 
 if [ ! -d "$PREFIX/cache" ]; then
     PRINT_INFO "make directory  \"$HOME/.music_shell/cache\" ..."
-    mkdir -p "$HOME/cache"
-    touch "$PREFIX/queue"
-    touch "$PREFIX/config.txt"
+    mkdir -v -p "$HOME/cache"
+    touch -v "$PREFIX/queue"
+    touch -v "$PREFIX/config.txt"
 fi
 
 # copy all music_shell/src to $HOME/bin
 if [ -d "$HOME/bin" ]; then
     PRINT_INFO "copy all to \"$HOME/bin\" ..."
-    cp "${HOME}"/src/music_shell/src/*.sh "$HOME/bin/"
+    cp -v -f "${HOME}"/src/music_shell/src/*.sh "$HOME/bin/"
 fi
 
 PRINT_INFO "creating soft/link to search.sh, \"s\" ..."
@@ -61,22 +61,22 @@ PRINT_INFO "creating soft/link to search.sh, \"s\" ..."
 # check for sym links, and delete
 if [ -h "$HOME/bin/s" ]; then
     PRINT_INFO "remove link \"$HOME/bin/s\" ..."
-    rm "$HOME/bin/s"
+    rm -v "$HOME/bin/s"
 fi
 
 # create link
 PRINT_INFO "create link \"$HOME/bin/s\" ..."
-ln -s "$HOME/bin/search.sh" "$HOME/bin/s"
+ln -s -v "$HOME/bin/search.sh" "$HOME/bin/s"
 
 if [ -h "$HOME/bin/search" ]; then
     PRINT_INFO "remove link \"$HOME/bin/search\" ..."
-    rm "$HOME/bin/search"
+    rm -v "$HOME/bin/search"
 
 fi
 
 # create link
 PRINT_INFO "create link \"$HOME/bin/search\" ..."
-ln -s "$HOME/bin/search.sh" "$HOME/bin/search"
+ln -s -v "$HOME/bin/search.sh" "$HOME/bin/search"
 
 PRINT_INFO "Finished installing scripts."
 ##{ END YOUR CODE  }##
