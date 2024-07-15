@@ -22,4 +22,4 @@ function SEARCH
 }
 
 SEARCH "$SEARCH_TERM" "$CACHE" "$PLAYLIST"
-./search_footer.sh "$SEARCH_TERM" "$CACHE" "$PLAYLIST"
+search_footer.sh "$SEARCH_TERM" "$CACHE" "$PLAYLIST"
