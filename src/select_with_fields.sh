@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# FILE: 'src/select_with_fields.sh'
+# VERSION: '0.0.1'
+# FILE_DATE: 'Sun Jul 14 09:11:03 PM CDT 2024'
+# INFO: search queue
+
+SEARCH=
 FIELDS=$1
 FOLDER=1
 ARTIST=2
@@ -14,4 +20,4 @@ EXP="|\([a-z]\+\)|\([A-Za-z ]\+\)|\([0-9]\{4\}\)|\([A-Za-z ]\+\)|\([0-9]\?\)|\([
 FMT="[Location: \"\\${FOLDER}\"], [Artist: \"\\${ARTIST}\"], [Date: \"\\${DATE}\"], [Album: \"\\${ALBUM}\"], [Disc: \"\\${DISC}\"], [Track: \"\\${TRACK}\"], [Title: \"\\${TITLE}\"], [Ext: \"\\${EXT}\"]"
 
 echo FMT1
-cat ~/src/music_shell/test/tmp.txt | sed "s/${EXP}/${FMT}/g"
+cat ~/src/music_shell/test/tmp.txt | sed "s/${EXP}/${FIELDS:-${FMT}}/g"

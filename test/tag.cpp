@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     int opt = 0;
     int option_index = 0;
     bool verbose_flag = false;
-    
+
     optind = 0;
     while((opt = getopt_long(argc, argv, "hvartdnyg", long_options, &option_index)) != -1)
     {
@@ -58,13 +58,13 @@ int main(int argc, char *argv[])
             return EXIT_FAILURE;
         }
     }
- 
+
     if (optind != (argc - DEFAULT_ARGC)) // not correct number of args
     {
         fprintf(stderr, "Expected argument after options, -h for help\n");
         exit(EXIT_FAILURE);
     }
-          
+
     if (verbose_flag)
     {
         print_help();
@@ -80,7 +80,7 @@ void print_tags(int argc, char *argv[], bool verbose)
     string file_path = filesystem::path(file).parent_path();
     fs.open(file_path + "/front.jpg");
     vector<unsigned char> buffer;
-        
+
     unsigned char c;
     while(fs.read((char*)&c, 1))
     {
