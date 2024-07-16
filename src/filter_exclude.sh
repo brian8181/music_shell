@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# FILE: 'src/exfilter.sh'
+# FILE: 'exfilter.sh'
 # VERSION: '0.1.1'
 # FILE_DATE: 'Wed Jul 10 12:07:23 PM CDT 2024'
 

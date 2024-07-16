@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# FILE: 'src/and_search.sh'
+# FILE: 'and_search.sh'
 # VERSION: '0.0.1'
 # FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
 # INFO: AND search (a AND b)

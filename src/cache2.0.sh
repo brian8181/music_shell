@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# FILE: 'src/cache2.0.sh'
+# FILE: 'cache2.0.sh'
 # VERSION: '0.0.1'
 # FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
 # INFO: builds a new cache.sh
