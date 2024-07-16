@@ -9,4 +9,11 @@ CONFIG_PREFIX="$HOME/.music_shell"
 FILE="${CONFIG_PREFIX}/cache/cache.m3u"
 INDEX="$1"
 
+if [[ "$(whoami)" != root ]]; then
+  echo "Only user root can run this script."
+  exit 1
+fi
+
 ./delete_items.sh $FILE $INDEX
+
+exit 0

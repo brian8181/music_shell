@@ -6,6 +6,6 @@
 # INFO: get current playing index (in queue)
 
 CONFIG_PREFIX="$HOME/.music_shell"
-FILE="$CONFIG_PREFIX/inde"
+FILE="$CONFIG_PREFIX/index"
 
 cat "${FILE}"

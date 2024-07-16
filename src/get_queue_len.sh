@@ -6,5 +6,8 @@
 # INFO: get queue len/size
 
 CONFIG_PREFIX="$HOME/.music_shell"
-LEN=$(cat "$CONFIG_PREFIX/queue" | wc -l)
+#LEN=$(cat "$CONFIG_PREFIX/queue" | wc -l)
+LEN=$(grep -c . "$CONFIG_PREFIX/queue");
+
 echo $LEN
+exit 0

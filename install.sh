@@ -51,12 +51,15 @@ if [ ! -d "$PREFIX/cache" ]; then
 fi
 
 # copy all music_shell/src to $HOME/bin
-if [ -d "$HOME/bin" ]; then
-    PRINT_INFO "copy all to \"$HOME/bin\" ..."
-    cp -v -f "${HOME}"/src/music_shell/src/*.sh "$HOME/bin/"
+if [ ! -d "$HOME/bin" ]; then
+    PRINT_INFO "make directory \"$HOME/bin\" ..."
+    # create bin
+    mkdir -p "$HOME/bin"
 fi
 
-PRINT_INFO "creating soft/link to search.sh, \"s\" ..."
+PRINT_INFO "copy all to \"$HOME/bin\" ..."
+cp -v -f "${HOME}"/src/music_shell/src/*.sh "$HOME/bin/"
+
 
 # check for sym links, and delete
 if [ -h "$HOME/bin/s" ]; then
