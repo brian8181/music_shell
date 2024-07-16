@@ -74,12 +74,18 @@ ln -s -v "$HOME/bin/search.sh" "$HOME/bin/s"
 if [ -h "$HOME/bin/search" ]; then
     PRINT_INFO "remove link \"$HOME/bin/search\" ..."
     rm -v "$HOME/bin/search"
+fi
 
+if [ -h "$HOME/bin/cp" ]; then
+    PRINT_INFO "remove link \"$HOME/bin/cp\" ..."
+    rm -v "$HOME/bin/cp"
 fi
 
 # create link
 PRINT_INFO "create link \"$HOME/bin/search\" ..."
 ln -s -v "$HOME/bin/search.sh" "$HOME/bin/search"
+PRINT_INFO "create link \"$HOME/bin/cp\" ..."
+ln -s -v "$HOME/bin/create_playlist.sh" "$HOME/bin/cp"
 
 PRINT_INFO "Finished installing scripts."
 ##{ END YOUR CODE  }##

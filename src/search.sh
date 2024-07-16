@@ -16,10 +16,12 @@ function SEARCH
     # check parmaters
     if [[ -z "$SEARCH_TERM" ]]; then
         echo "Error: no "SEARCH_TERM" specified ..."
-        exit
+        exit 1
     fi
     cat "$CACHE" | egrep --color=never "$SEARCH_TERM" | tee "$PLAYLIST"
 }
 
 SEARCH "$SEARCH_TERM" "$CACHE" "$PLAYLIST"
 search_footer.sh "$SEARCH_TERM" "$CACHE" "$PLAYLIST"
+
+exit 0

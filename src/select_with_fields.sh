@@ -17,6 +17,7 @@ TITLE=7
 EXT=8
 
 EXP="|\([a-z]\+\)|\([A-Za-z ]\+\)|\([0-9]\{4\}\)|\([A-Za-z ]\+\)|\([0-9]\?\)|\([0-9]\+\)|\([-A-Za-z_ ]\+\).\([A-Za-z0-9]\{1,4\}\)|"
+EXP2="|\([[:lower:]]\+\)|\([[:alpha:][:space:]]\+\)|\([:digit:]\{4\}\)|\([[:alpha:][:space:]]\+\)|\([:digit:]\?\)|\([:digit:]\+\)|\([-[:alpha:]_[:blank:]]\+\).\([[:alnum:]]\{1,4\}\)|"
 FMT="[Location: \"\\${FOLDER}\"], [Artist: \"\\${ARTIST}\"], [Date: \"\\${DATE}\"], [Album: \"\\${ALBUM}\"], [Disc: \"\\${DISC}\"], [Track: \"\\${TRACK}\"], [Title: \"\\${TITLE}\"], [Ext: \"\\${EXT}\"]"
 cat ~/src/music_shell/test/tmp.txt | sed "s/${EXP}/${FIELDS:-${FMT}}/g"
 
