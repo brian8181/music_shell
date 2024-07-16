@@ -9,8 +9,8 @@ CONFIG_PREFIX="$HOME/.music_shell"
 SEARCH_TERM1="$1"
 SEARCH_TERM2="$2"
 PLAYLIST=${CONFIG_PREFIX}/${3:-queue}
-CACHE="${CONFIG_PREFIX}/cache/${3:-cache.m3u}"
-IGNORE_CASE="$4"
+CACHE="${CONFIG_PREFIX}/cache/${4:-cache.m3u}"
+IGNORE_CASE="$5"
 
 # check parmaters
 if [[ -z "$SEARCH_TERM1" || -z "$SEARCH_TERM2" || -z "$CACHE"  ]]; then
