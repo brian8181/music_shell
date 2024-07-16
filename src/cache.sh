@@ -40,32 +40,35 @@ function PRINT_INFO
 PRINT_INFO "$FILE -> Running... @ $DATE"
 ##{ BEGIN YOUR CODE  }##
 
-# STORE_PREFIX="/mnt/music/music-lib"
-# CONFIG_PREFIX="$HOME/.music_shell"
-# TIME_STAMP="$(date.sh)"
-# CACHE_PATH="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
-
-HOME="${1}"
-STORE_PREFIX="${2}"
-CONFIG_PREFIX="${3}"
+STORE_PREFIX="/mnt/music/music-lib"
+CONFIG_PREFIX="$HOME/.music_shell"
 TIME_STAMP="$(date.sh)"
-CACHE_PATH="${4}"
+CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
 
-PRINT_INFO "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE_PATH}\" ..."
+# HOME="${1}"
+# STORE_PREFIX="${2}"
+# CONFIG_PREFIX="${3}"
+# TIME_STAMP="$(date.sh)"
+# CACHE_PATH="${4}"
 
-find "${STORE_PREFIX}" -iname "*.mp3" > "${CACHE_PATH}"
-find "${STORE_PREFIX}" -iname "*.ogg" >> "${CACHE_PATH}"
-find "${STORE_PREFIX}" -iname "*.flac" >> "${CACHE_PATH}"
-find "${STORE_PREFIX}" -iname "*.wma" >> "${CACHE_PATH}"
+PRINT_INFO "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE}\" ..."
+
+find "${STORE_PREFIX}" -iname "*.mp3" > "${CACHE}"
+find "${STORE_PREFIX}" -iname "*.ogg" >> "${CACHE}"
+find "${STORE_PREFIX}" -iname "*.flac" >> "${CACHE}"
+find "${STORE_PREFIX}" -iname "*.wma" >> "${CACHE}"
 
 # trim off root                                             # replace delimiter   # create date & album columns
-sed 's/\/mnt\/music\/music-lib\///' "${CACHE_PATH}" | sed s/\\//\|/g | sed s/' - '/\|/ | sed s/\\.[[:space:]]/\|/ > "${CACHE_PATH}.tmp"
+sed 's/\/mnt\/music\/music-lib\///' "${CACHE}" | sed s/\\//\|/g | sed s/' - '/\|/ | sed s/\\.[[:space:]]/\|/ > "${CACHE}.tmp"
 # add disc column                                           # seperate disc & track
-sed -E "s/(\|[[:digit:]][[:digit:]]\|)/\|\1/" "${CACHE_PATH}.tmp" | sed -E "s/([[:digit:]]+)\\./\1\|/" > "${CACHE_PATH}"
+sed -E "s/(\|[[:digit:]][[:digit:]]\|)/\|\1/" "${CACHE}.tmp" | sed -E "s/([[:digit:]]+)\\./\1\|/" > "${CACHE}"
 
-PRINT_INFO "finished writing cache too \"${CACHE_PATH}\" ..."
-PRINT_INFO "added $(cat ${CACHE_PATH} | wc -l) items to cache : $TIME_STAMP"
-PRINT_INFO "cache is located @ $CACHE_PATH."
+# remove tmp
+# rm "${STORE_PREFIX}/${CACHE}.tmp"
+
+PRINT_INFO "finished writing cache too \"${CACHE}\" ..."
+PRINT_INFO "added $(cat ${CACHE} | wc -l) items to cache : $TIME_STAMP"
+PRINT_INFO "cache is located @ $CACHE."
 
 function HELP
 {

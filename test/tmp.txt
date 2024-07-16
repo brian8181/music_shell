@@ -1,12 +1,12 @@
 |albums|Nick Drake|1994|Way to Blue- an Introduction to Nick Drake||14|Pink Moon|flac|
 |albums|Nick Drake|1972|Pink Moon|1|10|Harvest Breed|flac|
-|albums|Nick Drake|1972|Pink Moon|2|05|Horn|flac|
+|albums|Nick Drake|1972|Pink Moon|1|05|Horn|flac|
 |albums|Nick Drake|1972|Pink Moon|1|11|From the Morning|flac|
 |albums|Nick Drake|1972|Pink Moon|1|02|Place to Be|flac|
 |albums|Nick Drake|1972|Pink Moon|1|03|Road|lac|
-|albums|Nick Drake|1972|Pink Moon|2|04|Which Will|flac|
-|albums|Nick Drake|1972|Pink Moon|3|07|Know|flac|
-|albums|Nick Drake|1972|Pink Moon||06|Things Behind the Sun|flac|
-|albums|Nick Drake|1972|Pink Moon||09|Ride|flac|
-|albums|Nick Drake|1972|Pink Moon||01|Pink Moon|flac|
-|albums|Nick Drake|1972}|ink Moon||08|Parasite|flac|
+|albums|Nick Drake|1972|Pink Moon|1|04|Which Will|flac|
+|albums|Nick Drake|1972|Pink Moon|1|07|Know|flac|
+|albums|Nick Drake|1972|Pink Moon|1|06|Things Behind the Sun|flac|
+|albums|Nick Drake|1972|Pink Moon|1|09|Ride|flac|
+|albums|Nick Drake|1972|Pink Moon|1|01|Pink Moon|flac|
+|albums|Nick Drake|1972|Pink Moon|1|08|Parasite|flac|

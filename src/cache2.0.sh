@@ -19,6 +19,9 @@ sed 's/\/mnt\/music\/music-lib\///' "${CACHE}" | sed s/\\//\|/g | sed s/' - '/\|
 # add disc column                                           # seperate disc & track
 sed -E "s/(\|[[:digit:]][[:digit:]]\|)/\|\1/" "${CACHE}.tmp" | sed -E "s/([[:digit:]]+)\\./\1\|/" > "${CACHE}"
 
+# remove tmp
+# rm "${STORE_PREFIX}/${CACHE}.tmp"
+
 # nomalize date, album, disc, & track fields
 #1 's/\/mnt\/music\/music-lib\///'
 #2 sed s/\\//\|/g | sed s/' - '/\|/ | sed s/\\.[[:space:]]/\|/
