@@ -11,5 +11,6 @@ if [ ! -e "$CONFIG_PREFIX/playing" ]; then
 	rm "$CONFIG_PREFIX/playing"
 	touch "$CONFIG_PREFIX/paused"
 fi
+# execute pause
 
 exit 0

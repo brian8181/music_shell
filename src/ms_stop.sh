@@ -10,6 +10,6 @@ CONFIG_PREFIX="$HOME/.music_shell"
 rm "$CONFIG_PREFIX/playing"
 rm "$CONFIG_PREFIX/paused"
 touch "$CONFIG_PREFIX/stopped"
+# execute stop
 
-echo $LEN
 exit 0
