@@ -29,9 +29,10 @@ NULL=""
 EXP_ALL="[\|](${FOLDER_EXP})[\|](${ARTIST_EXP})[\|](${DATE_EXP})[\|](${ALBUM_EXP})[\|](${DISC_EXP})[\|](${TRACK_EXP})[\|](${TITLE_EXP})[\|](${EXT_EXP})[\|]"
 FIELD_FMTS=":\1:\2:\3:\4:\5:\6:\7:\8"
 
-# cat ~/final_2 | sed -E  "s/[\|](albums)[\|]([-'[:alpha:][:space:]]+)[\|]([0-9]{4})[\|]([-')([:alnum:][:space:]]+)[\|]([0-9]?)[\|]([0-9]{2})[\|]([-'\)\(,.&[:alnum:][:space:]]+)[\|]([[:alnum:]]{1,4})[\|]/:\1:\2:\3:\4:\5:\6:\7:\8/g"
-cat $file | sed -E "s/${EXP_ALL}/${FIELDS_FMTS}/g"
+cat $file | sed -E "s/${EXP_ALL}/:\1:\2:\3:\4:\5:\6:\7:\8/g"
 
+# HISTORY
+# cat ~/final_2 | sed -E  "s/[\|](albums)[\|]([-'[:alpha:][:space:]]+)[\|]([0-9]{4})[\|]([-')([:alnum:][:space:]]+)[\|]([0-9]?)[\|]([0-9]{2})[\|]([-'\)\(,.&[:alnum:][:space:]]+)[\|]([[:alnum:]]{1,4})[\|]/:\1:\2:\3:\4:\5:\6:\7:\8/g"
 # matched
 # select_with_fields.sh  ~/final_2 | grep --color=always '|albums|' | wc -l
 # unmatched
