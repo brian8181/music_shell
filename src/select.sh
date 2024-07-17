@@ -1,36 +1,58 @@
 #!/bin/bash
 
-# FILE: 'src/select.sh'
+# FILE: 'select_with_fields.sh'
 # VERSION: '0.0.1'
-# FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
-# INFO: select fields
+# FILE_DATE: 'Sun Jul 14 09:11:03 PM CDT 2024'
+# INFO: search queue
 
-~/src/music_shell/src/utility/fields.sh
+CONFIG_PREFIX="$HOME/.music_shell"
+SEARCH_TERM="$1"
+PLAYLIST=${CONFIG_PREFIX}/queue
+CACHE=${CONFIG_PREFIX}/cache/cache.m3u
+#IGNORE_CASE="$4"
+FIELDS=$2
 
-# FIELDS=$1
-# FOLDER=1
-# ARTIST=2
-# DATE=3
-# ALBUM=4
-# DISC=5
-# TRACK=6
-# TITLE=7
-# EXT=8
+FOLDER=1
+ARTIST=2
+ALBUM_ARTIST=
+DATE=3
+ALBUM=4
+DISC=5
+TRACK=6
+TITLE=7
+LYRICS=
+NOTES=
+IMAGE=
+IMAGE_TYPE=
+IMAGE_PATH=
+EXT=8
 
-# VALID_CHARS="[-a-zA-Z0-9_ ]"
-NAME=$(date.sh)_cache.txt
-cut -d"|" -f "$ARTIST $DATE $ALBUM $TRACK $TITLE" cache/cache.txt > cache/$NAME
+#IMAGE_TYPES={COVER, BACK, MEDIA}
 
-#  ^(1)FOLDER       |(2)ARTIST     |(3)DATE     |(4)ALBUM      |(5)Disc     |(6)TRACK     |(7)TITLE      .(8)EXT$
-# REGX="^${FOLDER_EXP}\|${STRING_EXP}\|${DATE_EXP}\|${STRING_EXP}\|${DISC_EXP}\|${TRACK_EXP}\|${STRING_EXP}\.${EXT_EXP}$"
-# PUNCT=" ][}{)(~!@#$%^&*_+=,.><:;'\\\""
-# STRING_EXP="([[:alnum:][:blank:][ }{][|\~@#$%^&*()-_+=]+)"
-# DATE_EXP="([[:digit:]]{4})"
-# DISC_EXP="([[:digit:]]{2}?)"
-# TRACK_EXP="([[:digit:]]{2})"
-# EXT_EXP="((mp3|ogg|flac)|([[:alnum:]]{3}))"
+FOLDER_EXP='albums'
+ARTIST_EXP="[-'[:alpha:][:space:]]+"
+DATE_EXP='[0-9]{4}' # "([1][89][0-9]{2})|([2][0][0-2][0-9])"
+ALBUM_EXP="[-.\(\),&'_:?[:alnum:][:space:]]+"
+DISC_EXP='[0-9]?'
+TRACK_EXP='[0-9]{2}' # "[0-9][1-9]"
+TITLE_EXP="[-'\)\(,.&[:alnum:][:space:]]+"
+EXT_EXP='[[:alnum:]]{1,4}'
+NULL=""
+EXPR="[\|](${FOLDER_EXP})[\|](${ARTIST_EXP})[\|](${DATE_EXP})[\|](${ALBUM_EXP})[\|](${DISC_EXP})[\|](${TRACK_EXP})[\|](${TITLE_EXP})[\|](${EXT_EXP})[\|]"
+FIELDS_DEFAULT=":\\${FOLDER}:\\${ARTIST}:\\${DATE}:\\${ALBUM}:\\${DATE}:\\${TRACK}:\\${TITLE}:\\${EXT}"
 
-# # PARAMS="s/${REGX}/\\${EXT} \\${ALBUM} \\${ARTIST} \\${DATE} \\${ALBUM} \\${TRACK} \\${TITLE}/g"
-# # sed -E "$PARAMS" cache/cxche.txt
-#sed -E "s/([[:alnum:][:blank:]]*)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]*)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]*)\.(mp3|ogg|flac)/\\2 \\3 \\4 \\5/g" cache/$NAME
-sed -E "s/([[:alnum:][:blank:]][}{~!@#$%^&*)(_+=,.><:;]+)\|([[:alnum:][:blank:]]*)\|([[:digit:]]{4})\|([[:alnum:][:blank:]]*)\|([[:digit:]]{2}?)\|([[:digit:]]{2})\|([[:alnum:][:blank:]]*)\.(mp3|ogg|flac)$/\\${EXT} \\${ALBUM} \\${ARTIST} \\${DATE} \\${ALBUM} \\${TRACK} \\${TITLE}/g" cache/cache.txt
+file=$1 # DEBUG
+cat $file | sed -E "s/${EXPR}/${FIELDS:-${FIELDS_DEFAULT}}/g" #DEBUG
+#DEBUG #cat "$CACHE" | egrep --color=never "$SEARCH_TERM" | tee $PLAYLIST.tmp
+#DEBUG #cat $CONFIG_PREFIX/$PLAYLIST.tmp | sed -E "s/${EXPR}/${FIELDS:-${FIELDS_DEFAULT}}/g" | tee $PLAYLIST
+
+# HISTORY
+# cat ~/final_2 | sed -E  "s/[\|](albums)[\|]([-'[:alpha:][:space:]]+)[\|]([0-9]{4})[\|]([-')([:alnum:][:space:]]+)[\|]([0-9]?)[\|]([0-9]{2})[\|]([-'\)\(,.&[:alnum:][:space:]]+)[\|]([[:alnum:]]{1,4})[\|]/:\1:\2:\3:\4:\5:\6:\7:\8/g"
+# matched
+# select_with_fields.sh  ~/final_2 | grep --color=always '|albums|' | wc -l
+# unmatched
+# select_with_fields.sh  ~/final_2 | grep -v --color=always '|albums|' | wc -l
+# total
+# select_with_fields.sh  ~/final_2 | wc -l
+
+#  |^(1)FOLDER       |(2)ARTIST     |(3)DATE     |(4)ALBUM      |(5)Disc     |(6)TRACK     |(7)TITLE      .(8)EXT$|
