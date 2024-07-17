@@ -30,7 +30,7 @@ EXP_ALL="[\|](${FOLDER_EXP})[\|](${ARTIST_EXP})[\|](${DATE_EXP})[\|](${ALBUM_EXP
 FIELD_FMTS=":\1:\2:\3:\4:\5:\6:\7:\8"
 FIELD_FMTS=":\\${FOLDER}:\\${ARTIST}:\\${DATE}:\\${ALBUM}:\\${DATE}:\\${TRACK}:\\${TITLE}:\\${EXT}"
 
-cat $file | sed -E "s/${EXP_ALL}/${FIELD_FMTS}/g"
+cat $file | sed -E "s/${EXP_ALL}/${FIELDS:-${FIELD_FMT}}/g"
 
 # HISTORY
 # cat ~/final_2 | sed -E  "s/[\|](albums)[\|]([-'[:alpha:][:space:]]+)[\|]([0-9]{4})[\|]([-')([:alnum:][:space:]]+)[\|]([0-9]?)[\|]([0-9]{2})[\|]([-'\)\(,.&[:alnum:][:space:]]+)[\|]([[:alnum:]]{1,4})[\|]/:\1:\2:\3:\4:\5:\6:\7:\8/g"
