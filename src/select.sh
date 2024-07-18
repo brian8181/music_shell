@@ -1,15 +1,14 @@
 #!/bin/bash
 
-# FILE: 'select_with_fields.sh'
+# FILE: 'select.sh'
 # VERSION: '0.0.1'
 # FILE_DATE: 'Sun Jul 14 09:11:03 PM CDT 2024'
-# INFO: search queue
+# INFO: select fields for display
 
 CONFIG_PREFIX="$HOME/.music_shell"
 SEARCH_TERM="$1"
 PLAYLIST=${CONFIG_PREFIX}/queue
 CACHE=${CONFIG_PREFIX}/cache/cache.m3u
-#IGNORE_CASE="$4"
 FIELDS=$2
 
 FOLDER=1
