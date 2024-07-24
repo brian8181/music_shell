@@ -19,18 +19,20 @@ ALBUM=4
 DISC=5
 TRACK=6
 TITLE=7
-LYRICS=
-NOTES=
-IMAGE=
-IMAGE_TYPE=
-IMAGE_PATH=
+# LYRICS=
+# NOTES=
+# IMAGE=
+# IMAGE_TYPE=""
+# IMAGE_PATH=""
 EXT=8
 
 #IMAGE_TYPES={COVER, BACK, MEDIA}
 
 FOLDER_EXP='albums'
-ARTIST_EXP="[-'[:alpha:][:space:]]+"
+ARTIST_EXP="[-'[:alpha:][[:space:]]]+"
 DATE_EXP='[0-9]{4}' # "([1][89][0-9]{2})|([2][0][0-2][0-9])"
+PUNCT="-\[\].\(\),&'_:?"
+P1="[][~@#$%*a-z\-]"
 ALBUM_EXP="[-.\(\),&'_:?[:alnum:][:space:]]+"
 DISC_EXP='[0-9]?'
 TRACK_EXP='[0-9]{2}' # "[0-9][1-9]"
@@ -41,12 +43,12 @@ EXPR="[\|](${FOLDER_EXP})[\|](${ARTIST_EXP})[\|](${DATE_EXP})[\|](${ALBUM_EXP})[
 FIELDS_DEFAULT=":\\${FOLDER}:\\${ARTIST}:\\${DATE}:\\${ALBUM}:\\${DATE}:\\${TRACK}:\\${TITLE}:\\${EXT}"
 
 file=$1 # DEBUG
-cat $file | sed -E "s/${EXPR}/${FIELDS:-${FIELDS_DEFAULT}}/g" #DEBUG
+#cat $file | sed -E "s/${EXPR}/${FIELDS:-${FIELDS_DEFAULT}}/g" #DEBUG
 #DEBUG #cat "$CACHE" | egrep --color=never "$SEARCH_TERM" | tee $PLAYLIST.tmp
 #DEBUG #cat $CONFIG_PREFIX/$PLAYLIST.tmp | sed -E "s/${EXPR}/${FIELDS:-${FIELDS_DEFAULT}}/g" | tee $PLAYLIST
 
 # HISTORY
-# cat ~/final_2 | sed -E  "s/[\|](albums)[\|]([-'[:alpha:][:space:]]+)[\|]([0-9]{4})[\|]([-')([:alnum:][:space:]]+)[\|]([0-9]?)[\|]([0-9]{2})[\|]([-'\)\(,.&[:alnum:][:space:]]+)[\|]([[:alnum:]]{1,4})[\|]/:\1:\2:\3:\4:\5:\6:\7:\8/g"
+cat $file | sed -E  "s/[\|](${FOLDER_EXP})[\|](${ARTIST_EXP})[\|](${DATE_EXP})[\|](${ALBUM_EXP})[\|](${DISC_EXP})[\|](${TRACK_EXP})[\|](${TITLE_EXP})[\|](${EXT_EXP})[\|]/:\1:\2:\3:\4:\5:\6:\7:\8/g"
 # matched
 # select_with_fields.sh  ~/final_2 | grep --color=always '|albums|' | wc -l
 # unmatched
