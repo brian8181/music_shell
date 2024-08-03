@@ -14,10 +14,13 @@ echo "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE}\" ..."
 find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(wma\)\)$' > "${CACHE}"
 echo "finished writing cache too \"${CACHE}\" ..."
 
+
+# replace problem characters!
+#sed s/\|/-/g
 # trim off root                                             # replace delimiter   # create date & album columns
-sed 's/\/mnt\/music\/music-lib\///' "${CACHE}" | sed s/\\//\|/g | sed s/' - '/\|/ | sed s/\\.[[:space:]]/\|/ > "${CACHE}.tmp"
+#sed 's/\/mnt\/music\/music-lib\///' "${CACHE}" | sed s/\\//\|/g | sed s/' - '/\|/ | sed s/\\.[[:space:]]/\|/ > "${CACHE}.tmp"
 # add disc column                                           # seperate disc & track
-sed -E "s/(\|[[:digit:]][[:digit:]]\|)/\|\1/" "${CACHE}.tmp" | sed -E "s/([[:digit:]]+)\\./\1\|/" > "${CACHE}"
+#sed -E "s/(\|[[:digit:]][[:digit:]]\|)/\|\1/" "${CACHE}.tmp" | sed -E "s/([[:digit:]]+)\\./\1\|/" > "${CACHE}"
 
 # remove tmp
 # rm "${STORE_PREFIX}/${CACHE}.tmp"
