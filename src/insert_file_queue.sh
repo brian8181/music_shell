@@ -22,7 +22,7 @@ tail -$LEN_TAIL "$DST_FILE" > dst_tail.tmp
 
 # append <src_file> to <dst_file> head
 # append <dst_file>'s tail to <dst_head>
-cat "$SRC_FILE" >> dst_head.smp
+cat "$SRC_FILE" >> dst_head.tmp
 cat dst_tail.tmp >> dst_head.tmp
 mv dst_head.tmp $DST_FILE
 
