@@ -14,9 +14,26 @@ echo "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE}\" ..."
 find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(wma\)\)$' > "${CACHE}"
 echo "finished writing cache too \"${CACHE}\" ..."
 
+echo 'transforming ...'
 
-# replace problem characters!
-#sed s/\|/-/g
+IDX='.0'
+CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+cat ${CACHE} > ${CACHE_INDEXED}
+CACHE=${CACHE_INDEXED}
+
+IDX='.1'
+CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+cat ${CACHE} | sed 's/\//|/g' > ${CACHE_INDEXED}
+CACHE=${CACHE_INDEXED};
+
+IDX='.2'
+CACHE_IDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+cat ${CACHE} | sed 's/\./|/g' > ${CACHE_IDEXED}
+CACHE=${CACHE_INDEXED};
+
+echo "finished writing cache too \"${CACHE_INDEXED}\" ..."
+echo "finished."
+
 # trim off root                                             # replace delimiter   # create date & album columns
 #sed 's/\/mnt\/music\/music-lib\///' "${CACHE}" | sed s/\\//\|/g | sed s/' - '/\|/ | sed s/\\.[[:space:]]/\|/ > "${CACHE}.tmp"
 # add disc column                                           # seperate disc & track
