@@ -19,17 +19,26 @@ echo 'transforming ...'
 IDX='.0'
 CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
 cat ${CACHE} > ${CACHE_INDEXED}
-CACHE=${CACHE_INDEXED}
 
 IDX='.1'
+CACHE=${CACHE_INDEXED}
 CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
-cat ${CACHE} | sed 's/\//|/-/g' > ${CACHE_INDEXED}
-CACHE=${CACHE_INDEXED};
+cat ${CACHE} | sed 's/\//|/g' > ${CACHE_INDEXED}
 
 IDX='.2'
+CACHE=${CACHE_INDEXED}
 CACHE_IDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
 cat ${CACHE} | sed 's/\./|/g' > ${CACHE_IDEXED}
-CACHE=${CACHE_INDEXED};
+
+IDX='.3'
+CACHE=${CACHE_INDEXED}
+CACHE_IDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+cat ${CACHE} | sed 's/|[[:space:]]/|/g' > ${CACHE_IDEXED}
+
+IDX='.4'
+CACHE=${CACHE_INDEXED}
+CACHE_IDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+cat ${CACHE} | sed 's/|mnt|music|music-lib|//g' > ${CACHE_IDEXED}
 
 echo "finished writing cache too \"${CACHE_INDEXED}\" ..."
 echo "finished."
