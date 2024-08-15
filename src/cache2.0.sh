@@ -1,4 +1,4 @@
-#!/bin/bash
+	#!/bin/bash
 
 # FILE: 'cache2.0.sh'
 # VERSION: '0.0.1'
@@ -16,7 +16,7 @@ echo "finished writing cache too \"${CACHE}\" ..."
 
 echo 'transforming ...'
 
-IDX='.0'
+IDX='.0' 
 CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
 cat ${CACHE} > ${CACHE_INDEXED}
 
@@ -33,13 +33,11 @@ cat ${CACHE} | sed 's/\./|/g' > ${CACHE_IDEXED}
 IDX='.3'
 CACHE=${CACHE_INDEXED}
 CACHE_IDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
-cat ${CACHE} | sed 's/|[[:space:]]/|/g'
 cat ${CACHE} | sed 's/|[[:space:]]/|/g' > ${CACHE_IDEXED}
 
 IDX='.4'
 CACHE=${CACHE_INDEXED}
 CACHE_IDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
-cat ${CACHE} | sed 's/|mnt|music|music-lib|//g'
 cat ${CACHE} | sed 's/|mnt|music|music-lib|//g' > ${CACHE_IDEXED}
 
 echo "finished writing cache too \"${CACHE_INDEXED}\" ..."
@@ -47,7 +45,7 @@ echo "finished."
 
 # trim off root                                             # replace delimiter   # create date & album columns
 #sed 's/\/mnt\/music\/music-lib\///' "${CACHE}" | sed s/\\//\|/g | sed s/' - '/\|/ | sed s/\\.[[:space:]]/\|/ > "${CACHE}.tmp"
-# add disc column                                           # seperate disc & track
+# add disc column                                           # seperate disc & track20240810102624_cache.2.m3u
 #sed -E "s/(\|[[:digit:]][[:digit:]]\|)/\|\1/" "${CACHE}.tmp" | sed -E "s/([[:digit:]]+)\\./\1\|/" > "${CACHE}"
 
 # remove tmp

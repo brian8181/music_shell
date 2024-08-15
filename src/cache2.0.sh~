@@ -1,4 +1,4 @@
-#!/bin/bash
+	#!/bin/bash
 
 # FILE: 'cache2.0.sh'
 # VERSION: '0.0.1'
@@ -16,7 +16,7 @@ echo "finished writing cache too \"${CACHE}\" ..."
 
 echo 'transforming ...'
 
-IDX='.0'
+IDX='.0' 
 CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
 cat ${CACHE} > ${CACHE_INDEXED}
 
