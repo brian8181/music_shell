@@ -1,7 +1,7 @@
 #!/bin/bash
 FILE='install.sh'
 VERSION='0.0.1'
-FILE_DATE='Tue May  7 12:03:53 AM CDT 2024'
+FILE_DATE='Wed 14 Aug 2024 11:21:46 PM CDT'
 
 FMT_FG_RED='\e[31m'
 FMT_FG_GREEN='\e[32m'
@@ -41,13 +41,15 @@ PRINT_INFO "$FILE -> Running... @ $DATE"
 PRINT_INFO "load settings ..."
 settings.sh
 
-PREFIX="$HOME/.music_shell"
+PREFIX_CONF="$HOME/.music_shell"
+PRINT_INFO "make directory  \"${PREFIX_CONF}/\" ..."
+mkdir -v -p ${PREFIX_CONF}
 
-if [ ! -d "$PREFIX/cache" ]; then
-    PRINT_INFO "make directory  \"$HOME/.music_shell/cache\" ..."
-    mkdir -v -p "$HOME/cache"
-    touch -v "$PREFIX/queue"
-    touch -v "$PREFIX/config.txt"
+if [ ! -d "$PREFIX_CONF/cache" ]; then
+    PRINT_INFO "make directory  \"${PREFIX_CONF}/cache\" ..."
+    mkdir -v -p "$PREFIX_CONF/cache"
+    touch -v "$PREFIX_CONF/queue"
+    touch -v "$PREFIX_CONF/config.txt"
 fi
 
 # copy all music_shell/src to $HOME/bin
@@ -59,7 +61,6 @@ fi
 
 PRINT_INFO "copy all to \"$HOME/bin\" ..."
 cp -v -f "${HOME}"/src/music_shell/src/*.sh "$HOME/bin/"
-
 
 # check for sym links, and delete
 if [ -h "$HOME/bin/s" ]; then
