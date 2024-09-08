@@ -3,7 +3,7 @@
 # FILE: 'insert_item.sh'
 # VERSION: '0.0.1'
 # FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
-# INFO: insert <src_file> contents in <dst_file> @ <index>
+# INFO: insert item <src_index> from file <src_file> into <dst_file> @ <dst_index>
 
 CONFIG_PREFIX="$HOME/.music_shell"
 QUEUE="$CONFIG_PREFIX/queue"

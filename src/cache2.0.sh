@@ -5,7 +5,7 @@
 # FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
 # INFO: builds a new cache.sh
 
-STORE_PREFIX="/mnt/music/music-lib"
+STORE_PREFIX=${1:-"/mnt/music/music-lib"}
 CONFIG_PREFIX="$HOME/.music_shell"
 TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
@@ -23,11 +23,13 @@ cat ${CACHE} > ${CACHE_INDEXED}
 IDX='.1'
 CACHE=${CACHE_INDEXED}
 CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+# replace forward slash '/', with vbar '|'
 cat ${CACHE} | sed 's/\//|/g' > ${CACHE_INDEXED}
 
 IDX='.2'
 CACHE=${CACHE_INDEXED}
 CACHE_IDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+# replace dot '.', with vbar '|'
 cat ${CACHE} | sed 's/\./|/g' > ${CACHE_IDEXED}
 
 IDX='.3'
@@ -38,6 +40,7 @@ cat ${CACHE} | sed 's/|[[:space:]]/|/g' > ${CACHE_IDEXED}
 IDX='.4'
 CACHE=${CACHE_INDEXED}
 CACHE_IDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+# delete prefix '|mnt|music|music-lib|'
 cat ${CACHE} | sed 's/|mnt|music|music-lib|//g' > ${CACHE_IDEXED}
 
 echo "finished writing cache too \"${CACHE_INDEXED}\" ..."
@@ -45,7 +48,7 @@ echo "finished."
 
 # trim off root                                             # replace delimiter   # create date & album columns
 #sed 's/\/mnt\/music\/music-lib\///' "${CACHE}" | sed s/\\//\|/g | sed s/' - '/\|/ | sed s/\\.[[:space:]]/\|/ > "${CACHE}.tmp"
-# add disc column                                           # seperate disc & track20240810102624_cache.2.m3u
+# add disc column                                           # seperate disc & track
 #sed -E "s/(\|[[:digit:]][[:digit:]]\|)/\|\1/" "${CACHE}.tmp" | sed -E "s/([[:digit:]]+)\\./\1\|/" > "${CACHE}"
 
 # remove tmp

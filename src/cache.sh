@@ -5,6 +5,10 @@
 # FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
 # INFO: builds a new cache.sh
 
+FILE='cache.sh'
+VERSION='0.0.1'
+FILE_DATE='Fri Jul 12 07:03:30 AM CDT 2024'
+
 FMT_FG_RED='\e[31m'
 FMT_FG_GREEN='\e[32m'
 FMT_RESET='\e[0m'
