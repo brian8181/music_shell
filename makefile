@@ -1,4 +1,10 @@
-# BUILD_VERSION = 0.1.0
+#!/bin/bash
+
+# FILE: makefile
+# VERSION: 0.0.1
+# FILE_DATE: Sun Sep  8 04:07:01 PM CDT 2024
+# INFO:
+
 CXX = g++
 CXXFLAGS = -Wall -std=c++17 -DEBUG -ggdb
 LDFLAGS = -ltag -L/usr/local/lib/ -lz
