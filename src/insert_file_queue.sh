@@ -3,7 +3,7 @@
 # FILE: 'insert_file_at.sh'
 # VERSION: '0.0.1'
 # FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
-# INFO: insert <srt_file> contents in <dst_file> @ <index>
+# INFO: insert <src_file> contents in <dst_file> @ <index>
 
 CONFIG_PREFIX="$HOME/.music_shell"
 QUEUE="$CONFIG_PREFIX/queue"

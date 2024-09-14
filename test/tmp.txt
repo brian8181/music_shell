@@ -1,4 +1,3 @@
-|albums|Nick Drake|1994|Way to Blue- an Introduction to Nick Drake||14|Pink Moon|flac|
 |albums|Nick Drake|1972|Pink Moon|1|10|Harvest Breed|flac|
 |albums|Nick Drake|1972|Pink Moon|1|05|Horn|flac|
 |albums|Nick Drake|1972|Pink Moon|1|11|From the Morning|flac|
