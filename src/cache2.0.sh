@@ -14,38 +14,38 @@ echo "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE}\" ..."
 find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(wma\)\)$' > "${CACHE}"
 echo "finished writing cache too \"${CACHE}\" ..."
 
-echo 'transforming ...'
+# echo 'transforming ...'
 
-IDX='.0' 
-CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
-cat ${CACHE} > ${CACHE_INDEXED}
+# IDX='.0' 
+# CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+# cat ${CACHE} > ${CACHE_INDEXED}
 
-IDX='.1'
-CACHE=${CACHE_INDEXED}
-CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
-# replace forward slash '/', with vbar '|'
-cat ${CACHE} | sed 's/\//|/g' > ${CACHE_INDEXED}
+# IDX='.1'
+# CACHE=${CACHE_INDEXED}
+# CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+# # replace forward slash '/', with vbar '|'
+# cat ${CACHE} | sed 's/\//|/g' > ${CACHE_INDEXED}
 
-IDX='.2'
-CACHE=${CACHE_INDEXED}
-CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
-# replace dot '.', with vbar '|' 
-cat ${CACHE} | sed 's/\./|/g' > ${CACHE_INDEXED}
+# IDX='.2'
+# CACHE=${CACHE_INDEXED}
+# CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+# # replace dot '.', with vbar '|' 
+# cat ${CACHE} | sed 's/\./|/g' > ${CACHE_INDEXED}
 
-# delete leading spaces in fields 
-IDX='.3'
-CACHE=${CACHE_INDEXED}
-CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
-cat ${CACHE} | sed 's/|[[:space:]]/|/g' > ${CACHE_INDEXED}
+# # delete leading spaces in fields 
+# IDX='.3'
+# CACHE=${CACHE_INDEXED}
+# CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+# cat ${CACHE} | sed 's/|[[:space:]]/|/g' > ${CACHE_INDEXED}
 
-IDX='.4'
-CACHE=${CACHE_INDEXED}
-CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
-# delete prefix '|mnt|music|music-lib|'
-cat ${CACHE} | sed 's/|mnt|music|music-lib|//g' > ${CACHE_INDEXED}
+# IDX='.4'
+# CACHE=${CACHE_INDEXED}
+# CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+# # delete prefix '|mnt|music|music-lib|'
+# cat ${CACHE} | sed 's/|mnt|music|music-lib|//g' > ${CACHE_INDEXED}
 
-echo "finished writing cache too \"${CACHE_INDEXED}\" ..."
-echo "finished."
+# echo "finished writing cache too \"${CACHE_INDEXED}\" ..."
+# echo "finished."
 
 # trim off root                                             # replace delimiter   # create date & album columns
 #sed 's/\/mnt\/music\/music-lib\///' "${CACHE}" | sed s/\\//\|/g | sed s/' - '/\|/ | sed s/\\.[[:space:]]/\|/ > "${CACHE}.tmp"
