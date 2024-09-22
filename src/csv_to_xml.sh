@@ -24,4 +24,4 @@ if [[ $LEN_ORG != $LEN_CUR ]]; then
 fi
 
 #<?xml version="1.0"?>
-cat "$SRC_FILE" | echo "<?xml version=\"1.0\"?>\n<songs>\n$(sed -E 's/\\"([^,]*)\\"/<~~~~\1~~~~>/g')<\/songs>" | sed -E 's/<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>/<song>\n\t\t<location>\1<\/location>\n\t\t<artist>\2<\/artist>\n\t\t<album>\3<\/album>\n\t\t<title>\4<\/title>\n\t<\/song>\n/g' > "$DST_FILE"
+cat "$SRC_FILE" | sed -E 's/\"([^,]*)\"/<~~~~\1~~~~>/g' | sed -E 's/<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>/<song>\n\t\t<location>\1<\/location>\n\t\t<artist>\2<\/artist>\n\t\t<album>\3<\/album>\n\t\t<title>\4<\/title>\n\t<\/song>\n/g' > "$DST_FILE"
