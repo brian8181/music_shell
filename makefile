@@ -11,8 +11,8 @@ LDFLAGS = -ltag -L/usr/local/lib/ -lz
 INCLUDES= -I/usr/local/include/taglib/
 
 SRC=./src
-OBJ=./build
-BLD=./build
+OBJ=obj
+BLD=obj
 CONFIG_PATH=$(HOME)/.music_shell
 BIN_PATH=$(HOME)/bin
 

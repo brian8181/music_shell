@@ -23,4 +23,7 @@ if [[ $LEN_ORG != $LEN_CUR ]]; then
 fi
 
 #<?xml version="1.0"?>
-cat "$SRC_FILE" | sed -E 's/\"([^,]*)\"/<~~~~\1~~~~>/g' | sed -E 's/<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>/<song>\n\t<location>\1<\/location>\n\t<artist>\2<\/artist>\n\t<album>\3<\/album>\n\t<title>\4<\/title>\n<\/song>/g' > "$DST_FILE"
+FIND_PATTERN='<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>'
+REPLACE_PATTERN='<song>\n\t<location>\1<\/location>\n\t<artist>\2<\/artist>\n\t<album>\3<\/album>\n\t<title>\4<\/title>\n<\/song>'
+
+cat "$SRC_FILE" | sed -E 's/\"([^,]*)\"/<~~~~\1~~~~>/g' | sed -E "s/${FIND_PATTERN}/${REPLACE_PATTERN}/g" > "$DST_FILE"
