@@ -9,9 +9,9 @@ if [[ !(-f "$SRC_FILE") ]]; then
     exit 1
 fi
 
-if [[ -e "$DST_FILE" ]]; then
-    DST_FILE="~${DST_FILE}"
-fi
+# if [[ -e "$DST_FILE" ]]; then
+#     DST_FILE="${DST_FILE}"
+# fi
 
 # check format
 LEN_ORG=$(cat "$SRC_FILE" | wc -l)
@@ -22,8 +22,11 @@ if [[ $LEN_ORG != $LEN_CUR ]]; then
     exit 1
 fi
 
-#<?xml version="1.0"?>
+echo '<?xml version="1.0"?>' > "$DST_FILE"
+echo "<songs>" >> "$DST_FILE"
+
 FIND_PATTERN='<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>'
 REPLACE_PATTERN='<song>\n\t<location>\1<\/location>\n\t<artist>\2<\/artist>\n\t<album>\3<\/album>\n\t<title>\4<\/title>\n<\/song>'
+cat "$SRC_FILE" | sed -E 's/\"([^,]*)\"/<~~~~\1~~~~>/g' | sed -E "s/${FIND_PATTERN}/${REPLACE_PATTERN}/g" >> "$DST_FILE"
 
-cat "$SRC_FILE" | sed -E 's/\"([^,]*)\"/<~~~~\1~~~~>/g' | sed -E "s/${FIND_PATTERN}/${REPLACE_PATTERN}/g" > "$DST_FILE"
+echo "</songs>" >> "$DST_FILE"
