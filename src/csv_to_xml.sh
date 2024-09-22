@@ -1,26 +1,26 @@
 #!/bin/bash
 
-CSV_FILE=$1
-OUT_FILE=${CSV_FILE%.csv}.xml
+SRC_FILE="$1"
+DST_FILE="$2"
+DST_FILE="${$DST_FILE:-SRC_FILE%*.csv}.xml"
+FORMAT="location,artist,album,title"
 
-if [[! -f $CSV_FILE ]]; then
-    echo "file, input file $CSV_FILE found ..."
+if [[! -f "$SRC_FILE" ]]; then
+    echo "Error Not File Found: source file "$SRC_FILE" found ..."
     exit 1
 fi
 
-if [[ -e $OUT_FILE ]]; then
-    echo "file $OUTPUT exists ..."
-    exit 1
+if [[ -e "$DST_FILE" ]]; then
+    DST_FILE="~${DST_FILE}"
 fi
 
 # check format
-LEN_ORG=$(cat $CSV_FILE | wc -l)
-LEN_CUR=$(cat $CSV_FILE | grep -E 's/^\".*\",\".*\",\".*\",\".*\"$//g')
+LEN_ORG=$(cat "$SRC_FILE" | wc -l)
+LEN_CUR=$(cat "$SRC_FILE" | grep -E '^\".*\",\".*\",\".*\",\".*\"$' | wc -l)
 
 if [[ $LEN_ORG != $LEN_CUR ]]; then
-    echo "File format Error ..."
-    echo "location,artist,album,title"
+    echo "Error File Format: source file "$SRC_FILE" wrong format... \n\t"$FORMAT"
     exit 1
 fi
 
-cat $CSV_FILE | sed -E 's/\"([^,]*)\"/<~~~~\1~~~~>/g' | sed -E 's/<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>/<xml>\n\t<song>\n\t\t<location>\1<\/location>\n\t\t<artist>\2<\/artist>\n\t\t<album>\3<\/album>\n\t\t<title>\4<\/title>\n\t<\/song>\n<\/xml>/g' > $OUT_FILE
+cat "$SRC_FILE" | sed -E 's/\"([^,]*)\"/<~~~~\1~~~~>/g' | sed -E 's/<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>,<~~~~(.*)~~~~>/<xml>\n\t<song>\n\t\t<location>\1<\/location>\n\t\t<artist>\2<\/artist>\n\t\t<album>\3<\/album>\n\t\t<title>\4<\/title>\n\t<\/song>\n<\/xml>/g' > "$DST_FILE"
