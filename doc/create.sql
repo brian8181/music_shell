@@ -1,25 +1,52 @@
 create schema music;
+
 create table song (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INT PRIMARY KEY AUTOINCREMENT,
     location TEXT,
-    date NUMERIC,
+    year TEXT,
     artist TEXT,
     album TEXT,
+    album_artist TEXT,
     track INT,
-    disc INIT,
+    track_count INT,
+    disc INT,
+    disc_count INT,
     title TEXT,
-    ext TEXT
+    lyrics TEXT,
+    genre TEXT,
+    file_size INT,
+    file TEXT,
+    bitrate INT,
+    encoder TEXT,
+    art TEXT,
+    ext TEXT,
+    update_ts TIMESTAMP,
+    insert_ts TIMESTAMP
 );
 
-create table music(
-    location TEXT,
-    artist TEXT,
-    date NUMERIC,
-    album TEXT,
-    track INT,
-    disc INIT,
-    title TEXT,
-    ext
-);
+create table art (
+	id INT PRIMARY KEY AUTOINCREMENT,
+	file TEXT,
+	type TEXT,
+	hash BLOB,
+	description TEXT,
+	mime_type TEXT,
+	update_ts TIMESTAMP,
+	insert_ts TIMESTAMP
+); 
+
+create table artist (
+	id INT PRIMARY KEY AUTOINCREMENT,
+	artist TEXT,
+	update_ts TIMESTAMP,
+	insert_ts TIMESTAMP
+); 
+
+create table album (
+	id INT PRIMARY KEY AUTOINCREMENT,
+	album TEXT,
+	update_ts TIMESTAMP,
+	insert_ts TIMESTAMP
+); 
 
 .import --csv .cache.csv song
