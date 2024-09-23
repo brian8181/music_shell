@@ -63,3 +63,4 @@ uninstall:
 clean:
 	-rm -f $(OBJ)/*.o
 	-rm -f $(BLD)/*.o
+	-rm -f test/out/*

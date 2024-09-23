@@ -1,4 +1,5 @@
 /build/*
+/test/out/*
 src/queue
 src/cache/*
 src/.music_shell/cache/*
