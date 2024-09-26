@@ -10,8 +10,28 @@ CONFIG_PREFIX="$HOME/.music_shell"
 TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
 
-echo "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE}\" ..."
-find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(wma\)\)$' > "${CACHE}"
+# echo "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE}\" ..."
+# find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(wma\)\)$' > "${CACHE}"
+
+# brian@omega:~/.music_shell >$ cat db.csv | grep "[&]" | wc -l
+# 7171
+# brian@omega:~/.music_shell >$ cat db.csv | grep "[<]" | wc -l
+# 0
+# brian@omega:~/.music_shell >$ cat db.csv | grep "[>]" | wc -l
+# 0
+# brian@omega:~/.music_shell >$ cat db.csv | grep "[']" | wc -l
+# 15908
+# brian@omega:~/.music_shell >$ cat db.csv | grep "[\\\"]" | wc -l
+##6020
+
+IDX='.1'
+CACHE=${CACHE_INDEXED}
+CACHE_INDEXED="${CONFIG_PREFIX}/${TIME_STAMP}_cache${IDX}.m3u"
+
+# replace xml entities
+cat ${CACHE} | sed -E 's/&/&amp;/g' | sed -E 's/</&lt;/g' | sed -E 's/>/&gt;/g' \ 
+	| sed -E "s/'/&apos;/g" | sed -E "s/\\\"/&quot;/g" > ${CACHE_INDEXED}
+
 echo "finished writing cache too \"${CACHE}\" ..."
 
 # echo 'transforming ...'

@@ -2,18 +2,6 @@ create schema music;
 
 create table song 
 (
-    location TEXT,
-    artist TEXT,
-    album TEXT,
-    title TEXT
-);
-
-.import --csv $HOME/.music_shell/cache.txt song
-
-create schema music;
-
-create table song 
-(
     location     TEXT,
     artist       TEXT,
     album        TEXT,
@@ -44,5 +32,3 @@ create table album (
 	insert_ts TIMESTAMP
 ); 
 
-
-.import --csv $HOME/.music_shell/cache.csv song
