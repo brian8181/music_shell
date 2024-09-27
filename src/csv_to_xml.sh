@@ -49,7 +49,7 @@ echo "<!-- FILE_DATE: ${COMMENT:=${CURRENT_DATETIME}} -->" >> "$DST_FILE"
 echo -e "<songs>" >> "$DST_FILE"
 
 cat "$SRC_FILE_TMP" | sed -E "s/${PATTERN}/${REPLACE_PATTERN}/g" >> "$DST_FILE"
-#rm "$SRC_FILE_TMP"
+rm "$SRC_FILE_TMP"
 
-# close element
+# xml header close
 echo -e "</songs>" >> "$DST_FILE"
