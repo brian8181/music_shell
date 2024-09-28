@@ -31,7 +31,11 @@ sed -i 1d "$SRC_FILE_TMP"
 # HEADER_PATTERN='^(.*),(.*),(.*),(.*)$'
 # echo $HEADERS | sed -E "s/$HEADER_PATTERN/\4 \3 \2 \1/g"
 
-PATTERN='^\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\"$'
+# replace xml entities
+cat "${$SRC_FILE_TMP}" | sed -E -i 's/&/&amp;/g' | sed -E 's/</&lt;/g' | sed -E 's/>/&gt;/g' | sed -E "s/'/&apos;/g" | sed -E "s/\\\"/&quot;/g" > ${DST_FILE}
+
+#PATTERN='^\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\"$'
+PATTERN='^\"(.*)\"\/\"(.*)\"\/\"(.*)\"\/\"(.*)\"$'
 REPLACE_PATTERN='\t<song>\n\t\t<location>\1<\/location>\n\t\t<artist>\2<\/artist>\n\t\t<album>\3<\/album>\n\t\t<title>\4<\/title>\n\t<\/song>'
 
 # check format
