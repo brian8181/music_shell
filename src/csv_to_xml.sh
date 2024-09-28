@@ -31,8 +31,6 @@ sed -i 1d "$SRC_FILE_TMP"
 # HEADER_PATTERN='^(.*),(.*),(.*),(.*)$'
 # echo $HEADERS | sed -E "s/$HEADER_PATTERN/\4 \3 \2 \1/g"
 
-# replace xml entities
-cat "${$SRC_FILE_TMP}" | sed -E -i 's/&/&amp;/g' | sed -E 's/</&lt;/g' | sed -E 's/>/&gt;/g' | sed -E "s/'/&apos;/g" | sed -E "s/\\\"/&quot;/g" > ${DST_FILE}
 
 #PATTERN='^\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\"$'
 PATTERN='^\"(.*)\"\/\"(.*)\"\/\"(.*)\"\/\"(.*)\"$'
@@ -51,6 +49,10 @@ LEN_CUR=$(cat "$SRC_FILE_TMP" | grep -E "$PATTERN" | wc -l)
 echo '<?xml version = "1.0" encoding = "UTF-8" standalone = "no" ?>' > "$DST_FILE"
 echo "<!-- FILE_DATE: ${COMMENT:=${CURRENT_DATETIME}} -->" >> "$DST_FILE"
 echo -e "<songs>" >> "$DST_FILE"
+
+# replace xml entities
+cat "${$SRC_FILE_TMP}" | sed -E -i 's/&/&amp;/g' | sed -E 's/</&lt;/g' | sed -E 's/>/&gt;/g' | sed -E "s/'/&apos;/g" | sed -E "s/\\\"/&quot;/g" > dst_tmp~
+mv -f dst_tmp~ "${$SRC_FILE_TMP}"
 
 cat "$SRC_FILE_TMP" | sed -E "s/${PATTERN}/${REPLACE_PATTERN}/g" >> "$DST_FILE"
 rm "$SRC_FILE_TMP"
