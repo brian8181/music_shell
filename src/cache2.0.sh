@@ -20,7 +20,7 @@ echo PREFIX=$STORE_PREFIX
 # remove prefix
 sed -E -i "s/^.*music-lib//g" ${CACHE}
 # quotes
-sed -E -i 's/^\/(.*)\/(.*)\/(.*)\/(.*)$/"\1"\/"\3"\/"\2"\/"\4"/g' ${CACHE}
+sed -E -i 's/^(.*)\/(.*)\/([0-9]{4}) - (.*)\/([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/""\/"\5"\/"\6"\/"\7"/g' ${CACHE}
 
 # delete leading spaces in fields 
 #cat ${CACHE} | sed -E 's/[[:space:]]+,/,/g' | sed -E 's/,[[:space:]]+/,/g' > ${CACHE_INDEXED}
