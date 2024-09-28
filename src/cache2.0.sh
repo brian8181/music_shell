@@ -11,21 +11,19 @@ TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
 
 echo "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE}\" ..."
-find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(wma\)\)$' > "${CACHE}"
+
+#find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(wma\)\)$' > "${CACHE}" # all
+find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(wma\)\)$' | grep -E albums/ > "${CACHE}" # albums only
+
 
 echo "finished writing csv too \"${CACHE}\" ..."
 echo 'transforming csv ...'
 
 echo PREFIX=$STORE_PREFIX
 # remove prefix
-sed -E -i "s/^.*music-lib//g" ${CACHE}
-# quotes
-#sed -E -i 's/^(.*)\/(.*)\/([0-9]{4}) - (.*)\/([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/""\/"\5"\/"\6"\/"\7"/g' ${CACHE}
-sed -E -i 's/^(.*)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"/g' ${CACHE}
-
-
-# delete leading spaces in fields 
-#cat ${CACHE} | sed -E 's/[[:space:]]+,/,/g' | sed -E 's/,[[:space:]]+/,/g' > ${CACHE_INDEXED}
+sed -E -i "s/^.*music-lib\///g" ${CACHE}
+# normalize the put feilds in quotes
+sed -E -i 's/^(.*)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""/g' ${CACHE}
 
 # replace xml entities
 # cat ${CACHE} | sed -E 's/&/&amp;/g' | sed -E 's/</&lt;/g' | sed -E 's/>/&gt;/g' \ 
