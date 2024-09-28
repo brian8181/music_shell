@@ -17,10 +17,13 @@ echo "finished writing csv too \"${CACHE}\" ..."
 echo 'transforming csv ...'
 
 echo PREFIX=$STORE_PREFIX
-#cat ${CACHE} | sed -E "s/${STORE_PREFIX}//g" > "${CONFIG_PREFIX}/${TIME_STAMP}_cache.tmp"
+# remove prefix
+sed -E -i "s/^.*music-lib//g" ${CACHE}
+# quotes
+sed -E -i 's/^\/(.*)\/(.*)\/(.*)\/(.*)$/"\1"\/"\3"\/"\2"\/"\4"/g' ${CACHE}
 
 # delete leading spaces in fields 
-# cat ${CACHE} | sed 's/|[[:space:]]/|/g' > ${CACHE_INDEXED}
+#cat ${CACHE} | sed -E 's/[[:space:]]+,/,/g' | sed -E 's/,[[:space:]]+/,/g' > ${CACHE_INDEXED}
 
 # replace xml entities
 # cat ${CACHE} | sed -E 's/&/&amp;/g' | sed -E 's/</&lt;/g' | sed -E 's/>/&gt;/g' \ 

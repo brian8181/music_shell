@@ -43,8 +43,8 @@ LEN_CUR=$(cat "$SRC_FILE_TMP" | grep -E "$PATTERN" | wc -l)
 #     exit 1
 # fi
 
-# xml header
-echo '<?xml version="1.0"?>' > "$DST_FILE"
+# xml headers
+echo '<?xml version = "1.0" encoding = "UTF-8" standalone = "no" ?>' > "$DST_FILE"
 echo "<!-- FILE_DATE: ${COMMENT:=${CURRENT_DATETIME}} -->" >> "$DST_FILE"
 echo -e "<songs>" >> "$DST_FILE"
 
