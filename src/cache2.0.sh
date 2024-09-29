@@ -13,7 +13,6 @@ CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
 echo "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE}\" ..."
 
 #find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(m4a\)|\(wma\)\)$' > "${CACHE}" # all
-
 find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E albums/ > $CACHE # albums only
 
 echo "finished writing csv too \"${CACHE}\" ..."
@@ -42,10 +41,6 @@ TMP=$(date.sh).tmp
 cat $CACHE_SINGLES | grep -v '^singles\/.*$' > $TMP
 mv $TMP $CACHE_SINGLES
 
-
-
-
+# todo
 # sed -E -i      's/^(misc|sountrack)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""/g' ${CACHE}
-
-
 echo "finished writing (csv \ cache) too \"${CACHE}\" ..."
