@@ -30,12 +30,12 @@ sed -E -i 's/^(albums)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.
 # echo "searching for singles ..."
 
 TIME_STAMP="$(date.sh)"
-CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
-find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E singles/ > ${CACHE}
+CACHE_SINGLES="${CONFIG_PREFIX}/${TIME_STAMP}_cache_singles.m3u"
+find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E singles/ > ${CACHE_SINGLES}
 
 # # remove prefix
-sed -E -i "s/^.*music-lib\///g" ${CACHE}
-sed -E -i 's/^(singles)\/(.*) - (.*) (\([0-9]{4}\)) - (.*)\.(.*)$/"\1"\/"\2"\/"\3"\/"\4"\/"\5"\/"\6"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE}
+sed -E -i "s/^.*music-lib\///g" ${CACHE_SINGLES}
+sed -E -i 's/^(singles)\/(.*) - (.*) (\([0-9]{4}\)) - (.*)\.(.*)$/"\1"\/"\2"\/"\3"\/"\4"\/"\5"\/"\6"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE_SINGLES}
 
 # singles
 # "1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding "
