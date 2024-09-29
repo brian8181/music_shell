@@ -22,12 +22,10 @@ echo 'transforming csv ...'
 # remove prefix
 sed -E -i "s/^.*music-lib\///g" ${CACHE}
 # normalize, double quote all field values
+# 1:location/2:artist/3:album/4:date/5:title/6:encoding/10:disc_count/11:track_count/12:genre/13:lyrics/14:file/15:file_size:16:bitrate/17:art/18:create_ts/19:update_ts
 sed -E -i 's/^(albums)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE}
-       
-# 1:location/2:artist/3:album/4:date/5:title/6:encoding
-# /10:disc_count/11:track_count/12:genre/13:lyrics/14:file/15:file_size:16:bitrate/17:art/18:create_ts/19:update_ts
 
-# echo "searching for singles ..."
+echo "searching for singles ..."
 
 TIME_STAMP="$(date.sh)"
 CACHE_SINGLES="${CONFIG_PREFIX}/${TIME_STAMP}_cache_singles.m3u"
@@ -35,10 +33,17 @@ find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\
 
 # # remove prefix
 sed -E -i "s/^.*music-lib\///g" ${CACHE_SINGLES}
+# normalize, double quote all field values
+# "1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding "
 sed -E -i 's/^(singles)\/(.*) - (.*) (\([0-9]{4}\)) - (.*)\.(.*)$/"\1"\/"\2"\/"\3"\/"\4"\/"\5"\/"\6"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE_SINGLES}
 
-# singles
-# "1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding "
+# remove bad lines (unmatched)
+TMP=$(date.sh).tmp
+cat $CACHE_SINGLES | grep -v '^singles\/.*$' > $TMP
+mv $TMP $CACHE_SINGLES
+
+
+
 
 # sed -E -i      's/^(misc|sountrack)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""/g' ${CACHE}
 
