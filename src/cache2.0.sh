@@ -11,8 +11,6 @@ TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
 
 echo "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE}\" ..."
-
-#find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(m4a\)|\(wma\)\)$' > "${CACHE}" # all
 find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E albums/ > $CACHE # albums only
 
 echo "finished writing csv too \"${CACHE}\" ..."
@@ -25,7 +23,6 @@ sed -E -i "s/^.*music-lib\///g" ${CACHE}
 sed -E -i 's/^(albums)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE}
 
 echo "searching for singles ..."
-
 TIME_STAMP="$(date.sh)"
 CACHE_SINGLES="${CONFIG_PREFIX}/${TIME_STAMP}_cache_singles.m3u"
 find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E singles/ > ${CACHE_SINGLES}
@@ -41,6 +38,22 @@ TMP=$(date.sh).tmp
 cat $CACHE_SINGLES | grep -v '^singles\/.*$' > $TMP
 mv $TMP $CACHE_SINGLES
 
-# todo
-# sed -E -i      's/^(misc|sountrack)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""/g' ${CACHE}
+echo "searching for misc & soundtrack ..."
+TIME_STAMP="$(date.sh)"
+CACHE_MISC="${CONFIG_PREFIX}/${TIME_STAMP}_cache_MISC.m3u"
+find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E "misc|soundtrack/" > ${CACHE_MISC}
+git 
+# remove prefix
+sed -E -i "s/^.*music-lib\///g" ${CACHE_MISC}
+# normalize, double quote all field values
+# "1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding "
+# !! DEBUG
+sed -E -i 's/^(misc)|(sountrack)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE_MISC}
+
+# remove bad lines (unmatched)
+TMP=$(date.sh).tmp
+cat $CACHE_MISC | grep -v '^misc\/.*$' > $TMP
+mv $TMP $CACHE_MISC
+
+#todo put it all together ...
 echo "finished writing (csv \ cache) too \"${CACHE}\" ..."
