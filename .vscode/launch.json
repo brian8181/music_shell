@@ -5,12 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Bash-Debug csv 2 xml",
             "type": "bashdb",
             "request": "launch",
-            "name": "Bash-Debug (hardcoded script name)",
             "cwd": "${workspaceFolder}",
             "program": "${workspaceFolder}/src/csv_to_xml.sh",
             "args": ["${workspaceFolder}/test/albums_cache.csv", "${workspaceFolder}/test/albums_cache.xml"]
+        },
+        {
+            "name": "cash 2",
+            "type": "bashdb",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/src/cache2.0.sh",
+            "args": []
         },
         {
             "name": "(gdb) Launch Debug(1)",

@@ -11,10 +11,9 @@ TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
 
 echo "searching \"${STORE_PREFIX}\", writing cache too \"${CACHE}\" ..."
-find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E albums/ > $CACHE # albums only
 
-echo "finished writing csv too \"${CACHE}\" ..."
-echo 'transforming csv ...'
+echo "searching for albums ..."
+find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$' | grep -E --color=never "albums/" > "$CACHE" # albums only
 
 # remove prefix
 sed -E -i "s/^.*music-lib\///g" ${CACHE}
@@ -25,35 +24,39 @@ sed -E -i 's/^(albums)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.
 echo "searching for singles ..."
 TIME_STAMP="$(date.sh)"
 CACHE_SINGLES="${CONFIG_PREFIX}/${TIME_STAMP}_cache_singles.m3u"
-find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E singles/ > ${CACHE_SINGLES}
+find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E --color=never singles/ > ${CACHE_SINGLES}
 
-# # remove prefix
+# remove prefix
 sed -E -i "s/^.*music-lib\///g" ${CACHE_SINGLES}
 # normalize, double quote all field values
-# "1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding "
+# 1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding
 sed -E -i 's/^(singles)\/(.*) - (.*) (\([0-9]{4}\)) - (.*)\.(.*)$/"\1"\/"\2"\/"\3"\/"\4"\/"\5"\/"\6"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE_SINGLES}
 
 # remove bad lines (unmatched)
-TMP=$(date.sh).tmp
-cat $CACHE_SINGLES | grep -v '^singles\/.*$' > $TMP
-mv $TMP $CACHE_SINGLES
+TMP="${CONFIG_PREFIX}/$(date.sh).tmp"
+cat $CACHE_SINGLES | grep -v '^singles\/.*$' > "$TMP"
+mv "$TMP" "$CACHE_SINGLES"
 
 echo "searching for misc & soundtrack ..."
 TIME_STAMP="$(date.sh)"
 CACHE_MISC="${CONFIG_PREFIX}/${TIME_STAMP}_cache_MISC.m3u"
-find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E "misc|soundtrack/" > ${CACHE_MISC}
-git 
+find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E --color=never "misc/" > "${CACHE_MISC}"
+cp "$CACHE_MISC" ~/c.txt
+
 # remove prefix
-sed -E -i "s/^.*music-lib\///g" ${CACHE_MISC}
+sed -E -i "s/^.*music-lib\///g" "${CACHE_MISC}"
 # normalize, double quote all field values
-# "1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding "
+# 1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding
 # !! DEBUG
-sed -E -i 's/^(misc)|(sountrack)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE_MISC}
+sed -E -i 's/^(misc)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' "${CACHE_MISC}"
 
 # remove bad lines (unmatched)
-TMP=$(date.sh).tmp
-cat $CACHE_MISC | grep -v '^misc\/.*$' > $TMP
-mv $TMP $CACHE_MISC
+TMP="${CONFIG_PREFIX}/$(date.sh).tmp"
+cat "$CACHE_MISC" | grep -v '^misc\/.*$' > "$TMP"
+mv "$TMP" "$CACHE_MISC"
+
+# albums, singles, misc, sondtrack (missing)?!
+cat "$CACHE" "$CACHE_SINGLES" "$CACHE_MISC" > "${CONFIG_PREFIX}/ALBUMS_SINGLES_MISC_$(date.sh).txt"
 
 #todo put it all together ...
 echo "finished writing (csv \ cache) too \"${CACHE}\" ..."
