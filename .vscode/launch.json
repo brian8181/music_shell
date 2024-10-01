@@ -13,11 +13,11 @@
             "args": ["${workspaceFolder}/test/albums_cache.csv", "${workspaceFolder}/test/albums_cache.xml"]
         },
         {
-            "name": "cash 2",
+            "name": "cash",
             "type": "bashdb",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "program": "${workspaceFolder}/src/cache2.0.sh",
+            "program": "${workspaceFolder}/src/cash.sh",
             "args": []
         },
         {
