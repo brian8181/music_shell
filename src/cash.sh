@@ -35,7 +35,7 @@ sed -E -i "s/^.*music-lib\///g" ${CACHE_SINGLES}
 # # remove '-' (dash/minus)
 # sed -E -i "s/-//g" "${CACHE_SINGLES}"
 # normalize, double quote all field values
-sed -E -i 's/^(singles)\/(.*) - (.*) (\([0-9]{4}\)) - (.*)\.(.*)$/"\1"\/"\2"\/"\3"\/"\4"\/"\5"\/"\6"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE_SINGLES}
+sed -E -i 's/^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$/"\1"\/"\2"\/"\3"\/"\4"\/"\5"\/"\6"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE_SINGLES}
 
 # remove bad lines (unmatched)
 TMP="${CONFIG_PREFIX}/$(date.sh).tmp"
@@ -56,7 +56,7 @@ sed -E -i "s/^.*music-lib\///g" "${CACHE_MISC}"
 # normalize, double quote all field values
 # <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):album_artist> - <(7):title>.<(8):encoding>
 # <(1):location>/VARIOUS/<(2):year>/<(3):album>/<(4):disc>.<(5):track>/<(7):title>/<(8):encoding>
-sed -E -i 's/^(misc)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' "${CACHE_MISC}"
+sed -E -i 's/^(misc)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' "${CACHE_MISC}"
                     
 # remove bad lines (unmatched)
 TMP="${CONFIG_PREFIX}/$(date.sh).tmp"
@@ -78,7 +78,7 @@ sed -E -i "s/^.*music-lib\///g" "${CACHE_SOUNDTRACK}"
 # <(1):location>/SOUNDTRACK/<(2):year>/<(3):album>/<(4):disc>.<(5):track>/<(7):title>/<(8):encoding>
 # OR
 # <(1):location>/<(1):location>/<(2):year>/<(3):album>/<(4):disc>.<(5):track>/<(7):title>/<(8):encoding>
-sed -E -i 's/^(soundtrack)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' "${CACHE_SOUNDTRACK}"
+sed -E -i 's/^(soundtrack)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/"\6"\/"\7"\/"\8"\/"\9"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' "${CACHE_SOUNDTRACK}"
 
 # remove bad lines (unmatched)
 TMP="${CONFIG_PREFIX}/$(date.sh).tmp"
@@ -87,6 +87,6 @@ mv "$TMP" "$CACHE_SOUNDTRACK"
 
 # TODO! put it all together ...
 ### albums, singles, misc, sondtrack (missing)?! ###
-cat "$CACHE" "$CACHE_SINGLES" "$CACHE_MISC" > "${CONFIG_PREFIX}/ALBUMS_SINGLES_MISC_$(date.sh).txt"
+cat "$CACHE" "$CACHE_SINGLES" "$CACHE_MISC" "$CACHE_SOUNDTRACK" > "${CONFIG_PREFIX}/FULL$(date.sh).txt"
 
 echo "writing   \"${STORE_PREFIX}\", (csv / cache) --> \"${CACHE}\" ..."

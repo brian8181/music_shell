@@ -40,6 +40,7 @@ REPLACE_PATTERN='\t<song>\n\t\t<location>\1<\/location>\n\t\t<artist>\2<\/artist
 LEN_ORG=$(cat "$SRC_FILE_TMP" | wc -l)
 LEN_CUR=$(cat "$SRC_FILE_TMP" | grep -E "$PATTERN" | wc -l)
 
+diff $
 # if [[ $LEN_ORG != $LEN_CUR ]]; then
 #     echo -e "Error File Format: source file \"$SRC_FILE\" wrong format... \n\t\"$FORMAT\""
 #     exit 1

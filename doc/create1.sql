@@ -12,7 +12,7 @@ create table song
 
 create table song 
 (
-    location     TEXT,
+    location     TEXT, 
     artist       TEXT,
     album        TEXT,
     album_artist TEXT,
