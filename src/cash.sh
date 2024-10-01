@@ -10,6 +10,30 @@ CONFIG_PREFIX="$HOME/.music_shell"
 TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.m3u"
 
+OPTSTRING=":p:vb"
+
+while getopts ${OPTSTRING} opt; do
+  case ${opt} in
+    p)
+        echo "argument -p called with parameter $OPTARG" >&2
+       ;;
+    v)
+      echo "Option -a was triggered."
+      ;;
+    d)
+      echo "Option -b was triggered."
+      ;;
+    :)
+      echo "Option -${OPTARG} requires an argument."
+      exit 1
+      ;;
+    ?)
+      echo "Invalid option: -${OPTARG}."
+      exit 1
+      ;;
+  esac
+done
+
 echo "searching \"${STORE_PREFIX}\", writing cache --> \"${CACHE}\" ..."
 
 
@@ -28,7 +52,7 @@ sed -E -i 's/^(albums)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.
 echo "searching for singles ......"
 TIME_STAMP="$(date.sh)"
 CACHE_SINGLES="${CONFIG_PREFIX}/${TIME_STAMP}_cache_SINGLES.m3u"
-find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E --color=never singles/ > ${CACHE_SINGLES}
+find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$' | grep -E --color=never singles/ > ${CACHE_SINGLES}
 
 # remove prefix
 sed -E -i "s/^.*music-lib\///g" ${CACHE_SINGLES}
@@ -46,7 +70,7 @@ mv "$TMP" "$CACHE_SINGLES"
 echo "searching for misc ........."
 TIME_STAMP="$(date.sh)"
 CACHE_MISC="${CONFIG_PREFIX}/${TIME_STAMP}_cache_MISC.m3u"
-find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E --color=never "misc/" > "${CACHE_MISC}"
+find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$' | grep -E --color=never "misc/" > "${CACHE_MISC}"
 cp "$CACHE_MISC" ~/c.txt
 
 # remove prefix
@@ -66,12 +90,11 @@ mv "$TMP" "$CACHE_MISC"
 echo "searching for soundtrack ..."
 TIME_STAMP="$(date.sh)"
 CACHE_SOUNDTRACK="${CONFIG_PREFIX}/${TIME_STAMP}_cache_SOUNDTRACK.m3u"
-find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)\)$' | grep -E --color=never "soundtrack/" > "${CACHE_SOUNDTRACK}"
-cp "$CACHE_SOUNDTRACK" ~/c.txt
+find "${STORE_PREFIX}" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$' | grep -E --color=never "soundtrack/" > "${CACHE_SOUNDTRACK}"
 
 # remove prefix
 sed -E -i "s/^.*music-lib\///g" "${CACHE_SOUNDTRACK}"
-# # remove '-' (dash/minus)
+# remove '-' (dash/minus)
 # sed -E -i "s/-//g" "${CACHE_SOUNDTRACK}"
 # normalize, double quote all field values
 # <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):album_artist> - <(7):title>.<(8):encoding>

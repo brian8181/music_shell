@@ -6,6 +6,23 @@ FORMAT="location,artist,album,title"
 COMMENT="$2"
 CURRENT_DATETIME=$(date)
 
+OPTSTRING=":ab"
+
+while getopts ${OPTSTRING} opt; do
+  case ${opt} in
+    a)
+      echo "Option -a was triggered."
+      ;;
+    b)
+      echo "Option -b was triggered."
+      ;;
+    ?)
+      echo "Invalid option: -${OPTARG}."
+      exit 1
+      ;;
+  esac
+done
+
 if [[ !(-f "$SRC_FILE") ]]; then
     echo "Error Not File Found: source file "\"$SRC_FILE\"" found ..."
     exit 1
