@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# FILE: 'cache2.0.sh'
-# VERSION: '0.0.1'
-# FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
-# INFO: builds a new cache.sh
+# FILE:      'cash.sh'
+# VERSION:   '0.0.1'
+# FILE_DATE: 'Mon Sep 30 10:03:59 PM CDT 2024'
+# INFO:      'builds a new cash.m3u'
 
 STORE_PREFIX=${1:-"/mnt/music/music-lib"}
 CONFIG_PREFIX="$HOME/.music_shell"
