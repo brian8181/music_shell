@@ -1,5 +1,3 @@
-create schema music;
-
 create table song 
 (
     id INT PRIMARY KEY,                 -- 1
@@ -34,13 +32,13 @@ create table album
     id INT PRIMARY KEY,
     album TEXT,
     album_artist,
-    disc_count INT,                     -
+    disc_count INT,
     track_count INT,                     
     update_ts TIMESTAMP,
     insert_ts TIMESTAMP
 ); 
 
-CREATE TRIGGER song_insert AFTER CREATE 
+CREATE TRIGGER song_insert AFTER INSERT 
 ON song
 BEGIN
    INSERT INTO AUDIT(update_ts, insert_ts_ts) VALUES (datetime('now'), datetime('now'));

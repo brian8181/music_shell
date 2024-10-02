@@ -94,7 +94,7 @@ cat $CASH_TMP | grep -E --color=never singles/ > ${CACHE_SINGLES}
 # remove prefix
 sed -E -i "s/^.*music-lib\///g" ${CACHE_SINGLES}
 # normalize, double quote all field values
-sed -E -i 's/^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$/"\1"\/"\2"\/"\3"\/"\4"\/"\5"\/"\6"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE_SINGLES}
+sed -E -i 's/^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$/"\1"\/"\2"\/"\3"\/"\4"\/"\5"\/"\6"\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""\/""/g' ${CACHE_SINGLES}
 
 # remove bad lines (unmatched)
 TMP="${CONFIG_PREFIX}/$(date.sh).tmp"
