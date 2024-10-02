@@ -5,6 +5,43 @@
 # FILE_DATE: 'Mon Sep 30 10:03:59 PM CDT 2024'
 # INFO:      'builds a new cash.m3u'
 
+FILE='cash.sh'
+VERSION='0.0.1'
+FILE_DATE='Mon Sep 30 10:03:59 PM CDT 2024'
+
+FMT_FG_RED='\e[31m'
+FMT_FG_GREEN='\e[32m'
+FMT_RESET='\e[0m'
+PRINT_RED_DEBUG=${FMT_FG_RED}DEBUG${FMT_RESET}
+PRINT_GREEN_INFO=${FMT_FG_GREEN}INFO${FMT_RESET}
+DATE=$(date "+%H:%M:%S:%s")
+
+DEBUG_MSG="$PRINT_RED_DEBUG: "
+INFO_MSG="$PRINT_GREEN_INFO: "
+VERBOSE=1
+DEBUG=1
+
+if [ -n $VERBOSE ]
+then
+	echo ${VERBOSE:+"File - $FILE"}
+	echo ${VERBOSE:+"Version - $VERSION"}
+	echo ${VERBOSE:+"Date - $FILE_DATE"}
+fi
+
+function PRINT_DEBUG
+{
+    MSG=${DEBUG_MSG}$1
+    echo -e ${DEBUG:+"$MSG"}
+}
+
+function PRINT_INFO
+{
+    MSG=${INFO_MSG}$1
+    echo -e ${VERBOSE:+"$MSG"}
+}
+
+PRINT_INFO "$FILE -> Running... @ $DATE"
+
 STORE_PREFIX="/mnt/music/music-lib"
 CONFIG_PREFIX="$HOME/.music_shell"
 TIME_STAMP="$(date.sh)"
@@ -108,3 +145,5 @@ cat "$CACHE" "$CACHE_SINGLES" "$CACHE_MISC" "$CACHE_SOUNDTRACK" > "${CONFIG_PREF
 rm  "$CACHE" "$CACHE_SINGLES" "$CACHE_MISC" "$CACHE_SOUNDTRACK"
 
 echo "writing   \"${STORE_PREFIX}\", (csv / cache) --> \"${CACHE}\" ..."
+
+PRINT_INFO "$FILE -> Exiting.   @ $DATE"
