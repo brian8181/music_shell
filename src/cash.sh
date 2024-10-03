@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # FILE:      'cash.sh'
-# VERSION:   '0.0.8'
-# FILE_DATE: 'Mon Sep 30 10:03:59 PM CDT 2024'
+# VERSION:   '0.0.10'
+# FILE_DATE: 'Thu Oct  3 09:59:04 AM CDT 2024'
 # INFO:      'builds a new cash.m3u'
 
 FILE='cash.sh'
-VERSION='0.0.8'
-FILE_DATE='Mon Sep 30 10:03:59 PM CDT 2024'
+VERSION='0.0.10'
+FILE_DATE='Thu Oct  3 09:59:04 AM CDT 2024'
 FMT_FG_RED='\e[31m'
 FMT_FG_GREEN='\e[32m'
 FMT_RESET='\e[0m'
@@ -71,62 +71,52 @@ while getopts ${OPTSTRING} opt; do
   esac
 done
 
+# regular expressions ########################################################################################
+#  <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
+#         (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 
+FIELDS_RXP='^(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
+FIELDS_REPL_RXP='\1\/\2\/\3\/\5\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
+VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
+FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
+##############################################################################################################
+
 PRINT_INFO "searching \"${STORE_PREFIX}\", writing cache --> \"${CACHE}\" ..."
+PRINT_INFO "scanning for file types (mp3, flac, ogg, wma, m4a) ..."
+find "$STORE_PREFIX" -iregex $FILE_TYPES_RXP > "$CACHE"
 
-
-
-### albums! ################################################################################################
-PRINT_INFO "searching for albums ......."
-find "$STORE_PREFIX" -iregex '^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$' > "$CACHE"
+PRINT_INFO "tranforming the output ..."
 # remove prefix
 sed -E -i "s/^.*music-lib//g" "$CACHE"
 
+### albums! ################################################################################################
+PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E --color=never "/albums/" > "$CACHE"_ALBUMS # albums only
-
 # normalize, double quote all field values
 # <(1):location>/<(2):artist>/<(3):date> - <(4):<album>/<(6):disc>.<(7):track>. <(8):title>.<(9):encoding>
 #             (1 )  (2 )  (3       )   (4 )  (5(6        ) ) (7       )   (8 )  (9 ) | 1                                        15
 sed -E -i 's/^(.*)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/\1\/\2\/\3\/\4\/\6\/\7\/\8\/\9\/\/\/\/\/\/\//g' "$CACHE"_ALBUMS
 ##############################################################################################################
 
-
-
-# regular expressions ########################################################################################
-#  <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
-#         (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 
-FIELDS_EXP='^(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
-FIELDS_REPL_EXP='\1\/\2\/\3\/\5\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
-##############################################################################################################
-
-
-
 ### misc! ####################################################################################################
 PRINT_INFO "searching for misc ........."
 cat "$CACHE" | grep -E --color=never "/misc/" > "$CACHE"_MISC
 # <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
 #          (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 1                                        15
-sed -E -i "s/$FIELDS_EXP/$FIELDS_REPL_EXP/g" "$CACHE"_MISC
+sed -E -i "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_MISC
 ##############################################################################################################
-
-
 
 ### soundtrack! ##############################################################################################
 PRINT_INFO "searching for soundtrack ........."
 cat "$CACHE" | grep -E --color=never "/soundtrack/" > "$CACHE"_SOUNDTRACK
 #  <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
 #            (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 1 
-sed -E -i "s/$FIELDS_EXP/$FIELDS_REPL_EXP/g" "$CACHE"_SOUNDTRACK
+sed -E -i "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_SOUNDTRACK
 ##############################################################################################################
-
-
 
 ### albums, singles, misc, sondtrack! ### ####################################################################
-# TODO VALIDATE_RECORD_EXP="/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)"
-cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK | grep -E --color=never "/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)" > "$CACHE"
+cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK | grep -E --color=never $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK
 ##############################################################################################################
-
-
 
 PRINT_INFO "writing   \"${STORE_PREFIX}\", (csv / cache) --> \"${CACHE}\" ..."
 PRINT_INFO "$FILE -> Exiting.   @ $DATE"
