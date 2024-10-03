@@ -89,19 +89,22 @@ cat "$CACHE" | grep -E --color=never "/albums/" > "$CACHE"_ALBUMS # albums only
 sed -E -i 's/^(.*)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/\1\/\2\/\3\/\4\/\6\/\7\/\8\/\9\/\/\/\/\/\/\//g' "$CACHE"_ALBUMS
 ##############################################################################################################
 
+
+
 # regular expressions ########################################################################################
-# # <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
-# #           (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 
+#  <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
+#         (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 
 FIELDS_EXP='^(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
 FIELDS_REPL_EXP='\1\/\2\/\3\/\5\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
 ##############################################################################################################
 
 
+
 ### misc! ####################################################################################################
 PRINT_INFO "searching for misc ........."
 cat "$CACHE" | grep -E --color=never "/misc/" > "$CACHE"_MISC
-# # <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
-# #           (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 1                                        15
+# <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
+#          (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 1                                        15
 sed -E -i "s/$FIELDS_EXP/$FIELDS_REPL_EXP/g" "$CACHE"_MISC
 ##############################################################################################################
 
@@ -110,15 +113,20 @@ sed -E -i "s/$FIELDS_EXP/$FIELDS_REPL_EXP/g" "$CACHE"_MISC
 ### soundtrack! ##############################################################################################
 PRINT_INFO "searching for soundtrack ........."
 cat "$CACHE" | grep -E --color=never "/soundtrack/" > "$CACHE"_SOUNDTRACK
-# # <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
-# #           (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 1 
+#  <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
+#            (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 1 
 sed -E -i "s/$FIELDS_EXP/$FIELDS_REPL_EXP/g" "$CACHE"_SOUNDTRACK
 ##############################################################################################################
 
-### albums, singles, misc, sondtrack ###
+
+
+### albums, singles, misc, sondtrack! ### ####################################################################
 # TODO VALIDATE_RECORD_EXP="/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)"
 cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK | grep -E --color=never "/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)" > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK
+##############################################################################################################
+
+
 
 PRINT_INFO "writing   \"${STORE_PREFIX}\", (csv / cache) --> \"${CACHE}\" ..."
 PRINT_INFO "$FILE -> Exiting.   @ $DATE"
