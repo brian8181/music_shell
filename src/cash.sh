@@ -71,6 +71,10 @@ while getopts ${OPTSTRING} opt; do
   esac
 done
 
+## alias ##
+#unalias grep
+alias egrep='grep -E --color=never' 
+
 # regular expressions ########################################################################################
 #  <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
 #         (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 
@@ -90,7 +94,7 @@ sed -E -i "s/^.*music-lib//g" "$CACHE"
 
 ### albums! ################################################################################################
 PRINT_INFO "searching for albums ......."
-cat "$CACHE" | grep -E --color=never "/albums/" > "$CACHE"_ALBUMS # albums only
+cat "$CACHE" | egrep "/albums/" > "$CACHE"_ALBUMS # albums only
 # normalize, double quote all field values
 # <(1):location>/<(2):artist>/<(3):date> - <(4):<album>/<(6):disc>.<(7):track>. <(8):title>.<(9):encoding>
 #             (1 )  (2 )  (3       )   (4 )  (5(6        ) ) (7       )   (8 )  (9 ) | 1                                        15
@@ -99,7 +103,7 @@ sed -E -i 's/^(.*)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.
 
 ### misc! ####################################################################################################
 PRINT_INFO "searching for misc ........."
-cat "$CACHE" | grep -E --color=never "/misc/" > "$CACHE"_MISC
+cat "$CACHE" | egrep "/misc/" > "$CACHE"_MISC
 # <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
 #          (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 1                                        15
 sed -E -i "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_MISC
@@ -107,16 +111,18 @@ sed -E -i "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_MISC
 
 ### soundtrack! ##############################################################################################
 PRINT_INFO "searching for soundtrack ........."
-cat "$CACHE" | grep -E --color=never "/soundtrack/" > "$CACHE"_SOUNDTRACK
+cat "$CACHE" | egrep "/soundtrack/" > "$CACHE"_SOUNDTRACK
 #  <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
 #            (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 1 
 sed -E -i "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_SOUNDTRACK
 ##############################################################################################################
 
 ### albums, singles, misc, sondtrack! ### ####################################################################
-cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK | grep -E --color=never $VALIDATE_RECORD_RXP > "$CACHE"
+cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK | egrep -E --color=never $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK
 ##############################################################################################################
 
+# delete alias
+unalias egrep
 PRINT_INFO "writing   \"${STORE_PREFIX}\", (csv / cache) --> \"${CACHE}\" ..."
 PRINT_INFO "$FILE -> Exiting.   @ $DATE"
