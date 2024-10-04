@@ -73,7 +73,7 @@ done
 
 ## alias ##
 #unalias grep
-alias egrep='grep -E --color=never' 
+#alias egrep='grep -E --color=never' 
 
 # regular expressions ########################################################################################
 #  <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
@@ -123,6 +123,6 @@ rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK
 ##############################################################################################################
 
 # delete alias
-unalias egrep
+#unalias egrep
 PRINT_INFO "writing   \"${STORE_PREFIX}\", (csv / cache) --> \"${CACHE}\" ..."
 PRINT_INFO "$FILE -> Exiting.   @ $DATE"
