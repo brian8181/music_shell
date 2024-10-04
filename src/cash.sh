@@ -78,6 +78,8 @@ done
 # regular expressions ########################################################################################
 #  <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
 #         (1 )  (2       )   (3 )  (4(5        )   (6       )   (7 )   (  )  (9 ) | 
+ALBUM_FIELDS_RXP='^(.*)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$'
+ALBUMS_FIELDS_REPL_RXP='\1\/\2\/\3\/\4\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
 FIELDS_RXP='^(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
 FIELDS_REPL_RXP='\1\/\2\/\3\/\5\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
 VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
@@ -98,7 +100,7 @@ cat "$CACHE" | egrep "/albums/" > "$CACHE"_ALBUMS # albums only
 # normalize, double quote all field values
 # <(1):location>/<(2):artist>/<(3):date> - <(4):<album>/<(6):disc>.<(7):track>. <(8):title>.<(9):encoding>
 #             (1 )  (2 )  (3       )   (4 )  (5(6        ) ) (7       )   (8 )  (9 ) | 1                                        15
-sed -E -i 's/^(.*)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$/\1\/\2\/\3\/\4\/\6\/\7\/\8\/\9\/\/\/\/\/\/\//g' "$CACHE"_ALBUMS
+sed -E -i "s/$ALBUM_FIELDS_RXP/$ALBUMS_FIELDS_REPL_RXP/g" "$CACHE"_ALBUMS
 ##############################################################################################################
 
 ### misc! ####################################################################################################
@@ -118,7 +120,7 @@ sed -E -i "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_SOUNDTRACK
 ##############################################################################################################
 
 ### albums, singles, misc, sondtrack! ### ####################################################################
-cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK | egrep -E --color=never $VALIDATE_RECORD_RXP > "$CACHE"
+cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK | egrep $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK
 ##############################################################################################################
 
