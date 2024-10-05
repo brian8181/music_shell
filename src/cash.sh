@@ -71,7 +71,7 @@ while getopts ${OPTSTRING} opt; do
   esac
 done
 
-# regular expressions ########################################################################################
+# regular expressions #########################################################################################
 #  <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
 #        (1 )  ((3 ) (4       )   ) ((6       )   )(7 )  ((9         ) ) (10      )   (11)   (12)  (13)
 FIELDS='^(.*)\/((.*)/([0-9]{4}) - )|(([0-9]{4}) - )(.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
@@ -84,7 +84,7 @@ FIELDS_RXP2='^(.*)\/((.*[^ ])\/)?([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\.
 FIELDS_REPL_RXP='\1\/\2\/\3\/\5\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
 VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
 FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
-##############################################################################################################
+###############################################################################################################
 
 PRINT_INFO "searching \"${STORE_PREFIX}\", writing cache --> \"${CACHE}\" ..."
 PRINT_INFO "scanning for file types (mp3, flac, ogg, wma, m4a) ..."
@@ -94,26 +94,17 @@ PRINT_INFO "tranforming the output ..."
 # remove prefix
 sed -E -i "s/^.*music-lib//g" "$CACHE"
 
-### albums! ################################################################################################
+### albums! ###################################################################################################
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | egrep "/albums/" > "$CACHE"_ALBUMS # albums only
 sed -E -i "s/$ALBUM_FIELDS_RXP/$ALBUMS_FIELDS_REPL_RXP/g" "$CACHE"_ALBUMS
 
-### misc! ####################################################################################################
-PRINT_INFO "searching for misc ........."
+### misc! & soundtrack ########################################################################################
+PRINT_INFO "searching for misc & soundtrack ........."
 cat "$CACHE" | egrep "(/misc/)|(/soundtrack/)" > "$CACHE"_MISC
 sed -E -i "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_MISC
 
-### soundtrack! ##############################################################################################
-# PRINT_INFO "searching for soundtrack ........."
-# cat "$CACHE" | egrep "/soundtrack/" > "$CACHE"_SOUNDTRACK
-# sed -E -i "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_SOUNDTRACK
-
-### albums, singles, misc, sondtrack! ### ####################################################################
-# cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK | egrep $VALIDATE_RECORD_RXP > "$CACHE"
-# rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SOUNDTRACK
-
-### albums, singles, misc, sondtrack! ### ####################################################################
+### albums, singles, misc, sondtrack! ### #####################################################################
 cat "$CACHE"_ALBUMS "$CACHE"_MISC | egrep $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC
 
