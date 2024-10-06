@@ -18,7 +18,7 @@ DATE=$(date "+%H:%M:%S:%s")
 DEBUG_MSG="$PRINT_RED_DEBUG: "
 INFO_MSG="$PRINT_GREEN_INFO: "
 VERBOSE=1
-DEBUG=1
+DEBUG=
 
 function PRINT_DEBUG
 {
@@ -32,12 +32,20 @@ function PRINT_INFO
     echo -e ${VERBOSE:+"$MSG"}
 }
 
+function INFO
+{
+   	echo ${VERBOSE:+"File - $FILE"}
+	  echo ${VERBOSE:+"Version - $VERSION"}
+	  echo ${VERBOSE:+"Date - $FILE_DATE"}
+}
+
 OPTSTRING=":dh:v"
 
 while getopts ${OPTSTRING} opt; do
   case ${opt} in
     v)
-      echo -e "${FMT_FG_GREEN}version 0.0.1${FMT_FG_RED} DEBUG${FMT_RESET}"
+      INFO
+      echo -e "${FMT_FG_GREEN}version 0.0.1${FMT_FG_RED} ${DEBUG:-debug}${FMT_RESET}"
       exit 0;
       ;;
     d)
@@ -59,13 +67,6 @@ while getopts ${OPTSTRING} opt; do
       ;;
   esac
 done
-
-if [ -n $VERBOSE ]
-then
-	echo ${VERBOSE:+"File - $FILE"}
-	echo ${VERBOSE:+"Version - $VERSION"}
-	echo ${VERBOSE:+"Date - $FILE_DATE"}
-fi
 
 PRINT_INFO "$FILE -> Running... @ $DATE"
 
