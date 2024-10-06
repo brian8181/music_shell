@@ -32,14 +32,10 @@ function PRINT_INFO
     echo -e ${VERBOSE:+"$MSG"}
 }
 
-OPTSTRING=":dhp:v"
+OPTSTRING=":dh:v"
 
 while getopts ${OPTSTRING} opt; do
   case ${opt} in
-    p)
-       echo "argument -p called with parameter $OPTARG" >&2
-       exit 0;
-       ;;
     v)
       echo -e "${FMT_FG_GREEN}version 0.0.1${FMT_FG_RED} DEBUG${FMT_RESET}"
       exit 0;
