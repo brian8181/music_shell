@@ -34,13 +34,13 @@ function PRINT_INFO
 
 function INFO
 {
+    echo 
    	echo ${VERBOSE:+"File - $FILE"}
 	  echo ${VERBOSE:+"Version - $VERSION"}
 	  echo ${VERBOSE:+"Date - $FILE_DATE"}
 }
 
-OPTSTRING=":dh:v"
-
+OPTSTRING="dhv"
 while getopts ${OPTSTRING} opt; do
   case ${opt} in
     v)
@@ -52,13 +52,14 @@ while getopts ${OPTSTRING} opt; do
       echo "Option -d (delimiter), was triggered."
       ;;
     h)
-      echo -e "Usage: \n" \
+      INFO 
+      echo -e "\nUsage: \n" \
               "$> cash.sh [-[dhpv]] [SRC [DST]]\n" \
-              "version 0.0.1 - $(date)"
+              "version 0.0.1 - $(date)\n"
               exit 0;
       ;;
     :)
-      echo "Option -${OPTARG} requires an argument."
+      PRINT_DEBUG "Option -${OPTARG} requires an argument."
       exit 1
       ;;
     ?)
@@ -68,29 +69,32 @@ while getopts ${OPTSTRING} opt; do
   esac
 done
 
-PRINT_INFO "$FILE -> Running... @ $DATE"
-
 ### init shell variabls ####
-STORE_PREFIX="/mnt/music/music-lib"
-STORE_PREFIX='/run/media/brian/da8a7464-b3e2-4de2-8bf6-7c9951aa3ade/brian/music_backup/music-lib'
+STORE_PREFIX="${1:-/mnt/music/music-lib}"
 CONFIG_PREFIX="$HOME/.music_shell"
 TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.txt"
 
-
 #### regular expressions ####
-#  <(1):location>/<(2):year> - <(3):album>/<(4):disc>.<(5):track>. - <(6):artist> - <(7):title>.<(8):encoding>
+# validate outut
+VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
+# source search expression
+FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
+# source expressions
 #        (1 )  ((3 ) (4       )   ) ((6       )   )(7 )  ((9         ) ) (10      )   (11)   (12)  (13)
-FIELDS='^(.*)\/((.*)/([0-9]{4}) - )|(([0-9]{4}) - )(.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
+#FIELDS'^(.*)\/((.*)/([0-9]{4}) - )|(([0-9]{4}) - )(.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
 #                  (1 )  (2 )  (3       )   (4 )  ((6         )   (7       )   (8 )  (9 ) 
 ALBUM_FIELDS_RXP='^(.*)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$'
-ALBUMS_FIELDS_REPL_RXP='\1\/\2\/\3\/\4\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
 #            (1 )  (2       )   (3 )  ((5         )   (6       )   (7 )   (8  )  (9 ) 
 FIELDS_RXP='^(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
-FIELDS_RXP2='^(.*)\/((.*[^ ])\/)?([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
+# destination expressions
+ALBUMS_FIELDS_REPL_RXP='\1\/\2\/\3\/\4\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
 FIELDS_REPL_RXP='\1\/\2\/\3\/\5\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
-VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
-FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
+
+if [ ! -d $STORE_PREFIX ]; then
+    echo "$STORE_PREFIX does not exist."
+    exit 1;
+fi
 
 PRINT_INFO "searching \"${STORE_PREFIX}\", writing cache --> \"${CACHE}\" ..."
 PRINT_INFO "scanning for file types (mp3, flac, ogg, wma, m4a) ..."
@@ -116,4 +120,3 @@ rm  "$CACHE"_ALBUMS "$CACHE"_MISC
 
 #### finished ... ####
 PRINT_INFO "writing   \"${STORE_PREFIX}\", (csv / cache) --> \"${CACHE}\" ..."
-PRINT_INFO "$FILE -> Exiting.   @ $DATE"
