@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # FILE:      'cash.sh'
-# VERSION:   '0.0.10'
-# FILE_DATE: 'Thu Oct  3 09:59:04 AM CDT 2024'
+# VERSION:   '0.0.12'
+# FILE_DATE: 'Sun Oct  6 02:08:37 AM CDT 2024'
 # INFO:      'builds a new cash.m3u'
 
 FILE='cash.sh'
 VERSION='0.0.10'
-FILE_DATE='Thu Oct  3 09:59:04 AM CDT 2024'
+FILE_DATE='Sun Oct  6 02:08:37 AM CDT 2024'
 FMT_FG_RED='\e[31m'
 FMT_FG_GREEN='\e[32m'
 FMT_RESET='\e[0m'
@@ -69,7 +69,7 @@ while getopts ${OPTSTRING} opt; do
   esac
 done
 
-### init shell variabls ####
+#### init shell variabls ####
 STORE_PREFIX="${1:-/mnt/music/music-lib}"
 CONFIG_PREFIX="$HOME/.music_shell"
 TIME_STAMP="$(date.sh)"
