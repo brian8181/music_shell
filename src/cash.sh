@@ -40,16 +40,19 @@ function INFO
 	  echo ${VERBOSE:+"Date - $FILE_DATE"}
 }
 
-OPTSTRING="dhv"
+OPTSTRING="d:hpv]"
 while getopts ${OPTSTRING} opt; do
   case ${opt} in
     v)
       INFO
       echo -e "${FMT_FG_GREEN}version 0.0.1${FMT_FG_RED} ${DEBUG:-debug}${FMT_RESET}"
-      exit 0;
+      exit 0
       ;;
     d)
-      echo "Option -d (delimiter), was triggered."
+      DELIMITER=${OPTARG}
+      echo -e "${FMT_FG_GREEN}DELIMITER=${OPTARG}${FMT_RESET}"
+      echo -e "${FMT_FG_RED}delimiter function not yest implented ...${FMT_RESET}"
+      exit 1
       ;;
     h)
       INFO 
@@ -81,8 +84,8 @@ VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
 # source search expression
 FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
 # source expressions
-#        (1 )  ((3 ) (4       )   ) ((6       )   )(7 )  ((9         ) ) (10      )   (11)   (12)  (13)
-#FIELDS'^(.*)\/((.*)/([0-9]{4}) - )|(([0-9]{4}) - )(.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
+#       (1 )  ((3 ) (4       )   ) ((6       )   )(7 )  ((9         ) ) (10      )   (11)   (12)  (13)
+FIELDS'^(.*)\/((.*)/([0-9]{4}) - )|(([0-9]{4}) - )(.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
 #                  (1 )  (2 )  (3       )   (4 )  ((6         )   (7       )   (8 )  (9 ) 
 ALBUM_FIELDS_RXP='^(.*)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$'
 #            (1 )  (2       )   (3 )  ((5         )   (6       )   (7 )   (8  )  (9 ) 
