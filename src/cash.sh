@@ -95,12 +95,13 @@ VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
 # source search expression
 FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
 # source expressions
-#       (1 )  ((3 ) (4       )   ) ((6       )   )(7 )  ((9         ) ) (10      )   (11)   (12)  (13)
+#        (1 )  ((3 ) (4       )   ) ((6       )   )(7 )  ((9         ) ) (10      )   (11)   (12)  (13)
 FIELDS='^(.*)\/((.*)/([0-9]{4}) - )|(([0-9]{4}) - )(.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
-#                  (1 )  (2 )  (3       )   (4 )  ((6         )   (7       )   (8 )  (9 ) 
-ALBUM_FIELDS_RXP='^(.*)\/(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$'
-#            (1 )  (2       )   (3 )  ((5         )   (6       )   (7 )   (8  )  (9 ) 
-FIELDS_RXP='^(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
+#            (1 )  (2       )   (3 )  ((5         )   (6       )   (7 )   (8  ) (9 ) 
+FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
+#                  (1 )   (2-8        )  (9 ) 
+ALBUM_FIELDS_RXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
+FIELDS_RXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
 # destination expressions
 ALBUMS_FIELDS_REPL_RXP='\1\/\2\/\3\/\4\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
 FIELDS_REPL_RXP='\1\/\2\/\3\/\5\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
@@ -119,7 +120,7 @@ PRINT_INFO "tranforming the input ..."
 #sed -Ei "s/${STORE_PREFIX}\///g" "$CACHE"
 sed -Ei "s/^.*music-lib\///g" "$CACHE"
 
-### albums! ####
+#### albums! ####
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | egrep "albums/" > "$CACHE"_ALBUMS # albums only
 sed -Ei "s/$ALBUM_FIELDS_RXP/$ALBUMS_FIELDS_REPL_RXP/g" "$CACHE"_ALBUMS
