@@ -45,17 +45,17 @@ create table song
 --     insert_ts TIMESTAMP
 -- ); 
 
-CREATE TRIGGER song_insert AFTER INSERT 
-ON song
-BEGIN
-   INSERT INTO song (update_ts, insert_ts) VALUES (datetime('now'), datetime('now'));
-END;
+-- CREATE TRIGGER song_insert AFTER INSERT 
+-- ON song
+-- BEGIN
+--    INSERT INTO song (update_ts, insert_ts) VALUES (datetime('now'), datetime('now'));
+-- END;
 
-CREATE TRIGGER song_update AFTER UPDATE 
-ON song
-BEGIN
-   INSERT INTO song (update_ts) VALUES (datetime('now'));
-END;
+-- CREATE TRIGGER song_update AFTER UPDATE 
+-- ON song
+-- BEGIN
+--    INSERT INTO song (update_ts) VALUES (datetime('now'));
+-- END;
 
 -- .import --csv .cache.csv song
 -- .mode csv

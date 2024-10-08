@@ -103,8 +103,8 @@ FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
 ALBUM_FIELDS_RXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
 FIELDS_RXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
 # destination expressions
-ALBUMS_FIELDS_REPL_RXP='\1\/\2\/\3\/\4\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
-FIELDS_REPL_RXP='\1\/\2\/\3\/\5\/\6\/\7\/\8\/\9\/\/\/\/\/\/\/'
+ALBUMS_FIELDS_REPL_RXP='\1\/\2\/\3\/\4\/\6\/\7\/\8\/\9\/\/\/\/\/\/'
+FIELDS_REPL_RXP='\1\/\2\/\3\/\5\/\6\/\7\/\8\/\9\/\/\/\/\/\/'
 
 if [ ! -d $STORE_PREFIX ]; then
     echo "$STORE_PREFIX does not exist."
