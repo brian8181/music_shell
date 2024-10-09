@@ -64,11 +64,12 @@ while getopts ${OPTSTRING} opt; do
       ;;
     s)
       # src
-      INFO 
+      SRC=$OPTARG
       exit 0
       ;;
     d)
       # dst
+      DST=$OPTARG
       INFO 
       exit 0
       ;;
@@ -82,12 +83,14 @@ while getopts ${OPTSTRING} opt; do
       ;;
   esac
 done
+shift $(($OPTIND-1))
 
 #### init shell variabls ####
 STORE_PREFIX="${1:-mnt/music/music-lib}"
 CONFIG_PREFIX="${2:-$HOME/.music_shell}"
 TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.txt"
+
 
 #### regular expressions ####
 # validate outut
@@ -97,14 +100,23 @@ FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
 # source expressions
 #        (1 )  ((3 ) (4       )   ) ((6       )   )(7 )  ((9         ) ) (10      )   (11)   (12)  (13)
 FIELDS='^(.*)\/((.*)/([0-9]{4}) - )|(([0-9]{4}) - )(.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
+# 1) location
+# 2) year
+# 3) album
+# 5) disc
+# 6) track
+# 7) artist
+# 8) title
+# 9) ex
 #            (1 )  (2       )   (3 )  ((5         )   (6       )   (7 )   (8  ) (9 ) 
 FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
 #                  (1 )   (2-8        )  (9 ) 
 ALBUM_FIELDS_RXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
 FIELDS_RXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
+FRAG2=' - (.*)'
 # destination expressions
-ALBUMS_FIELDS_REPL_RXP='\1\/\2\/\3\/\4\/\6\/\7\/\8\/\9\/\/\/\/\/\/'
-FIELDS_REPL_RXP='\1\/\2\/\3\/\5\/\6\/\7\/\8\/\9\/\/\/\/\/\/'
+ALBUMS_FIELDS_REPL_RXP='\1\/\3\/\2\/\4\/\2\/\6\/\7\/\8\/\9\/\/\/\/\/'
+FIELDS_REPL_RXP='\1\/\2\/\7\/\3\/Various\/\5\/\6\/\8\/\9\/\/\/\/\/'
 
 if [ ! -d $STORE_PREFIX ]; then
     echo "$STORE_PREFIX does not exist."
