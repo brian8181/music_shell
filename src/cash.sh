@@ -103,7 +103,7 @@ FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
 FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
 # FIELDS           (1 )   (2-8        )  (9 ) 
 ALBUM_FIELDS_RXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
-FIELDS_RXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
+FIELDS_RXP="^(${FIELDS_FRAG} - (.*)\.(.*))$"
 
 # destination expressions
 # ALBUMS  1:location/2:artist/3:album/4:date/5:title/6:encoding/10:disc_count/11:track_count/12:genre/13:lyrics/14:file/15:file_size:16:bitrate/17:art/18:create_ts/19:update_ts
@@ -113,8 +113,15 @@ LOCATION='\1'
 ARTIST='\2'
 YEAR='\3'
 ALBUM='\4'
-ALBUM_ARTIST='\'
+ALBUM_ARTIST=''
 DISC='\6'
+TRACK='\7'
+TITLE='\8'
+ENCODER='\9'
+FILE_PATH='\0'
+HASH='null'
+INSERT_TS=${TIME_STAMP}
+UPDATE_TS=${TIME_STAMP}
 
 # 1) location
 # 3) album
@@ -123,7 +130,7 @@ DISC='\6'
 # 7) artist
 # 8) title
 # 9) encoding 
-ALBUMS_FIELDS_REPL_RXP="${LOCATION}\/\3\/\4\/4\/\7\/\8\/\9\/\7\/\8\/\9\/\/\/\/\/"
+ALBUMS_FIELDS_REPL_RXP="${LOCATION}\/${YEAR}\/${ARTIST}\/${ALBUM}\/${ARTIST_ALBUM}\/${DISC}\/${TRACK}\/${TITLE}\/${ENCODER}\/\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}"
 FIELDS_REPL_RXP='\1\/\2\/\7\/\3\/Various\/\5\/\6\/\8\/\9\/\/\/\/\/'
 
 if [ ! -d $STORE_PREFIX ]; then
@@ -134,6 +141,10 @@ fi
 PRINT_INFO "scanning for file types (mp3, flac, ogg, wma, m4a) ..."
 PRINT_INFO "searching \"${STORE_PREFIX}\", writing cache --> \"${CACHE}\" ..."
 find "$STORE_PREFIX" -iregex $FILE_TYPES_RXP > "$CACHE"
+
+#todo
+# fix file path
+#FILE_PATH='\0'
 
 PRINT_INFO "tranforming the input ..."
 # remove prefix

@@ -17,13 +17,12 @@ create table song
     encoder TEXT,                       -- 10
     
     -- empty fields
-    genre TEXT,                         -- 11
-    file TEXT,                          -- 12
-    hash    TEXT,                       -- 13
+    file TEXT,                          -- 11
+    hash    TEXT,                       -- 12
 
     -- triggered
-    update_ts TIMESTAMP,                -- 14
-    insert_ts TIMESTAMP                 -- 15
+    update_ts TIMESTAMP,                -- 13
+    insert_ts TIMESTAMP                 -- 14
 );
 
 -- create table artist 
