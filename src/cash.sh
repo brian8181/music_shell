@@ -109,15 +109,21 @@ FIELDS_RXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
 # ALBUMS  1:location/2:artist/3:album/4:date/5:title/6:encoding/10:disc_count/11:track_count/12:genre/13:lyrics/14:file/15:file_size:16:bitrate/17:art/18:create_ts/19:update_ts
 # MISC    1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding 
 # SINGLES 1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding 
+LOCATION='\1'
+ARTIST='\2'
+YEAR='\3'
+ALBUM='\4'
+ALBUM_ARTIST='\'
+DISC='\6'
+
 # 1) location
-# 2) year
 # 3) album
 # 5) disc
 # 6) track
 # 7) artist
 # 8) title
 # 9) encoding 
-ALBUMS_FIELDS_REPL_RXP='\1\/\3\/\4\/4\/\7\/\8\/\9\/\7\/\8\/\9\/\/\/\/\/'
+ALBUMS_FIELDS_REPL_RXP="${LOCATION}\/\3\/\4\/4\/\7\/\8\/\9\/\7\/\8\/\9\/\/\/\/\/"
 FIELDS_REPL_RXP='\1\/\2\/\7\/\3\/Various\/\5\/\6\/\8\/\9\/\/\/\/\/'
 
 if [ ! -d $STORE_PREFIX ]; then
