@@ -85,41 +85,30 @@ while getopts ${OPTSTRING} opt; do
 done
 shift $(($OPTIND-1))
 
-#### init shell variabls ######
+#### init shell variabls ####
 STORE_PREFIX="${1:-mnt/music/music-lib}"
 CONFIG_PREFIX="${2:-$HOME/.music_shell}"
 TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.txt"
 
-#### regular expressions #######
+#### regular expressions ####
 # validate file cache
 VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
-
-#### source expressions ########
+# source search expression
 FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
-
-# FIELDS        (1 )  ((3 ) (4       )   ) ((6       )   )(7 )  ((9         ) ) (10      )   (11)   (12)  (13)
-# FIELDS_RXP2='^(.*)\/((.*)/([0-9]{4}) - )|(([0-9]{4}) - )(.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
-
+# source expressions
+#        (1 )  ((3 ) (4       )   ) ((6       )   )(7 )  ((9         ) ) (10      )   (11)   (12)  (13)
+# FIELDS='^(.*)\/((.*)/([0-9]{4}) - )|(([0-9]{4}) - )(.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
 # FIELDS     (1 )  (2       )   (3 )  ((5         )   (6       )   (7 )   (8  ) (9 ) 
 FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
 # FIELDS           (1 )   (2-8        )  (9 ) 
 ALBUM_FIELDS_RXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
 FIELDS_RXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
-#################################
 
-#### destination expressions ####
-# 1) location
-# 3) album
-# 5) disc
-# 6) track
-# 7) artist
-# 8) title
-# 9) encoding 
+# destination expressions
 # ALBUMS  1:location/2:artist/3:album/4:date/5:title/6:encoding/10:disc_count/11:track_count/12:genre/13:lyrics/14:file/15:file_size:16:bitrate/17:art/18:create_ts/19:update_ts
 # MISC    1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding 
-# SINGLES 1:location/? 
-
+# SINGLES 1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding 
 LOCATION='\1'
 ARTIST='\2'
 YEAR='\3'
@@ -134,9 +123,15 @@ HASH='null'
 INSERT_TS=${TIME_STAMP}
 UPDATE_TS=${TIME_STAMP}
 
+# 1) location
+# 3) album
+# 5) disc
+# 6) track
+# 7) artist
+# 8) title
+# 9) encoding 
 ALBUMS_FIELDS_REPL_RXP="${LOCATION}\/${YEAR}\/${ARTIST}\/${ALBUM}\/${ARTIST_ALBUM}\/${DISC}\/${TRACK}\/${TITLE}\/${ENCODER}\/\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}"
-FIELDS_REPL_RXP='\1\/\2\/\7\/\3\/Various\/\5\/\6\/\8\/\9\/10\/\/11\/12\/13\/14'
-#################################
+FIELDS_REPL_RXP='\1\/\2\/\7\/\3\/Various\/\5\/\6\/\8\/\9\/\/\/\/\/'
 
 if [ ! -d $STORE_PREFIX ]; then
     echo "$STORE_PREFIX does not exist."
