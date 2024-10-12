@@ -112,11 +112,11 @@ TITLE='\8'
 ENCODER='\9'
 FILE_PATH='\0'
 HASH='null'
-INSERT_TS=${TIME_STAMP}
-UPDATE_TS=${TIME_STAMP}
+INSERT_TS=$TIME_STAMP
+UPDATE_TS=$TIME_STAMP
 
-ALBUMS_FIELDS_REPL_RXP="${LOCATION}\/${YEAR}\/${ARTIST}\/${ALBUM}\/${ARTIST_ALBUM}\/${DISC}\/${TRACK}\/${TITLE}\/${ENCODER}\/\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}"
-REPL_END_RXP="${TITLE}\/${ENCODER}\/\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}"
+REPL_END_RXP="$TITLE\/$ENCODER\/\"FILE_PATH\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
+ALBUMS_FIELDS_REPL_RXP="$LOCATION\/$YEAR\/$ARTIST\/$ALBUM\/$ARTIST_ALBUM\/$DISC\/$TRACK\/$REPL_END_RXP"
 FIELDS_REPL_RXP="\1\/\2\/\1\/\3\/\7\/\5\/\6\/$REPL_END_RXP"
 SINGLES_REPL_RXP="\1\/\2\/\5\/\3\/Singles\/$REPL_END_RXP"
 
@@ -126,12 +126,12 @@ if [ ! -d $STORE_PREFIX ]; then
 fi
 
 PRINT_INFO "scanning for file types (mp3, flac, ogg, wma, m4a) ..."
-PRINT_INFO "searching \"${STORE_PREFIX}\", writing cache --> \"${CACHE}\" ..."
+PRINT_INFO "searching \"$STORE_PREFIX\", writing cache --> \"$CACHE\" ..."
 find "$STORE_PREFIX" -iregex $FILE_TYPES_RXP > "$CACHE"
 
 PRINT_INFO "tranforming the input ..."
 # remove prefix
-#sed -Ei "s/${STORE_PREFIX}\///g" "$CACHE"
+#sed -Ei "s/$STORE_PREFIX\///g" "$CACHE"
 sed -Ei "s/^.*music-lib\///g" "$CACHE"
 
 #### albums! ####
@@ -148,11 +148,14 @@ sed -Ei "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_MISC
 PRINT_INFO "searching for singles ........."
 cat "$CACHE" | grep -E "(singles/)" > "$CACHE"_SINGLES
 #           (1      )  (2 )   (3 )  ((5       ) )   (6 )  (7 )
-sed -Ei "s/^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$/\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}/g" "$CACHE"_SINGLES
+sed -Ei "s/^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$/\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/PATH\/$HASH\/$INSERT_TS\/$UPDATE_TS/g" "$CACHE"_SINGLES
 
 #### albums, singles, misc, sondtrack! ####
 cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES | grep -E $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES
 
+# todo row id
+#cat -n "$CACHE" | sed -E "s/([[:space:]]*([0-9]{1,6})[[:space:]]*)(.*)$/\2|\3/g" > tmp.txt
+
 #### finished ... ####
-PRINT_INFO "writing   \"${STORE_PREFIX}\", (csv / cache) --> \"${CACHE}\" ..."
+PRINT_INFO "writing   \"$STORE_PREFIX\", (csv / cache) --> \"$CACHE\" ..."

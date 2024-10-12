@@ -3,24 +3,24 @@ create table song
 (
     --id INT PRIMARY KEY,               -- 1
     -- current fields
-    location TEXT,                      -- 2
-    year TEXT,                          -- 3
-    artist TEXT,                        -- 4
-    album TEXT,                         -- 5
+    location TEXT,                      -- 1
+    year TEXT,                          -- 2
+    artist TEXT,                        -- 3
+    album TEXT,                         -- 4
     -- new field
-    album_artist TEXT,                  -- 6
-    disc INT,                           -- 7
-    track INT,                          -- 8
-    title TEXT,                         -- 9
-    encoder TEXT,                       -- 10
+    album_artist TEXT,                  -- 5
+    disc INT,                           -- 6
+    track INT,                          -- 7
+    title TEXT,                         -- 8
+    encoder TEXT,                       -- 9
     
     -- empty fields
-    file TEXT,                          -- 11
-    hash    TEXT,                       -- 12
+    file TEXT,                          -- 10
+    hash    TEXT,                       -- 11
 
     -- triggered
-    update_ts TIMESTAMP,                -- 13
-    insert_ts TIMESTAMP                 -- 14
+    update_ts TIMESTAMP,                -- 12
+    insert_ts TIMESTAMP                 -- 13
 );
 
 -- create table artist 
