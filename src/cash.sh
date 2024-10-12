@@ -101,14 +101,6 @@ ALBUM_FIELDS_RXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
 # FIELDS                      (8 )  (9 )
 FIELDS_RXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
 
-# 1) location
-# 3) album
-# 5) disc
-# 6) track
-# 7) artist
-# 8) title
-# 9) encoding 
-
 LOCATION='\1'
 ARTIST='\2'
 YEAR='\3'
