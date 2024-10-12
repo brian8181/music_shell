@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # FILE:      'cash.sh'
-# VERSION:   '0.0.12'
-# FILE_DATE: 'Sun Oct  6 02:08:37 AM CDT 2024'
+# VERSION:   '0.0.13'
+# FILE_DATE: 'Sat Oct 12 09:22:32 AM CDT 2024'
 # INFO:      'builds a new cash.m3u'
 
 FILE="$0"
 VERSION='0.0.10'
-FILE_DATE='Sun Oct  6 02:08:37 AM CDT 2024'
+FILE_DATE='Sat Oct 12 09:22:32 AM CDT 2024'
 FMT_FG_RED='\e[31m'
 FMT_FG_GREEN='\e[32m'
 FMT_RESET='\e[0m'
@@ -85,13 +85,12 @@ while getopts ${OPTSTRING} opt; do
 done
 shift $(($OPTIND-1))
 
-#### init shell variabls ######
 STORE_PREFIX="${1:-mnt/music/music-lib}"
 CONFIG_PREFIX="${2:-$HOME/.music_shell}"
 TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.txt"
 
-# validate file cache
+# validate cache lines
 VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
 FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
 # FIELDS     (1 )  (2       )   (3 )  ((5         )   (6       )   (7 ) 
@@ -139,12 +138,12 @@ PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
 sed -Ei "s/$ALBUM_FIELDS_RXP/$ALBUMS_FIELDS_REPL_RXP/g" "$CACHE"_ALBUMS
 
-#### misc! & soundtrack ####
+#### misc & soundtrack! ####
 PRINT_INFO "searching for misc & soundtrack ........."
 cat "$CACHE" | grep -E "(misc/)|(soundtrack/)" > "$CACHE"_MISC
 sed -Ei "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_MISC
 
-#### singles ####
+#### singles! ####
 PRINT_INFO "searching for singles ........."
 cat "$CACHE" | grep -E "(singles/)" > "$CACHE"_SINGLES
 #           (1      )  (2 )   (3 )  ((5       ) )   (6 )  (7 )
