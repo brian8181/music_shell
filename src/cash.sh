@@ -91,24 +91,16 @@ CONFIG_PREFIX="${2:-$HOME/.music_shell}"
 TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.txt"
 
-#### regular expressions #######
 # validate file cache
 VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
-
-#### source expressions ########
 FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
-
-# FIELDS        (1 )  ((3 ) (4       )   ) ((6       )   )(7 )  ((9         ) ) (10      )   (11)   (12)  (13)
-# FIELDS_RXP2='^(.*)\/((.*)/([0-9]{4}) - )|(([0-9]{4}) - )(.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$'
-
 # FIELDS     (1 )  (2       )   (3 )  ((5         )   (6       )   (7 ) 
 FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
 # FIELDS           (1 )   (2-8        )  (9 ) 
 ALBUM_FIELDS_RXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
+# FIELDS                      (8 )  (9 )
 FIELDS_RXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
-#################################
 
-#### destination expressions ####
 # 1) location
 # 3) album
 # 5) disc
@@ -116,9 +108,6 @@ FIELDS_RXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
 # 7) artist
 # 8) title
 # 9) encoding 
-# ALBUMS  1:location/2:artist/3:album/4:date/5:title/6:encoding/10:disc_count/11:track_count/12:genre/13:lyrics/14:file/15:file_size:16:bitrate/17:art/18:create_ts/19:update_ts
-# MISC    1:location/2:date - 3:album/4:artist - (5:date) - 6:disc.7:track 8:title.9:encoding 
-# SINGLES 1:location/? 
 
 LOCATION='\1'
 ARTIST='\2'
@@ -135,10 +124,9 @@ INSERT_TS=${TIME_STAMP}
 UPDATE_TS=${TIME_STAMP}
 
 ALBUMS_FIELDS_REPL_RXP="${LOCATION}\/${YEAR}\/${ARTIST}\/${ALBUM}\/${ARTIST_ALBUM}\/${DISC}\/${TRACK}\/${TITLE}\/${ENCODER}\/\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}"
-REPL_END_RXP="\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}"
-FIELDS_REPL_RXP="\1\/\2\/Various\/\3\/\7\/\5\/\6\/\8\/\9\/$REPL_END_RXP"
+REPL_END_RXP="${TITLE}\/${ENCODER}\/\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}"
+FIELDS_REPL_RXP="\1\/\2\/\1\/\3\/\7\/\5\/\6\/$REPL_END_RXP"
 SINGLES_REPL_RXP="\1\/\2\/\5\/\3\/Singles\/$REPL_END_RXP"
-#################################
 
 if [ ! -d $STORE_PREFIX ]; then
     echo "$STORE_PREFIX does not exist."
@@ -149,12 +137,6 @@ PRINT_INFO "scanning for file types (mp3, flac, ogg, wma, m4a) ..."
 PRINT_INFO "searching \"${STORE_PREFIX}\", writing cache --> \"${CACHE}\" ..."
 find "$STORE_PREFIX" -iregex $FILE_TYPES_RXP > "$CACHE"
 
-#todo fix path hash
-# fix file path
-#FILE_PATH='\0'
-#HASH=$(md5sum ${FILE_PATH} | sed -E 's/^.{32}.*$//g')
-echo $HASH
-
 PRINT_INFO "tranforming the input ..."
 # remove prefix
 #sed -Ei "s/${STORE_PREFIX}\///g" "$CACHE"
@@ -162,25 +144,22 @@ sed -Ei "s/^.*music-lib\///g" "$CACHE"
 
 #### albums! ####
 PRINT_INFO "searching for albums ......."
-cat "$CACHE" | egrep "albums/" > "$CACHE"_ALBUMS # albums only
+cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
 sed -Ei "s/$ALBUM_FIELDS_RXP/$ALBUMS_FIELDS_REPL_RXP/g" "$CACHE"_ALBUMS
 
 #### misc! & soundtrack ####
 PRINT_INFO "searching for misc & soundtrack ........."
-cat "$CACHE" | egrep "(misc/)|(soundtrack/)" > "$CACHE"_MISC
+cat "$CACHE" | grep -E "(misc/)|(soundtrack/)" > "$CACHE"_MISC
 sed -Ei "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_MISC
 
 #### singles ####
 PRINT_INFO "searching for singles ........."
-cat "$CACHE" | egrep "(singles/)" > "$CACHE"_SINGLES
-# example: "singles"/"The Donnas"/"Drive Me Crazy "/"1999"/"Keep On Loving You"/"mp3"/
+cat "$CACHE" | grep -E "(singles/)" > "$CACHE"_SINGLES
 #           (1      )  (2 )   (3 )  ((5       ) )   (6 )  (7 )
-sed -Ei "s/^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$/\1\/\4\/\2\/\3\/\2\/disc\/track\/\5\/\6\/\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}/g" "$CACHE"_SINGLES
-# cp $CACHE ./cash.txt
-# cp "$CACHE"_SINGLES ./cash_singles.txt
+sed -Ei "s/^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$/\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}/g" "$CACHE"_SINGLES
 
 #### albums, singles, misc, sondtrack! ####
-cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES | egrep $VALIDATE_RECORD_RXP > "$CACHE"
+cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES | grep -E $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES
 
 #### finished ... ####
