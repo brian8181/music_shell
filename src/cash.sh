@@ -136,7 +136,6 @@ UPDATE_TS=${TIME_STAMP}
 
 ALBUMS_FIELDS_REPL_RXP="${LOCATION}\/${YEAR}\/${ARTIST}\/${ALBUM}\/${ARTIST_ALBUM}\/${DISC}\/${TRACK}\/${TITLE}\/${ENCODER}\/\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}"
 REPL_END_RXP="\"${FILE_PATH}\"\/${HASH}\/${INSERT_TS}\/${UPDATE_TS}"
-soundtrack/1994/Various/Pulp Fiction/The Lively Ones//The Lively Ones/Surf Rider/mp3/10/"soundtrack/1994 - Pulp Fiction/15. The Lively Ones - Surf Rider.mp3"/null/20241011225107/20241011225107
 FIELDS_REPL_RXP="\1\/\2\/Various\/\3\/\7\/\5\/\6\/\8\/\9\/$REPL_END_RXP"
 SINGLES_REPL_RXP="\1\/\2\/\5\/\3\/Singles\/$REPL_END_RXP"
 #################################
