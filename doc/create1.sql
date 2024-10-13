@@ -8,8 +8,6 @@ create table song
     title TEXT
 );
 
-.import --csv $HOME/.music_shell/cache.txt song
-
 create table song 
 (
     location     TEXT,          -- 1

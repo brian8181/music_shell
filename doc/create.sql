@@ -1,7 +1,7 @@
 -- music schema
 create table song 
 (
-    --id INT PRIMARY KEY,               -- 1
+    id INT PRIMARY KEY,               -- 1
     -- current fields
     location TEXT,                      -- 1
     year TEXT,                          -- 2
