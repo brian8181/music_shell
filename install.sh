@@ -88,6 +88,16 @@ ln -s -v "$HOME/bin/search.sh" "$HOME/bin/search"
 PRINT_INFO "create link \"$HOME/bin/cpl\" ..."
 ln -s -v "$HOME/bin/create_playlist.sh" "$HOME/bin/cpl"
 
+# db stuff to db
+if [ ! -d "$HOME/db" ]; then
+    PRINT_INFO "make directory \"$HOME/db\" ..."
+    # create db
+    mkdir -p "$HOME/db"
+fi
+
+PRINT_INFO "copy create.sql to $HOME/db ..."
+cp doc/create.sql "$HOME/db/create.sql"
+
 PRINT_INFO "Finished installing scripts."
 ##{ END YOUR CODE  }##
 PRINT_INFO "$FILE -> Exiting.   @ $DATE"
