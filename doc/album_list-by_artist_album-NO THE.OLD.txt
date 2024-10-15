@@ -1,1 +1,0 @@
-[$if($stricmp($left(%album artist%,4),'The '),$right(%album artist%,$sub($len(%artist%),4))', 'The,[%album artist%]) - ]['['%date%']' ]%album%|[[%discnumber%.]%tracknumber%. ][%track artist% - ]%title%

@@ -8,8 +8,6 @@ create table song
     title TEXT
 );
 
-.import --csv $HOME/.music_shell/cache.txt song
-
 create table song 
 (
     location     TEXT,          -- 1
@@ -41,13 +39,3 @@ create table album (
 	update_ts TIMESTAMP,
 	insert_ts TIMESTAMP
 ); 
-
-
-.import --csv $HOME/.music_shell/cache.csv song
-.separator "/"
-.import 20240927155309_cache.tmp song2
-.import quoted_fullpath.txt song
-
-select * from song;
-
-sed -E 's/^(.*)\/(.*)\/([0-9]{4}) - (.*)\/([0-9]{2})\. (.*)\.(.*)$/"\1"\/"\3"\/"\2"\/"\4"\/""\/"\5"\/"\6"\/"\7"/g'

@@ -17,7 +17,10 @@ CONFIG_PATH=$(HOME)/.music_shell
 BIN_PATH=$(HOME)/bin
 
 # complie & link
-all: $(BLD)\tag
+all: $(BLD)/main_window n$(BLD)\tag
+
+$(BLD)/main_window: $(SRC)/main_window.c
+	gcc $(pkg-config --cflags gtk4) -o $(BLD)/main_window $(SRC)/main_window.c $(pkg-config --libs gtk4)
 
 $(BLD)\tag: $(BLD)\tag.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(INCLUDES) $(BLD)/$(APPNAME).o -o $(BLD)/tag

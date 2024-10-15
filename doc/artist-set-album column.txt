@@ -1,1 +1,0 @@
-$if(%album artist%, $swapprefix(%album artist%), '?') - [%SET NAME% - ]$if2(%album%, '?')  '('[%date%]')'

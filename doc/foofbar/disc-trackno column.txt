@@ -1,0 +1,2 @@
+// this is also used in all move rename scripts
+$ifgreater(%totaldiscs%,1,[%discnumber%.][%tracknumber%],[%tracknumber%]) 

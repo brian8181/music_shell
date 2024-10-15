@@ -1,56 +1,58 @@
-create schema music;
-
+-- music schema
 create table song 
 (
-    id INT PRIMARY KEY,                 -- 1
-    location TEXT,                      -- 2
-    year TEXT,                          -- 3
-    artist TEXT,                        -- 4
-    album TEXT,                         -- 5
+    id INT PRIMARY KEY,               -- 1
+    -- current fields
+    location TEXT,                      -- 1
+    year TEXT,                          -- 2
+    artist TEXT,                        -- 3
+    album TEXT,                         -- 4
+    -- new field
+    album_artist TEXT,                  -- 5
+    disc INT,                           -- 6
     track INT,                          -- 7
-    track_count INT,                    -- 8
-    disc INT,                           -- 9
-    title TEXT,                         -- 10
-    lyrics TEXT,                        -- 11
-    genre TEXT,                         -- 12
-    file TEXT,                          -- 13
-    bitrate INT,                        -- 14
-    encoder TEXT,                       -- 15
-    hash    TEXT,                       -- 16
-    update_ts TIMESTAMP,                -- 16
-    insert_ts TIMESTAMP                 -- 18
+    title TEXT,                         -- 8
+    encoder TEXT,                       -- 9
+    
+    -- empty fields
+    file TEXT,                          -- 10
+    hash    TEXT,                       -- 11
+
+    -- triggered
+    update_ts TIMESTAMP,                -- 12
+    insert_ts TIMESTAMP                 -- 13
 );
 
-create table artist 
-(
-    id INT PRIMARY KEY,
-    artist TEXT,
-    update_ts TIMESTAMP,
-    insert_ts TIMESTAMP
-); 
+-- create table artist 
+-- (
+--     id INT PRIMARY KEY,
+--     artist TEXT,
+--     update_ts TIMESTAMP,
+--     insert_ts TIMESTAMP
+-- ); 
 
-create table album 
-(
-    id INT PRIMARY KEY,
-    album TEXT,
-    album_artist,
-    disc_count INT,                     -
-    track_count INT,                     
-    update_ts TIMESTAMP,
-    insert_ts TIMESTAMP
-); 
+-- create table album 
+-- (
+--     id INT PRIMARY KEY,
+--     album TEXT,
+--     album_artist,
+--     disc_count INT,
+--     track_count INT,                     
+--     update_ts TIMESTAMP,
+--     insert_ts TIMESTAMP
+-- ); 
 
-CREATE TRIGGER song_insert AFTER CREATE 
-ON song
-BEGIN
-   INSERT INTO AUDIT(update_ts, insert_ts_ts) VALUES (datetime('now'), datetime('now'));
-END;
+-- CREATE TRIGGER song_insert AFTER INSERT 
+-- ON song
+-- BEGIN
+--    INSERT INTO song (update_ts, insert_ts) VALUES (datetime('now'), datetime('now'));
+-- END;
 
-CREATE TRIGGER song_update AFTER UPDATE 
-ON song
-BEGIN
-   INSERT INTO AUDIT(update_ts) VALUES (datetime('now'));
-END;
+-- CREATE TRIGGER song_update AFTER UPDATE 
+-- ON song
+-- BEGIN
+--    INSERT INTO song (update_ts) VALUES (datetime('now'));
+-- END;
 
 -- .import --csv .cache.csv song
 -- .mode csv
