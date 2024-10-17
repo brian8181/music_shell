@@ -138,28 +138,28 @@ PRINT_INFO "tranforming the input ..."
 #sed -Ei "s/$STORE_PREFIX\///g" "$CACHE"
 sed -Ei "s/^.*music-lib\///g" "$CACHE"
 
-#### albums! ####
+# albums! #
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
 sed -Ei "s/$ALBUM_FIELDS_RXP/$ALBUMS_FIELDS_REPL_RXP/g" "$CACHE"_ALBUMS
 
-#### misc & soundtrack! ####
+# misc & soundtrack! #
 PRINT_INFO "searching for misc & soundtrack ........."
 cat "$CACHE" | grep -E "(misc/)|(soundtrack/)" > "$CACHE"_MISC
 sed -Ei "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_MISC
 
-#### singles! ####
+# singles! #
 PRINT_INFO "searching for singles ........."
 cat "$CACHE" | grep -E "(singles/)" > "$CACHE"_SINGLES
 #           (1      )  (2 )   (3 )  ((5       ) )   (6 )  (7 )
 sed -Ei "s/^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$/\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/PATH\/$HASH\/$INSERT_TS\/$UPDATE_TS/g" "$CACHE"_SINGLES
 
-#### albums, singles, misc, sondtrack! ####
+# albums, singles, misc, sondtrack! #
 cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES | grep -E $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES
 
 # todo row id
 #cat -n "$CACHE" | sed -E "s/([[:space:]]*([0-9]{1,6})[[:space:]]*)(.*)$/\2|\3/g" > tmp.txt
 
-#### finished ... ####
+# finished ... #
 PRINT_INFO "writing   \"$STORE_PREFIX\", (csv / cache) --> \"$CACHE\" ..."
