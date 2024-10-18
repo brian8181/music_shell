@@ -21,6 +21,14 @@
             "args": []
         },
         {
+            "name": "cash with args",
+            "type": "bashdb",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/src/cash.sh",
+            "args": ["/home/brian/music_backup/music-lib", "/home/brian"]
+        },
+        {
             "name": "(gdb) Launch Debug(1)",
             "type": "cppdbg",
             "request": "launch",
