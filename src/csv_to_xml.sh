@@ -63,6 +63,14 @@ fi
 PATTERN='^\"(.*)\"\/\"(.*)\"\/\"(.*)\"\/\"(.*)\"$'
 REPLACE_PATTERN='\t<song>\n\t\t<location>\1<\/location>\n\t\t<artist>\2<\/artist>\n\t\t<album>\3<\/album>\n\t\t<title>\4<\/title>\n\t<\/song>'
 
+REPLACE_PATTERN= "<song>\n\t\t \
+                      <location>\1<\/location>\n\t\t \
+                      <year>\?</year>\n\t\t<artist>\2<\/artist>\n\t\t \
+                      <album>\3<\/album>\n\t\t /
+                      <artist_album>\?</artist_album>\t\t\n \
+                      <title>\4<\/title>\n\t \
+                  <\/song>"
+
 # check format
 LEN_ORG=$(cat "$SRC_FILE_TMP" | wc -l)
 LEN_CUR=$(cat "$SRC_FILE_TMP" | grep -E "$PATTERN" | wc -l)
