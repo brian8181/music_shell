@@ -19,7 +19,7 @@ DEBUG_MSG="$PRINT_RED_DEBUG: "
 INFO_MSG="$PRINT_GREEN_INFO: "
 VERBOSE=1
 DEBUG=
-DELIMITER='/'
+DELIMITER='\/'
 
 function PRINT_DEBUG
 {
@@ -110,8 +110,9 @@ PRINT_INFO "tranforming the input ..."
 #sed -Ei "s/^.*$STORE_PREFIX\///g" "$CACHE"
 sed -Ei "s/^.*music-lib\///g" "$CACHE"
 
+# SHARED FRAGMENT
 # FIELDS     (1 )  (2       )   (3 )  ((5         )   (6       )   (7 ) 
-FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
+FIELDS_FRAG="(.*)$DELIMITER([0-9]{4}) - (.*)$DELIMITER(([0-9]{1,2}).)?([0-9]{2})\. (.*)"
 
 #### albums! ####
 LOCATION='\1'
