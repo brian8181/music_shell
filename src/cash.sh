@@ -41,7 +41,15 @@ function INFO
 	  echo ${VERBOSE:+"Date - $FILE_DATE"}
 }
 
-OPTSTRING="l:hpvs:d:]"
+function HELP
+{
+    INFO
+    echo -e "\nUsage: \n" \
+              "$> cash.sh [-[dhpv]] [SRC [DST]]\n"
+    echo -e "$(basename ${0}) - version: ${VERSION} - $(date)\n"
+}
+
+OPTSTRING="l:hvs:d:]"
 while getopts ${OPTSTRING} opt; do
   case ${opt} in
     v)
@@ -49,18 +57,15 @@ while getopts ${OPTSTRING} opt; do
       echo -e "${FMT_FG_GREEN}${VERSION}${FMT_FG_RED} ${DEBUG:-debug}${FMT_RESET}"
       exit 0
       ;;
+    h)
+      HELP
+      exit 0;
+      ;;
     l)
       DELIMITER=${OPTARG}
       echo -e "${FMT_FG_GREEN}DELIMITER=${OPTARG}${FMT_RESET}"
       echo -e "${FMT_FG_RED}delimiter function not yest implented ...${FMT_RESET}"
       exit 0
-      ;;
-    h)
-      INFO 
-      echo -e "\nUsage: \n" \
-              "$> cash.sh [-[dhpv]] [SRC [DST]]\n"
-      echo -e "$(basename ${0}) - version: ${VERSION} - $(date)\n"
-      exit 0;
       ;;
     s)
       # src
