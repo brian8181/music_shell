@@ -130,7 +130,7 @@ INSERT_TS=$TIME_STAMP
 UPDATE_TS=$TIME_STAMP
 # FIELDS           (1 )   (2-8        )  (9 ) 
 ALBUM_FIELDS_RXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
-REPL_END_RXP="$TITLE\/$ENCODER\/\"FILE_PATH\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
+REPL_END_RXP="$TITLE\/$ENCODER\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
 ALBUMS_FIELDS_REPL_RXP="$LOCATION\/$YEAR\/$ARTIST\/$ALBUM\/$ARTIST_ALBUM\/$DISC\/$TRACK\/$REPL_END_RXP"
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
@@ -149,7 +149,7 @@ SINGLES_REPL_RXP="\1\/\2\/\5\/\3\/Singles\/$REPL_END_RXP"
 PRINT_INFO "searching for singles ........."
 cat "$CACHE" | grep -E "(singles/)" > "$CACHE"_SINGLES
 #           (1      )  (2 )   (3 )  ((5       ) )   (6 )  (7 )
-sed -Ei "s/^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$/\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/PATH\/$HASH\/$INSERT_TS\/$UPDATE_TS/g" "$CACHE"_SINGLES
+sed -Ei "s/^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$/\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS/g" "$CACHE"_SINGLES
 
 # validate cache lines
 VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
