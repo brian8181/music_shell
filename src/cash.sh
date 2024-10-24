@@ -19,7 +19,7 @@ DEBUG_MSG="$PRINT_RED_DEBUG: "
 INFO_MSG="$PRINT_GREEN_INFO: "
 VERBOSE=1
 DEBUG=
-DELIMITER='/'
+DELIMIT_CHAR='/'
 
 function PRINT_DEBUG
 {
@@ -108,6 +108,7 @@ find "$STORE_PREFIX" -iregex $FILE_TYPES_RXP > "$CACHE"
 PRINT_INFO "tranforming the input ..."
 # remove prefix
 #sed -Ei "s/^.*$STORE_PREFIX\///g" "$CACHE"
+#sed -Ei "s/^.*music-lib\\$DELIMIT_CHAR//g" "$CACHE"
 sed -Ei "s/^.*music-lib\///g" "$CACHE"
 
 LOCATION='\1'
@@ -127,11 +128,12 @@ UPDATE_TS=$TIME_STAMP
 # SHARED FRAGMENT
 # FIELDS     (1 )  (2       )   (3 )  ((5         ) ) (6       )   (7 ) 
 FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
+#REPL_END_RXP="$TITLE\/$ENCODER\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
+REPL_END_RXP="$TITLE\/$ENCODER\/\"PATH\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
 
 #### albums! ####
 # FIELDS  (1 )   (2-8        )  (9 ) 
 SRC_EXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
-REPL_END_RXP="$TITLE\/$ENCODER\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
 DST_EXP="$LOCATION\/$YEAR\/$ARTIST\/$ALBUM\/$ARTIST_ALBUM\/$DISC\/$TRACK\/$REPL_END_RXP"
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
@@ -146,12 +148,12 @@ cat "$CACHE" | grep -E "(misc/)|(soundtrack/)" > "$CACHE"_MISC
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_MISC
 
 #### singles! ####
-# FIELDS 
-SRC_EXP='^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$'
-DST_EXP='\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS'
+# FIELDS  (1      )  (2 )   (3 )  ((5       ) )   (6 )  (7 )
+SRC_EXP="^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$"
+#DST_EXP="\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
+DST_EXP="\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/\"PATH\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
 PRINT_INFO "searching for singles ........."
 cat "$CACHE" | grep -E "(singles/)" > "$CACHE"_SINGLES
-#           (1      )  (2 )   (3 )  ((5       ) )   (6 )  (7 )
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_SINGLES
 
 # validate cache lines
