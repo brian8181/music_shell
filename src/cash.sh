@@ -110,11 +110,6 @@ PRINT_INFO "tranforming the input ..."
 #sed -Ei "s/^.*$STORE_PREFIX\///g" "$CACHE"
 sed -Ei "s/^.*music-lib\///g" "$CACHE"
 
-## SHARED FRAGMENT
-# FIELDS     (1 )  (2       )   (3 )  ((5         )   (6       )   (7 ) 
-FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
-
-#### albums! ####
 LOCATION='\1'
 ARTIST='\2'
 YEAR='\3'
@@ -128,34 +123,43 @@ FILE_PATH='\0'
 HASH='null'
 INSERT_TS=$TIME_STAMP
 UPDATE_TS=$TIME_STAMP
-# FIELDS           (1 )   (2-8        )  (9 ) 
-ALBUM_FIELDS_RXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
+
+# SHARED FRAGMENT
+# FIELDS     (1 )  (2       )   (3 )  ((5         ) ) (6       )   (7 ) 
+FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
+
+#### albums! ####
+# FIELDS  (1 )   (2-8        )  (9 ) 
+SRC_EXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
 REPL_END_RXP="$TITLE\/$ENCODER\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
-ALBUMS_FIELDS_REPL_RXP="$LOCATION\/$YEAR\/$ARTIST\/$ALBUM\/$ARTIST_ALBUM\/$DISC\/$TRACK\/$REPL_END_RXP"
+DST_EXP="$LOCATION\/$YEAR\/$ARTIST\/$ALBUM\/$ARTIST_ALBUM\/$DISC\/$TRACK\/$REPL_END_RXP"
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
-sed -Ei "s/$ALBUM_FIELDS_RXP/$ALBUMS_FIELDS_REPL_RXP/g" "$CACHE"_ALBUMS
+sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_ALBUMS
 
 #### misc & soundtrack! ####
-# FIELDS                      (8 )  (9 )
-FIELDS_RXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
-FIELDS_REPL_RXP="\1\/\2\/\1\/\3\/\7\/\5\/\6\/$REPL_END_RXP"
+# FIELDS                   (8 )  (9 )
+SRC_EXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
+DST_EXP="\1\/\2\/\1\/\3\/\7\/\5\/\6\/$REPL_END_RXP"
 PRINT_INFO "searching for misc & soundtrack ........."
 cat "$CACHE" | grep -E "(misc/)|(soundtrack/)" > "$CACHE"_MISC
-sed -Ei "s/$FIELDS_RXP/$FIELDS_REPL_RXP/g" "$CACHE"_MISC
+sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_MISC
 
 #### singles! ####
-SINGLES_REPL_RXP="\1\/\2\/\5\/\3\/Singles\/$REPL_END_RXP"
+# FIELDS 
+SRC_EXP='^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$'
+DST_EXP='\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS'
 PRINT_INFO "searching for singles ........."
 cat "$CACHE" | grep -E "(singles/)" > "$CACHE"_SINGLES
 #           (1      )  (2 )   (3 )  ((5       ) )   (6 )  (7 )
-sed -Ei "s/^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$/\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS/g" "$CACHE"_SINGLES
+sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_SINGLES
 
 # validate cache lines
 VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
 #### albums, singles, misc, sondtrack! ####
 cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES | grep -E $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES
+#sed -Ei "s/\//|/g" "$CACHE"
 
 #### finished ... ####
 PRINT_INFO "writing   \"$STORE_PREFIX\", (csv / cache) --> \"$CACHE\" ..."
