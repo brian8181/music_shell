@@ -111,13 +111,6 @@ PRINT_INFO "tranforming the input ..."
 #sed -Ei "s/^.*music-lib\\$DELIMIT_CHAR//g" "$CACHE"
 sed -Ei "s/^.*music-lib\///g" "$CACHE"
 
-# SHARED FRAGMENT
-# FIELDS     (1 )  (2       )   (3 )  ((5         ) ) (6       )   (7 ) 
-FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
-#REPL_END_RXP="$TITLE\/$ENCODER\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
-REPL_END_RXP="$TITLE\/$ENCODER\/\"PATH\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
-
-#### albums! ####
 LOCATION='\1'
 ARTIST='\2'
 YEAR='\3'
@@ -131,6 +124,14 @@ FILE_PATH='\0'
 HASH='null'
 INSERT_TS=$TIME_STAMP
 UPDATE_TS=$TIME_STAMP
+
+# SHARED FRAGMENT
+# FIELDS     (1 )  (2       )   (3 )  ((5         ) ) (6       )   (7 ) 
+FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
+#REPL_END_RXP="$TITLE\/$ENCODER\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
+REPL_END_RXP="$TITLE\/$ENCODER\/\"PATH\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
+
+#### albums! ####
 # FIELDS  (1 )   (2-8        )  (9 ) 
 SRC_EXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
 DST_EXP="$LOCATION\/$YEAR\/$ARTIST\/$ALBUM\/$ARTIST_ALBUM\/$DISC\/$TRACK\/$REPL_END_RXP"
@@ -139,18 +140,8 @@ cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_ALBUMS
 
 #### misc & soundtrack! ####
-#LOCATION='\1'
-ARTIST='\1'
-YEAR='\2'
-ALBUM='\3'
-ALBUM_ARTIST='\7'
-DISC='\5'
-TRACK='\6'
-# TITLE='\8'
-# ENCODER='\9'
-# FIELDS   (1-7        )   (8 )  (9 )
+# FIELDS                   (8 )  (9 )
 SRC_EXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
-#DST_EXP="$LOCATION\/$YEAR\/\1\/\3\/\7\/\5\/\6\/$REPL_END_RXP"
 DST_EXP="\1\/\2\/\1\/\3\/\7\/\5\/\6\/$REPL_END_RXP"
 PRINT_INFO "searching for misc & soundtrack ........."
 cat "$CACHE" | grep -E "(misc/)|(soundtrack/)" > "$CACHE"_MISC
