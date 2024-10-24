@@ -161,5 +161,12 @@ cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES | grep -E $VALIDATE_RECORD_RX
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES
 #sed -Ei "s/\//|/g" "$CACHE"
 
+# create id column
+LEN=$(cat $CACHE | wc -l)
+seq -w 1111 3 $((3*$LEN+1110)) > tmp1.txt
+paste -d'/' tmp1.txt $CACHE > tmp2.txt 
+cat tmp2.txt > $CACHE
+rm tmp*.txt
+
 #### finished ... ####
 PRINT_INFO "writing   \"$STORE_PREFIX\", (csv / cache) --> \"$CACHE\" ..."
