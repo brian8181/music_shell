@@ -107,9 +107,7 @@ find "$STORE_PREFIX" -iregex $FILE_TYPES_RXP > "$CACHE"
 
 PRINT_INFO "tranforming the input ..."
 # remove prefix
-#sed -Ei "s/^.*$STORE_PREFIX\///g" "$CACHE"
-sed -Ei "s/^.*music-lib$D__//g" "$CACHE"
-#sed -Ei "s/^.*music-lib\///g" "$CACHE"
+sed -Ei "s|$STORE_PREFIX/||g" "$CACHE"
 
 LOCATION='\1'
 ARTIST='\2'
