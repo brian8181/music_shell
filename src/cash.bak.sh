@@ -19,7 +19,7 @@ DEBUG_MSG="$PRINT_RED_DEBUG: "
 INFO_MSG="$PRINT_GREEN_INFO: "
 VERBOSE=1
 DEBUG=
-DELIMIT_CHAR='/'
+DELIMIT_CHAR_='\/'
 
 function PRINT_DEBUG
 {
@@ -108,8 +108,8 @@ find "$STORE_PREFIX" -iregex $FILE_TYPES_RXP > "$CACHE"
 PRINT_INFO "tranforming the input ..."
 # remove prefix
 #sed -Ei "s/^.*$STORE_PREFIX\///g" "$CACHE"
-#sed -Ei "s/^.*music-lib\\$DELIMIT_CHAR//g" "$CACHE"
-sed -Ei "s/^.*music-lib\///g" "$CACHE"
+sed -Ei "s/^.*music-lib${DELIMIT_CHAR_}//g" "$CACHE"
+#sed -Ei "s/^.*music-lib\///g" "$CACHE"
 
 LOCATION='\1'
 ARTIST='\2'
@@ -127,14 +127,14 @@ UPDATE_TS=$TIME_STAMP
 
 # SHARED FRAGMENT
 # FIELDS     (1 )  (2       )   (3 )  ((5         ) ) (6       )   (7 ) 
-FIELDS_FRAG='(.*)\/([0-9]{4}) - (.*)\/(([0-9]{1,2}).)?([0-9]{2})\. (.*)'
-#REPL_END_RXP="$TITLE\/$ENCODER\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
-REPL_END_RXP="$TITLE\/$ENCODER\/\"PATH\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
+FIELDS_FRAG="(.*)${DELIMIT_CHAR_}([0-9]{4}) - (.*)${DELIMIT_CHAR_}(([0-9]{1,2}).)?([0-9]{2})\. (.*)"
+#REPL_END_RXP="$TITLE${DELIMIT_CHAR_}$ENCODER${DELIMIT_CHAR_}\"&\"${DELIMIT_CHAR_}$HASH${DELIMIT_CHAR_}$INSERT_TS${DELIMIT_CHAR_}$UPDATE_TS"
+REPL_END_RXP="$TITLE${DELIMIT_CHAR_}$ENCODER${DELIMIT_CHAR_}\"PATH\"${DELIMIT_CHAR_}$HASH${DELIMIT_CHAR_}$INSERT_TS${DELIMIT_CHAR_}$UPDATE_TS"
 
 #### albums! ####
 # FIELDS  (1 )   (2-8        )  (9 ) 
-SRC_EXP="^(.*)\/${FIELDS_FRAG}\.(.*)$"
-DST_EXP="$LOCATION\/$YEAR\/$ARTIST\/$ALBUM\/$ARTIST_ALBUM\/$DISC\/$TRACK\/$REPL_END_RXP"
+SRC_EXP="^(.*)${DELIMIT_CHAR_}${FIELDS_FRAG}\.(.*)$"
+DST_EXP="$LOCATION${DELIMIT_CHAR_}$YEAR${DELIMIT_CHAR_}$ARTIST${DELIMIT_CHAR_}$ALBUM${DELIMIT_CHAR_}$ARTIST_ALBUM${DELIMIT_CHAR_}$DISC${DELIMIT_CHAR_}$TRACK${DELIMIT_CHAR_}$REPL_END_RXP"
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_ALBUMS
@@ -142,16 +142,16 @@ sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_ALBUMS
 #### misc & soundtrack! ####
 # FIELDS                   (8 )  (9 )
 SRC_EXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
-DST_EXP="\1\/\2\/\1\/\3\/\7\/\5\/\6\/$REPL_END_RXP"
+DST_EXP="\1${DELIMIT_CHAR_}\2${DELIMIT_CHAR_}\1${DELIMIT_CHAR_}\3${DELIMIT_CHAR_}\7${DELIMIT_CHAR_}\5${DELIMIT_CHAR_}\6${DELIMIT_CHAR_}$REPL_END_RXP"
 PRINT_INFO "searching for misc & soundtrack ........."
 cat "$CACHE" | grep -E "(misc/)|(soundtrack/)" > "$CACHE"_MISC
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_MISC
 
 #### singles! ####
 # FIELDS  (1      )  (2 )   (3 )  ((5       ) )   (6 )  (7 )
-SRC_EXP="^(singles)\/(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$"
-#DST_EXP="\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/\"&\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
-DST_EXP="\1\/\4\/\2\/\3\/\2\/\/\/\5\/\6\/\"PATH\"\/$HASH\/$INSERT_TS\/$UPDATE_TS"
+SRC_EXP="^(singles)${DELIMIT_CHAR_}(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$"
+#DST_EXP="\1${DELIMIT_CHAR_}\4${DELIMIT_CHAR_}\2${DELIMIT_CHAR_}\3${DELIMIT_CHAR_}\2${DELIMIT_CHAR_}${DELIMIT_CHAR_}${DELIMIT_CHAR_}\5${DELIMIT_CHAR_}\6${DELIMIT_CHAR_}\"&\"${DELIMIT_CHAR_}$HASH${DELIMIT_CHAR_}$INSERT_TS${DELIMIT_CHAR_}$UPDATE_TS"
+DST_EXP="\1${DELIMIT_CHAR_}\4${DELIMIT_CHAR_}\2${DELIMIT_CHAR_}\3${DELIMIT_CHAR_}\2${DELIMIT_CHAR_}${DELIMIT_CHAR_}${DELIMIT_CHAR_}\5${DELIMIT_CHAR_}\6${DELIMIT_CHAR_}\"PATH\"${DELIMIT_CHAR_}$HASH${DELIMIT_CHAR_}$INSERT_TS${DELIMIT_CHAR_}$UPDATE_TS"
 PRINT_INFO "searching for singles ........."
 cat "$CACHE" | grep -E "(singles/)" > "$CACHE"_SINGLES
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_SINGLES
@@ -161,7 +161,7 @@ VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
 #### albums, singles, misc, sondtrack! ####
 cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES | grep -E $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES
-#sed -Ei "s/\//|/g" "$CACHE"
+#sed -Ei "s/${DELIMIT_CHAR_}/|/g" "$CACHE"
 
 # create id column
 LEN=$(cat $CACHE | wc -l)
