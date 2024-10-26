@@ -19,7 +19,8 @@ DEBUG_MSG="$PRINT_RED_DEBUG: "
 INFO_MSG="$PRINT_GREEN_INFO: "
 VERBOSE=1
 DEBUG=
-D__='\/'
+SD__='\/'
+DD__='\|'
 
 function PRINT_DEBUG
 {
@@ -61,9 +62,17 @@ while getopts ${OPTSTRING} opt; do
       HELP
       exit 0;
       ;;
-    l)
-      __D=${OPTARG}
-      echo -e "${FMT_FG_GREEN}DELIMITER=${OPTARG}${FMT_RESET}"
+    a)
+      # src delimiter
+      SD__=${OPTARG}
+      echo -e "${FMT_FG_GREEN} ${OPTARG}${FMT_RESET}"
+      echo -e "${FMT_FG_RED}delimiter function not yet implemented ...${FMT_RESET}"
+      exit 0
+      ;;
+    b)
+      # dst delimiter
+      DD__=${OPTARG}
+      echo -e "${FMT_FG_GREEN }${OPTARG}${FMT_RESET}"
       echo -e "${FMT_FG_RED}delimiter function not yet implemented ...${FMT_RESET}"
       exit 0
       ;;
@@ -125,14 +134,13 @@ UPDATE_TS=$TIME_STAMP
 
 # SHARED FRAGMENT
 # FIELDS     (1 )  (2       )   (3 )  ((5         ) ) (6       )   (7 ) 
-FIELDS_FRAG="(.*)$D__([0-9]{4}) - (.*)$D__(([0-9]{1,2}).)?([0-9]{2})\. (.*)"
-#REPL_END_RXP="$TITLE$D__$ENCODER$D__\"&\"$D__$HASH$D__$INSERT_TS$D__$UPDATE_TS"
-REPL_END_RXP="$TITLE$D__$ENCODER$D__\"PATH\"$D__$HASH$D__$INSERT_TS$D__$UPDATE_TS"
+FIELDS_FRAG="(.*)${SD__}([0-9]{4}) - (.*)${SD__}(([0-9]{1,2}).)?([0-9]{2})\. (.*)"
+REPL_END_RXP="$TITLE${DD__}$ENCODER${DD__}\"&\"${DD__}$HASH${DD__}$INSERT_TS${DD__}$UPDATE_TS"
 
 #### albums! ####
 # FIELDS  (1 )   (2-8        )  (9 ) 
-SRC_EXP="^(.*)$D__${FIELDS_FRAG}\.(.*)$"
-DST_EXP="$LOCATION$D__$YEAR$D__$ARTIST$D__$ALBUM$D__$ARTIST_ALBUM$D__$DISC$D__$TRACK$D__$REPL_END_RXP"
+SRC_EXP="^(.*)$SD__${FIELDS_FRAG}\.(.*)$"
+DST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}$ALBUM${DD__}$ARTIST_ALBUM${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_ALBUMS
@@ -140,22 +148,21 @@ sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_ALBUMS
 #### misc & soundtrack! ####
 # FIELDS                   (8 )  (9 )
 SRC_EXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
-DST_EXP="\1$D__\2$D__\1$D__\3$D__\7$D__\5$D__\6$D__$REPL_END_RXP"
+DST_EXP="\1${DD__}\2${DD__}\1${DD__}\3${DD__}\7${DD__}\5${DD__}\6${DD__}$REPL_END_RXP"
 PRINT_INFO "searching for misc & soundtrack ........."
 cat "$CACHE" | grep -E "(misc/)|(soundtrack/)" > "$CACHE"_MISC
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_MISC
 
 #### singles! ####
 # FIELDS  (1      )  (2 )   (3 )  ((5       ) )   (6 )  (7 )
-SRC_EXP="^(singles)$D__(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$"
-#DST_EXP="\1$D__\4$D__\2$D__\3$D__\2$D__$D__$D__\5$D__\6$D__\"&\"$D__$HASH$D__$INSERT_TS$D__$UPDATE_TS"
-DST_EXP="\1$D__\4$D__\2$D__\3$D__\2$D__$D__$D__\5$D__\6$D__\"PATH\"$D__$HASH$D__$INSERT_TS$D__$UPDATE_TS"
+SRC_EXP="^(singles)$SD__(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$"
+DST_EXP="\1${DD__}\4${DD__}\2${DD__}\3${DD__}\2${DD__}${DD__}${DD__}\5${DD__}\6${DD__}\"&\"${DD__}$HASH${DD__}$INSERT_TS${DD__}$UPDATE_TS"
 PRINT_INFO "searching for singles ........."
 cat "$CACHE" | grep -E "(singles/)" > "$CACHE"_SINGLES
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_SINGLES
 
 # validate cache lines
-VALIDATE_RECORD_RXP='/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)'
+VALIDATE_RECORD_RXP="(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)"
 #### albums, singles, misc, sondtrack! ####
 cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES | grep -E $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES
@@ -164,7 +171,7 @@ rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES
 # create id column
 LEN=$(cat $CACHE | wc -l)
 seq -w 1111 3 $((3*$LEN+1110)) > tmp1.txt
-paste -d'/' tmp1.txt $CACHE > tmp2.txt 
+paste -d'|' tmp1.txt $CACHE > tmp2.txt 
 cat tmp2.txt > $CACHE
 rm tmp*.txt
 
