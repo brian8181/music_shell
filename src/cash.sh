@@ -46,11 +46,11 @@ function HELP
 {
     INFO
     echo -e "\nUsage: \n" \
-              "$> cash.sh [-[dhpv]] [SRC [DST]]\n"
+              "$> cash.sh [-[a:b:pva:b:]] [SRC [DST]]\n"
     echo -e "$(basename ${0}) - version: ${VERSION} - $(date)\n"
 }
 
-OPTSTRING="l:hvs:d:]"
+OPTSTRING="a:b:l:hvs:d:]"
 while getopts ${OPTSTRING} opt; do
   case ${opt} in
     v)
@@ -65,16 +65,10 @@ while getopts ${OPTSTRING} opt; do
     a)
       # src delimiter
       SD__=${OPTARG}
-      echo -e "${FMT_FG_GREEN} ${OPTARG}${FMT_RESET}"
-      echo -e "${FMT_FG_RED}delimiter function not yet implemented ...${FMT_RESET}"
-      exit 0
-      ;;
+     ;;
     b)
       # dst delimiter
       DD__=${OPTARG}
-      echo -e "${FMT_FG_GREEN }${OPTARG}${FMT_RESET}"
-      echo -e "${FMT_FG_RED}delimiter function not yet implemented ...${FMT_RESET}"
-      exit 0
       ;;
     s)
       # src
