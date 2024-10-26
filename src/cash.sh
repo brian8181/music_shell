@@ -160,14 +160,18 @@ VALIDATE_RECORD_RXP="(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)
 #### albums, singles, misc, sondtrack! ####
 cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES | grep -E $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES
-#sed -Ei "s/$D__/|/g" "$CACHE"
 
 # create id column
+TMP_SEQUENCE_COL=tmp_$(date.sh).txt
+echo $TMP_SEQUENCE_COL
+TMP_CACHE=tmp_$(date.sh).txtx
+cat $CACHE > $TMP_CACHE;
 LEN=$(cat $CACHE | wc -l)
-seq -w 1111 3 $((3*$LEN+1110)) > tmp1.txt
-paste -d'|' tmp1.txt $CACHE > tmp2.txt 
-cat tmp2.txt > $CACHE
-rm tmp*.txt
+# begin @ 1111 increment by 3 each time go to $LEN of $CACHE ...
+seq -w 1111 3 $((3*$LEN+1110)) > "${TMP_SEQUENCE_COL}"
+# combine id column with other song columns ...
+paste -d'|' $TMP_SEQUENCE_COL $TMP_CACHE > $CACHE
+rm $TMP_SEQUENCE_COL $TMP_CACHE
 
 #### finished ... ####
 PRINT_INFO "writing   \"$STORE_PREFIX\", (csv / cache) --> \"$CACHE\" ..."
