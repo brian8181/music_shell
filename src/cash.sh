@@ -112,13 +112,8 @@ PRINT_INFO "tranforming the input ..."
 # remove prefix
 sed -Ei "s|$STORE_PREFIX/||g" "$CACHE"
 
-LOCATION='\1'
-ARTIST='\2'
-YEAR='\3'
-ALBUM='\4'
-ALBUM_ARTIST=''
-DISC='\6'
-TRACK='\7'
+# SHARED FRAGMENT
+
 TITLE='\8'
 ENCODER='\9'
 FILE_PATH='\0'
@@ -126,29 +121,47 @@ HASH='null'
 INSERT_TS=$TIME_STAMP
 UPDATE_TS=$TIME_STAMP
 
-# SHARED FRAGMENT
-# FIELDS     (1 )  (2       )   (3 )  ((5         ) ) (6       )   (7 ) 
-FIELDS_FRAG="(.*)${SD__}([0-9]{4}) - (.*)${SD__}(([0-9]{1,2}).)?([0-9]{2})\. (.*)"
 REPL_END_RXP="$TITLE${DD__}$ENCODER${DD__}\"&\"${DD__}$HASH${DD__}$INSERT_TS${DD__}$UPDATE_TS"
+# DISC_TRACK_EXP='(([0-9]{1,2}).)?([0-9]{2})'
+# TITLE_EXP='(.*)\.(.*)'
+# YEAR_EXP='([0-9]{4})'
+# ARTIST_EXP='(.*)'
+# ALBUM_ARTIST_EXP='(.*)'
+# ALBUM_EXP='(.*)'
+
+LOCATION='\1'
+ARTIST='\2'
+YEAR='\3'
+ALBUM='\4'
+ALBUM_ARTIST=''
+DISC='\6'
+TRACK='\7'
 
 #### albums! ####
-# FIELDS  (1 )   (2-8        )  (9 ) 
-SRC_EXP="^(.*)$SD__${FIELDS_FRAG}\.(.*)$"
+# FIELDS  (1 )     (2 )       (3       )   (4 )       ((6         ) ) (7        )  (8  ) (9 ) 
+SRC_EXP="^(.*)$SD__(.*)${SD__}([0-9]{4}) - (.*)${SD__}(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$"
 DST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}$ALBUM${DD__}$ARTIST_ALBUM${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_ALBUMS
 
+ARTIST='\1'
+YEAR='\2'
+ALBUM='\4'
+ALBUM_ARTIST='\7'
+DISC='\5'
+TRACK='\6'
+
 #### misc & soundtrack! ####
 # FIELDS                   (8 )  (9 )
-SRC_EXP="^${FIELDS_FRAG} - (.*)\.(.*)$"
-DST_EXP="\1${DD__}\2${DD__}\1${DD__}\3${DD__}\7${DD__}\5${DD__}\6${DD__}$REPL_END_RXP"
+SRC_EXP="^(.*)${SD__}([0-9]{4}) - (.*)${SD__}(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$"
+DST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}\3$ALBUM\5${DD__}$ALBUM_ARTIST${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"
 PRINT_INFO "searching for misc & soundtrack ........."
 cat "$CACHE" | grep -E "(misc/)|(soundtrack/)" > "$CACHE"_MISC
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_MISC
 
 #### singles! ####
-# FIELDS  (1      )  (2 )   (3 )  ((5       ) )   (6 )  (7 )
+# FIELDS  (1      )     (2 )   (3 )  ((5       ) )   (6 )  (7 )
 SRC_EXP="^(singles)$SD__(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$"
 DST_EXP="\1${DD__}\4${DD__}\2${DD__}\3${DD__}\2${DD__}${DD__}${DD__}\5${DD__}\6${DD__}\"&\"${DD__}$HASH${DD__}$INSERT_TS${DD__}$UPDATE_TS"
 PRINT_INFO "searching for singles ........."
@@ -157,13 +170,12 @@ sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_SINGLES
 
 # validate cache lines
 VALIDATE_RECORD_RXP="(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)"
-#### albums, singles, misc, sondtrack! ####
+# albums, singles, misc, sondtrack! #
 cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES | grep -E $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES
 
 # create id column
 TMP_SEQUENCE_COL=tmp_$(date.sh).txt
-echo $TMP_SEQUENCE_COL
 TMP_CACHE=tmp_$(date.sh).txtx
 cat $CACHE > $TMP_CACHE;
 LEN=$(cat $CACHE | wc -l)
