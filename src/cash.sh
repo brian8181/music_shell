@@ -112,8 +112,7 @@ PRINT_INFO "tranforming the input ..."
 # remove prefix
 sed -Ei "s|$STORE_PREFIX/||g" "$CACHE"
 
-# SHARED FRAGMENT
-
+# regex
 TITLE='\8'
 ENCODER='\9'
 FILE_PATH='\0'
@@ -122,12 +121,15 @@ INSERT_TS=$TIME_STAMP
 UPDATE_TS=$TIME_STAMP
 
 REPL_END_RXP="$TITLE${DD__}$ENCODER${DD__}\"&\"${DD__}$HASH${DD__}$INSERT_TS${DD__}$UPDATE_TS"
-# DISC_TRACK_EXP='(([0-9]{1,2}).)?([0-9]{2})'
-# TITLE_EXP='(.*)\.(.*)'
-# YEAR_EXP='([0-9]{4})'
-# ARTIST_EXP='(.*)'
-# ALBUM_ARTIST_EXP='(.*)'
-# ALBUM_EXP='(.*)'
+DEST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}$ALBUM${DD__}$ARTIST_ALBUM${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"
+
+LOC_EXP='^(.*)'
+YEAR_EXP='([0-9]{4})'
+ARTIST_EXP='(.*)'
+ALBUM_EXP='(.*)'
+ALBUM_ARTIST_EXP='(.*)'
+DISC_TRACK_EXP='(([0-9]{1,2}).)?([0-9]{2})'
+TITLE_EXP='(.*)\.(.*)$'
 
 LOCATION='\1'
 ARTIST='\2'
@@ -139,7 +141,7 @@ TRACK='\7'
 
 #### albums! ####
 # FIELDS  (1 )     (2 )       (3       )   (4 )       ((6         ) ) (7        )  (8  ) (9 ) 
-SRC_EXP="^(.*)$SD__(.*)${SD__}([0-9]{4}) - (.*)${SD__}(([0-9]{1,2}).)?([0-9]{2})\. (.*)\.(.*)$"
+SRC_EXP="$LOC_EXP$SD__(.*)${SD__}$YEAR_EXP - (.*)${SD__}$DISC_TRACK_EXP\. $TITLE_EXP"
 DST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}$ALBUM${DD__}$ARTIST_ALBUM${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
@@ -162,7 +164,7 @@ sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_MISC
 
 #### singles! ####
 # FIELDS  (1      )     (2 )   (3 )  ((5       ) )   (6 )  (7 )
-SRC_EXP="^(singles)$SD__(.*) - (.*) \(([0-9]{4})\) - (.*)\.(.*)$"
+SRC_EXP="^(singles)$SD__(.*) - (.*) \($YEAR_EXP\) - $TITLE_EXP"
 DST_EXP="\1${DD__}\4${DD__}\2${DD__}\3${DD__}\2${DD__}${DD__}${DD__}\5${DD__}\6${DD__}\"&\"${DD__}$HASH${DD__}$INSERT_TS${DD__}$UPDATE_TS"
 PRINT_INFO "searching for singles ........."
 cat "$CACHE" | grep -E "(singles/)" > "$CACHE"_SINGLES
