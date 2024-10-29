@@ -156,7 +156,7 @@ TRACK='\6'
 
 #### misc & soundtrack! ####
 # FIELDS                   (8 )  (9 )
-SRC_EXP="^(.*)${SD__}([0-9]{4}) - (.*)${SD__}(([0-9]{1,2}).)?([0-9]{2})\. (.*) - (.*)\.(.*)$"
+SRC_EXP="$LOC_EXP${SD__}$YEAR_EXP - (.*)${SD__}$DISC_TRACK_EXP\. (.*) - $TITLE_EXP"
 DST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}\3$ALBUM\5${DD__}$ALBUM_ARTIST${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"
 PRINT_INFO "searching for misc & soundtrack ........."
 cat "$CACHE" | grep -E "(misc/)|(soundtrack/)" > "$CACHE"_MISC
