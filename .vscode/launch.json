@@ -21,6 +21,14 @@
             "args": []
         },
         {
+            "name": "seq_col",
+            "type": "bashdb",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/src/add_seqcol.sh",
+            "args": ["${workspaceFolder}/db/cash.RC1.txt", 10, 5]
+        },
+        {
             "name": "cash with args",
             "type": "bashdb",
             "request": "launch",

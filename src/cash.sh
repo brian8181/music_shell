@@ -140,8 +140,7 @@ DISC='\6'
 TRACK='\7'
 
 #### albums! ####
-# FIELDS  (1 )     (2 )       (3       )   (4 )       ((6         ) ) (7        )  (8  ) (9 ) 
-SRC_EXP="$LOC_EXP$SD__(.*)${SD__}$YEAR_EXP - (.*)${SD__}$DISC_TRACK_EXP\. $TITLE_EXP"
+SRC_EXP="$LOC_EXP${SD__}(.*)${SD__}$YEAR_EXP - (.*)${SD__}$DISC_TRACK_EXP\. $TITLE_EXP"
 DST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}$ALBUM${DD__}$ARTIST_ALBUM${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
@@ -155,7 +154,6 @@ DISC='\5'
 TRACK='\6'
 
 #### misc & soundtrack! ####
-# FIELDS                   (8 )  (9 )
 SRC_EXP="$LOC_EXP${SD__}$YEAR_EXP - (.*)${SD__}$DISC_TRACK_EXP\. (.*) - $TITLE_EXP"
 DST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}\3$ALBUM\5${DD__}$ALBUM_ARTIST${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"
 PRINT_INFO "searching for misc & soundtrack ........."

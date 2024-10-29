@@ -13,11 +13,9 @@ create table song
     track INT,                          -- 8
     title TEXT,                         -- 9
     encoder TEXT,                       -- 10
-    
     -- empty fields
     file TEXT,                          -- 11
     hash    TEXT,                       -- 12
-
     -- triggered
     update_ts TIMESTAMP,                -- 13
     insert_ts TIMESTAMP                 -- 14
@@ -26,10 +24,10 @@ create table song
 CREATE TRIGGER song_insert AFTER INSERT 
 ON song
 BEGIN
-   UPDATE song SET insert_ts = datetime() update_ts = datetime() where id = new.id;
+   UPDATE song SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
 END;
 
-CREATE TRIGGER song_insert AFTER UPDATE 
+CREATE TRIGGER song_update AFTER UPDATE 
 ON song
 BEGIN
    UPDATE song SET update_ts = datetime() where id = new.id;
@@ -39,6 +37,7 @@ create table artist
 (
     id INT PRIMARY KEY,
     artist TEXT,
+    -- triggered
     update_ts TIMESTAMP,
     insert_ts TIMESTAMP
 ); 
@@ -46,10 +45,10 @@ create table artist
 CREATE TRIGGER artist_insert AFTER INSERT 
 ON artist
 BEGIN
-   UPDATE artist SET insert_ts = datetime() update_ts = datetime() where id = new.id;
+   UPDATE artist SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
 END;
 
-CREATE TRIGGER artist_insert AFTER UPDATE 
+CREATE TRIGGER artist_update AFTER UPDATE 
 ON artist
 BEGIN
    UPDATE artist SET update_ts = datetime() where id = new.id;
@@ -58,10 +57,12 @@ END;
 create table album 
 (
     id INT PRIMARY KEY,
+    year TEXT
     album TEXT,
     album_artist,
     disc_count INT,
-    track_count INT,                     
+    track_count INT,     
+    -- triggered                
     update_ts TIMESTAMP,
     insert_ts TIMESTAMP
 ); 
@@ -69,10 +70,10 @@ create table album
 CREATE TRIGGER album_insert AFTER INSERT 
 ON album
 BEGIN
-   UPDATE album SET insert_ts = datetime() update_ts = datetime() where id = new.id;
+   UPDATE album SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
 END;
 
-CREATE TRIGGER song_insert AFTER UPDATE 
+CREATE TRIGGER album_update AFTER UPDATE 
 ON album
 BEGIN
    UPDATE album SET update_ts = datetime() where id = new.id;
