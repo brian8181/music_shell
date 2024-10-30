@@ -2,18 +2,17 @@
 create table song 
 (
     id INT PRIMARY KEY,                 -- 1
-    -- current fields
     location TEXT,                      -- 2
     year TEXT,                          -- 3
     artist TEXT,                        -- 4
+    --artist_id INT,                        -- 4 todo
     album TEXT,                         -- 5
-    -- new field
+    --album_id INT,                         -- 5 todo
     album_artist TEXT,                  -- 6
     disc INT,                           -- 7
     track INT,                          -- 8
     title TEXT,                         -- 9
     encoder TEXT,                       -- 10
-    -- empty fields
     file TEXT,                          -- 11
     hash    TEXT,                       -- 12
     -- triggered
@@ -59,7 +58,7 @@ create table album
     id INT PRIMARY KEY,
     year TEXT
     album TEXT,
-    album_artist,
+    album_artist TEXT,
     disc_count INT,
     track_count INT,     
     -- triggered                
@@ -78,6 +77,39 @@ ON album
 BEGIN
    UPDATE album SET update_ts = datetime() where id = new.id;
 END;
+
+create table user
+(
+   id INT PRIMARY KEY,
+   user TEXT,          -- name
+   password_hash TEXT, -- passwords hash, does not store actual pass
+   -- triggered                
+   update_ts TIMESTAMP,
+   insert_ts TIMESTAMP  
+);
+
+create table playlist
+(
+   id INT PRIMARY KEY,
+   user_id INT, 
+   playlist TEXT,    -- name
+   -- triggered                
+   update_ts TIMESTAMP,
+   insert_ts TIMESTAMP
+);
+
+create table playlist_song
+(
+   id INT PRIMARY KEY,
+   playlist_id INT,   
+   song_id INT,
+   -- triggered                
+   update_ts TIMESTAMP,
+   insert_ts TIMESTAMP
+);
+
+--INSERT into user values (1, "admin", "THE_HASH", now(), now());
+
 
 -- .import cache.csv song
 -- .mode csv

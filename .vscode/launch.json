@@ -13,6 +13,22 @@
             "args": ["${workspaceFolder}/test/albums_cache.csv", "${workspaceFolder}/test/albums_cache.xml"]
         },
         {
+            "name": "bash: bsv 2 xml",
+            "type": "bashdb",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/src/bsv_to_xml.sh",
+            "args": ["~/db/DEBUG.bsv", "~/db/DEBUG.xml"]
+        },
+        {
+            "name": "bash: bsv 2 xml-2",
+            "type": "bashdb",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/src/bsv_to_xml.sh",
+            "args": ["~/db/DEBUG.bsv"]
+        },
+        {
             "name": "cash",
             "type": "bashdb",
             "request": "launch",
