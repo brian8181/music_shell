@@ -60,15 +60,29 @@ fi
 #   # echo $HEADERS | sed -E "s/$HEADER_PATTERN/\4 \3 \2 \1/g"
 # fi
 
-EXP='\>?([^\|]*)\|"
-TEST=       sed -E -e "s/$EXP/\<id\>\1\<\/id\>/1" -e "s/$EXP/\<loc\>\1\<\/loc\>/2" -e "s/$EXP/\<year\>\1\<\/year\>/3" -e "s/$EXP/\<artist\>\1\<\/artist\>/4" \
-                   -e "s/$EXP/\<album\>\1\<\/album\>/5" -e "s/$EXP/\<album_artist\>\1\<\/album_artist\>/6" -e "s/$EXP/\<disc\>\1\<\/disc\>/7" -e "s/$EXP/\<track\>\1\<\/track\>/8" \
-                   -e "s/$EXP/\<title\>\1\<\/title\>/9"
+# EXP='\>?([^\|]*)\|"
+# TEST=       sed -E -e "s/$EXP/\<id\>\1\<\/id\>/1" -e "s/$EXP/\<loc\>\1\<\/loc\>/2" -e "s/$EXP/\<year\>\1\<\/year\>/3" -e "s/$EXP/\<artist\>\1\<\/artist\>/4" \
+#                    -e "s/$EXP/\<album\>\1\<\/album\>/5" -e "s/$EXP/\<album_artist\>\1\<\/album_artist\>/6" -e "s/$EXP/\<disc\>\1\<\/disc\>/7" -e "s/$EXP/\<track\>\1\<\/track\>/8" \
+#                    -e "s/$EXP/\<title\>\1\<\/title\>/9"
 
-                    sed -E -e "s/([^|]*)(\||$)//1" -e "s/([^|]*)(\||$)//2" -e "s/([^|]*)(\||$)//3" -e "s/([^|]*)(\||$)//4" -e "s/([^|]*)(\||$)//5" -e "s/([^|]*)(\||$)//6" -e "s/([^|]*)(\||$)//7" -e "s/([^|]*)(\||$)//8" -e "s/([^|]*)(\||$)//9"
-sed -E -e "s/([^|]*)(\||$)/1,/1" -e "s/([^|]*)(\||$)/2,/2" -e "s/([^|]*)(\||$)/3,/3" -e "s/([^|]*)(\||$)/4,/4" -e "s/([^|]*)(\||$)/5,/5"
-sed -E -e "s/$EXP/\1/1" -e "s/$EXP/\1/2" -e "s/$EXP/\1/3" -e "s/$EXP/\1/4" -e "s/$EXP/\1/5"
 
+# EXP='(([^\|]*)'      
+# sed -E -e "s/$EXP\|)/\<id\>\2\<\\\id\>\<location\>/1" -e "s/$EXP\|)/\2\<\\\location\>\<year\>/1" -e "s/$EXP\|)/\2\<\\\year\>\<artist\>/1" -e "s/$EXP\|)/\2\<\\\artist\>\<album\>/1" -e "s/$EXP$)/\2\<\\\album\>/1"
+
+sed -E  -e "s/$EXP\|)/\<id\>\2\<\\\id\>\<location\>/1" \
+        -e "s/$EXP\|)/\2\<\\\location\>\<year\>/1" \
+        -e "s/$EXP\|)/\2\<\\\year\>\<artist\>/1" \
+        -e "s/$EXP\|)/\2\<\\\artist\>\<album\>/1" \
+        -e "s/$EXP\|)/\2\<\\\album\>\<album_artist\>/1" \
+        -e "s/$EXP\|)/\2\<\\\album_artist\>\disc\>/1" \
+        -e "s/$EXP\|)/\2\<\\\disc\>\track\>/1" \
+        -e "s/$EXP\|)/\2\<\\\track\>\title\>/1" \
+        -e "s/$EXP\|)/\2\<\\\title\>\encoder\>/1" \
+        -e "s/$EXP\|)/\2\<\\\encoder\>\file\>/1" \
+        -e "s/$EXP\|)/\2\<\\\file\>\hash\>/1" \
+        -e "s/$EXP\|)/\2\<\\\hash\>\update_ts\>/1" \
+        -e "s/$EXP\|)/\2\<\\\update_ts\>\insert_ts\>/1" \
+        -e "s/$EXP$)/\2\<\\\insert_ts\>/1"
 
 PATTERN='^(.*)|(.*)|(.*)|(.*)|(.*)|(.*)|(.*)|(.*)|(.*)|.*|.*|.*|.*|.*$'
 '^([^|])*|^([^|])*|'
