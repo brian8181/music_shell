@@ -1,9 +1,12 @@
 #! /bin/bash
 
+# FILE: 'append_unique_col.sh'
+# VERSION: '0.0.1'
+# FILE_DATE: 'Thu Oct 31 08:08:03 AM CDT 2024'
+# INFO: append md5 column to delimted file
+
 SRC=$1 # source file to append to destination, with prefixed md5 hashes
-DST=$2 # destinatin file, with prefixed md5 hashes
-# DST=$(hash_list.sh $DST)
-# HASH=""
+DST=$2 # destination file, with lines prefixed with md5 hashes
 
 # cat $DST | sed s/$HASH/g
 #cat ~/tmp/cage.m3u.md5 | sed 's/8843abd9647f4cc143831b5bf797129d @.*$//g'

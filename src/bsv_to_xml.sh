@@ -60,7 +60,7 @@ fi
 #   # echo $HEADERS | sed -E "s/$HEADER_PATTERN/\4 \3 \2 \1/g"
 # fi
 
-EXP='([^|]*)(\||$)'
+EXP='\>?([^\|]*)\|"
 TEST=       sed -E -e "s/$EXP/\<id\>\1\<\/id\>/1" -e "s/$EXP/\<loc\>\1\<\/loc\>/2" -e "s/$EXP/\<year\>\1\<\/year\>/3" -e "s/$EXP/\<artist\>\1\<\/artist\>/4" \
                    -e "s/$EXP/\<album\>\1\<\/album\>/5" -e "s/$EXP/\<album_artist\>\1\<\/album_artist\>/6" -e "s/$EXP/\<disc\>\1\<\/disc\>/7" -e "s/$EXP/\<track\>\1\<\/track\>/8" \
                    -e "s/$EXP/\<title\>\1\<\/title\>/9"

@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+# FILE: 'append_sequenced_col.sh'
+# VERSION: '0.0.1'
+# FILE_DATE: 'Thu Oct 31 08:08:03 AM CDT 2024'
+# INFO: append sequence column to delimted file
+
 FILE=$1
 BEG=$2;
 INC=$3;

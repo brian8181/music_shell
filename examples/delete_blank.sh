@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# delete blank lines
-FILE='src/search.sh'
-VERSION='0.1.1'
-FILE_DATE='Wed Jul 10 12:07:23 PM CDT 2024'
+# FILE: 'delete_blank.sh'
+# VERSION: '0.0.1'
+# FILE_DATE: 'Thu Oct 31 08:08:03 AM CDT 2024'
+# INFO: 
 
 HOME="/home/brian"
 CONFIG_PREFIX="$HOME/.music_shell"

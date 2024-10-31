@@ -1,5 +1,10 @@
 #! /bin/bash
 
+# FILE: 'copy_hash_items.sh'
+# VERSION: '0.0.1'
+# FILE_DATE: 'Thu Oct 31 08:08:03 AM CDT 2024'
+# INFO: 
+
 # Example
 # ./hash_list.sh ~/test/songs.m3u
 # @music_shell/src >$ ./hash_list.sh ../test/songs.m3u
