@@ -20,44 +20,20 @@ create table song
     insert_ts TIMESTAMP                 -- 14
 );
 
-CREATE TRIGGER song_insert AFTER INSERT 
-ON song
-BEGIN
-   UPDATE song SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
-END;
-
-CREATE TRIGGER song_update AFTER UPDATE 
-ON song
-BEGIN
-   UPDATE song SET update_ts = datetime() where id = new.id;
-END;
-
 create table artist 
 (
     id INT PRIMARY KEY,
-    artist TEXT,
+    artist TEXT,      -- name
     -- triggered
     update_ts TIMESTAMP,
     insert_ts TIMESTAMP
 ); 
 
-CREATE TRIGGER artist_insert AFTER INSERT 
-ON artist
-BEGIN
-   UPDATE artist SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
-END;
-
-CREATE TRIGGER artist_update AFTER UPDATE 
-ON artist
-BEGIN
-   UPDATE artist SET update_ts = datetime() where id = new.id;
-END;
-
 create table album 
 (
     id INT PRIMARY KEY,
     year TEXT
-    album TEXT,
+    album TEXT,       -- name
     album_artist TEXT,
     disc_count INT,
     track_count INT,     
@@ -65,18 +41,6 @@ create table album
     update_ts TIMESTAMP,
     insert_ts TIMESTAMP
 ); 
-
-CREATE TRIGGER album_insert AFTER INSERT 
-ON album
-BEGIN
-   UPDATE album SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
-END;
-
-CREATE TRIGGER album_update AFTER UPDATE 
-ON album
-BEGIN
-   UPDATE album SET update_ts = datetime() where id = new.id;
-END;
 
 create table user
 (
@@ -108,9 +72,79 @@ create table playlist_song
    insert_ts TIMESTAMP
 );
 
---INSERT into user values (1, "admin", "THE_HASH", now(), now());
+CREATE TRIGGER song_insert AFTER INSERT 
+ON song
+BEGIN
+   UPDATE song SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
+END;
 
+CREATE TRIGGER song_update AFTER UPDATE 
+ON song
+BEGIN
+   UPDATE song SET update_ts = datetime() where id = new.id;
+END;
 
+CREATE TRIGGER artist_insert AFTER INSERT 
+ON artist
+BEGIN
+   UPDATE artist SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
+END;
+
+CREATE TRIGGER artist_update AFTER UPDATE 
+ON artist
+BEGIN
+   UPDATE artist SET update_ts = datetime() where id = new.id;
+END;
+
+CREATE TRIGGER album_insert AFTER INSERT 
+ON album
+BEGIN
+   UPDATE album SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
+END;
+
+CREATE TRIGGER album_update AFTER UPDATE 
+ON album
+BEGIN
+   UPDATE album SET update_ts = datetime() where id = new.id;
+END;
+
+CREATE TRIGGER user_insert AFTER INSERT 
+ON user
+BEGIN
+   UPDATE user SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
+END;
+
+CREATE TRIGGER user_update AFTER UPDATE 
+ON user
+BEGIN
+   UPDATE user SET update_ts = datetime() where id = new.id;
+END;
+
+CREATE TRIGGER playlist_insert AFTER INSERT 
+ON playlist
+BEGIN
+   UPDATE playlist SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
+END;
+
+CREATE TRIGGER playlist_update AFTER UPDATE 
+ON playlist
+BEGIN
+   UPDATE playlist SET update_ts = datetime() where id = new.id;
+END;
+
+CREATE TRIGGER playlist_song_insert AFTER INSERT 
+ON playlist_song
+BEGIN
+   UPDATE playlist_song SET insert_ts = datetime(), update_ts = datetime() where id = new.id;
+END;
+
+CREATE TRIGGER playlist_song_update AFTER UPDATE 
+ON playlist_song
+BEGIN
+   UPDATE playlist_song SET update_ts = datetime() where id = new.id;
+END;
+
+INSERT into user (id, user, password_hash, update_ts, insert_ts) values (1, 'admin', 'THE_HASH', datetime(), datetime());
 -- .import cache.csv song
 -- .mode csv
 -- .separator "/"
