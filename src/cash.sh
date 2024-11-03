@@ -121,7 +121,7 @@ INSERT_TS=$TIME_STAMP
 UPDATE_TS=$TIME_STAMP
 
 REPL_END_RXP="$TITLE${DD__}$ENCODER${DD__}\"&\"${DD__}$HASH${DD__}$INSERT_TS${DD__}$UPDATE_TS"
-DEST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}$ALBUM${DD__}$ARTIST_ALBUM${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"
+#REPL_END_RXP='$LOCATION|$YEAR|$ARTIST|$ALBUM|$ALBUM_ARTIST|$DISC|$TRACK|$TITLE|$ENCODER|$FILE|$HASH|$INSERT_TS|$UPDATE_TS'
 
 LOC_EXP='^(.*)'
 YEAR_EXP='([0-9]{4})'
@@ -135,13 +135,16 @@ LOCATION='\1'
 ARTIST='\2'
 YEAR='\3'
 ALBUM='\4'
-ALBUM_ARTIST=''
+ALBUM_ARTIST='\2'
 DISC='\6'
 TRACK='\7'
 
 #### albums! ####
+#        (1     ) /     (2 )  /    (3      )   (4 )  /    ((6          ))   (8       )    /     (9  )   /   (10         ) 
 SRC_EXP="$LOC_EXP${SD__}(.*)${SD__}$YEAR_EXP - (.*)${SD__}$DISC_TRACK_EXP\. $TITLE_EXP"
+#        (1      )  |    (2  )  |    (3    )  |    (4   )  |    (5          )  |    (6  )  |    (7   )  |    (8-14       )
 DST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}$ALBUM${DD__}$ARTIST_ALBUM${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"
+
 PRINT_INFO "searching for albums ......."
 cat "$CACHE" | grep -E "albums/" > "$CACHE"_ALBUMS # albums only
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_ALBUMS
@@ -153,24 +156,27 @@ ALBUM_ARTIST='\7'
 DISC='\5'
 TRACK='\6'
 
-#### misc & soundtrack! ####
+# misc & soundtrack
 SRC_EXP="$LOC_EXP${SD__}$YEAR_EXP - (.*)${SD__}$DISC_TRACK_EXP\. (.*) - $TITLE_EXP"
 DST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}\3$ALBUM\5${DD__}$ALBUM_ARTIST${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"
+
 PRINT_INFO "searching for misc & soundtrack ........."
 cat "$CACHE" | grep -E "(misc/)|(soundtrack/)" > "$CACHE"_MISC
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_MISC
 
-#### singles! ####
+# singles
 # FIELDS  (1      )     (2 )   (3 )  ((5       ) )   (6 )  (7 )
 SRC_EXP="^(singles)$SD__(.*) - (.*) \($YEAR_EXP\) - $TITLE_EXP"
 DST_EXP="\1${DD__}\4${DD__}\2${DD__}\3${DD__}\2${DD__}${DD__}${DD__}\5${DD__}\6${DD__}\"&\"${DD__}$HASH${DD__}$INSERT_TS${DD__}$UPDATE_TS"
+
 PRINT_INFO "searching for singles ........."
 cat "$CACHE" | grep -E "(singles/)" > "$CACHE"_SINGLES
 sed -Ei "s/$SRC_EXP/$DST_EXP/g" "$CACHE"_SINGLES
 
 # validate cache lines
 VALIDATE_RECORD_RXP="(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)"
-# albums, singles, misc, sondtrack! #
+
+# combine into cache
 cat "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES | grep -E $VALIDATE_RECORD_RXP > "$CACHE"
 rm  "$CACHE"_ALBUMS "$CACHE"_MISC "$CACHE"_SINGLES
 
@@ -180,10 +186,10 @@ TMP_CACHE=tmp_$(date.sh).txtx
 cat $CACHE > $TMP_CACHE;
 LEN=$(cat $CACHE | wc -l)
 # begin @ 1111 increment by 3 each time go to $LEN of $CACHE ...
-seq -w 1111 3 $((3*$LEN+1110)) > "${TMP_SEQUENCE_COL}"
+seq -w 001111 3 $((3*$LEN+1110)) > "${TMP_SEQUENCE_COL}"
 # combine id column with other song columns ...
 paste -d'|' $TMP_SEQUENCE_COL $TMP_CACHE > $CACHE
 rm $TMP_SEQUENCE_COL $TMP_CACHE
 
-#### finished ... ####
+# finished ...
 PRINT_INFO "writing   \"$STORE_PREFIX\", (csv / cache) --> \"$CACHE\" ..."
