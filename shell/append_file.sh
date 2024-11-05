@@ -6,7 +6,8 @@
 # INFO: delete item from queue by index
 
 CONFIG_PREFIX="${HOME}/.music_shell"
-CACHE="${CONFIG_PREFIX}/cache/cache.m3u"
 SRC="$1"
+NAME="$2"
+PLAYLIST="$CONFIG_PREFIX/$NAME"
 
-./append.sh "${SRC}" "${CACHE}"
+./append.sh "${SRC}" "${PLAYLIST}"

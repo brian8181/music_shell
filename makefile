@@ -25,7 +25,7 @@ $(BLD)/main_window: $(SRC)/main_window.c
 $(BLD)/gtk_ex2: $(SRC)/gtk_ex2.c
 	gcc -o $(BLD)/gtk_ex2 $(SRC)/gtk_ex2.c `pkg-config --cflags --libs gtk+-2.0`
 
-$(BLD)/tag: $(BLD)\tag.o
+$(BLD)/tag: $(BLD)/tag.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(INCLUDES) $(BLD)/$(APPNAME).o -o $(BLD)/tag
 
 # compile only
