@@ -10,23 +10,26 @@ CXXFLAGS = -Wall -std=c++17 -DEBUG -ggdb
 LDFLAGS = -ltag -L/usr/local/lib/ -lz
 INCLUDES= -I/usr/local/include/taglib/
 
-SRC=./src
-OBJ=obj
-BLD=obj
+SRC=src
+OBJ=build
+BLD=build
 CONFIG_PATH=$(HOME)/.music_shell
 BIN_PATH=$(HOME)/bin
 
 # complie & link
-all: $(BLD)/main_window n$(BLD)\tag
+all: $(BLD)/gtk_ex2 $(BLD)/main_window $(BLD)/tag
 
 $(BLD)/main_window: $(SRC)/main_window.c
 	gcc $(pkg-config --cflags gtk4) -o $(BLD)/main_window $(SRC)/main_window.c $(pkg-config --libs gtk4)
 
-$(BLD)\tag: $(BLD)\tag.o
+$(BLD)/gtk_ex2: $(SRC)/gtk_ex2.c
+	gcc -o $(BLD)/gtk_ex2 $(SRC)/gtk_ex2.c `pkg-config --cflags --libs gtk+-2.0`
+
+$(BLD)/tag: $(BLD)\tag.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(INCLUDES) $(BLD)/$(APPNAME).o -o $(BLD)/tag
 
 # compile only
-$(BLD)\tag.o: $(SRC)/tag.cpp
+$(BLD)/tag.o: $(SRC)/tag.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $(SRC)/tag.cpp -o $(OBJ)/tag.o
 
 
