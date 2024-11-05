@@ -10,4 +10,4 @@ SRC="$1"
 NAME="$2"
 PLAYLIST="$CONFIG_PREFIX/$NAME"
 
-./append.sh "${SRC}" "${PLAYLIST}"
+cat "${SRC}" >> "${PLAYLIST}"

@@ -9,4 +9,4 @@ CONFIG_PREFIX="${HOME}/.music_shell"
 QUEUE="${CONFIG_PREFIX}/queue"
 SRC="$1"
 
-./append.sh "${SRC}" "${QUEUE}"
+cat "${SRC}" >> "${QUEUE}"
