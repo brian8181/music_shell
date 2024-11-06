@@ -16,18 +16,9 @@ INFO_MSG="$PRINT_GREEN_INFO: "
 VERBOSE=1
 DEBUG=
 
-FILE=$1
-QUEUE=".QUEUE"
+AUTOEXIT="-autoexit -exitonmousedown"
 
-touch ".QUEUE"
-cat $FILE > .QUEUE
-PREFIX="$HOME/music_backup/music-lib"
-
-echo "playing $1"
-# create playing flag
-touch ".PLAYING"
-
-OPTSTRING="vh]"
+OPTSTRING="vha]"
 while getopts ${OPTSTRING} opt; do
   case ${opt} in
     v)
@@ -37,6 +28,10 @@ while getopts ${OPTSTRING} opt; do
       ;;
     h)
       HELP
+      exit 0;
+      ;;
+    a)
+      AUTOEXIT="-autoexit -exitonmousedown"
       exit 0;
       ;;
     :)
@@ -51,10 +46,20 @@ while getopts ${OPTSTRING} opt; do
 done
 shift $(($OPTIND-1))
 
+FILE=$1
+QUEUE=".QUEUE"
+touch ".QUEUE"
+cat $FILE > .QUEUE
+PREFIX="$HOME/music_backup/music-lib"
+
+echo "playing $1"
+# create playing flag
+touch ".PLAYING"
+
 while read -r line; do
 
 	echo "$PREFIX/$line" >> .PLAYING
-    ffplay -exitonmousedown -alwaysontop -autoexit "$PREFIX/$line"
+    ffplay -alwaysontop $AUTOEXIT "$PREFIX/$line"
 
     if [ ! -f ".PLAYING" ]
     then
