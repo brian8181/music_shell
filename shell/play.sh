@@ -18,7 +18,7 @@ DEBUG=
 
 AUTOEXIT="-autoexit -exitonmousedown"
 
-OPTSTRING="vha]"
+OPTSTRING="vha"
 while getopts ${OPTSTRING} opt; do
   case ${opt} in
     v)
@@ -46,18 +46,18 @@ while getopts ${OPTSTRING} opt; do
 done
 shift $(($OPTIND-1))
 
-FILE=$1
-QUEUE=".QUEUE"
-touch ".QUEUE"
-cat $FILE > .QUEUE
 PREFIX="$HOME/music_backup/music-lib"
+FILE=$1
+PLAYING=".PLAYING"
+QUEUE=".QUEUE"
+cat $FILE > $QUEUE
 
-echo "playing $1"
 # create playing flag
-touch ".PLAYING"
+echo "playing $1"
 
 while read -r line; do
 
+    touch $PLAYING
 	echo "$PREFIX/$line" >> .PLAYING
     ffplay -alwaysontop -hide_banner $AUTOEXIT "$PREFIX/$line"
 
@@ -69,7 +69,7 @@ while read -r line; do
 done < "$QUEUE"
 
 # remove playing flag
-#rm .PLAYING
+rm .PLAYING
 echo "finished $1 ..."
 
 # usage: ffplay [options] input_file
