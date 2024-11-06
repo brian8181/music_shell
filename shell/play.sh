@@ -59,7 +59,7 @@ touch ".PLAYING"
 while read -r line; do
 
 	echo "$PREFIX/$line" >> .PLAYING
-    ffplay -alwaysontop $AUTOEXIT "$PREFIX/$line"
+    ffplay -alwaysontop -hide_banner $AUTOEXIT "$PREFIX/$line"
 
     if [ ! -f ".PLAYING" ]
     then
