@@ -6,7 +6,9 @@
 # INFO: delete item from queue by index
 
 CONFIG_PREFIX="${HOME}/.music_shell"
-QUEUE="${CONFIG_PREFIX}/queue"
+#QUEUE="${CONFIG_PREFIX}/.QUEUE"
 SRC="$1"
 
-cat "${SRC}" >> "${QUEUE}"
+#cat "${SRC}" >> .QUEUE
+
+./append_file $SRC .QUEUE

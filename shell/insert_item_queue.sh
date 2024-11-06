@@ -6,7 +6,7 @@
 # INFO: insert item <src_index> from file <src_file> into <dst_file> @ <dst_index>
 
 CONFIG_PREFIX="$HOME/.music_shell"
-QUEUE="$CONFIG_PREFIX/queue"
+QUEUE="$CONFIG_PREFIX/.QUEUE"
 
 SRC_INDEX=${1}
 SRC_FILE=${2}

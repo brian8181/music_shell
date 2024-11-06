@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-# FILE:      'play.sh'
+# FILE:      'pick.sh'
 # VERSION:   '0.0.1'
 # FILE_DATE: 'Tue Nov  5 04:34:53 PM CST 2024'
 # INFO:      'pick a range from search text'
@@ -19,37 +19,41 @@ PREFIX="$HOME/.music_shell"
 DIFF=
 APPEND=
 NO_DISP=
+ENQUEUE=
 
-OPTSTRING="vahd"
+OPTSTRING="vahdq"
 while getopts ${OPTSTRING} opt; do
-  case ${opt} in
-    v)
-      INFO
-      echo -e "${FMT_FG_GREEN}${VERSION}${FMT_FG_RED} ${DEBUG:-debug}${FMT_RESET}"
-      exit 0
-      ;;
-    h)
-      HELP
-      exit 0;
-      ;;
-    a)
-      APPEND="TRUE"
-      ;;
-    d)
-      DIFF="TRUE"
-      ;;
-    n)
-      NO_DISP="TRUE"
-      ;;
-    :)
-      echo "Option -${OPTARG} requires an argument."
-      exit 1
-      ;;
-    ?)
-      echo "Invalid option: -${OPTARG}."
-      exit 1
-      ;;
-  esac
+    case ${opt} in
+        v)
+            INFO
+            echo -e "${FMT_FG_GREEN}${VERSION}${FMT_FG_RED} ${DEBUG:-debug}${FMT_RESET}"
+            exit 0
+            ;;
+        h)
+            HELP
+            exit 0;
+            ;;
+        a)
+            APPEND="TRUE"
+            ;;
+        d)
+            DIFF="TRUE"
+            ;;
+        n)
+            NO_DISP="TRUE"
+            ;;
+        q)
+            ENQUEUE="TRUE"
+            ;;
+        :)
+            echo "Option -${OPTARG} requires an argument."
+            exit 1
+            ;;
+        ?)
+            echo "Invalid option: -${OPTARG}."
+            exit 1
+            ;;
+    esac
 done
 shift $(($OPTIND-1))
 
@@ -72,6 +76,10 @@ if [[ -z $APPEND ]]; then
   cat $FILE | sed -n "${BEG},${END}p" > "$PREFIX/.PICK"
 else
   cat $FILE | sed -n "${BEG},${END}p" >> "$PREFIX/.PICK"
+fi
+
+if [[ ! -z $ENQUEUE ]]; then
+    cat "$PREFIX/.PICK" > "$PREFIX/.QUEUE"
 fi
 
 if [[ ! -z $NO_DISP ]]; then

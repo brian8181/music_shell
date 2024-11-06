@@ -6,7 +6,7 @@
 # INFO: insert <src_file> contents in <dst_file> @ <index>
 
 CONFIG_PREFIX="$HOME/.music_shell"
-QUEUE="$CONFIG_PREFIX/queue"
+QUEUE="$CONFIG_PREFIX/.QUEUE"
 
 INDEX=${1}
 SRC_FILE=${2}
@@ -24,8 +24,9 @@ tail -$LEN_TAIL "$DST_FILE" > dst_tail.tmp
 # append <dst_file>'s tail to <dst_head>
 cat "$SRC_FILE" >> dst_head.tmp
 cat dst_tail.tmp >> dst_head.tmp
+# rename
 mv dst_head.tmp $DST_FILE
 
 # remove tmp files
-rm dst_head.tmp
+#rm dst_head.tmp
 rm dst_tail.tmp

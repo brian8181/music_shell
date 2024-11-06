@@ -46,11 +46,12 @@ while getopts ${OPTSTRING} opt; do
 done
 shift $(($OPTIND-1))
 
+CONFIG="$HOME/.music_shell"
 PREFIX="$HOME/music_backup/music-lib"
-FILE=$1
-PLAYING=".PLAYING"
-QUEUE=".QUEUE"
-cat $FILE > $QUEUE
+#FILE=$1
+PLAYING="$CONFIG/.PLAYING"
+QUEUE="$CONFIG/.QUEUE"
+#cat $FILE > $QUEUE
 
 # create playing flag
 echo "playing $1"
