@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Bash-Debug pick_range",
+            "type": "bashdb",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/shell/pick_range.sh",
+            "args": ["-d", "1", "3"]
+        },
+        {
             "name": "Bash-Debug csv 2 xml",
             "type": "bashdb",
             "request": "launch",

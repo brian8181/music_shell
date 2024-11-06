@@ -3,7 +3,7 @@
 # FILE:      'play.sh'
 # VERSION:   '0.0.1'
 # FILE_DATE: 'Tue Nov  5 04:34:53 PM CST 2024'
-# INFO:      'play playlist'
+# INFO:      'pick a range from search text'
 
 FMT_FG_RED='\e[31m'
 FMT_FG_GREEN='\e[32m'
@@ -15,8 +15,10 @@ DEBUG_MSG="$PRINT_RED_DEBUG: "
 INFO_MSG="$PRINT_GREEN_INFO: "
 VERBOSE=1
 DEBUG=
+PREFIX="$HOME/.music_shell"
+DIFF=
 
-OPTSTRING="vha"
+OPTSTRING="vhd"
 while getopts ${OPTSTRING} opt; do
   case ${opt} in
     v)
@@ -28,9 +30,8 @@ while getopts ${OPTSTRING} opt; do
       HELP
       exit 0;
       ;;
-    a)
-      AUTOEXIT="-autoexit -exitonmousedown"
-      exit 0;
+    d)
+      DIFF="TRUE"
       ;;
     :)
       PRINT_DEBUG "Option -${OPTARG} requires an argument."
@@ -44,7 +45,7 @@ while getopts ${OPTSTRING} opt; do
 done
 shift $(($OPTIND-1))
 
-FILE="./.SEARCH_TEXT"
+FILE="$PREFIX/.SEARCH_TEXT"
 
 if [[ ! -e $FILE ]]; then
     echo "invalid args (file does not exist )..."
@@ -60,6 +61,16 @@ if [[ ${BEG} -le 0 || ${BEG} -gt END || $END -gt $LEN ]]; then
     exit 1
 fi
 
-cat -n $FILE | sed -n "${BEG},${END}p"
+cat $FILE | sed -n "${BEG},${END}p" > "$PREFIX/.PICK"
+
+if [[ ! -z $DIFF ]]; then
+    diff --color -y $HOME/.music_shell/.SEARCH_TEXT $HOME/.music_shell/.PICK
+    exit 0
+fi
+
+cat -n $PREFIX/.PICK
+
+
+
 
 
