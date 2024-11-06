@@ -59,8 +59,8 @@ while read -r line; do
 
     touch $PLAYING
 	echo "$PREFIX/$line" >> .PLAYING
-    ffplay -alwaysontop -hide_banner $AUTOEXIT "$PREFIX/$line"
-
+    ffplay -hide_banner $AUTOEXIT "$PREFIX/$line"
+    
     if [ ! -f ".PLAYING" ]
     then
         break
