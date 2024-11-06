@@ -152,6 +152,18 @@ BEGIN
    UPDATE playlist_song SET update_ts = datetime() where rowid = new.rowid;
 END;
 
+CREATE TRIGGER audit_update AFTER UPDATE 
+ON audit
+BEGIN
+   UPDATE audit SET update_ts = datetime() where rowid = new.rowid;
+END;
+
+CREATE TRIGGER audit_insert AFTER INSERT 
+ON audit
+BEGIN
+   INSERT audit SET insert_ts = datetime() where rowid = new.rowid;
+END;
+
 INSERT into user (rowid, user, password_hash, update_ts, insert_ts) values (1, 'admin', 'THE_HASH', datetime(), datetime());
 -- .import cache.csv song
 -- .mode csv
