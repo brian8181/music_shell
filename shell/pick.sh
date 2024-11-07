@@ -8,8 +8,6 @@
 FMT_FG_RED='\e[31m'
 FMT_FG_GREEN='\e[32m'
 FMT_RESET='\e[0m'
-# PRINT_RED_DEBUG=${FMT_FG_RED}DEBUG${FMT_RESET}
-# PRINT_GREEN_INFO=${FMT_FG_GREEN}INFO${FMT_RESET}
 
 DEBUG_MSG="$PRINT_RED_DEBUG: "
 INFO_MSG="$PRINT_GREEN_INFO: "
@@ -57,29 +55,34 @@ while getopts ${OPTSTRING} opt; do
 done
 shift $(($OPTIND-1))
 
-FILE="$PREFIX/.SEARCH_TEXT"
-LEN=$(cat $FILE | wc -l)
-BEG=${1:-1}
-END=${2:-$LEN}
+SRC_FILE="$PREFIX/.SEARCH_TEXT"
+DST_FILE="$PREFIX/.PICK"
 
-if [[ ! -e $FILE ]]; then
-    echo "invalid args (file does not exist )..."
-    exit 1
-fi
+# LEN=$(cat $FILE | wc -l)
+# BEG=${1:-1}
+# END=${2:-$LEN}
 
-if [[ ${BEG} -le 0 || ${BEG} -gt END || $END -gt $LEN ]]; then
-    echo "invalid args (out of range) ..."
-    exit 1
-fi
+# if [[ ! -e $FILE ]]; then
+#     echo "invalid args (file does not exist )..."
+#     exit 1
+# fi
+
+# if [[ ${BEG} -le 0 || ${BEG} -gt END || $END -gt $LEN ]]; then
+#     echo "invalid args (out of range) ..."
+#     exit 1
+# fi
+
+CMDS=$(echo $@ | sed -E "s/([0-9]+)( |$)/\1p;/g")
+echo $CMDS
 
 if [[ -z $APPEND ]]; then
-  cat $FILE | sed -n "${BEG},${END}p" > "$PREFIX/.PICK"
+  cat $SRC_FILE | sed -n ${CMDS:-p;} > "$DST_FILE"
 else
-  cat $FILE | sed -n "${BEG},${END}p" >> "$PREFIX/.PICK"
+  cat $SRC_FILE | sed -n ${CMDS:-p;} >> "$DST_FILE"
 fi
 
 if [[ ! -z $ENQUEUE ]]; then
-    cat "$PREFIX/.PICK" > "$PREFIX/.QUEUE"
+    cat "$DST_FILE" > "$PREFIX/.QUEUE"
 fi
 
 if [[ ! -z $NO_DISP ]]; then
@@ -87,11 +90,11 @@ if [[ ! -z $NO_DISP ]]; then
 fi
 
 if [[ ! -z $DIFF ]]; then
-    diff --color -y $HOME/.music_shell/.SEARCH_TEXT $HOME/.music_shell/.PICK
+    diff --color -y $SRC_FILE $DST_FILE
     exit 0
 fi
 
-cat -n $PREFIX/.PICK
+cat -n $DST_FILE
 
 
 

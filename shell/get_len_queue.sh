@@ -7,7 +7,9 @@
 
 CONFIG_PREFIX="$HOME/.music_shell"
 #LEN=$(cat "$CONFIG_PREFIX/queue" | wc -l)
-LEN=$(grep -c . "$CONFIG_PREFIX/queue");
+# LEN=$(grep -c . "$CONFIG_PREFIX/.QUEUE");
 
-echo $LEN
+# echo $LEN
+
+echo $(cat "$CONFIG_PREFIX/.QUEUE" | wc -l)
 exit 0

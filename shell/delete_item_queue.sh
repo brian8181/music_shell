@@ -6,7 +6,7 @@
 # INFO: delete item from queue by index
 
 CONFIG_PREFIX="$HOME/.music_shell"
-FILE="${CONFIG_PREFIX}/queue"
+FILE="${CONFIG_PREFIX}/.QUEUE"
 INDEX="$1"
 
 ./delete_items.sh $FILE $INDEX

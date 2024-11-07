@@ -6,7 +6,7 @@
 # INFO:
 
 CONFIG_PREFIX="$HOME/.music_shell"
-FILE="$CONFIG_PREFIX/queue"
+FILE="$CONFIG_PREFIX/.QUEUE"
 N=$1
 
 LINE=$(head -n $N $FILE | tail -n 1)

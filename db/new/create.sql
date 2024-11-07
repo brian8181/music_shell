@@ -1,11 +1,11 @@
 -- music schema
 create table song 
 (
-    rowid INT PRIMARY KEY ASC,                 -- 1
+    rowid INT PRIMARY KEY ASC,          -- 1
     location TEXT,                      -- 2 
     year TEXT,                          -- 3
-    artist_id INT,                        -- 4 todo
-    album_id INT,                         -- 5 todo
+    artist_id INT,                      -- 4 todo
+    album_id INT,                       -- 5 todo
     album_artist TEXT,                  -- 6
     disc INT,                           -- 7
     track INT,                          -- 8
@@ -18,23 +18,23 @@ create table song
     insert_ts TIMESTAMP                 -- 14
 );
 
-   create table artist 
-   (
-      rowid INT PRIMARY KEY ASC,
-      name TEXT,
-      -- triggered
-      update_ts TIMESTAMP,
-      insert_ts TIMESTAMP
-   ); 
+create table artist 
+(
+   rowid INT PRIMARY KEY ASC,
+   name TEXT,
+   -- triggered
+   update_ts TIMESTAMP,
+   insert_ts TIMESTAMP
+); 
 
 create table album 
 (
     rowid INT PRIMARY KEY ASC,
-    year TEXT
+    year TEXT,
     album TEXT,       -- name
     album_artist TEXT,
-    disc_count INT,
-    track_count INT,     
+    disc_count TEXT,
+    track_count TEXT,     
     -- triggered                
     update_ts TIMESTAMP,
     insert_ts TIMESTAMP
@@ -59,7 +59,7 @@ create table playlist
    update_ts TIMESTAMP,
    insert_ts TIMESTAMP
 );
-rowid
+
 create table playlist_song
 (
    rowid INT PRIMARY KEY ASC,
@@ -71,14 +71,14 @@ create table playlist_song
 );
 
 create table audit
-{
+(
    rowid INT PRIMARY KEY ASC,
    table_id int,
    table_name TEXT,
    type enum,  -- create, delete, insert, update, drop
    update_ts TIMESTAMP,
    insert_ts TIMESTAMP
-}
+);
 
 CREATE TRIGGER song_insert AFTER INSERT 
 ON song
@@ -161,7 +161,7 @@ END;
 CREATE TRIGGER audit_insert AFTER INSERT 
 ON audit
 BEGIN
-   INSERT audit SET insert_ts = datetime() where rowid = new.rowid;
+   UPDATE audit SET insert_ts = datetime() where rowid = new.rowid;
 END;
 
 INSERT into user (rowid, user, password_hash, update_ts, insert_ts) values (1, 'admin', 'THE_HASH', datetime(), datetime());
