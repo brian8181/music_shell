@@ -75,6 +75,8 @@ DST_FILE="$PREFIX/.PICK"
 CMDS=$(echo $@ | sed -E "s/([0-9]+)( |$)/\1p;/g")
 echo $CMDS
 
+#todo validate commad format
+
 if [[ -z $APPEND ]]; then
   cat $SRC_FILE | sed -n ${CMDS:-p;} > "$DST_FILE"
 else

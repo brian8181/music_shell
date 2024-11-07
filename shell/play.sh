@@ -59,10 +59,10 @@ echo "playing $1"
 while read -r line; do
 
     touch $PLAYING
-	echo "$PREFIX/$line" >> .PLAYING
+	echo "$PREFIX/$line" >> $PLAYING
     ffplay -hide_banner $AUTOEXIT "$PREFIX/$line"
     
-    if [ ! -f ".PLAYING" ]
+    if [ ! -f "$PLAYING" ]
     then
         break
     fi
@@ -70,7 +70,7 @@ while read -r line; do
 done < "$QUEUE"
 
 # remove playing flag
-rm .PLAYING
+rm $PLAYING
 echo "finished $1 ..."
 
 # usage: ffplay [options] input_file

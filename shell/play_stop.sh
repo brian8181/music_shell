@@ -5,7 +5,7 @@
 # FILE_DATE: 'Tue Nov  5 04:34:53 PM CST 2024'
 # INFO:      'stop playing'
 
-PLAYING=".PLAYING"
+PLAYING="$HOME/.music_shell/.PLAYING"
 rm -f $PLAYING
 
 # todo send stop signal
