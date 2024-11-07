@@ -8,14 +8,6 @@
 FMT_FG_RED='\e[31m'
 FMT_FG_GREEN='\e[32m'
 FMT_RESET='\e[0m'
-# PRINT_RED_DEBUG=${FMT_FG_RED}DEBUG${FMT_RESET}
-# PRINT_GREEN_INFO=${FMT_FG_GREEN}INFO${FMT_RESET}
-
-DEBUG_MSG="$PRINT_RED_DEBUG: "
-INFO_MSG="$PRINT_GREEN_INFO: "
-VERBOSE=1
-DEBUG=
-
 AUTOEXIT="-autoexit -exitonmousedown"
 
 OPTSTRING="vha"
@@ -48,10 +40,8 @@ shift $(($OPTIND-1))
 
 CONFIG="$HOME/.music_shell"
 PREFIX="$HOME/music_backup/music-lib"
-#FILE=$1
 PLAYING="$CONFIG/.PLAYING"
 QUEUE="$CONFIG/.QUEUE"
-#cat $FILE > $QUEUE
 
 # create playing flag
 echo "playing $1"
@@ -59,7 +49,7 @@ echo "playing $1"
 while read -r line; do
 
     touch $PLAYING
-	echo "$PREFIX/$line" >> $PLAYING
+	  echo "$PREFIX/$line" >> $PLAYING
     ffplay -hide_banner $AUTOEXIT "$PREFIX/$line"
     
     if [ ! -f "$PLAYING" ]
