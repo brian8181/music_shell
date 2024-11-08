@@ -18,8 +18,9 @@ DIFF=
 APPEND=
 NO_DISP=
 ENQUEUE=
+SAVE_AS=
 
-OPTSTRING="vahdq"
+OPTSTRING="vahdqp:s:"
 while getopts ${OPTSTRING} opt; do
     case ${opt} in
         v)
@@ -43,6 +44,17 @@ while getopts ${OPTSTRING} opt; do
         q)
             ENQUEUE="TRUE"
             ;;
+        p)
+            if [[ $OPTARG == "last" ]]; then
+                cat "$PREFIX/.PICK"
+            else
+                cat "$PREFIX/$OPTARG"
+            fi
+            exit 0;
+            ;;
+        s)
+            SAVE_AS=$OPTARG             
+            ;;
         :)
             echo "Option -${OPTARG} requires an argument."
             exit 1
@@ -57,6 +69,12 @@ shift $(($OPTIND-1))
 
 SRC_FILE="$PREFIX/.SEARCH_TEXT"
 DST_FILE="$PREFIX/.PICK"
+TMP_FILE="$PREFIX/$(./date.sh)_PICK"
+
+# if [[ $# -eq 0 ]]; then
+#     cat $DST_FILE
+#     exit 0;
+# fi
 
 # LEN=$(cat $FILE | wc -l)
 # BEG=${1:-1}
@@ -79,8 +97,14 @@ echo $CMDS
 
 if [[ -z $APPEND ]]; then
   cat $SRC_FILE | sed -n ${CMDS:-p;} > "$DST_FILE"
+  cp "$DST_FILE" "$TMP_FILE"
 else
   cat $SRC_FILE | sed -n ${CMDS:-p;} >> "$DST_FILE"
+  cp "$DST_FILE" "$TMP_FILE"
+fi
+
+if [[ ! -z $SAVE_AS ]]; then
+    cat "$DST_FILE" > "$PREFIX/$SAVE_AS"
 fi
 
 if [[ ! -z $ENQUEUE ]]; then

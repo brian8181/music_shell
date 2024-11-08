@@ -10,10 +10,6 @@ FILE=$1
 FMT_RESET='\033[0m'
 FMT_RESET_BOLD='\033[21m'
 FMT_RESET_REVERSE='\033[27m'
-FMT_BOLD='\033[1m'
-FMT_REVERSE='\033[7m'
-FMT_FG_RED='\033[31m'
-FMT_FG_GREEN='\033[32m'
 FMT_FG_YELLOW='\033[33m'
 FMT_FG_BLUE='\033[34m'
 FMT_FG_MAGENTA='\033[35m'
@@ -29,6 +25,10 @@ FMT_FG_LIGHT_CYAN='\033[96m'
 FMT_FG_WHITE='\033[97m'
 FMT_BG_DEFUALT='\033[49m'
 
-cat $FILE | sed -E "s/([^\|]*)(\||$)/$FMT_FG_GREEN<\1>$FMT_RESET\2/g"
+DST_FILE=${FILE%*.???}.fmt.${FILE##*.}
+cat $FILE | sed -E "s/([^\|]*)/${FMT_FG_GREEN}<\1>${FMT_RESET}/" > "$DST_FILE"
 
+while read line; do
+	echo -e "$line"
+done < "$DST_FILE"
 
