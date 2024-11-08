@@ -91,9 +91,7 @@ TMP_FILE="$PREFIX/$(./date.sh)_PICK"
 # fi
 
 CMDS=$(echo $@ | sed -E "s/([0-9]+)( |$)/\1p;/g")
-echo $CMDS
-
-#todo validate commad format
+echo $CMDS | sed s/\
 
 if [[ -z $APPEND ]]; then
   cat $SRC_FILE | sed -n ${CMDS:-p;} > "$DST_FILE"

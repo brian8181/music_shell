@@ -33,10 +33,16 @@ FMT_BG_DEFUALT='\x1B[49m'
 echo "test"
 echo "${FMT_FG_GREEN}testing 123...${FMT_RESET}"
 
-DST_FILE=${FILE%*.???}.fmt.${FILE##*.}
-cat $FILE | sed -E "s/([^\|]*)/${FMT_FG_GREEN}<\1>${FMT_RESET}/g" > "$DST_FILE"
+V="[^\|]*'
+EXP=^($V\)|($V)\|$V\|($V)\|($V)\|($V)\|($V)\|($V)\|$V\|$V\|$V\|$V\|$V\|$V$;
 
+DST_FILE=${FILE%*.???}.fmt.${FILE##*.}
+
+i=$((0))
 while read line; do
+    i=$((i+1))
+    offset=$((32))
+    echo $line | sed -E "s/([^\|]*)/\x1B[0m xxx \x1B[$((33+$i))m/$i"
 	echo -e "$line"
 done < "$DST_FILE"
 
