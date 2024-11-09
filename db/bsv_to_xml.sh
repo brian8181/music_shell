@@ -88,23 +88,19 @@ PATTERN='^(.*)|(.*)|(.*)|(.*)|(.*)|(.*)|(.*)|(.*)|(.*)|.*|.*|.*|.*|.*$'
 '^([^|])*|^([^|])*|'
 #REPLACE_PATTERN='\t<song>\n\t\t<location>\1<\/location>\n\t\t<artist>\2<\/artist>\n\t\t<album>\3<\/album>\n\t\t<title>\4<\/title>\n\t<\/song>'
 
-RREXP= "<song>\n\t\t \
-            <id>\1<\/id>\n\t\t
-            <location>\2<\/location>\n\t\t \
-            <year>\3</year>\n\t\t \
-            <artist>\4<\/artist>\n\t\t \
-            <album>\5<\/album>\n\t\t \
-            <album_artist>\6</album_artist>\t\t\n \
-            <disc>\7</disc>\t\t\n \
-            <trac>\8<trac>\t\t\n \
-            <title>\9<\/title>\n\t \
-        <\/song>"
+RREXP="<id>\1<\/id>\n\t\t
+      <location>\2<\/location>\n\t\t \
+      <year>\3</year>\n\t\t \
+      <artist>\4<\/artist>\n\t\t \
+      <album>\5<\/album>\n\t\t \
+      <album_artist>\6</album_artist>\t\t\n \
+      <disc>\7</disc>\t\t\n \
+      <trac>\8<trac>\t\t\n \
+      <title>\9<\/title>\n\t"
 
-SONG_RREXP=" \
-            <encoder>\1<\/encoder>\n\t \
+SONG_RREXP="<encoder>\1<\/encoder>\n\t \
             <file>\2<\/file>\n\t \
-            <hash>\3<\/hash>\n\t \
-           "
+            <hash>\3<\/hash>\n\t"
 
 # check format
 LEN_ORG=$(cat "$SRC_FILE_TMP" | wc -l)
