@@ -17,7 +17,22 @@ CONFIG_PATH=$(HOME)/.music_shell
 BIN_PATH=$(HOME)/bin
 
 # complie & link
-all: $(BLD)/gtk_ex2 $(BLD)/main_window $(BLD)/tag
+all: $(BLD)/gtk_ex2 $(BLD)/main_window $(BLD)/tag $(BLD)/tools
+
+# $(BLD)/tools: $(OBJ)/tools.o $(OBJ)/main.o 
+# 	 $(CXX) $(CXXFLAGS) -L/usr/local/lib64/libfmtd.a $^ -o $@
+
+$(BLD)/tools: $(OBJ)/tools.o $(OBJ)/main.o 
+	 $(CXX) $(CXXFLAGS) -L/usr/local/lib64/libfmtd.a $(OBJ)/tools.o $(OBJ)/main.o -o $(BLD)/tools
+
+# $(OBJ)/tools.o: $(SRC)/tools.cpp
+# 	$(CXX) $(CXXFLAGS) -c $^ -o $@
+
+$(OBJ)/tools.o: $(SRC)/tools.cpp
+	$(CXX) $(CXXFLAGS) -c $(SRC)/tools.cpp -o $(OBJ)/tools.o
+
+$(OBJ)/main.o: $(SRC)/main.cpp
+	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(OBJ)/main.o
 
 $(BLD)/main_window: $(SRC)/main_window.c
 	gcc $(pkg-config --cflags gtk4) -o $(BLD)/main_window $(SRC)/main_window.c $(pkg-config --libs gtk4)
