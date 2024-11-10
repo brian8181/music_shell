@@ -38,18 +38,19 @@ PRINT_INFO "$FILE -> Running... @ $DATE"
 ##{ BEGIN YOUR CODE  }##
 
 # load settings
-PRINT_INFO "load settings ..."
-settings.sh
+# PRINT_INFO "load settings ..."
+# settings.sh
 
-PREFIX_CONF="$HOME/.music_shell"
-PRINT_INFO "make directory  \"${PREFIX_CONF}/\" ..."
-mkdir -v -p ${PREFIX_CONF}
+PREFIX="$HOME/.music_shell"
+PRINT_INFO "make directory  \"${PREFIX}/\" ..."
+mkdir -v -p ${PREFIX}
+touch "$PREFIX/.QUEUE"
 
-if [ ! -d "$PREFIX_CONF/cache" ]; then
-    PRINT_INFO "make directory  \"${PREFIX_CONF}/cache\" ..."
-    mkdir -v -p "$PREFIX_CONF/cache"
-    touch "$PREFIX_CONF/queue"
-    touch "$PREFIX_CONF/config.txt"
+if [ ! -d "$PREFIX/cache" ]; then
+    PRINT_INFO "make directory  \"${PREFIX}/cache\" ..."
+    mkdir -v -p "$PREFIX/cache"
+    
+    #touch "$PREFIX/config.txt"
 fi
 
 # copy all music_shell/src to $HOME/bin
@@ -60,33 +61,34 @@ if [ ! -d "$HOME/bin" ]; then
 fi
 
 PRINT_INFO "copy all to \"$HOME/bin\" ..."
-cp -v -f "${HOME}"/src/music_shell/src/*.sh "$HOME/bin/"
+cp -v -f "${HOME}"/src/music_shell/script/*.sh "$HOME/bin/" > /dev/null
+cp -v -f "${HOME}"/src/music_shell/utility/*.sh "$HOME/bin/" > /dev/null
 
-# check for sym links, and delete
-if [ -h "$HOME/bin/s" ]; then
-    PRINT_INFO "remove link \"$HOME/bin/s\" ..."
-    rm -v "$HOME/bin/s"
-fi
+# # check for sym links, and delete
+# if [ -h "$HOME/bin/s" ]; then
+#     PRINT_INFO "remove link \"$HOME/bin/s\" ..."
+#     rm -v "$HOME/bin/s"
+# fi
 
-# create link
-PRINT_INFO "create link \"$HOME/bin/s\" ..."
-ln -s -v "$HOME/bin/search.sh" "$HOME/bin/s"
+# # create link
+# PRINT_INFO "create link \"$HOME/bin/s\" ..."
+# ln -s -v "$HOME/bin/search.sh" "$HOME/bin/s"
 
-if [ -h "$HOME/bin/search" ]; then
-    PRINT_INFO "remove link \"$HOME/bin/search\" ..."
-    rm -v "$HOME/bin/search"
-fi
+# if [ -h "$HOME/bin/search" ]; then
+#     PRINT_INFO "remove link \"$HOME/bin/search\" ..."
+#     rm -v "$HOME/bin/search"
+# fi
 
-if [ -h "$HOME/bin/cpl" ]; then
-    PRINT_INFO "remove link \"$HOME/bin/cpl\" ..."
-    rm -v "$HOME/bin/cpl"
-fi
+# if [ -h "$HOME/bin/cpl" ]; then
+#     PRINT_INFO "remove link \"$HOME/bin/cpl\" ..."
+#     rm -v "$HOME/bin/cpl"
+# fi
 
-# create link
-PRINT_INFO "create link \"$HOME/bin/search\" ..."
-ln -s -v "$HOME/bin/search.sh" "$HOME/bin/search"
-PRINT_INFO "create link \"$HOME/bin/cpl\" ..."
-ln -s -v "$HOME/bin/create_playlist.sh" "$HOME/bin/cpl"
+# # create link
+# PRINT_INFO "create link \"$HOME/bin/search\" ..."
+# ln -s -v "$HOME/bin/search.sh" "$HOME/bin/search"
+# PRINT_INFO "create link \"$HOME/bin/cpl\" ..."
+# ln -s -v "$HOME/bin/create_playlist.sh" "$HOME/bin/cpl"
 
 # db stuff to db
 if [ ! -d "$HOME/db" ]; then
@@ -96,8 +98,8 @@ if [ ! -d "$HOME/db" ]; then
 fi
 
 PRINT_INFO "copy create.sql to $HOME/db ..."
-cp doc/create.sql "$HOME/db/create.sql"
+#cp doc/create.sql "$HOME/db/create.sql"
+cp db/* "$HOME/db/" > /dev/null
 
 PRINT_INFO "Finished installing scripts."
-##{ END YOUR CODE  }##
 PRINT_INFO "$FILE -> Exiting.   @ $DATE"
