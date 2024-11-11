@@ -93,7 +93,8 @@ RREXP="<id>\1<\/id>\n\t\t
       <year>\3</year>\n\t\t \
       <artist>\4<\/artist>\n\t\t \
       <album>\5<\/album>\n\t\t \
-      <album_artist>\6</album_artist>\t\t\n \
+      <album_artist>\6</album_artist>\t\t\n \ 
+      
       <disc>\7</disc>\t\t\n \
       <trac>\8<trac>\t\t\n \
       <title>\9<\/title>\n\t"

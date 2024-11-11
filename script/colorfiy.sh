@@ -6,7 +6,7 @@
 # INFO: all color to delimted text
 
 FILE=$1
-source ./color.sh
+source $HOME/bin/color.sh
 
 DST_FILE=${FILE%*.???}.fmt.${FILE##*.}
 cat $FILE | sed -E "s/([^\|]*)/${FMT_INVERT}${FMT_FG_GREEN}\1${FMT_RESET}/1; s/([^\|]*)/${FMT_INVERT}${FMT_FG_YELLOW}\1${FMT_RESET}/2; s/([^\|]*)/${FMT_INVERT}${FMT_FG_YELLOW}\1${FMT_RESET}/3; \

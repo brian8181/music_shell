@@ -50,6 +50,21 @@ function HELP
     echo -e "$(basename ${0}) - version: ${VERSION} - $(date)\n"
 }
 
+# ARGUMENT_LIST=(
+#   "arg-one"
+#   "arg-two"
+#   "arg-three"
+# )
+
+# # read arguments
+# opts=$(getopt \
+#   --longoptions "$(printf "%s:," "${ARGUMENT_LIST[@]}")" \
+#   --name "$(basename "$0")" \
+#   --options "" \
+#   -- "$@"
+# )
+# eval set --$opts
+
 OPTSTRING="a:b:l:hvs:d:]"
 while getopts ${OPTSTRING} opt; do
   case ${opt} in
@@ -130,7 +145,6 @@ ALBUM_EXP='(.*)'
 ALBUM_ARTIST_EXP='(.*)'
 DISC_TRACK_EXP='(([0-9]{1,2}).)?([0-9]{2})'
 TITLE_EXP='(.*)\.(.*)$'
-
 
 # albums
 LOCATION='\1'

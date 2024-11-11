@@ -17,7 +17,6 @@ export FMT_RESET_UNDELINE='\x1B[24m'
 export FMT_RESET_BLINK='\x1B[25m'
 export FMT_RESET_INVERT='\x1B[27m'
 export FMT_RESET_HIDDEN='\x1B[28m'
-
 export FMT_RESET='\x1B[0m'
 export FMT_RESET_BOLD='\x1B[21m'
 export FMT_RESET_REVERSE='\x1B[27m'
