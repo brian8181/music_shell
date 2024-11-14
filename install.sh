@@ -99,7 +99,7 @@ fi
 
 PRINT_INFO "copy create.sql to $HOME/db ..."
 #cp doc/create.sql "$HOME/db/create.sql"
-cp db/* "$HOME/db/" > /dev/null
+cp -v -f db/* "$HOME/db/"
 
 PRINT_INFO "Finished installing scripts."
 PRINT_INFO "$FILE -> Exiting.   @ $DATE"

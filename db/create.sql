@@ -4,8 +4,8 @@ create table song
     rowid INT PRIMARY KEY ASC,          -- 1
     location TEXT,                      -- 2 
     year TEXT,                          -- 3
-    artist_id INT,                      -- 4 todo
-    album_id INT,                       -- 5 todo
+    artist_rowid INT,                      -- 4
+    album_rowid INT,                       -- 5
     album_artist TEXT,                  -- 6
     disc INT,                           -- 7
     track INT,                          -- 8
@@ -53,7 +53,7 @@ create table user
 create table playlist
 (
    rowid INT PRIMARY KEY ASC,
-   user_id INT, 
+   user_rowid INT, 
    playlist TEXT,    -- name
    -- triggered                
    update_ts TIMESTAMP,
@@ -63,8 +63,8 @@ create table playlist
 create table playlist_song
 (
    rowid INT PRIMARY KEY ASC,
-   playlist_id INT,   
-   song_id INT,
+   playlist_rowid INT,   
+   song_rowid INT,
    -- triggered                
    update_ts TIMESTAMP,
    insert_ts TIMESTAMP
@@ -73,7 +73,7 @@ create table playlist_song
 create table audit
 (
    rowid INT PRIMARY KEY ASC,
-   table_id int,
+   table_rowid int,
    table_name TEXT,
    type enum,  -- create, delete, insert, update, drop
    update_ts TIMESTAMP,
@@ -165,10 +165,11 @@ BEGIN
 END;
 
 INSERT into user (rowid, user, password_hash, update_ts, insert_ts) values (1, 'admin', 'THE_HASH', datetime(), datetime());
+
 -- .import cache.csv song
 -- .mode csv
 -- .separator "/"
 -- select * from song;
 -- select count(*) from song;
--- select rowrowid from song;
 -- select rowid from song;
+
