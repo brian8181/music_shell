@@ -4,8 +4,28 @@ create table song
     rowid INT PRIMARY KEY ASC,          -- 1
     location TEXT,                      -- 2 
     year TEXT,                          -- 3
-    artist_rowid INT,                      -- 4
-    album_rowid INT,                       -- 5
+    artist_rowid INT,                   -- 4
+    album_rowid INT,                    -- 5
+    album_artist TEXT,                  -- 6
+    disc INT,                           -- 7
+    track INT,                          -- 8
+    title TEXT,                         -- 9
+    encoder TEXT,                       -- 10
+    file TEXT,                          -- 11
+    hash    TEXT,                       -- 12
+    -- triggered
+    update_ts TIMESTAMP,                -- 13
+    insert_ts TIMESTAMP                 -- 14
+);
+
+-- music schema
+create table cash
+(
+    rowid INT PRIMARY KEY ASC,          -- 1
+    location TEXT,                      -- 2 
+    year TEXT,                          -- 3
+    artist TEXT,                        -- 4
+    album TEXT,                         -- 5
     album_artist TEXT,                  -- 6
     disc INT,                           -- 7
     track INT,                          -- 8
