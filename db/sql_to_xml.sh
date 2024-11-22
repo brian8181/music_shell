@@ -1,9 +1,10 @@
 #!/bin/bash
 
-$FILE=$1
-
+EQU=$1
 NL='char(10)'
 TAB='char(9)'
+
+WHERE="where ${EQU}"
 
 FMT="$TAB||'<song>'||$NL"
 FMT="$FMT||$TAB||$TAB||'<rowid>%s</rowid>'||$NL"
@@ -22,5 +23,5 @@ FMT="$FMT||$TAB||$TAB||'<insert_ts>%s</insert_ts>'||$NL"
 FMT="$FMT||$TAB||'</song>'"
 
 echo -e "<table name=\\"cash\\">\n"
-sql3 "select format($FMT, rowid, location, year, artist, album, disc, track, title, encoder, file, hash, update_ts, insert_ts) from cash;"
+sql3.sh "select format($FMT, rowid, location, year, artist, album, disc, track, title, encoder, file, hash, update_ts, insert_ts) from cash ${EQU:+where ${EQU}};"
 echo -e "</cash>\n"
