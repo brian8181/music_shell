@@ -1,4 +1,4 @@
-* 
+/* 
  * Compile with:
  *  gcc -o gtk_ex2 gtk_ex2.c `pkg-config --cflags --libs gtk+-2.0`
  *
@@ -41,6 +41,13 @@ create_and_fill_model (void)
   gtk_list_store_set (store, &iter,
                       COL_NAME, "Joe Bungop",
                       COL_AGE, 91,
+                      -1);
+  
+   /* ... and a third row */
+  gtk_list_store_append (store, &iter);
+  gtk_list_store_set (store, &iter,
+                      COL_NAME, "Brian Preston",
+                      COL_AGE, 55,
                       -1);
   
   return GTK_TREE_MODEL (store);

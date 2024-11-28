@@ -118,8 +118,8 @@ if [ ! -d $STORE_PREFIX ]; then
     exit 1;
 fi
 
-FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(ogg\)|\(wma\)|\(m4a\)\)$'
-PRINT_INFO "scanning for file types (mp3, flac, ogg, wma, m4a) ..."
+FILE_TYPES_RXP='^.*\.\(\(mp3\)\|\(flac\)\|\(ogg\)|\(wma\)|\(m4a\)|\(ape\)\)$'
+PRINT_INFO "scanning for file types (mp3, flac, ogg, wma, m4a, ape) ..."
 PRINT_INFO "searching \"$STORE_PREFIX\", writing cache --> \"$CACHE\" ..."
 find "$STORE_PREFIX" -iregex $FILE_TYPES_RXP > "$CACHE"
 
@@ -172,7 +172,7 @@ ALBUM='\4'
 ALBUM_ARTIST='\7'
 DISC='\5'
 TRACK='\6'
-
+#        (1     )   /   (2      )   (3 )   /   (4            )   (5 )   (6       )
 SRC_EXP="$LOC_EXP${SD__}$YEAR_EXP - (.*)${SD__}$DISC_TRACK_EXP\. (.*) - $TITLE_EXP"
 #        (1      )  |    (2  )  |    (3    )  |    (4   )  |    (5          )  |    (6  )  |    (7   )  |    (8-14       )
 DST_EXP="$LOCATION${DD__}$YEAR${DD__}$ARTIST${DD__}$ALBUM${DD__}$ALBUM_ARTIST${DD__}$DISC${DD__}$TRACK${DD__}$REPL_END_RXP"

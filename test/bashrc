@@ -1,0 +1,16 @@
+#===============================================================
+#
+# PERSONAL $HOME/.bashrc FILE for 
+# GNU bash, version 5.2.15(1)-release (x86_64-redhat-linux-gnu)
+#
+# BKP: Sat Sep  7 06:30:22 PM CDT 2024
+#
+#==============================================================
+
+# load aliases from .bash_aliases if found
+if [ -f ./bash_aliases ]; then
+    . ./bash_aliases
+fi
+# set prompt
+PS1='\w >$ '
+
