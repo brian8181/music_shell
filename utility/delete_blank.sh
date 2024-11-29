@@ -5,7 +5,6 @@
 # FILE_DATE: 'Thu Oct 31 08:08:03 AM CDT 2024'
 # INFO: 
 
-HOME="/home/brian"
 CONFIG_PREFIX="$HOME/.music_shell"
 CACHE_PATH="${CONFIG_PREFIX}/cache"
 
