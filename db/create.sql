@@ -50,16 +50,6 @@ create table user
    insert_ts TIMESTAMP  
 );
 
-create table playlist
-(
-   rowid INT PRIMARY KEY ASC,
-   user_id INT, 
-   playlist TEXT,    -- name
-   -- triggered                
-   update_ts TIMESTAMP,
-   insert_ts TIMESTAMP
-);
-
 create table playlist_song
 (
    rowid INT PRIMARY KEY ASC,

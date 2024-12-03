@@ -5,9 +5,9 @@
 # FILE_DATE: Sun Sep  8 04:07:01 PM CDT 2024
 # INFO:
 
-CC = gcc
-CXX = g++
-CXXFLAGS = -Wall -std=c++17 -DEBUG -ggdb
+CC= gcc
+CXX= g++
+CXXFLAGS= -Wall -std=c++17 -DEBUG -ggdb
 LDFLAGS = -ltag -L/usr/local/lib/ -lz
 INCLUDES= -I/usr/local/include/taglib/
 
@@ -17,11 +17,10 @@ BLD=build
 CONFIG_PATH=$(HOME)/.music_shell
 BIN_PATH=$(HOME)/bin
 
-# complie & link
-all: $(BLD)/gtk_ex2 $(BLD)/main_wnd $(OBJ)/allegro_play
+all: $(BLD)/sqlite_open $(BLD)/gtk_ex2 $(BLD)/main_wnd #$(OBJ)/allegro_play
 
-# $(BLD)/tools: $(OBJ)/tools.o $(OBJ)/main.o 
-# 	 $(CXX) $(CXXFLAGS) -L/usr/local/lib64/libfmtd.a $^ -o $@
+$(BLD)/sqlite_open: $(SRC)/sqlite_open.c
+	$(CC) -o $(BLD)/sqlite_open $(SRC)/sqlite_open.c -lsqlite3
 
 # $(OBJ)/allegro_play: $(SRC)/allegro_play.c
 # 	$(CXX) $(CXXFLAGS) $(SRC)/allegro_play.c -o $(BLD)/allegro_play
@@ -32,22 +31,22 @@ $(BLD)/allegro_play: $(SRC)/allegro_play.c
 $(OBJ)/main.o: $(SRC)/main.cpp
 	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(OBJ)/main.o
 
-# $(BLD)/main_window: $(SRC)/main_window.c
-# 	gcc $(pkg-config --cflags gtk4) -o $(BLD)/main_window $(SRC)/main_window.c $(pkg-config --libs gtk4)
+# CFLAGS=-I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/cairo \
+# 	-I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include \
+# 	-mfpmath=sse -msse -msse2 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/fribidi \
+# 	-I/usr/include/webp -I/usr/include/libxml2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -DWITH_GZFILEOP \
+# 	-I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -pthread
+	
+# LDFLAGS=-lgtk-4 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -lgdk_pixbuf-2.0 -lcairo-gobject -lcairo -lvulkan -lgraphene-1.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
+
+# $(BLD)/main_wnd: $(SRC)/main_wnd.c
+# 	gcc $(CFLAGS) $(LDFLAGS) -o $(BLD)/main_wnd $(SRC)/main_wnd.c
 
 $(BLD)/gtk_ex2: $(SRC)/gtk_ex2.c
 	gcc -o $(BLD)/gtk_ex2 $(SRC)/gtk_ex2.c `pkg-config --cflags --libs gtk+-2.0`
 
 $(BLD)/main_wnd: $(SRC)/main_wnd.c
 	gcc -o $(BLD)/main_wnd $(SRC)/main_wnd.c `pkg-config --cflags --libs gtk+-2.0`
-
-# $(BLD)/tag: $(BLD)/tag.o
-# 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(INCLUDES) $(BLD)/$(APPNAME).o -o $(BLD)/tag
-
-# # compile only
-# $(BLD)/tag.o: $(SRC)/tag.cpp
-# 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $(SRC)/tag.cpp -o $(OBJ)/tag.o
-
 
 .PHONY: install
 install:

@@ -3,17 +3,24 @@
 
 using std::string;
 
-bool connect()
+server::server()
 {
 
 }
 
-bool disconnect()
-{
-
-}
-
-bool command(string command)
+server::~server()
 {
     
+}
+
+bool server::connect()
+{
+}
+
+bool server::disconnect()
+{
+}
+
+bool server::command(string command)
+{
 }

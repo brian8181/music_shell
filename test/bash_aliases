@@ -24,6 +24,6 @@ alias can='cat -nbsv'
 alias cant='cat -n'
 alias sql3='sqlite3 $HOME/db/music.db'
 alias fmu='find /run/media/brian/da8a7464-b3e2-4de2-8bf6-7c9951aa3ade/brian/music_store/music-lib/ -iname'
-alias msql="sqlite3 ~/db/music.db \"select format('%s : %d - %s : %0d.%02d. %s', artist, year, album, disc, track, title) from cash;\""
+alias msql="sqlite3 ~/db/music.db \"SELECT format('%s : %d - %s : %0d.%02d. %s -> %s', artist, year, album, disc, track, title, file) FROM cash WHERE location=='albums' ORDER BY artist, year, album, disc, track, title;\""
 alias test='ls'
 

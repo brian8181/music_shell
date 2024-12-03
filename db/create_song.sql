@@ -4,9 +4,9 @@ create table song
     location TEXT,                      -- 2
     year TEXT,                          -- 3
     artist TEXT,                        -- 4
-    --artist_id INT,                        -- 4 todo
+    --artist_id INT,                    -- 4 todo
     album TEXT,                         -- 5
-    --album_id INT,                         -- 5 todo
+    --album_id INT,                     -- 5 todo
     album_artist TEXT,                  -- 6
     disc INT,                           -- 7
     track INT,                          -- 8

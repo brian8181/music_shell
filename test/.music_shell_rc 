@@ -1,0 +1,5 @@
+MUSIC_LIB_PATH=/run/media/brian/da8a7464-b3e2-4de2-8bf6-7c9951aa3ade/brian/music_store/music-lib/
+CONFIG_PATH$HOME/.music_shell
+PLAYLIST_PATH=~/.music_shell/playlist
+QUEUE=~/.music_shell/queue 
+STAGE=~/.music/stage

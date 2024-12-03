@@ -5,7 +5,11 @@
 #include <sys/select.h>     /* for pselect   */
 #include <string>
 #include <getopt.h>
-#include "tools.hpp"
+
+int parse_options(int argc, char* argv[])
+{
+
+}
 
 int stdin_ready (int filedes)
 {

@@ -1,0 +1,264 @@
+AC-DC
+10,000 Maniacs
+Boss Hog
+Cage The Elephant
+Cake
+Camper Van Beethoven
+Canned Heat
+Charlotte Sometimes 
+Cat Stevens
+Collective Soul 
+Butthole Surfers
+Bush
+Booker T. & the M.G.s
+Big Black
+Big Star
+Bad Brains
+Alabama
+Belly
+Alabama Shakes
+Blue Öyster Cult
+Chuck Berry
+Cypress Hill
+Cheap Trick
+Creedence Clearwater Revival
+Coldplay
+Dead Kennedys,
+Bo Diddley
+Blondie
+Blonde Redhead
+Black Sabbath
+Bad Company
+Disturbed
+Awolnation
+Five For Fighting
+Five Man Electrical Band
+Garbage
+Led Zeppelin
+Fear
+Bad Religion
+A Perfect Circle
+Alanis Morissette
+A Fine Frenzy
+4 Non Blondes
+Dub Narcotic Sound System
+Lorde
+Lords of Acid
+Aerosmith
+Dropkick Murphys
+Misfits
+Dead Boys
+Duran Duran
+Crosby Stills & Nash
+Dire Straits
+Faith No More
+Mott the Hoople
+Operation Ivy
+Five Man Electrical Band
+Fleetwood Mac
+Drive-By Truckers
+Pulp
+Sheryl Crow
+Steppenwolf
+Flipper
+Otis Redding
+Florence + the Machine
+Foo Fighters
+Fred Eaglesmith
+Happy Mondays
+Guided by Voices
+Guns N' Roses
+Grateful Dead
+Gordon Lightfoot
+Herb Alpert & the Tijuana Brass
+Herb Alpert's Tijuana Brass
+Howlin' Wolf
+Iron Maiden
+Iggy Pop
+Jeff Beck
+Jeff Buckley
+Janis Joplin
+KC & the Sunshine Band
+Jimi Hendrix
+John Lennon
+John Mellencamp
+Julie Ruin
+K's Choice
+Kraftwerk
+Live
+Lightning Hopkins
+Lorde
+Lords of Acid
+Lynyrd Skynyrd
+MC 900 Ft Jesus
+MCL (Micro Chip League)
+M.I.A
+Meat Loaf
+Marilyn Manson
+Meat Puppets
+Neil Young
+Nazareth
+Nirvana
+OutKast
+Ozzy Osbourne
+PJ Harvey
+Pailhead
+Patti Smith
+Patti Smith Group
+Paul Hardcastle
+Pantera
+Pavement
+Peaches
+Pearl Jam
+Pennywise
+Peter Frampton
+Peter Gabriel
+Porno for Pyros
+Pink Floyd
+Pixies
+Placebo
+Prince
+Prince & the Revolution
+Procol Harum
+Portishead
+Queensrÿche
+Rapeman
+Ramones
+Pussy Galore
+Ray Charles
+Rage Against The Machine
+Radiohead
+Reagan Youth
+Red Rider
+Red Hot Chili Peppers
+Richard Hell & the Voidoids
+Rocket From The Tombs
+Rocket from the Crypt
+Roy Orbison
+Rod Stewart
+Romeo Void
+Rush
+Scanners
+Scarling
+Section 25
+Shaggy
+Silverchair
+Sinéad O'Connor
+Smashing Pumpkins
+Soundgarden
+Steve Vai
+Stiff Little Fingers
+Styx
+Suicidal Tendencies
+Sex Pistols
+The Animals
+The Allman Brothers Band
+John Mellencamp
+John Cougar Mellencamp
+John Denver
+John Lee Hooker
+Jefferson Airplane
+Imagine Dragons
+John Lee Hooker Jr
+Joe Walsh
+Skinny Puppy
+Killing Joke
+Evanescence
+Everclear
+Everlast
+Emiliana Torrini
+Eminem
+Elton John
+Elvis Costello
+Dido
+David Bowie
+Electric Six
+Elvis Costello And The Attractions
+Cowboy Junkies
+The Beatles
+The Band
+Paul McCartney
+Joy Division
+MGMT
+Merle Haggard
+Mazzy Star
+Paul Simon
+No Doubt
+Metallica
+Metric
+Nick Drake
+Modest Mouse
+Neu!
+Neil Diamond
+Nickelback
+The Beach Boys
+The Black Crowes
+The Black Eyed Peas
+The Boomtown Rats
+The Brian Jonestown Massacre
+The Clash
+The Cult
+The Cure
+The Dandy Warhols
+The Dead Milkmen
+The Doors
+The Eagles
+The Fall
+The Feederz
+The Flaming Lips
+The Jim Carroll Band
+The Jimi Hendrix Experience
+The Jon Spencer Blues Explosion
+The James Gang
+The Lumineers
+The Marshall Tucker Band
+The Smiths
+The Stooges
+The Sugarcubes
+The Strumbellas
+The Velvet Underground
+The Verve
+The Vibrators
+The White Stripes
+The Who
+The Yardbirds
+Thin Lizzy
+Tripping Daisy
+Thunderclap Newman
+Three Dog Night
+Tim Buckley
+Time Zone
+Toadies
+Todd Snider
+Tom Petty
+Tom Petty And The Heartbreaker
+Tom Petty and The Heartbreakers
+Tonic
+Tripping Daisy
+Twenty One Pilots
+Type O Negative
+U2
+New York Dolls
+New Order
+Nick Drake
+Jane's Addiction
+Fun
+Jimmy Buffett
+Art Brut
+Alice Cooper
+Alice In Chain
+Arlo Guthrie
+Bauhaus
+Beck
+Black Flag
+UB40
+Wire
+Woody Guthrie
+World Party
+Zola Jesus
+White Zombie
+The Reverend Horton Heat
+The Raincoats
+The Rolling Stones
+The Replacements
+The Residents

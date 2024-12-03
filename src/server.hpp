@@ -1,10 +1,20 @@
 #ifndef _server_HPP
 #define _server_HPP
+#include <string>
 
 using std::string;
 
-bool connect();
-bool disconnect();
-bool command(string command);
+class server 
+{
+public:
+    server();
+    ~server();
+
+    bool connect();
+    bool disconnect();
+    bool command(string command);
+
+private:
+};
 
 #endif
