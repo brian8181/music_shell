@@ -3,7 +3,8 @@
  *  gcc -o gtk_ex2 gtk_ex2.c `pkg-config --cflags --libs gtk+-2.0`
  *
  */
-
+#include <stdio.h>
+#include <sqlite3.h> 
 #include <gtk/gtk.h>
 
 enum
@@ -15,6 +16,35 @@ enum
 
 static GtkTreeModel* create_and_fill_model (void)
 {
+    sqlite3 *db;
+    char *zErrMsg = 0;
+    int rc;
+
+    // if( argc!=3 )
+    // {
+    //   fprintf(stderr, "Usage: %s DATABASE SQL-STATEMENT\n", argv[0]);
+    //   return(1);
+    // }
+    rc = sqlite3_open("~/db/msuic.db", &db);
+    if( rc )
+    {
+       fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+       sqlite3_close(db);
+       //return(1);
+    }
+    else
+    {
+        fprintf(stderr, "Opened database successfully!\n");
+    }
+
+    // rc = sqlite3_exec(db, "select * FROM cash;", callback, 0, &zErrMsg);
+    // if( rc != SQLITE_OK )
+    // {
+    //    fprintf(stderr, "SQL error: %s\n", zErrMsg);
+    //    sqlite3_free(zErrMsg);
+    // }
+    sqlite3_close(db);
+
     GtkListStore* store = gtk_list_store_new (NUM_COLS, G_TYPE_STRING, G_TYPE_UINT);
     GtkTreeIter iter;
         
@@ -47,6 +77,22 @@ static GtkTreeModel* create_and_fill_model (void)
 
 static GtkWidget *create_view_and_model (void)
 {
+  //  sqlite3 *db;
+  //  int rc = sqlite3_open("music.db", &db);
+  //  if( rc )
+  //  {
+  //     fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+  //     return(0);
+  //  }
+  //  else
+  //  {
+  //     fprintf(stderr, "Opened database successfully\n");
+  //  }
+
+
+
+  //  sqlite3_close(db);
+
   GtkCellRenderer     *renderer;
   GtkTreeModel        *model;
   GtkWidget           *view = gtk_tree_view_new ();
@@ -76,12 +122,27 @@ static GtkWidget *create_view_and_model (void)
 
   g_object_unref (model);
 
+
+
   return view;
 }
 
 
 int main (int argc, char **argv)
 {
+   sqlite3 *db;
+   int rc = sqlite3_open("music.db", &db);
+   if( rc )
+   {
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      return(0);
+   }
+   else
+   {
+      fprintf(stderr, "Opened database successfully\n");
+   }
+   sqlite3_close(db);
+
   GtkWidget *window;
   GtkWidget *view;
 
