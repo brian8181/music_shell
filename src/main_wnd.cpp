@@ -6,33 +6,43 @@
 #include <stdio.h>
 #include <sqlite3.h> 
 #include <gtk/gtk.h>
+#include <iostream>
 #include <vector>
 #include <string>
 #include <map>
+#include "track_record.hpp"
+
+using std::cout;
+using std::endl;
+using std::string;
 
 enum
 {
   COL_NAME = 0,
   COL_AGE,
   NUM_COLS
-} ;
-
+};
 
 std::map<std::string, std::string> data_map;
 std::vector<std::string> columns;
 
+
+
 static int callback(void *NotUsed, int argc, char **argv, char **azColName)
 {
-   
     int i;
     for(i=0; i<argc; i++)
     {
         printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
       
-        std::string s = azColName[i];
-        data_map[s] = std::string(argv[i]);
-        //columns.push_back(s);
     }
+    // printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+  
+    // std::string s = azColName[i];
+    // data_map[s] = std::string(argv[i]);
+    track_record trac(argv);
+    cout << "***" << trac.rowid << ", " << trac.artist << ", " << " " << trac.album  << " - " << trac.year << " - "
+         << trac.track << ". " << trac.title  << " --> " << trac.file << endl;
     printf("\n");
     return 0;
 }
@@ -45,39 +55,7 @@ static GtkTreeModel* create_and_fill_model (void)
     /* Append a row and fill in some data */
     gtk_list_store_append (store, &iter);
     gtk_list_store_set (store, &iter,
-                        COL_NAME, "",
-                        COL_AGE, 51,
-                        -1);
-    /* append another row and fill in some data */
-    gtk_list_store_append (store, &iter);
-    gtk_list_store_set (store, &iter,
-                        COL_NAME, "Jane Doe",
-                        COL_AGE, 23,
-                        -1);
-    /* ... and a third row */
-    gtk_list_store_append (store, &iter);
-    gtk_list_store_set (store, &iter,
-                        COL_NAME, "Joe Bungop",
-                        COL_AGE, 91,
-                        -1);
-    /* ... and a third row */
-    gtk_list_store_append (store, &iter);
-    gtk_list_store_set (store, &iter,
-                        COL_NAME, "Brian Preston",
-                        COL_AGE, 55,
-                        -1);
-    return GTK_TREE_MODEL (store);
-}
-
-static GtkTreeModel* create_and_fill_model2 (void)
-{
-    GtkListStore* store = gtk_list_store_new (NUM_COLS, G_TYPE_STRING, G_TYPE_UINT);
-    GtkTreeIter iter;
-        
-    /* Append a row and fill in some data */
-    gtk_list_store_append (store, &iter);
-    gtk_list_store_set (store, &iter,
-                        COL_NAME, "Heinz El-Mann",
+                        COL_NAME, "Bobby",
                         COL_AGE, 51,
                         -1);
     /* append another row and fill in some data */
@@ -140,90 +118,75 @@ static GtkWidget *create_view_and_model (void)
   return view;
 }
 
-// std::map<std::string, int> name_to_col[] =
+// static GtkWidget *create_view_and_model2 (void)
 // {
-//   {"artist", 1}, {"year", 2}
-// };
+//   GtkCellRenderer     *renderer;
+//   GtkTreeModel        *model;
+//   GtkWidget           *view = gtk_tree_view_new ();
 
-enum COLS
-{
-  COL_ARTIST = 0x01,
-  COL_YEAR = 0x02,
-  COL_ALBUM = 0x04,
-  COL_DISC = 0x08,
-  COL_TRACK = 0x10,
-  COL_TITLE = 0x20
-} ;
+//   auto beg = data_map.begin();
+//   auto end = data_map.end();
 
-static GtkWidget *create_view_and_model2 (void)
-{
-  GtkCellRenderer     *renderer;
-  GtkTreeModel        *model;
-  GtkWidget           *view = gtk_tree_view_new ();
+//   for(auto iter = beg; iter != beg; ++iter)
+//   {
+//       std::string name = (*iter).first;
+//       std::string value = (*iter).second;
 
-  auto beg = data_map.begin();
-  auto end = data_map.end();
+//       // renderer = gtk_cell_renderer_text_new ();
+//       // gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
+//       //                                          -1,      
+//       //                                         name,  
+//       //                                          renderer,
+//       //                                          value, COL_ARTIST,
+//       //                                          NULL);
+//   }
 
-  for(auto iter = beg; iter != beg; ++iter)
-  {
-      std::string name = (*iter).first;
-      std::string value = (*iter).second;
+//   /* --- Column #1 --- */
+//   renderer = gtk_cell_renderer_text_new ();
+//   gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
+//                                                -1,      
+//                                                "Name",  
+//                                                renderer,
+//                                                "text", COL_ARTIST,
+//                                                NULL);
+//   /* --- Column #2 --- */
+//   renderer = gtk_cell_renderer_text_new ();
+//   gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
+//                                                -1,      
+//                                                "Yaer",  
+//                                                renderer,
+//                                                "text", COL_YEAR,
+//                                                NULL);
 
-      // renderer = gtk_cell_renderer_text_new ();
-      // gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
-      //                                          -1,      
-      //                                         name,  
-      //                                          renderer,
-      //                                          value, COL_ARTIST,
-      //                                          NULL);
-  }
+//    /* --- Column #2 --- */
+//   renderer = gtk_cell_renderer_text_new ();
+//   gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
+//                                                -1,      
+//                                                "Artist",  
+//                                                renderer,
+//                                                "text", COL_ARTIST,
+//                                                NULL);
 
-  /* --- Column #1 --- */
-  renderer = gtk_cell_renderer_text_new ();
-  gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
-                                               -1,      
-                                               "Name",  
-                                               renderer,
-                                               "text", COL_ARTIST,
-                                               NULL);
-  /* --- Column #2 --- */
-  renderer = gtk_cell_renderer_text_new ();
-  gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
-                                               -1,      
-                                               "Yaer",  
-                                               renderer,
-                                               "text", COL_YEAR,
-                                               NULL);
+//    /* --- Column #2 --- */
+//   renderer = gtk_cell_renderer_text_new ();
+//   gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
+//                                                -1,      
+//                                                "Album",  
+//                                                renderer,
+//                                                "text", COL_ALBUM,
+//                                                NULL);                                    
+//   model = create_and_fill_model ();
+//   gtk_tree_view_set_model (GTK_TREE_VIEW (view), model);
 
-   /* --- Column #2 --- */
-  renderer = gtk_cell_renderer_text_new ();
-  gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
-                                               -1,      
-                                               "Artist",  
-                                               renderer,
-                                               "text", COL_ARTIST,
-                                               NULL);
+//   /* The tree view has acquired its own reference to the
+//    *  model, so we can drop ours. That way the model will
+//    *  be freed automatically when the tree view is destroyed */
 
-   /* --- Column #2 --- */
-  renderer = gtk_cell_renderer_text_new ();
-  gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
-                                               -1,      
-                                               "Album",  
-                                               renderer,
-                                               "text", COL_ALBUM,
-                                               NULL);                                    
-  model = create_and_fill_model ();
-  gtk_tree_view_set_model (GTK_TREE_VIEW (view), model);
-
-  /* The tree view has acquired its own reference to the
-   *  model, so we can drop ours. That way the model will
-   *  be freed automatically when the tree view is destroyed */
-
-  g_object_unref (model);
+//   g_object_unref (model);
 
 
-  return view;
-}
+//   return view;
+// }
 
 
 
@@ -295,7 +258,7 @@ int main (int argc, char **argv)
   gtk_init (&argc, &argv);
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   g_signal_connect (window, "delete_event", gtk_main_quit, NULL); /* dirty */
-  view = create_view_and_model ();
+  view = create_view_and_model();
 
   gtk_container_add (GTK_CONTAINER (window), view);
   gtk_widget_show_all (window);
