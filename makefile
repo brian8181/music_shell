@@ -46,7 +46,7 @@ $(BLD)/gtk_ex2: $(SRC)/gtk_ex2.c
 	gcc -o $(BLD)/gtk_ex2 $(SRC)/gtk_ex2.c `pkg-config --cflags --libs gtk+-2.0`
 
 $(BLD)/main_wnd: $(SRC)/main_wnd.c
-	gcc -o $(BLD)/main_wnd $(SRC)/main_wnd.c `pkg-config --cflags --libs gtk+-2.0` -lsqlite3
+	g++ -o $(BLD)/main_wnd $(SRC)/main_wnd.c `pkg-config --cflags --libs gtk+-2.0` -lsqlite3
 
 .PHONY: install
 install:
