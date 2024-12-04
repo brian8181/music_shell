@@ -107,6 +107,9 @@ static GtkWidget *create_view_and_model (void)
   GtkTreeModel        *model;
   GtkWidget           *view = gtk_tree_view_new ();
 
+
+  //gtk_tree_view_column_set_max_width();
+
   /* --- Column #1 --- */
   renderer = gtk_cell_renderer_text_new ();
   gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
@@ -137,9 +140,14 @@ static GtkWidget *create_view_and_model (void)
   return view;
 }
 
+// std::map<std::string, int> name_to_col[] =
+// {
+//   {"artist", 1}, {"year", 2}
+// };
+
 enum COLS
 {
-  COL_ARTIST = 0x00,
+  COL_ARTIST = 0x01,
   COL_YEAR = 0x02,
   COL_ALBUM = 0x04,
   COL_DISC = 0x08,
@@ -152,6 +160,23 @@ static GtkWidget *create_view_and_model2 (void)
   GtkCellRenderer     *renderer;
   GtkTreeModel        *model;
   GtkWidget           *view = gtk_tree_view_new ();
+
+  auto beg = data_map.begin();
+  auto end = data_map.end();
+
+  for(auto iter = beg; iter != beg; ++iter)
+  {
+      std::string name = (*iter).first;
+      std::string value = (*iter).second;
+
+      // renderer = gtk_cell_renderer_text_new ();
+      // gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
+      //                                          -1,      
+      //                                         name,  
+      //                                          renderer,
+      //                                          value, COL_ARTIST,
+      //                                          NULL);
+  }
 
   /* --- Column #1 --- */
   renderer = gtk_cell_renderer_text_new ();
