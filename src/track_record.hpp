@@ -15,22 +15,25 @@ class track_record
 
 public:
 
-    enum Columns
+    enum columns
     {
-        COL_ROWID = 0x01,
-        COL_LOCATION = 0x2,
-        COL_ARTIST = 0x04,
-        COL_YEAR = 0x08,
-        COL_ALBUM = 0x10,
-        COL_DISC = 0x20,
-        COL_TRACK = 0x40,
-        COL_TITLE = 0x80
+        ROWID = 0x0001,
+        LOCATION = 0x0002,
+        YEAR = 0x0004,
+        ARTIST = 0x0008,
+        ALBUM = 0x0010,
+        ALBUM_ARTIST = 0x0020,
+        DISC = 0x0040,
+        TRACK = 0x0080,
+        TITLE = 0x0100,
+        FILE = 0x0200,
+        HASH = 0x0400,
+        INSERT_TS = 0x0800,
+        UPDATE_TS = 0x1000
     };
 
     track_record();
-
     track_record(char* cols[]);
-
     track_record(string rowid, string artist, string year, string album, string disc, string track, string title);
 
     string rowid;
@@ -38,6 +41,7 @@ public:
     string artist;
     string year;
     string album;
+    string album_artist;
     string disc;
     string track;
     string title;

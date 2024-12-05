@@ -24,8 +24,11 @@ enum
 };
 
 
+map<int, string> IDX_NAME_MAP = {   {(int)track_record::ROWID, "rowid"}, {(int)track_record::LOCATION, "location"  }, {(int)track_record::YEAR, "year"}, {(int)track_record::ARTIST, "artist"},
+                              {(int)track_record::ALBUM_ARTIST, "album_artist"}, {(int)track_record::DISC, "disc"}, {(int)track_record::TRACK, "track"}, {(int)track_record::TITLE, "title"},
+                              {(int)track_record::FILE, "file"}, {(int)track_record::HASH, "hash"}, {(int)track_record::UPDATE_TS, "update_ts"}, {(int)track_record::INSERT_TS, "insert_ts"}     };
 
-vector<track_record> tracs(20);
+vector<track_record> records(20);
 
 static int callback(void *NotUsed, int argc, char **argv, char **azColName)
 {
@@ -33,23 +36,40 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName)
     for(i=0; i<argc; i++)
     {
         printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-      
     }
-    // printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-  
-    // std::string s = azColName[i];
-    // data_map[s] = std::string(argv[i]);
-    //delete trac;
-    track_record trac(argv);
-    tracs.push_back(trac);
+      
+    track_record record(argv);
+    records.push_back(record);
 
-    cout << "***" << trac.rowid << ", " << trac.artist << ", " << " " << trac.album  << " - " << trac.year << " - "
-         << trac.track << ". " << trac.title  << " --> " << trac.file << endl;
+    GtkListStore* store = gtk_list_store_new (5, G_TYPE_STRING, G_TYPE_UINT);
+    GtkTreeIter iter;
+    /* Append a row and fill in some data */
+    gtk_list_store_append (store, &iter);
+    gtk_list_store_set (store, &iter,
+                                        "rowid", records[0].rowid,
+                                        "location", records[1].location,
+                                        "year", records[2].year,
+                                        "artist", records[3].artist,
+                                        "album", records[4].album,
+                                        "album_artist", records[5].album_artist,
+                                        "disc", records[6].disc,
+                                        "track", records[7].track,
+                                        "title", records[8].title,
+                                        "encoder", records[9].encoder,
+                                        "file", records[9].file,
+                                        "hash", records[9].hash,
+                                        "update_ts", records[4].update_ts,
+                                        "insert_ts", records[9].insert_ts,
+                                        -1);
+
+    // cout << "***" << record.rowid << ", " << record.artist << ", " << " " << record.album  << " - " << record.year << " - "
+    //      << record.track << ". " << record.title  << " --> " << record.file << endl;
+
     printf("\n");
     return 0;
 }
 
-static GtkTreeModel* create_and_fill_model (void)
+static GtkTreeModel* create_and_fill_model(void)
 {
     GtkListStore* store = gtk_list_store_new (NUM_COLS, G_TYPE_STRING, G_TYPE_UINT);
     GtkTreeIter iter;
@@ -57,84 +77,40 @@ static GtkTreeModel* create_and_fill_model (void)
     /* Append a row and fill in some data */
     gtk_list_store_append (store, &iter);
     gtk_list_store_set (store, &iter,
-                        COL_NAME, "Bobby",
-                        COL_AGE, 51,
+                        track_record::ARTIST, records[1],
+                        track_record::YEAR, records[2],
+                        track_record::ALBUM, records[3],
+                        track_record::TRACK, records[4],
+                        track_record::TITLE, records[5],                        
                         -1);
-    /* append another row and fill in some data */
-    gtk_list_store_append (store, &iter);
-    gtk_list_store_set (store, &iter,
-                        COL_NAME, "Jane Doe",
-                        COL_AGE, 23,
-                        -1);
-    /* ... and a third row */
-    gtk_list_store_append (store, &iter);
-    gtk_list_store_set (store, &iter,
-                        COL_NAME, "Joe Bungop",
-                        COL_AGE, 91,
-                        -1);
-    /* ... and a third row */
-    gtk_list_store_append (store, &iter);
-    gtk_list_store_set (store, &iter,
-                        COL_NAME, "Brian Preston",
-                        COL_AGE, 55,
-                        -1);
+
+   
     return GTK_TREE_MODEL (store);
 }
 
-static GtkWidget *create_view_and_model (void)
+static GtkWidget* create_view_and_model(void)
 {
   GtkCellRenderer     *renderer;
   GtkTreeModel        *model;
   GtkWidget           *view = gtk_tree_view_new ();
 
-  track_record trac;
-  //gtk_tree_view_column_set_max_width();
+  int i = records.size()-1;
 
   /* --- Column #1 --- */
   renderer = gtk_cell_renderer_text_new ();
   gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
                                                -1,      
-                                               "Name",  
+                                               "location",  
                                                renderer,
-                                               "text", COL_NAME,
+                                               IDX_NAME_MAP[track_record::LOCATION], track_record::LOCATION,
                                                NULL);
   /* --- Column #2 --- */
   renderer = gtk_cell_renderer_text_new ();
   gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
                                                -1,      
-                                               "Age",  
-                                               renderer,
-                                               "text", COL_AGE,
-                                               NULL);
-  model = create_and_fill_model ();
-  gtk_tree_view_set_model (GTK_TREE_VIEW (view), model);
-
-  /* The tree view has acquired its own reference to the
-   *  model, so we can drop ours. That way the model will
-   *  be freed automatically when the tree view is destroyed */
-
-  g_object_unref (model);
-
-
-
-  return view;
-}
-
-static GtkWidget *create_view_and_model2 (void)
-{
-  GtkCellRenderer     *renderer;
-  GtkTreeModel        *model;
-  GtkWidget           *view = gtk_tree_view_new ();
-
-  int i = tracs.size()-1;
-
-  /* --- Column #1 --- */
-  renderer = gtk_cell_renderer_text_new ();
-  gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
-                                               -1,      
                                                "artist",  
                                                renderer,
-                                               tracs[i].artist, track_record::COL_ARTIST,
+                                               IDX_NAME_MAP[track_record::ARTIST], track_record::ARTIST,
                                                NULL);
   /* --- Column #2 --- */
   renderer = gtk_cell_renderer_text_new ();
@@ -142,7 +118,7 @@ static GtkWidget *create_view_and_model2 (void)
                                                -1,      
                                                "Year",  
                                                renderer,
-                                               tracs[i].year, track_record::COL_YEAR,
+                                               IDX_NAME_MAP[track_record::YEAR], track_record::YEAR,
                                                NULL);
 
    /* --- Column #2 --- */
@@ -151,16 +127,16 @@ static GtkWidget *create_view_and_model2 (void)
                                                -1,      
                                                "Album",  
                                                renderer,
-                                               tracs[i].album, track_record::COL_ALBUM,
+                                               IDX_NAME_MAP[track_record::ALBUM], track_record::ALBUM,
                                                NULL);
 
    /* --- Column #2 --- */
   renderer = gtk_cell_renderer_text_new ();
   gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
                                                -1,      
-                                               "disc",  
+                                               "Disc",  
                                                renderer,
-                                               tracs[i].disc, track_record::COL_DISC,
+                                               IDX_NAME_MAP[track_record::DISC], track_record::DISC,
                                                NULL);   
 
   renderer = gtk_cell_renderer_text_new ();
@@ -168,7 +144,7 @@ static GtkWidget *create_view_and_model2 (void)
                                                -1,      
                                                "Track",  
                                                renderer,
-                                               tracs[i].track, track_record::COL_TRACK,
+                                               IDX_NAME_MAP[track_record::TRACK], track_record::TRACK,
                                                NULL); 
 
   
@@ -177,7 +153,7 @@ static GtkWidget *create_view_and_model2 (void)
                                                -1,      
                                                "Title",  
                                                renderer,
-                                               tracs[i].title, track_record::COL_TITLE,
+                                               IDX_NAME_MAP[track_record::TITLE], track_record::TITLE,
                                                NULL);                                                                                                                                                                   
   model = create_and_fill_model ();
   gtk_tree_view_set_model (GTK_TREE_VIEW (view), model);
@@ -233,8 +209,8 @@ int main (int argc, char **argv)
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
-    char* sDb = "/home/brian/db/music.db";
-    char* sStmt = "SELECT * FROM cash where artist=='Pink Floyd';";
+    const char* sDb = "/home/brian/db/music.db";
+    const char* sStmt = "SELECT * FROM cash where artist=='Pink Floyd';";
 
     rc = sqlite3_open(sDb, &db);
     if( rc )
@@ -260,7 +236,9 @@ int main (int argc, char **argv)
   gtk_init (&argc, &argv);
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   g_signal_connect (window, "delete_event", gtk_main_quit, NULL); /* dirty */
-  view = create_view_and_model();
+
+  // TODO
+  //view = create_view_and_model();
 
   gtk_container_add (GTK_CONTAINER (window), view);
   gtk_widget_show_all (window);
