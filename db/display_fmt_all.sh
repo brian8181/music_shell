@@ -5,5 +5,34 @@
 # FILE_DATE: Mon Dec  2 03:27:12 PM CST 2024
 # INFO: dislay formated text from sqlite
 
+COLOR_OPT=
+
+OPTSTRING="abch"
+while getopts ${OPTSTRING} opt; do
+  case ${opt} in
+    a)
+      echo "Option -a was triggered."
+      ;;
+    b)
+      echo "Option -b was triggered."
+      ;;
+    c)
+      COLOR_OPT="TRUE";
+      ;;
+     h)
+      # display help
+      ;;
+    ?)
+      echo "Invalid option: -${OPTARG}."
+      exit 1
+      ;;
+  esac
+done
+
+if [[ -z "$COLOR_OPT" ]]; then
+    echo "todo (color) ..."
+fi
+
+WHERE=$1
 # albums only, sorted
-sqlite3 ~/db/music.db "SELECT format('%s : %d - %s : %0d.%02d. %s -> %s', artist, year, album, disc, track, title, file) FROM cash WHERE location=='albums' ORDER BY artist, year, album, disc, track, title;"
+sqlite3 ~/db/music.db "SELECT format('%s : %d - %s : %0d.%02d. %s -> %s', artist, year, album, disc, track, title, file) FROM cash WHERE location=='albums' ${WHERE:+" and $WHERE"} ORDER BY artist, year, album, disc, track, title;"

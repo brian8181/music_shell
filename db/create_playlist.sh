@@ -20,4 +20,4 @@ while read line; do
 	sqlite3 $HOME/db/music.db "INSERT INTO playlist_song (playlist_rowid, song_rowid) VALUES ('$PLAYLIST_ID', '$SONG_ID');"
 done < "playlist.tmp"
 
-sqlite3 $HOME/db/music.db "select file from playlist join playlist_song on playlist.rowid==playlist_song.playlist_rowid join cash on playlist_song.song_rowid==cash.rowid where playlist.playlist=='$NAME';"
+sqlite3 $HOME/db/music.db "SELECT file FROM playlist JOIN playlist_song ON playlist.rowid==playlist_song.playlist_rowid JOIN cash ON playlist_song.song_rowid==cash.rowid WHERE playlist.playlist=='$NAME';"

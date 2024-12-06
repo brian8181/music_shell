@@ -17,7 +17,13 @@ BLD=build
 CONFIG_PATH=$(HOME)/.music_shell
 BIN_PATH=$(HOME)/bin
 
-all: $(BLD)/sqlite_open $(BLD)/gtk_ex2 $(BLD)/main_wnd #$(OBJ)/allegro_play
+all: $(BLD)/sqlite_open $(BLD)/gtk_ex2 $(BLD)/main_wnd $(BLD)/sql_test //$(BLD)/ex2 #$(OBJ)/allegro_play
+
+$(BLD)/sql_test: $(SRC)/sql_test.cpp
+	$(CXX) $(CXXFLAGS) -lsqlite3 $(SRC)/sql_test.cpp -o $(BLD)/sql_test 
+
+$(BLD)/ex2: $(SRC)/ex2.cpp
+	$(CXX) $(CXXFLAGS) -lsqlite3 $(SRC)/ex2.cpp -o $(BLD)/ex2 
 
 $(BLD)/sqlite_open: $(SRC)/sqlite_open.c
 	$(CC) -o $(BLD)/sqlite_open $(SRC)/sqlite_open.c -lsqlite3

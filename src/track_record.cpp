@@ -12,7 +12,7 @@ track_record::track_record(char* cols[])
     year = cols[2];
     artist = cols[3];
     album = cols[4];
-    //album_artist = cols[5];
+    album_artist = cols[5];
     disc = cols[6];
     track = cols[7];
     title = cols[8];
