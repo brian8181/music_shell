@@ -28,11 +28,12 @@ while getopts ${OPTSTRING} opt; do
       ;;
   esac
 done
+shift $(($OPTIND-1))
 
 if [[ -z "$COLOR_OPT" ]]; then
     echo "todo (color) ..."
 fi
 
-WHERE=$1
+WHERE=$OPTIND
 # albums only, sorted
 sqlite3 ~/db/music.db "SELECT format('%s : %d - %s : %0d.%02d. %s -> %s', artist, year, album, disc, track, title, file) FROM cash WHERE location=='albums' ${WHERE:+" and $WHERE"} ORDER BY artist, year, album, disc, track, title;"

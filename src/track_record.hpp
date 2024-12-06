@@ -26,10 +26,11 @@ public:
         DISC = 0x0040,
         TRACK = 0x0080,
         TITLE = 0x0100,
-        FILE = 0x0200,
-        HASH = 0x0400,
-        INSERT_TS = 0x0800,
-        UPDATE_TS = 0x1000
+        ENCODER = 0x200,
+        FILE = 0x0400,
+        HASH = 0x0800,
+        INSERT_TS = 0x1000,
+        UPDATE_TS = 0x2000
     };
 
     track_record();

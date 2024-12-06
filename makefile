@@ -17,7 +17,7 @@ BLD=build
 CONFIG_PATH=$(HOME)/.music_shell
 BIN_PATH=$(HOME)/bin
 
-all: $(BLD)/sqlite_open $(BLD)/gtk_ex2 $(BLD)/main_wnd $(BLD)/sql_test //$(BLD)/ex2 #$(OBJ)/allegro_play
+all: $(BLD)/sqlite_open $(BLD)/gtk_ex2 $(BLD)/main_wnd #$(BLD)/main_wnd2 #$(OBJ)/allegro_play
 
 $(BLD)/sql_test: $(SRC)/sql_test.cpp
 	$(CXX) $(CXXFLAGS) -lsqlite3 $(SRC)/sql_test.cpp -o $(BLD)/sql_test 
@@ -37,14 +37,6 @@ $(BLD)/allegro_play: $(SRC)/allegro_play.c
 $(OBJ)/main.o: $(SRC)/main.cpp
 	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(OBJ)/main.o
 
-# CFLAGS=-I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/cairo \
-# 	-I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include \
-# 	-mfpmath=sse -msse -msse2 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/fribidi \
-# 	-I/usr/include/webp -I/usr/include/libxml2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -DWITH_GZFILEOP \
-# 	-I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -pthread
-	
-# LDFLAGS=-lgtk-4 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -lgdk_pixbuf-2.0 -lcairo-gobject -lcairo -lvulkan -lgraphene-1.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
-
 # $(BLD)/main_wnd: $(SRC)/main_wnd.c
 # 	gcc $(CFLAGS) $(LDFLAGS) -o $(BLD)/main_wnd $(SRC)/main_wnd.c
 
@@ -53,6 +45,17 @@ $(BLD)/gtk_ex2: $(SRC)/gtk_ex2.c
 
 $(BLD)/main_wnd: $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp
 	g++ -o $(BLD)/main_wnd $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp `pkg-config --cflags --libs gtk+-2.0` -lsqlite3
+
+# CFLAGS=-I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/cairo \
+# 	-I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include \
+# 	-mfpmath=sse -msse -msse2 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/fribidi \
+# 	-I/usr/include/webp -I/usr/include/libxml2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -DWITH_GZFILEOP \
+# 	-I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -pthread
+	
+# LDFLAGS=-lgtk-3 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -lgdk_pixbuf-2.0 -lcairo-gobject -lcairo -lvulkan -lgraphene-1.0 -lgio-2.0 -lgobject-2.0 -lglib-2.
+
+# $(BLD)/main_wnd2: $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp
+# 	g++ -o $(CFLAGS) $(LDFLAGS) S$(BLD)/main_wnd2 $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp `pkg-config --cflags --libs gtk+-2.0` -lsqlite3
 
 .PHONY: install
 install:

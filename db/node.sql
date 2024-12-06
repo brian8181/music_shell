@@ -7,3 +7,4 @@ CREATE TABLE node
     insert_ts TIMESTAMP,
     update_ts TIMESTAMP
 )
+ 
