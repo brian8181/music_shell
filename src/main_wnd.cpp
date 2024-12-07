@@ -10,6 +10,8 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <signal.h> 
+#include <wait.h> 
 #include "track_record.hpp"
 
 using std::cout;
@@ -41,15 +43,18 @@ static GtkTreeModel* create_and_fill_model(void)
 {
     GtkListStore* store = gtk_list_store_new (NUM_COLS, G_TYPE_STRING, G_TYPE_UINT);
     GtkTreeIter iter;
-    /* Append a row and fill in some data */
-    gtk_list_store_append (store, &iter);
-    gtk_list_store_set (store, &iter,
-                        track_record::ARTIST, records[1],
-                        track_record::YEAR, records[2],
-                        track_record::ALBUM, records[3],
-                        track_record::TRACK, records[4],
-                        track_record::TITLE, records[5],                        
-                        -1);
+    for(int i = 0; i < 10; ++i)
+    {
+        /* Append a row and fill in some data */
+        gtk_list_store_append (store, &iter);
+        gtk_list_store_set (store, &iter,
+                            track_record::ARTIST, records[i].artist,
+                            track_record::YEAR, records[i].year,
+                            track_record::ALBUM, records[i].album,
+                            track_record::TRACK, records[i].track,
+                            track_record::TITLE, records[i].title,                        
+                            -1);
+    }
     return GTK_TREE_MODEL (store);
 }
 
@@ -189,28 +194,32 @@ static int on_sql_data(void *NotUsed, int argc, char **argv, char **azColName)
     track_record record ( argv );
     records.push_back ( record );
 
-    GtkListStore* store = gtk_list_store_new ( 5, G_TYPE_STRING, G_TYPE_UINT );
-    GtkTreeIter iter;
+    // GtkListStore* store = gtk_list_store_new ( 5, G_TYPE_STRING, G_TYPE_UINT );
+    // GtkTreeIter iter;
 
-    /* Append a row and fill in some data */
-    gtk_list_store_append( store, &iter );
-    gtk_list_store_set( store, &iter,
-                        "rowid", records[0].rowid,
-                        "location", records[1].location,
-                        "year", records[2].year,
-                        "artist", records[3].artist,
-                        "album", records[4].album,
-                        "track", records[7].track,
-                        "title", records[8].title,
-                        "encoder", records[9].encoder,
-                        "file", records[9].file,
-                        "hash", records[9].hash,
-                        "update_ts", records[4].update_ts,
-                        "insert_ts", records[9].insert_ts,
-                        -1 );
+    // /* Append a row and fill in some data */
+    // gtk_list_store_append( store, &iter );
+    // gtk_list_store_set( store, &iter,
+    //                     "rowid", records[0].rowid,
+    //                     "location", records[1].location,
+    //                     "year", records[2].year,
+    //                     "artist", records[3].artist,
+    //                     "album", records[4].album,
+    //                     "track", records[7].track,
+    //                     "title", records[8].title,
+    //                     "encoder", records[9].encoder,
+    //                     "file", records[9].file,
+    //                     "hash", records[9].hash,
+    //                     "update_ts", records[4].update_ts,
+    //                     "insert_ts", records[9].insert_ts,
+    //                     -1 );
 
-    // cout << "***" << record.rowid << ", " << record.artist << ", " << " " << record.album  << " - " << record.year << " - "
-    //      << record.track << ". " << record.title  << " --> " << record.file << endl;
+    cout << "***" << record.rowid << ", " << record.artist << ", " << " " << record.album  << " - " << record.year << " - "
+         << record.track << ". " << record.title  << " --> " << record.file << endl;
+
+    cout << "size=" << records.size() << endl;
+    
+    //signal(SIGUSR1, handler1); 
     return 0;
 }
 
@@ -243,14 +252,23 @@ void open_db(const char* sql_path, const char* sql_stmt)
 
 int main (int argc, char **argv)
 {
-    const char* str = "/home/brian/db/music.db";
+    open_db(0, 0);
+    // wait for callback
+    // pid_t p; 
+    // int status; 
+    // if ((p = wait(&status)) > 0) 
+    // { 
+    //     counter += 4; 
+    //     printf("counter = %d\n", counter); 
+    //} 
+
     GtkWidget* window;
     GtkWidget* view;
     gtk_init( &argc, &argv );
     window = gtk_window_new( GTK_WINDOW_TOPLEVEL );
     g_signal_connect( window, "delete_event", gtk_main_quit, NULL );
 
-    // TODO
+
     view = create_view_and_model();
 
     gtk_container_add( GTK_CONTAINER (window), view );

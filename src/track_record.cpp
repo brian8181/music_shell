@@ -7,6 +7,7 @@ track_record::track_record()
 
 track_record::track_record(char* cols[])
 {
+    columns = cols;
     rowid = cols[0];
     location = cols[1];
     year = cols[2];
@@ -20,7 +21,8 @@ track_record::track_record(char* cols[])
     file    = cols[10];
 }
 
-track_record::track_record(string rowid, string artist, string year, string album, string disc, string track, string title)
+track_record::track_record(string rowid, string artist, string year, string album, string disc, string track, string title) 
+: rowid(rowid), artist(artist), year(year), album(album), disc(disc), track(track), title(title)
 {
 
 }

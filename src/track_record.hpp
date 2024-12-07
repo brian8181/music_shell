@@ -12,7 +12,6 @@ using std::map;
 class track_record
 {
 
-
 public:
 
     enum columns
@@ -51,6 +50,9 @@ public:
     string hash;
     string update_ts;
     string insert_ts;
+    
+private:
+    char** columns;
 };
 
 
