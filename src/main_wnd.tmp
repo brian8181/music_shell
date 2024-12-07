@@ -23,34 +23,34 @@ enum
     NUM_COLS
 };
 
-map<int, string> IDX_NAME_MAP = {   { (int)track_record::ROWID, "rowid" }, 
-                                    { (int)track_record::LOCATION, "location"  }, 
-                                    { (int)track_record::YEAR, "year" }, 
-                                    { (int)track_record::ARTIST, "artist" },
-                                    { (int)track_record::ALBUM_ARTIST, "album_artist" }, 
-                                    { (int)track_record::DISC, "disc" }, 
-                                    { (int)track_record::TRACK, "track" }, 
-                                    { (int)track_record::TITLE, "title" },
-                                    { (int)track_record::FILE, "file" }, 
-                                    { (int)track_record::HASH, "hash" }, 
-                                    { (int)track_record::UPDATE_TS, "update_ts" }, 
-                                    { (int)track_record::INSERT_TS, "insert_ts" }   };
+map<int, string> IDX_NAME_MAP = {   {(int)track_record::ROWID, "rowid" }, 
+                                    {(int)track_record::LOCATION, "location"  }, 
+                                    {(int)track_record::YEAR, "year" }, 
+                                    {(int)track_record::ARTIST, "artist" },
+                                    {(int)track_record::ALBUM_ARTIST, "album_artist" }, 
+                                    {(int)track_record::DISC, "disc" }, 
+                                    {(int)track_record::TRACK, "track" }, 
+                                    {(int)track_record::TITLE, "title" },
+                                    {(int)track_record::FILE, "file" }, 
+                                    {(int)track_record::HASH, "hash" }, 
+                                    {(int)track_record::UPDATE_TS, "update_ts" }, 
+                                    {(int)track_record::INSERT_TS, "insert_ts" }   };
 vector<track_record> records(20);
 
 static GtkTreeModel* create_and_fill_model(void)
 {
-    GtkListStore* store = gtk_list_store_new (NUM_COLS, G_TYPE_STRING, G_TYPE_UINT);
+    GtkListStore* store = gtk_list_store_new(NUM_COLS, G_TYPE_STRING, G_TYPE_UINT);
     GtkTreeIter iter;
     /* Append a row and fill in some data */
-    gtk_list_store_append (store, &iter);
-    gtk_list_store_set (store, &iter,
+    gtk_list_store_append(store, &iter);
+    gtk_list_store_set(store, &iter,
                         track_record::ARTIST, records[1],
                         track_record::YEAR, records[2],
                         track_record::ALBUM, records[3],
                         track_record::TRACK, records[4],
                         track_record::TITLE, records[5],                        
                         -1);
-    return GTK_TREE_MODEL (store);
+    return GTK_TREE_MODEL(store);
 }
 
 static GtkWidget* create_view_and_model( void )
@@ -61,7 +61,7 @@ static GtkWidget* create_view_and_model( void )
     int i = records.size( )-1;
     
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,      
                                                  "location",  
                                                  renderer,
@@ -70,7 +70,7 @@ static GtkWidget* create_view_and_model( void )
                                                  NULL );
 
     renderer = gtk_cell_renderer_text_new();
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,      
                                                  "artist",  
                                                  renderer,
@@ -79,7 +79,7 @@ static GtkWidget* create_view_and_model( void )
                                                  NULL );
     
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,      
                                                  "Year",  
                                                  renderer,
@@ -88,7 +88,7 @@ static GtkWidget* create_view_and_model( void )
                                                  NULL );
 
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,      
                                                  "Album",  
                                                  renderer,
@@ -96,16 +96,16 @@ static GtkWidget* create_view_and_model( void )
                                                  track_record::ALBUM,
                                                  NULL );
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,      
-                                                 "Album  Artist",  
+                                                 "Alb um  Artist",  
                                                  renderer,
                                                  IDX_NAME_MAP[track_record::ALBUM_ARTIST], 
                                                  track_record::ALBUM_ARTIST,
                                                  NULL );
 
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,      
                                                  "Disc",  
                                                  renderer,
@@ -114,7 +114,7 @@ static GtkWidget* create_view_and_model( void )
                                                  NULL );   
 
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,      
                                                  "Track",  
                                                  renderer,
@@ -123,7 +123,7 @@ static GtkWidget* create_view_and_model( void )
                                                  NULL ); 
 
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,      
                                                  "Title",  
                                                  renderer,
@@ -131,7 +131,7 @@ static GtkWidget* create_view_and_model( void )
                                                  track_record::TITLE,
                                                  NULL );  
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                 -1,      
                                                 "Encoder",  
                                                 renderer,
@@ -139,7 +139,7 @@ static GtkWidget* create_view_and_model( void )
                                                 NULL );                              
 
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,      
                                                  "Hash",  
                                                  renderer,
@@ -147,7 +147,7 @@ static GtkWidget* create_view_and_model( void )
                                                  NULL );                              
 
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,      
                                                  "File",  
                                                  renderer,
@@ -155,21 +155,21 @@ static GtkWidget* create_view_and_model( void )
                                                  NULL );                              
 
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,
                                                  "Insert Timestamp",  
                                                  renderer,
                                                  IDX_NAME_MAP[track_record::INSERT_TS], track_record::INSERT_TS,
                                                  NULL );       
     renderer = gtk_cell_renderer_text_new( );
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW(view),
                                                  -1,      
                                                  "Update Timestamp",  
                                                  renderer,
                                                  IDX_NAME_MAP[track_record::UPDATE_TS], track_record::UPDATE_TS,
                                                  NULL );                                                                                                                                                                                                                                       
     model = create_and_fill_model( );
-    gtk_tree_view_set_model( GTK_TREE_VIEW (view), model );
+    gtk_tree_view_set_model( GTK_TREE_VIEW(view), model );
 
     /* The tree view has acquired its own reference to the
     *  model, so we can drop ours. That way the model will
@@ -181,15 +181,15 @@ static GtkWidget* create_view_and_model( void )
 
 static int on_sql_data(void *NotUsed, int argc, char **argv, char **azColName)
 {
-    for (int i = 0; i < argc; i++)
+    for(int i = 0; i < argc; i++)
     {
         printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
     }
       
-    track_record record ( argv );
-    records.push_back ( record );
+    track_record record( argv );
+    records.push_back( record );
 
-    GtkListStore* store = gtk_list_store_new ( 5, G_TYPE_STRING, G_TYPE_UINT );
+    GtkListStore* store = gtk_list_store_new( 5, G_TYPE_STRING, G_TYPE_UINT );
     GtkTreeIter iter;
 
     /* Append a row and fill in some data */
@@ -214,7 +214,7 @@ static int on_sql_data(void *NotUsed, int argc, char **argv, char **azColName)
     return 0;
 }
 
-void open_db(const char* sql_path, const char* sql_stmt)
+void open_db(char* sql_path, char* sql_stmt)
 {
     sqlite3* db;
     char* error_msg = 0;
@@ -241,9 +241,8 @@ void open_db(const char* sql_path, const char* sql_stmt)
     }
 }
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
-    const char* str = "/home/brian/db/music.db";
     GtkWidget* window;
     GtkWidget* view;
     gtk_init( &argc, &argv );
@@ -253,7 +252,7 @@ int main (int argc, char **argv)
     // TODO
     view = create_view_and_model();
 
-    gtk_container_add( GTK_CONTAINER (window), view );
+    gtk_container_add( GTK_CONTAINER(window), view );
     gtk_widget_show_all( window );
     gtk_main( );
 

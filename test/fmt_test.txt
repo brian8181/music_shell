@@ -1,0 +1,10 @@
+int *foo;
+int *boo; 
+int* x;
+
+x == 0
+yx==1;
+x<y
+abc!=x
+x&y
+x|y

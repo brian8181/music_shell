@@ -41,10 +41,10 @@ $(OBJ)/main.o: $(SRC)/main.cpp
 # 	gcc $(CFLAGS) $(LDFLAGS) -o $(BLD)/main_wnd $(SRC)/main_wnd.c
 
 $(BLD)/gtk_ex2: $(SRC)/gtk_ex2.c
-	gcc -o $(BLD)/gtk_ex2 $(SRC)/gtk_ex2.c `pkg-config --cflags --libs gtk+-2.0`
+	gcc -o $(BLD)/gtk_ex2 $(SRC)/gtk_ex2.c `pkg-config --cflags --libs gtk+-3.0`
 
 $(BLD)/main_wnd: $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp
-	g++ -o $(BLD)/main_wnd $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp `pkg-config --cflags --libs gtk+-2.0` -lsqlite3
+	g++ -g -o $(BLD)/main_wnd $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp `pkg-config --cflags --libs gtk+-3.0` -lsqlite3
 
 # CFLAGS=-I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/cairo \
 # 	-I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include \
