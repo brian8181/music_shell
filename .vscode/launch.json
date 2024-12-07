@@ -86,7 +86,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/main_wnd",
-            "args": [],
+            "args": ["/home/brian/db/music.db", "SELECT * FROM cash where artist=='Pink Floyd';"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
