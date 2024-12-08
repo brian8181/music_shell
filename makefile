@@ -17,7 +17,7 @@ BLD=build
 CONFIG_PATH=$(HOME)/.music_shell
 BIN_PATH=$(HOME)/bin
 
-all: $(BLD)/sqlite_open $(BLD)/gtk_ex2 $(BLD)/main_wnd #$(BLD)/main_wnd2 #$(OBJ)/allegro_play
+all: $(BLD)/sqlite_open $(BLD)/gtk_ex2 $(BLD)/main_wnd $(BLD)/sig_wait $(BLD)/sig_wait2 #$(BLD)/main_wnd2 #$(OBJ)/CXX) $(CXXFLAGS)allegro_play
 
 $(BLD)/sql_test: $(SRC)/sql_test.cpp
 	$(CXX) $(CXXFLAGS) -lsqlite3 $(SRC)/sql_test.cpp -o $(BLD)/sql_test 
@@ -37,6 +37,13 @@ $(BLD)/allegro_play: $(SRC)/allegro_play.c
 $(OBJ)/main.o: $(SRC)/main.cpp
 	$(CXX) $(CXXFLAGS) -c $(SRC)/main.cpp -o $(OBJ)/main.o
 
+$(OBJ)/sig_wait: $(SRC)/sig_wait.c
+	$(CC) $(SRC)/sig_wait.c -o $(OBJ)/sig_wait
+
+$(OBJ)/sig_wait2: $(SRC)/sig_wait2.c
+	$(CC) $(SRC)/sig_wait2.c -o $(OBJ)/sig_wait2
+
+# $(BLD)/main_wnd: $(SRC)/main_wnd.c
 # $(BLD)/main_wnd: $(SRC)/main_wnd.c
 # 	gcc $(CFLAGS) $(LDFLAGS) -o $(BLD)/main_wnd $(SRC)/main_wnd.c
 

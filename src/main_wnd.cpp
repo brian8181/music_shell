@@ -12,9 +12,21 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <chrono>
+#include <condition_variable>
+#include <iostream>
+#include <thread>
 #include <signal.h> 
 #include <wait.h> 
 #include "track_record.hpp"
+
+
+std::mutex m;
+std::condition_variable cv;
+std::string data;
+bool ready = false;
+bool processed = false;
+
 
 using std::cout;
 using std::endl;
@@ -35,7 +47,9 @@ enum
     COL_ARTIST = 0,
     COL_YEAR = 1,
     COL_ALBUM = 2,
-    NUM_COLS = 3
+    COL_TRACK = 3,
+    COL_TITLE = 4,
+    NUM_COLS = 5
 };
 
 map<int, string> IDX_NAME_MAP = {   { (int)track_record::ROWID, "rowid" }, 
@@ -56,10 +70,9 @@ vector<track_record> records;
 int argc_;
 char** argv_;
 
-
 static GtkTreeModel* set_model_data(void)
 {
-    GtkListStore* store =  gtk_list_store_new (NUM_COLS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+    GtkListStore* store =  gtk_list_store_new (NUM_COLS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,  G_TYPE_STRING, G_TYPE_STRING);
     GtkTreeIter iter;
 
     int len = records.size();
@@ -67,10 +80,12 @@ static GtkTreeModel* set_model_data(void)
     {
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter,
-                      COL_ARTIST, records[i].artist.c_str(),
-                      COL_YEAR, records[i].year.c_str(),
-                      COL_ALBUM, records[i].album.c_str(),
-                      -1);
+                                                COL_ARTIST, records[i].artist.c_str(),
+                                                COL_YEAR, records[i].year.c_str(),
+                                                COL_ALBUM, records[i].album.c_str(),
+                                                COL_TRACK, records[i].track.c_str(),
+                                                COL_TITLE, records[i].title.c_str(),
+                                                -1);
     }
 
     return GTK_TREE_MODEL(store);
@@ -107,6 +122,24 @@ static GtkWidget* create_view(void)
                                                     COL_ALBUM, 
                                                     NULL );
 
+     renderer = gtk_cell_renderer_text_new();
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+                                                    -1,      
+                                                    "track",  
+                                                    renderer,
+                                                    "text", 
+                                                    COL_TRACK, 
+                                                    NULL );
+
+      renderer = gtk_cell_renderer_text_new();
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+                                                    -1,      
+                                                    "title",  
+                                                    renderer,
+                                                    "text", 
+                                                    COL_TITLE, 
+                                                    NULL );
+
     GtkTreeModel* model = set_model_data();
     gtk_tree_view_set_model(GTK_TREE_VIEW(view), model);
 
@@ -120,18 +153,24 @@ static GtkWidget* create_view(void)
 
 static int on_sql_data(void *NotUsed, int argc, char **argv, char **azColName)
 {
+      // wait until main() sends data
+    // std::unique_lock lk(m);
+    // cv.wait(lk, []{ return ready; });
+ 
     track_record record ( argv );
     records.push_back ( record );
 
     cout << "***" << record.rowid << ", " << record.artist << ", " << " " << record.album  << " - " << record.year << " - "
          << record.track << ". " << record.title  << " --> " << record.file << endl;
     cout << "size=" << records.size() << endl;
+
+    //cv.notify_one();
         
     return 0;
 }
 
 void open_db(const string sql_path, const string& sql_stmt)
-{
+{   
     sqlite3* db;
     char* error_msg = 0;
     int rc;
@@ -163,15 +202,23 @@ int main (int argc, char **argv)
     string select_stmt = argv[2];
 
     open_db(db_path, select_stmt);
-    // wait for callback
-    // pid_t p; 
-    // int status; 
-    // if ((p = wait(&status)) > 0) 
-    // { 
-    //     counter += 4; 
-    //     printf("counter = %d\n", counter); 
-    //} 
-    sleep(1);
+    //sleep(1);
+
+    // // callback is waiting
+    // {
+    //     std::lock_guard lk(m);
+    //     ready = true;
+    //     std::cout << "main() signals data ready for processing\n";
+    // }
+    // cv.notify_one();
+  
+    // // wait for callback to finish
+    // {
+    //     std::cout << "wait for callback ..." << std::endl;
+    //     std::unique_lock lk(m);
+    //     cv.wait(lk, []{ return ready; });
+    // }
+    // std::cout << "callback notified, continue .... " << std::endl;
 
     GtkWidget* window;
     GtkWidget* view;
