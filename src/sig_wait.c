@@ -14,7 +14,8 @@
 #include <stdio.h>
 #include <errno.h>
 
-void main(int argc, char** argv) {
+void main(int argc, char** argv)
+{
   sigset_t set;
   int sig;
   int *sigptr = &sig;

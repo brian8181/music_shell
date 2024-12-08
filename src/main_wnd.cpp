@@ -13,6 +13,9 @@
 #include <string>
 #include <map>
 #include <chrono>
+//#include <iterator>
+#include <regex>
+#include <fstream>
 #include <condition_variable>
 #include <iostream>
 #include <thread>
@@ -54,8 +57,8 @@ enum
 
 map<int, string> IDX_NAME_MAP = {   { (int)track_record::ROWID, "rowid" }, 
                                     { (int)track_record::LOCATION, "location"  }, 
-                                    { (int)track_record::ARTIST, "artist" },
                                     { (int)track_record::YEAR, "year" }, 
+                                    { (int)track_record::ARTIST, "artist" },
                                     { (int)track_record::ALBUM, "album" }, 
                                     { (int)track_record::ALBUM_ARTIST, "album_artist" }, 
                                     { (int)track_record::DISC, "disc" }, 
@@ -72,7 +75,9 @@ char** argv_;
 
 static GtkTreeModel* set_model_data(void)
 {
-    GtkListStore* store =  gtk_list_store_new (NUM_COLS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,  G_TYPE_STRING, G_TYPE_STRING);
+    GtkListStore* store =  gtk_list_store_new (9, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,  
+                                                  G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
+                                                  G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
     GtkTreeIter iter;
 
     int len = records.size();
@@ -80,11 +85,15 @@ static GtkTreeModel* set_model_data(void)
     {
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter,
-                                                COL_ARTIST, records[i].artist.c_str(),
-                                                COL_YEAR, records[i].year.c_str(),
-                                                COL_ALBUM, records[i].album.c_str(),
-                                                COL_TRACK, records[i].track.c_str(),
-                                                COL_TITLE, records[i].title.c_str(),
+                                                0, records[i].rowid.c_str(),
+                                                1, records[i].location.c_str(),
+                                                2, records[i].year.c_str(),
+                                                3, records[i].artist.c_str(),
+                                                4, records[i].album.c_str(),
+                                                5, records[i].album_artist.c_str(),
+                                                6, records[i].disc.c_str(),
+                                                7, records[i].track.c_str(),
+                                                8, records[i].title.c_str(),
                                                 -1);
     }
 
@@ -95,58 +104,77 @@ static GtkWidget* create_view(void)
 {
     GtkCellRenderer* renderer;
     GtkWidget* view = gtk_tree_view_new();
-  
+    
     renderer = gtk_cell_renderer_text_new();
     gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
-                                                 -1,      
-                                                 "Artist",  
-                                                 renderer,
+                                                -1,      
+                                                "Id",  
+                                                renderer,
                                                 "text", 
-                                                COL_ARTIST, 
+                                                0, 
                                                 NULL );
     renderer = gtk_cell_renderer_text_new();
     gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
-                                                    -1,      
-                                                    "Year",  
-                                                    renderer,
-                                                    "text", 
-                                                    COL_YEAR, 
-                                                    NULL );
+                                                -1,      
+                                                "Location",  
+                                                renderer,
+                                                "text", 
+                                                1, 
+                                                NULL );
+    
+    renderer = gtk_cell_renderer_text_new();
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+                                                -1,      
+                                                "Year",  
+                                                renderer,
+                                                "text", 
+                                                track_record::YEAR, 
+                                                NULL );
 
     renderer = gtk_cell_renderer_text_new();
     gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
-                                                    -1,      
-                                                    "Album",  
-                                                    renderer,
-                                                    "text", 
-                                                    COL_ALBUM, 
-                                                    NULL );
+                                                -1,      
+                                                "Artist",  
+                                                renderer,
+                                                "text", 
+                                                track_record::ARTIST, 
+                                                NULL );
+    renderer = gtk_cell_renderer_text_new();
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
+                                                -1,      
+                                                "Album",  
+                                                renderer,
+                                                "text", 
+                                                track_record::ALBUM, 
+                                                NULL );
 
      renderer = gtk_cell_renderer_text_new();
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
-                                                    -1,      
-                                                    "track",  
-                                                    renderer,
-                                                    "text", 
-                                                    COL_TRACK, 
-                                                    NULL );
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view), -1,  "Album Artist",  
+                                                                            renderer,
+                                                                            "text", track_record::ALBUM_ARTIST, 
+                                                                            NULL );
 
-      renderer = gtk_cell_renderer_text_new();
-    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view),
-                                                    -1,      
-                                                    "title",  
-                                                    renderer,
-                                                    "text", 
-                                                    COL_TITLE, 
-                                                    NULL );
+    renderer = gtk_cell_renderer_text_new();
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view), -1, "Disc",  
+                                                                           renderer,
+                                                                           "text", track_record::DISC, 
+                                                                           NULL );
 
+    renderer = gtk_cell_renderer_text_new();
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view), -1, "Track",  
+                                                                            renderer,
+                                                                            "text", 
+                                                                            track_record::TRACK, 
+                                                                            NULL );
+
+    renderer = gtk_cell_renderer_text_new();
+    gtk_tree_view_insert_column_with_attributes( GTK_TREE_VIEW (view), -1, "Title",  
+                                                                            renderer,
+                                                                            "text", 
+                                                                            track_record::TITLE, 
+                                                                            NULL );
     GtkTreeModel* model = set_model_data();
     gtk_tree_view_set_model(GTK_TREE_VIEW(view), model);
-
-    /* The tree view has acquired its own reference to the
-    *  model, so we can drop ours. That way the model will
-    *  be freed automatically when the tree view is destroyed */
-
     g_object_unref(model);
     return view;
 }
@@ -196,8 +224,31 @@ void open_db(const string sql_path, const string& sql_stmt)
     }
 }
 
+map<string, string> config;
+// void load_config()
+// {
+//         string path = ".config";
+//         string src = ifs_read_all(path);
+
+//         regex src_exp = regex(LOAD_CONFIG_NAME + "\\s+=\\s+" + LOAD_CONFIG_VALUE);
+
+//         auto begin = sregex_iterator(src.begin(), src.end(), src_exp);
+//         auto end = sregex_iterator();
+
+//         for (auto iter = begin; iter != end; ++iter)
+//         {
+//             smatch match = *iter;
+//             string value = match[3].str() + match[5].str() + match[7].str();
+//             cout << "Match: --> " << match.str() << "; Name: --> " << match[1].str() << "; Value: --> " << value << endl;
+//             config[match[1].str()] = value;
+//         }
+// }
+
 int main (int argc, char **argv)
 {
+    // testing
+    //load_config();
+
     string  db_path = argv[1];
     string select_stmt = argv[2];
 

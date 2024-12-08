@@ -1,4 +1,7 @@
+#include <iostream>
+#include <map>
 #include "msql.hpp"
+
 #include "sqlite3.h"
 #include "track_record.hpp"
 

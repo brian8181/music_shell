@@ -24,8 +24,8 @@ void            *threadfunc(void *parm)
  }                                                                              
 
 int sig;
-  int *sigptr = &sig;                                                                        
- if(sigwait(&set,sigptr ) != SIGUSR1) {                                                 
+int *sigptr = &sig;                                                                        
+if(sigwait(&set,sigptr ) != SIGUSR1) {                                                 
     perror("Sigwait error");                                                    
     pthread_exit((void *)2);                                                    
  }                                                                              
