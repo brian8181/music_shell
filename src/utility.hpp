@@ -1,46 +1,48 @@
-#ifndef _UTILITY_HPP
-#define _UTILITY_HPP
+#ifndef _utility_HPP
+#define _utility_HPP
 
-#include <string>
-#include <map>
+#include <iostream>
 #include <vector>
 
-using namespace std;
+using std::string;
+using std::vector;
 
-void assign(string name, string val, map<string, string>& symbols);
-void display(string path, const map<string, string>& tags);
-void display2(string path, const map<string, string>& tags);
-void display(string tmpl);
-string include(const string& tmpl);
-string variable(const string& src, map<string, string>& vars);
-string sequence(const string& src, const string& sequence);
-string if_sequence(const string& src);
-string if_sequence_with_text(const string& src);
-string foreach_sequence(const string& src);
-string foreach_sequence_with_test(const string& src);
-string lex_all(const string& src);
-string lex(const string& src);
-string lex_tag(const string& src);
+#include <map>
 
-bool load_config(string path, map<string, string>& config);
-void find_tags(string path);
-void replace_tags(string path);
-void replace_tags2(string expr_path, string file_path);
-string match_replace_tags(string path, const map<string, string>& tags);
-string ifs_read_all(string path);
-ifstream open(string path);
-vector<string> getlines(string path);
-map<string, string> get_config(string path);
+using std::string;
+using std::vector;
+using std::map;
 
-std::string ltrim(const std::string &s);
-std::string rtrim(const std::string &s);
-std::string trim(const std::string &s);
+vector<string>& getlines(const string& path, /* out */ vector<string>& lines);
+std::map<string, string>& get_config(const string& path, /* out */ map<string, string>& config);
 
-std::string& _ltrim(const std::string &s);
-std::string& _rtrim(const std::string &s);
-std::string& _trim(const std::string &s);
+string& to_lower(const string& s, /* out */ string& r);
+string& to_lower(string& s); // in place
+string& to_upper(const string& s, /* out */ string& r);
+string& to_upper(string& s); // in place
+string& ltrim(string& s);
+string& rtrim(string& s);
+string& trim(string& s);
 
-const string project_folder = "/home/brian/src/cgi_web";
-const string template_dir = project_folder + "/www/templates";
+template <typename ...Args>
+void print(const Args& ...args);
+
+int digits10(int n);
+int atoi(const char* s);
+void itoa(int& n, char* s);
+
+template<class InputIt, class T, class FunT>
+void split(InputIt first, InputIt last, const T& delim, FunT output);
+
+typedef string line_t;
+typedef vector<line_t> lines_t;
+typedef string field_t;
+typedef vector<field_t> record_t;
+typedef vector<record_t> table_t;
+
+std::vector<std::string> split(const std::string& s, char c);
+vector<long>& psieve(const int& end, vector<long>& ret);
+
+template <typename T> bool equal(const T& a, const T& b);
 
 #endif

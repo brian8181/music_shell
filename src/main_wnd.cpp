@@ -21,6 +21,7 @@
 #include <thread>
 #include <signal.h> 
 #include <wait.h> 
+#include "utility.hpp"
 #include "track_record.hpp"
 
 
@@ -225,6 +226,10 @@ void open_db(const string sql_path, const string& sql_stmt)
 }
 
 map<string, string> config;
+const string CONFIG_LOAD = "\\{\\config_load file=\"(.*?)\"\\}";
+const string LOAD_CONFIG_VALUE = "((\\w+)|('(\\w+)')|(\\\"(\\w+)\\\"))";
+const string LOAD_CONFIG_NAME = "([A-Za-z]+\\w*)";
+
 // void load_config()
 // {
 //         string path = ".config";

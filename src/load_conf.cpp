@@ -3,13 +3,17 @@
 #include <regex>
 #include <fstream>
 #include <string>
-#include "patterns.hpp"
+//#include "patterns.hpp"
 #include "utility.hpp"
 
 using namespace std;
 
 // Usage
 // ./load_conf.cgi ../test/conf_test.txt
+
+const string CONFIG_LOAD = "\\{\\config_load file=\"(.*?)\"\\}";
+const string LOAD_CONFIG_VALUE = "((\\w+)|('(\\w+)')|(\\\"(\\w+)\\\"))";
+const string LOAD_CONFIG_NAME = "([A-Za-z]+\\w*)";
 
 int main(int argc, char *argv[])
 {
