@@ -26,16 +26,15 @@
 
 #define NUMBER_OF_COLUMNS 9
 
+using std::cout;
+using std::endl;
+using std::string;
+
 std::mutex m;
 std::condition_variable cv;
 std::string data;
 bool ready = false;
 bool processed = false;
-
-
-using std::cout;
-using std::endl;
-using std::string;
 
 map<int, string> IDX_NAME_MAP = {   { (int)track_record::ROWID, "rowid" }, 
                                     { (int)track_record::LOCATION, "location"  }, 
@@ -140,23 +139,24 @@ static GtkWidget* create_view(void)
 
 static int on_sql_data(void *NotUsed, int argc, char **argv, char **azColName)
 {
-    // wait until main() sends data
+    // wait for ready
     std::unique_lock lk(m);
     cv.wait(lk, []{ return ready; });
  
     track_record record ( argv );
     records.push_back ( record );
 
+    // signal finished
+    cv.notify_one();
+
     cout << "***" << record.rowid << ", " << record.artist << ", " << " " << record.album  << " - " << record.year << " - "
          << record.track << ". " << record.title  << " --> " << record.file << endl;
     cout << "size=" << records.size() << endl;
 
-    cv.notify_one();
-        
     return 0;
 }
 
-void open_db(const string sql_path, const string& sql_stmt)
+void query_db(const string sql_path, const string& sql_stmt)
 {   
     sqlite3* db;
     char* error_msg = 0;
@@ -193,7 +193,7 @@ int main (int argc, char **argv)
         std::cout << "block sqlite callback until ready...\n";
     }
 
-    open_db(db_path, select_stmt);
+    query_db(db_path, select_stmt);
     cv.notify_one(); // signal sqlite, ready!
 
     // now, wait for callback to finish

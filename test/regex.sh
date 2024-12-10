@@ -1,12 +1,10 @@
-#!/bin/bash
-
-SYMBOL='\b[A-Za-z]\w*\b'
+SYMBOL='[A-Za-z]\w*'
 PARAMS='\w.*\w'
 PARAMS_GRP='('$PARAMS')'
 ARRAY_SUBSCRIPT="[\s.*\s]"
 BINARY_OPERATORS="==|!=|<=|>=|&&|\|\||++|--|<<|>>[-=<>+*&|#]"
 OPERATORS2="{|}|.|->|.*|::|(|)|[|]|'|\"|?|:|%|!|~|^|\\|/|,|;"
-TYPES="void|char|int|short|long|single|float|double"
+TYPE="void|char|int|short|long|single|float|double"
 TYPE_QUALIFIER="const|volatile|mutable|restrict"
 TYPE_SIGN="signed|unsigned"
 STORAGE_CLASS_SPECIFIER="static|auto|register|extern|_Thread_local"
@@ -22,7 +20,6 @@ LITERAL=
 EXPRESSION=''
 END_LINE=';'
 
-
 sed -E "s|\s\(|\(|g"                                     # remove space before opening paren. "foo () --> foo()"
 sed -E "s|\(\s+(\w.*\w)\s+\)|\(\1\)|g"                   # remove space inside parens "foo( x ) --> foo(x)"
 sed -E "s|\((\w.*\w)\)|\( \1 \)|g"                       # adds space inside parens "foo(x) --> foo( x )"
@@ -30,6 +27,7 @@ sed -E "s|(\w+)\s+\*(\w+)|\1\* \2|g"                     # int *x --> int* x
 sed -E "s|(\w+)\*\s+(\w+)|\1 \*\2|g"                     # int* x --> int *x
 sed -E "s|(\w+)==(\w+)|\1 == \2|g"                       # x==0 -> x == 0
 sed -E "s/(\w+)(([-=<>+*&|])|(==)|(!=))(\w+)/\1 \2 \6/g" # x[-=<>+*&|]y --> x [-=<>+*&|] y
+
 sed -E 's/([^\s])\s*\{/\1\n{/g' 
 # void foo() {
 # //
@@ -48,7 +46,22 @@ sed -E 's/^(\s*)([^\s]*)\s*\{/\1\2\n\1{/g'
 #   {
 #   //
 #   }
+
+# space after '(' space before ')'
+# space before '('
+# no space after '(' no space before ')'
+# no space before '('
+# # space before '(' AND # space after '(' space before ')'
+# # no space before '(' AND # no space after '(' no space before ')'
+
+# no space before '(' # AND # no space after '(' no space before ')' #
+# int foo (int x) --> int foo(int x)
+# int foo ( int x ) --> int foo(int x)
+sed -E "s/^\s*($TYPE_QUALIFIER)?\s*($TYPE)\s($SYMBOL)\s*\(\s*($TYPE)\s+($SYMBOL)\s*\)/\1\2 \3\(\4 \5\)/"
+
+# no space before '(' # AND # space after '(' space before ')'
+# int foo ( int x ) --> int foo( int x )
+sed -E "s/^\s*($TYPE_QUALIFIER)?\s*($TYPE)\s($SYMBOL)\s*\(\s*($TYPE)\s+($SYMBOL)\s*\)/\1\2 \3\( \4 \5\ )/"
+
 cat -s # squeeze blank lines
 cat -n # number lines
-
-

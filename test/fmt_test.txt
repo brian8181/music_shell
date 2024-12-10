@@ -8,3 +8,18 @@ x<y
 abc!=x
 x&y
 x|y
+
+int foo( int x )
+{
+    //
+}
+
+int foo (int x)
+{
+    //
+}
+
+int foo ( int x )
+{
+    //
+}
