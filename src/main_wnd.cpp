@@ -19,6 +19,7 @@
 #include <condition_variable>
 #include <iostream>
 #include <thread>
+#include <iomanip>
 #include <signal.h> 
 #include <wait.h> 
 #include "utility.hpp"
@@ -140,39 +141,40 @@ static GtkWidget* create_view(void)
 static int on_sql_data(void *NotUsed, int argc, char **argv, char **azColName)
 {
     // wait for ready
-    std::unique_lock lk(m);
-    cv.wait(lk, []{ return ready; });
+    std::unique_lock ulock(m);
+    cv.wait(ulock, []{ return ready; });
  
     track_record record ( argv );
     records.push_back ( record );
 
     // signal finished
+    processed = true;
     cv.notify_one();
 
-    cout << "***" << record.rowid << ", " << record.artist << ", " << " " << record.album  << " - " << record.year << " - "
-         << record.track << ". " << record.title  << " --> " << record.file << endl;
-    cout << "size=" << records.size() << endl;
-
+    cout << "* " << record.rowid << "# " << record.artist << " - " << record.year << " - " << record.album  << " - ";
+    cout << std::setw(2) << std::right << std::setfill('0') << record.track << ". ";
+    cout << std::setw(30) << std::left << std::setfill(' ') << record.title;
+    cout << "-->" << " " << "\"" << record.file << "\"" << endl;
+    
     return 0;
 }
 
 void query_db(const string sql_path, const string& sql_stmt)
 {   
     sqlite3* db;
-    char* error_msg = 0;
-    int rc;
-        
-    rc = sqlite3_open(sql_path.c_str(), &db);
-    if( rc )
+    int ret_code = sqlite3_open(sql_path.c_str(), &db);
+
+    if( ret_code )
     {
         fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
         sqlite3_close(db);
     }
     else
     {
+        char* error_msg = 0;
         fprintf(stderr, "Opened database successfully\n");
-        rc = sqlite3_exec(db, sql_stmt.c_str(), on_sql_data, 0, &error_msg);
-        if( rc != SQLITE_OK )
+        ret_code = sqlite3_exec(db, sql_stmt.c_str(), on_sql_data, 0, &error_msg);
+        if( ret_code != SQLITE_OK )
         {
             fprintf(stderr, "SQL error: %s\n", error_msg);
             sqlite3_free(error_msg);
@@ -188,7 +190,7 @@ int main (int argc, char **argv)
 
     // block sqlite callback until ready ...
     {
-        std::lock_guard lk(m);
+        std::lock_guard glock(m);
         ready = true;
         std::cout << "block sqlite callback until ready...\n";
     }
@@ -199,8 +201,8 @@ int main (int argc, char **argv)
     // now, wait for callback to finish
     {
         std::cout << "wait for callback ..." << std::endl;
-        std::unique_lock lk(m);
-        cv.wait(lk, []{ return ready; }); // wait for signal
+        std::unique_lock ulock(m);
+        cv.wait(ulock, []{ return ready; }); // wait for signal
         std::cout << "callback signal, continue ..." << std::endl;
     }
 
