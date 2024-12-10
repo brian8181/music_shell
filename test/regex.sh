@@ -1,3 +1,9 @@
+DIGIT=[0-9]
+SIGN="(-|+)"
+DECIMAL="\."
+LITERAL_INTEGER="$SIGN?$DIGIT+"
+LITERAL_FLOAT="$SIGN?$DIGIT*$DECIMAL$DIGIT+"
+
 SYMBOL='[A-Za-z]\w*'
 PARAMS='\w.*\w'
 PARAMS_GRP='('$PARAMS')'
@@ -7,6 +13,11 @@ OPERATORS2="{|}|.|->|.*|::|(|)|[|]|'|\"|?|:|%|!|~|^|\\|/|,|;"
 TYPE="void|char|int|short|long|single|float|double"
 TYPE_QUALIFIER="const|volatile|mutable|restrict"
 TYPE_SIGN="signed|unsigned"
+TYPE_SIGNED="signed"
+TYPE_UNSIGNED="unsigned"
+TYPE_POINTER="*"
+TYPE_REFERENCE="&"
+
 STORAGE_CLASS_SPECIFIER="static|auto|register|extern|_Thread_local"
 KEYWORDS="if|else|elseif|for|while|do|switch|case|default|break|continue|goto|return"
 KEYS2="class|struct|enum|union|inline|virtual"
@@ -60,7 +71,11 @@ sed -E 's/^(\s*)([^\s]*)\s*\{/\1\2\n\1{/g'
 sed -E "s/^\s*($TYPE_QUALIFIER)?\s*($TYPE)\s($SYMBOL)\s*\(\s*($TYPE)\s+($SYMBOL)\s*\)/\1\2 \3\(\4 \5\)/"
 
 # no space before '(' # AND # space after '(' space before ')'
-# int foo ( int x ) --> int foo( int x )
+SPACE_BEFORE_OPEN_PAREN='int foo(int x) --> int foo (int x)'
+NO_SPACE_BEFORE_OPEN_PAREN='int foo (int x) --> int foo(int x)'
+SPACE_AFTER_OPEN_PAREN_SPACE_BEFORE_CLOSE_PAREN='int foo (int x) --> int foo( int x )'
+
+NO_SPACE_BEFORE_OPEN_PAREN_AND_SPACE_AFTER_OPEN_PAREN_SPACE_BEFORE_CLOSE_PAREN='int foo ( int x ) --> int foo( int x )'
 sed -E "s/^\s*($TYPE_QUALIFIER)?\s*($TYPE)\s($SYMBOL)\s*\(\s*($TYPE)\s+($SYMBOL)\s*\)/\1\2 \3\( \4 \5\ )/"
 
 cat -s # squeeze blank lines
