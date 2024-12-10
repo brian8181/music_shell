@@ -52,9 +52,6 @@ map<int, string> IDX_NAME_MAP = {   { (int)track_record::ROWID, "rowid" },
                                     { (int)track_record::INSERT_TS, "insert_ts" }   };
 vector<track_record> records;
 
-int argc_;
-char** argv_;
-
 static GtkTreeModel* set_model_data(void)
 {
     GtkListStore* store =  gtk_list_store_new ( NUMBER_OF_COLUMNS, 
