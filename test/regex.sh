@@ -5,10 +5,18 @@ LITERAL_INTEGER="$SIGN?$DIGIT+"
 LITERAL_FLOAT="$SIGN?$DIGIT*$DECIMAL$DIGIT+"
 
 SYMBOL='[A-Za-z]\w*'
+TYPE_NAME='[A-Za-z_]*'
 PARAMS='\w.*\w'
 PARAMS_GRP='('$PARAMS')'
 ARRAY_SUBSCRIPT="[\s.*\s]"
-BINARY_OPERATORS="==|!=|<=|>=|&&|\|\||++|--|<<|>>[-=<>+*&|#]"
+LOGICAL_OPERS=">|<|==|!=|<=|>=|&&|\|\|"
+MATHMATICAL_OPERS='[+-*|%]'
+BITWISE_OPERS='[~&|^]'
+ASSIGNMENT_OPRS='=|+=|*=|~=|&=|\|=|++|--'
+REDIRECTION_OPERS='.|::|.*|->'
+TERNARY='[=?:]'
+GROUPING_OPERS='[[]{}(),]' 
+BINARY_OPERATORS="==|!=|<=|>=|&&|\|\||++|--|<<|>>[-=<>+*&|%]"
 OPERATORS2="{|}|.|->|.*|::|(|)|[|]|'|\"|?|:|%|!|~|^|\\|/|,|;"
 TYPE="void|char|int|short|long|single|float|double"
 TYPE_QUALIFIER="const|volatile|mutable|restrict"
@@ -20,11 +28,11 @@ TYPE_REFERENCE="&"
 
 STORAGE_CLASS_SPECIFIER="static|auto|register|extern|_Thread_local"
 KEYWORDS="if|else|elseif|for|while|do|switch|case|default|break|continue|goto|return"
-KEYS2="class|struct|enum|union|inline|virtual"
-KEY3="public|protected|private"
-K4="new|delete|sizeof"
-K5="include|using|namespace"
-K6="throw|catch"
+OBJECT_TYPES="class|struct|enum|union|inline|virtual"
+VISIBILITY="public|protected|private"
+MEMORY="new|delete|sizeof"
+SCOPE="include|using|namespace"
+EXCEPTION="throw|catch"
 
 TYPE_MODIFIER="*|&"
 LITERAL=
