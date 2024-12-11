@@ -28,6 +28,9 @@ $(BLD)/ex2: $(SRC)/ex2.cpp
 $(BLD)/sqlite_open: $(SRC)/sqlite_open.c
 	$(CC) -o $(BLD)/sqlite_open $(SRC)/sqlite_open.c -lsqlite3
 
+# $(BLD)/sql_test: $(SRC)/sql_test.c
+# 	$(CC) -o $(BLD)/sql_test $(SRC)/sql_test.c -lsqlite3
+
 # $(OBJ)/allegro_play: $(SRC)/allegro_play.c
 # 	$(CXX) $(CXXFLAGS) $(SRC)/allegro_play.c -o $(BLD)/allegro_play
 

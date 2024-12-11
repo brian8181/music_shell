@@ -13,7 +13,6 @@
 #include <string>
 #include <map>
 #include <chrono>
-//#include <iterator>
 #include <regex>
 #include <fstream>
 #include <condition_variable>
@@ -52,155 +51,160 @@ map<int, string> IDX_NAME_MAP = {   { (int)track_record::ROWID, "rowid" },
                                     { (int)track_record::INSERT_TS, "insert_ts" }   };
 vector<track_record> records;
 
-static GtkTreeModel* set_model_data(void)
+static GtkTreeModel* set_model_data( void )
 {
-    GtkListStore* store =  gtk_list_store_new ( NUMBER_OF_COLUMNS, 
+    GtkListStore* store =  gtk_list_store_new( NUMBER_OF_COLUMNS, 
                                                 G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,  
                                                 G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
                                                 G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING );
     GtkTreeIter iter;
     int len = records.size();
-    for(int i = 0; i < len; ++i)
+    for( int i = 0; i < len; ++i )
     {
-        gtk_list_store_append (store, &iter);
-        gtk_list_store_set (store, &iter,
-                                            0, records[i].rowid.c_str(),
-                                            1, records[i].location.c_str(),
-                                            2, records[i].year.c_str(),
-                                            3, records[i].artist.c_str(),
-                                            4, records[i].album.c_str(),
-                                            5, records[i].album_artist.c_str(),
-                                            6, records[i].disc.c_str(),
-                                            7, records[i].track.c_str(),
-                                            8, records[i].title.c_str(),
-                                            -1);
+        gtk_list_store_append( store, &iter );
+        gtk_list_store_set( store, &iter, 0, records[i].rowid.c_str(),
+                                          1, records[i].location.c_str(),
+                                          2, records[i].year.c_str(),
+                                          3, records[i].artist.c_str(),
+                                          4, records[i].album.c_str(),
+                                          5, records[i].album_artist.c_str(),
+                                          6, records[i].disc.c_str(),
+                                          7, records[i].track.c_str(),
+                                          8, records[i].title.c_str(),
+                                         -1 );
     }
-    return GTK_TREE_MODEL(store);
+    return GTK_TREE_MODEL( store );
 }
 
-static GtkWidget* create_view(void)
+static GtkWidget* create_view( void )
 {
     GtkCellRenderer* renderer;
-    GtkWidget* view = gtk_tree_view_new();
+    GtkWidget* view = gtk_tree_view_new( );
 
-    renderer = gtk_cell_renderer_text_new();
+    renderer = gtk_cell_renderer_text_new( );
     gtk_tree_view_insert_column_with_attributes(    GTK_TREE_VIEW (view), -1, 
                                                     "Id", renderer, "text", 
                                                     track_record::ROWID, 
                                                     NULL    );
-    renderer = gtk_cell_renderer_text_new();
+    renderer = gtk_cell_renderer_text_new( );
     gtk_tree_view_insert_column_with_attributes(    GTK_TREE_VIEW (view), -1, 
                                                     "Location", renderer, "text", 
                                                     track_record::LOCATION,
                                                     NULL     );
-    renderer = gtk_cell_renderer_text_new();
+    renderer = gtk_cell_renderer_text_new( );
     gtk_tree_view_insert_column_with_attributes(    GTK_TREE_VIEW (view), -1, 
                                                     "Year", renderer, "text", 
                                                     track_record::YEAR,
                                                     NULL    );
-    renderer = gtk_cell_renderer_text_new();
+    renderer = gtk_cell_renderer_text_new( );
     gtk_tree_view_insert_column_with_attributes(    GTK_TREE_VIEW (view), -1, 
                                                     "Artist", renderer, "text", 
                                                     track_record::ARTIST,
                                                     NULL    );
-    renderer = gtk_cell_renderer_text_new();
+    renderer = gtk_cell_renderer_text_new( );
     gtk_tree_view_insert_column_with_attributes(    GTK_TREE_VIEW (view), -1, 
                                                     "Album", renderer, "text", 
                                                     track_record::ALBUM, 
                                                     NULL    );
-    renderer = gtk_cell_renderer_text_new();
+    renderer = gtk_cell_renderer_text_new( );
     gtk_tree_view_insert_column_with_attributes(    GTK_TREE_VIEW (view), -1, 
                                                     "Album Artist", renderer, "text", 
                                                     track_record::ALBUM_ARTIST, 
                                                     NULL    );
-    renderer = gtk_cell_renderer_text_new();
+    renderer = gtk_cell_renderer_text_new( );
     gtk_tree_view_insert_column_with_attributes(    GTK_TREE_VIEW (view), -1, 
                                                     "Disc", renderer, "text", 
                                                     track_record::DISC, 
                                                     NULL    );
-    renderer = gtk_cell_renderer_text_new();
+    renderer = gtk_cell_renderer_text_new( );
     gtk_tree_view_insert_column_with_attributes(    GTK_TREE_VIEW (view), -1, 
                                                     "Track", renderer, "text", 
                                                     track_record::TRACK, 
                                                     NULL    );
-    renderer = gtk_cell_renderer_text_new();
+    renderer = gtk_cell_renderer_text_new( );
     gtk_tree_view_insert_column_with_attributes(    GTK_TREE_VIEW (view), -1, 
                                                     "Title", renderer, "text", 
                                                     track_record::TITLE,
                                                     NULL    );
 
-    GtkTreeModel* model = set_model_data();
-    gtk_tree_view_set_model(GTK_TREE_VIEW(view), model);
-    g_object_unref(model);
+    GtkTreeModel* model = set_model_data( );
+    gtk_tree_view_set_model( GTK_TREE_VIEW( view ), model );
+    g_object_unref( model );
     return view;
 }
 
-static int on_sql_data(void *NotUsed, int argc, char **argv, char **azColName)
+static int on_sql_data( void *NotUsed, int argc, char **argv, char **col_name )
 {
     // wait for ready
-    std::unique_lock ulock(m);
-    cv.wait(ulock, []{ return ready; });
+    std::unique_lock ulock( m );
+    std::cout << "waiting for main thread ready ..." << std::endl;
+    cv.wait( ulock, []{ return ready; } );
+    std::cout << "main thread ready, continue ..." << std::endl;
  
-    track_record record ( argv );
-    records.push_back ( record );
+    track_record record( argv );
+    records.push_back( record );
 
     // signal finished
     processed = true;
     cv.notify_one();
+    std::cout << "notify main thread, processed ..." << std::endl;
 
     cout << "* " << record.rowid << "# " << record.artist << " - " << record.year << " - " << record.album  << " - ";
-    cout << std::setw(2) << std::right << std::setfill('0') << record.track << ". ";
-    cout << std::setw(30) << std::left << std::setfill(' ') << record.title;
+    cout << std::setw( 2 ) << std::right << std::setfill( '0' ) << record.track << ". ";
+    cout << std::setw( 30 ) << std::left << std::setfill( ' ' ) << record.title;
     cout << "-->" << " " << "\"" << record.file << "\"" << endl;
     
     return 0;
 }
 
-void query_db(const string sql_path, const string& sql_stmt)
+void query_db( const string sql_path, const string& sql_stmt )
 {   
     sqlite3* db;
-    int ret_code = sqlite3_open(sql_path.c_str(), &db);
+    int ret_code = sqlite3_open( sql_path.c_str(), &db );
 
     if( ret_code )
     {
-        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
-        sqlite3_close(db);
+        cout << "Error: " << sqlite3_errmsg(db) << endl;
+        sqlite3_close( db );
     }
     else
     {
         char* error_msg = 0;
-        fprintf(stderr, "Opened database successfully\n");
-        ret_code = sqlite3_exec(db, sql_stmt.c_str(), on_sql_data, 0, &error_msg);
+        ret_code = sqlite3_exec( db, sql_stmt.c_str( ), on_sql_data, 0, &error_msg );
         if( ret_code != SQLITE_OK )
         {
-            fprintf(stderr, "SQL error: %s\n", error_msg);
-            sqlite3_free(error_msg);
+            cout << "Error: " << error_msg << endl;
+            sqlite3_free( error_msg );
         }
-        sqlite3_close(db);
+        sqlite3_close( db );
     }
 }
 
-int main (int argc, char **argv)
+
+
+int main( int argc, char **argv )
 {
     string  db_path = argv[1];
     string select_stmt = argv[2];
 
     // block sqlite callback until ready ...
     {
-        std::lock_guard glock(m);
+        std::lock_guard glock( m );
         ready = true;
         std::cout << "block sqlite callback until ready...\n";
     }
 
-    query_db(db_path, select_stmt);
+    query_db( db_path, select_stmt );
     cv.notify_one(); // signal sqlite, ready!
 
     // now, wait for callback to finish
     {
-        std::cout << "wait for callback ..." << std::endl;
-        std::unique_lock ulock(m);
-        cv.wait(ulock, []{ return ready; }); // wait for signal
-        std::cout << "callback signal, continue ..." << std::endl;
+        std::cout << "waiting for ulock ..." << std::endl;
+        std::unique_lock ulock( m );
+        std::cout << "releases, continue ..." << std::endl;
+        std::cout << "waiting for processed ..." << std::endl;
+        cv.wait( ulock, []{ return ready; } ); // wait for signal
+        std::cout << "callback thread ready, continue ..." << std::endl;
     }
 
     GtkWidget* window;
@@ -210,7 +214,7 @@ int main (int argc, char **argv)
     g_signal_connect( window, "delete_event", gtk_main_quit, NULL );
 
     view = create_view( );
-    gtk_container_add( GTK_CONTAINER (window), view );
+    gtk_container_add( GTK_CONTAINER( window ), view );
     gtk_widget_show_all( window );
     gtk_main( );
 

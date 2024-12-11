@@ -31,7 +31,7 @@ KEYWORDS="if|else|elseif|for|while|do|switch|case|default|break|continue|goto|re
 OBJECT_TYPES="class|struct|enum|union|inline|virtual"
 VISIBILITY="public|protected|private"
 MEMORY="new|delete|sizeof"
-SCOPE="include|using|namespace"
+SCOPE="include|using|namespace" 
 EXCEPTION="throw|catch"
 
 TYPE_MODIFIER="*|&"
@@ -65,6 +65,11 @@ sed -E 's/^(\s*)([^\s]*)\s*\{/\1\2\n\1{/g'
 #   {
 #   //
 #   }
+echo Input: 
+echo -e 'void foo() { \n\tint x = 0; \n}'
+echo Result:
+echo -e 'void foo() { \n\tint x = 0; \n}' | sed -E "s/\{\s*$/\n{/"
+echo -e '\tvoid foo() { \n\t\tint x = 0; \n\t}' | sed -E 's/(^(\s*)[^\s]*)\s*\{/\1\n\2{/g' 
 
 # space after '(' space before ')'
 # space before '('
@@ -85,6 +90,7 @@ SPACE_AFTER_OPEN_PAREN_SPACE_BEFORE_CLOSE_PAREN='int foo (int x) --> int foo( in
 
 NO_SPACE_BEFORE_OPEN_PAREN_AND_SPACE_AFTER_OPEN_PAREN_SPACE_BEFORE_CLOSE_PAREN='int foo ( int x ) --> int foo( int x )'
 sed -E "s/^\s*($TYPE_QUALIFIER)?\s*($TYPE)\s($SYMBOL)\s*\(\s*($TYPE)\s+($SYMBOL)\s*\)/\1\2 \3\( \4 \5\ )/"
+# echo $@ | sed -E "s/([0-9]+)( |$)/\1p;/g"
 
 cat -s # squeeze blank lines
 cat -n # number lines

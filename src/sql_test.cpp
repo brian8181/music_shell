@@ -20,8 +20,9 @@ bool query()
     sqlite3 * db =0;   // This is a pointer to an sqlite3 database
     const char* vfs = 0;  // vfs stands for virtual file system which we are not using
 
+    std::string path = "~/db/music.db"; 
     // Note the filespec is a C style string and the second parameter &db is a pointer to a pointer
-    rc = sqlite3_open_v2( databaseFilespec.c_str(), &db, SQLITE_OPEN_READONLY, vfs );
+    rc = sqlite3_open_v2( path.c_str(), &db, SQLITE_OPEN_READONLY, vfs );
     if ( rc != SQLITE_OK )
     {
         sqlite3_close( db );
@@ -31,7 +32,8 @@ bool query()
     // Now we create an SQL command which is stored in an sqlite3_stmt data structure.
     // Note symColName_ is a member of EquityDataLocator
     sqlite3_stmt * stmt = 0;
-    std::string s = "SELECT * FROM " + tableName + " WHERE " + symColName_ + " = '" + eds.symbol_ + "';";
+    //std::string s = "SELECT * FROM " + tableName + " WHERE " + symColName_ + " = '" + eds.symbol_ + "';";
+    std::string s = "select * from cash;";
     rc = sqlite3_prepare_v2( db, s.c_str(), s.size() + 1, &stmt, 0 );
     if ( rc != SQLITE_OK )
     {
