@@ -10,8 +10,7 @@ using std::vector;
 using std::map;
 
 class track_record
-{
-
+{ 
 public:
 
     enum columns
@@ -32,8 +31,6 @@ public:
         UPDATE_TS = 13
     };
 
-    
-    track_record();
     track_record(char* cols[]);
     track_record(string rowid, string artist, string year, string album, string disc, string track, string title);
 

@@ -1,10 +1,5 @@
 #include "track_record.hpp"
 
-track_record::track_record()
-{
-
-}
-
 track_record::track_record(char* cols[])
 {
     columns = cols;

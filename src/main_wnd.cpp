@@ -18,7 +18,9 @@
 #include <condition_variable>
 #include <iostream>
 #include <thread>
+#include <syncstream>
 #include <iomanip>
+#include <chrono>
 #include <signal.h> 
 #include <wait.h> 
 #include "utility.hpp"
@@ -29,6 +31,8 @@
 using std::cout;
 using std::endl;
 using std::string;
+
+using namespace std::chrono_literals;
 
 std::mutex m;
 std::condition_variable cv;
@@ -68,7 +72,7 @@ static GtkTreeModel* set_model_data( void )
                                           3, records[i].artist.c_str(),
                                           4, records[i].album.c_str(),
                                           5, records[i].album_artist.c_str(),
-                                          6, records[i].disc.c_str(),
+                                          6, records[i].disc.c_str(),  
                                           7, records[i].track.c_str(),
                                           8, records[i].title.c_str(),
                                          -1 );
@@ -133,26 +137,34 @@ static GtkWidget* create_view( void )
     return view;
 }
 
-static int on_sql_data( void *NotUsed, int argc, char **argv, char **col_name )
+static int on_sql_data( void *unused, int argc, char **argv, char **col_name )
 {
+    std::thread::id this_id = std::this_thread::get_id();
     // wait for ready
-    std::unique_lock ulock( m );
-    std::cout << "waiting for main thread ready ..." << std::endl;
-    cv.wait( ulock, []{ return ready; } );
-    std::cout << "main thread ready, continue ..." << std::endl;
- 
-    track_record record( argv );
-    records.push_back( record );
+    {   
+        std::cout << this_id  << " waiting ulock..." << std::endl;     
+        std::unique_lock ulock( m );
+        std::cout << this_id  << " got ulock..." << std::endl;
+        cout << this_id << " waiting...\n";
+        cv.wait( ulock, []{ return ready; } );
+        std::cout << this_id  << " got ready signal..." << std::endl;
+    
+        track_record record( argv );
+        records.push_back( record );
 
-    // signal finished
-    processed = true;
-    cv.notify_one();
-    std::cout << "notify main thread, processed ..." << std::endl;
+        // signal finished
+        processed = true;
+        cv.notify_one();
+        std::cout << this_id  << " notify processed ..." << std::endl;
 
-    cout << "* " << record.rowid << "# " << record.artist << " - " << record.year << " - " << record.album  << " - ";
-    cout << std::setw( 2 ) << std::right << std::setfill( '0' ) << record.track << ". ";
-    cout << std::setw( 30 ) << std::left << std::setfill( ' ' ) << record.title;
-    cout << "-->" << " " << "\"" << record.file << "\"" << endl;
+        cout << "* " << record.rowid << "# " << record.artist << " - " << record.year << " - " << record.album  << " - ";
+        cout << std::setw( 2 ) << std::right << std::setfill( '0' ) << record.track << ". ";
+        cout << std::setw( 30 ) << std::left << std::setfill( ' ' ) << record.title;
+        cout << "-->" << " " << "\"" << record.file << "\"" << endl;
+
+        std::cout << this_id  << " releasing ulock..." << std::endl;         
+    }
+    std::cout << this_id  << " released ulock..." << std::endl; 
     
     return 0;
 }
@@ -180,32 +192,77 @@ void query_db( const string sql_path, const string& sql_stmt )
     }
 }
 
+// void wait_for_ready()
+// {
+//     std::unique_lock ulock( m );
+//     std::cout << " waiting for main thread ready ..." << std::endl;
+//     cv.wait( ulock, []{ return ready; } );
+//     std::cout << "main thread ready, sqlite continue ..." << std::endl;
+// }
 
+// void lock_until_ready()
+// {
+//     std::cout << "main waiting for glock ..." << std::endl;
+//     std::lock_guard glock( m );
+//     std::cout << "main has glock ..." << std::endl;
+//     ready = true;
+// }
+
+// void lock_until_processed()
+// {
+//     processed = true;
+//     cv.notify_one();
+// }
+
+// void wait_for_processed()
+// {
+//     std::cout << "main waiting for ulock ..." << std::endl;
+//     std::unique_lock ulock( m );
+//     std::cout << "main has ulock, continue ..." << std::endl;
+//     std::cout << "main waiting for sqlite processed ..." << std::endl;
+//     cv.wait( ulock, []{ return ready; } ); // wait for signal
+//     std::cout << "main got processed, continues ..." << std::endl;
+// }
 
 int main( int argc, char **argv )
 {
     string  db_path = argv[1];
     string select_stmt = argv[2];
+    std::thread::id this_id = std::this_thread::get_id();
 
     // block sqlite callback until ready ...
     {
+      
+        std::cout << this_id << " waiting for glock ..." << std::endl;
         std::lock_guard glock( m );
+        std::cout << this_id << " got glock ..." << std::endl;
         ready = true;
-        std::cout << "block sqlite callback until ready...\n";
+        
+        //osyncstream(std::cout) << this_id << " sleeping...\n";
+        cout << this_id << "a" << " sleeping..." << endl;
+        std::this_thread::sleep_for(3s);
+        //osyncstream(std::cout) << this_id << " awake..." << endl;
+        cout << this_id << "a" << " awake..." << endl;
+        std::cout << this_id << " releasing glock ..." << std::endl;
     }
+    std::cout << this_id << " released glock ..." << std::endl;
 
     query_db( db_path, select_stmt );
+    std::cout << this_id << " notifying ready ..." << std::endl;
     cv.notify_one(); // signal sqlite, ready!
+    std::cout << this_id << " notified ready ..." << std::endl;
 
     // now, wait for callback to finish
     {
-        std::cout << "waiting for ulock ..." << std::endl;
+        std::cout << this_id << "a" << " waiting for ulock ..." << std::endl;
         std::unique_lock ulock( m );
-        std::cout << "releases, continue ..." << std::endl;
-        std::cout << "waiting for processed ..." << std::endl;
+        std::cout << this_id << "a" << " got ulock ..." << std::endl;
+        std::cout << this_id << "a" << " waiting for processed ..." << std::endl;
         cv.wait( ulock, []{ return ready; } ); // wait for signal
-        std::cout << "callback thread ready, continue ..." << std::endl;
+        std::cout << this_id << " got processed ..." << std::endl;
+        std::cout << this_id << "a" << " releasing ulock ..." << std::endl;
     }
+    std::cout << this_id << "a" << " released ulock ..." << std::endl;
 
     GtkWidget* window;
     GtkWidget* view;
