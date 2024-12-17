@@ -7,7 +7,11 @@
 #include <string>
 #include <getopt.h>
 #include <sqlite3.h>
+#include <iomanip>
+#include "track_record.hpp"
 
+using std::cout;
+using std::endl;
 
 bool query()
 {
@@ -15,16 +19,20 @@ bool query()
     rc = sqlite3_initialize();   // Initializes the library. If the library has already been initialized it has no effect.
     if ( rc != SQLITE_OK )
     {
+        cout << "sqlite3_initialize - failed ..." <<  endl;
         return false;
+        
     }
     sqlite3 * db =0;   // This is a pointer to an sqlite3 database
     const char* vfs = 0;  // vfs stands for virtual file system which we are not using
 
-    std::string path = "~/db/music.db"; 
+    std::string path = "/home/brian/db/music.db"; 
     // Note the filespec is a C style string and the second parameter &db is a pointer to a pointer
     rc = sqlite3_open_v2( path.c_str(), &db, SQLITE_OPEN_READONLY, vfs );
     if ( rc != SQLITE_OK )
     {
+        cout << "sqlite3_open_v2 - failed code= " << rc <<  endl;
+        cout << "Error: " << sqlite3_errmsg(db) << endl;
         sqlite3_close( db );
         return false;
     }
@@ -32,11 +40,11 @@ bool query()
     // Now we create an SQL command which is stored in an sqlite3_stmt data structure.
     // Note symColName_ is a member of EquityDataLocator
     sqlite3_stmt * stmt = 0;
-    //std::string s = "SELECT * FROM " + tableName + " WHERE " + symColName_ + " = '" + eds.symbol_ + "';";
-    std::string s = "select * from cash;";
+    std::string s = "select * from cash limit 50;";
     rc = sqlite3_prepare_v2( db, s.c_str(), s.size() + 1, &stmt, 0 );
     if ( rc != SQLITE_OK )
     {
+        cout << "sqlite3_prepare_v2 - failed ..." <<  endl;
         sqlite3_finalize( stmt );
         sqlite3_close( db );
         return false;
@@ -46,14 +54,15 @@ bool query()
     rc = sqlite3_step( stmt );
     if ( rc == SQLITE_ROW )
     {
-        // Here we get a pointer to the location text ( stored in the second column of the table )
-        // The 1 in sqlite3_column_text( stmt, 1 ) is the column number (zero based).
-        // sqlite3_column_text( sqlite_stmt* stmt, int cidx ) returns const unsigned char* so the casts are necessary.
-        void* p  = const_cast< unsigned char* > ( sqlite3_column_text( stmt, 1 ) );
-        eds.filespec_ = static_cast< const char* > ( p );
+        string year = (const char*)sqlite3_column_text( stmt, track_record::YEAR );
+        string artist = (const char*)sqlite3_column_text( stmt, track_record::ARTIST );
+        string album = (const char*)sqlite3_column_text( stmt, track_record::ALBUM );
+        string title = (const char*)sqlite3_column_text( stmt, track_record::TITLE );
+        cout << year << ", " << artist << ", " << album << ", " << title << endl;
     }
     else
     {
+        cout << "sqlite3_step - failed ..." <<  endl;
         sqlite3_finalize( stmt );
         sqlite3_close( db );
         return false;
@@ -65,9 +74,50 @@ bool query()
     return true;
 }
 
+static int on_sql_data( void *unused, int argc, char **argv, char **col_name )
+{        
+    track_record record( argv );
+    cout << "* " << record.rowid << "# " << record.artist << " - " << record.year << " - " << record.album  << " - ";
+    cout << std::setw( 2 ) << std::right << std::setfill( '0' ) << record.track << ". ";
+    cout << std::setw( 30 ) << std::left << std::setfill( ' ' ) << record.title;
+    cout << "-->" << " " << "\"" << record.file << "\"" << endl;
+
+    return 0;
+}
+
+
+
+void query_db( const string sql_path, const string& sql_stmt )
+{   
+    sqlite3* db;
+    int ret_code = sqlite3_open( sql_path.c_str(), &db );
+
+    if( ret_code )
+    {
+        cout << "Error: " << sqlite3_errmsg(db) << endl;
+        sqlite3_close( db );
+    }
+    else
+    {
+        char* error_msg = 0;
+        ret_code = sqlite3_exec( db, sql_stmt.c_str( ), on_sql_data, 0, &error_msg );
+        if( ret_code != SQLITE_OK )
+        {
+            cout << "Error: " << error_msg << endl;
+            sqlite3_free( error_msg );
+        }
+        sqlite3_close( db );
+    }
+}
+
+
 int parse_options(int argc, char* argv[])
 {
-
+    string  db_path = argv[1];
+    string select_stmt = argv[2];
+    //query_db( db_path, select_stmt );
+    query();
+    return 0;
 }
 
 int stdin_ready (int filedes)

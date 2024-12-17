@@ -142,12 +142,12 @@ static int on_sql_data( void *unused, int argc, char **argv, char **col_name )
     std::thread::id this_id = std::this_thread::get_id();
     // wait for ready
     {   
-        std::cout << this_id  << " waiting ulock..." << std::endl;     
+        std::osyncstream(std::cout) << this_id  << " waiting ulock..." << endl;     
         std::unique_lock ulock( m );
-        std::cout << this_id  << " got ulock..." << std::endl;
-        cout << this_id << " waiting...\n";
+        std::osyncstream(std::cout) << this_id  << " got ulock..." << endl;
+        std::osyncstream(std::cout) << this_id << " waiting for ready signal..." << endl;
         cv.wait( ulock, []{ return ready; } );
-        std::cout << this_id  << " got ready signal..." << std::endl;
+        std::osyncstream(std::cout) << this_id  << " got ready signal..." << endl;
     
         track_record record( argv );
         records.push_back( record );
@@ -155,16 +155,15 @@ static int on_sql_data( void *unused, int argc, char **argv, char **col_name )
         // signal finished
         processed = true;
         cv.notify_one();
-        std::cout << this_id  << " notify processed ..." << std::endl;
+        std::osyncstream(std::cout) << this_id  << " notify processed ..." << endl;
 
-        cout << "* " << record.rowid << "# " << record.artist << " - " << record.year << " - " << record.album  << " - ";
-        cout << std::setw( 2 ) << std::right << std::setfill( '0' ) << record.track << ". ";
-        cout << std::setw( 30 ) << std::left << std::setfill( ' ' ) << record.title;
-        cout << "-->" << " " << "\"" << record.file << "\"" << endl;
-
-        std::cout << this_id  << " releasing ulock..." << std::endl;         
+        std::osyncstream(std::cout) << "* " << record.rowid << "# " << record.artist << " - " << record.year << " - " << record.album  << " - ";
+        std::osyncstream(std::cout) << std::setw( 2 ) << std::right << std::setfill( '0' ) << record.track << ". ";
+        std::osyncstream(std::cout) << std::setw( 30 ) << std::left << std::setfill( ' ' ) << record.title;
+        std::osyncstream(std::cout) << "-->" << " " << "\"" << record.file << "\"" << endl;
+        std::osyncstream(std::cout) << this_id  << " releasing ulock..." << endl;         
     }
-    std::cout << this_id  << " released ulock..." << std::endl; 
+    std::osyncstream(std::cout) << this_id  << " released ulock..." << endl; 
     
     return 0;
 }
@@ -176,7 +175,7 @@ void query_db( const string sql_path, const string& sql_stmt )
 
     if( ret_code )
     {
-        cout << "Error: " << sqlite3_errmsg(db) << endl;
+        std::osyncstream(std::cout) << "Error: " << sqlite3_errmsg(db) << endl;
         sqlite3_close( db );
     }
     else
@@ -185,7 +184,7 @@ void query_db( const string sql_path, const string& sql_stmt )
         ret_code = sqlite3_exec( db, sql_stmt.c_str( ), on_sql_data, 0, &error_msg );
         if( ret_code != SQLITE_OK )
         {
-            cout << "Error: " << error_msg << endl;
+            std::osyncstream(std::cout) << "Error: " << error_msg << endl;
             sqlite3_free( error_msg );
         }
         sqlite3_close( db );
@@ -195,16 +194,16 @@ void query_db( const string sql_path, const string& sql_stmt )
 // void wait_for_ready()
 // {
 //     std::unique_lock ulock( m );
-//     std::cout << " waiting for main thread ready ..." << std::endl;
+//     std::osyncstream(std::cout)<< " waiting for main thread ready ..." << endl;
 //     cv.wait( ulock, []{ return ready; } );
-//     std::cout << "main thread ready, sqlite continue ..." << std::endl;
+//     std::osyncstream(std::cout)<< "main thread ready, sqlite continue ..." << endl;
 // }
 
 // void lock_until_ready()
 // {
-//     std::cout << "main waiting for glock ..." << std::endl;
+//     std::osyncstream(std::cout)<< "main waiting for glock ..." << endl;
 //     std::lock_guard glock( m );
-//     std::cout << "main has glock ..." << std::endl;
+//     std::osyncstream(std::cout)<< "main has glock ..." << endl;
 //     ready = true;
 // }
 
@@ -216,12 +215,12 @@ void query_db( const string sql_path, const string& sql_stmt )
 
 // void wait_for_processed()
 // {
-//     std::cout << "main waiting for ulock ..." << std::endl;
+//     std::osyncstream(std::cout)<< "main waiting for ulock ..." << endl;
 //     std::unique_lock ulock( m );
-//     std::cout << "main has ulock, continue ..." << std::endl;
-//     std::cout << "main waiting for sqlite processed ..." << std::endl;
+//     std::osyncstream(std::cout)<< "main has ulock, continue ..." << endl;
+//     std::osyncstream(std::cout)<< "main waiting for sqlite processed ..." << endl;
 //     cv.wait( ulock, []{ return ready; } ); // wait for signal
-//     std::cout << "main got processed, continues ..." << std::endl;
+//     std::osyncstream(std::cout)<< "main got processed, continues ..." << endl;
 // }
 
 int main( int argc, char **argv )
@@ -232,37 +231,35 @@ int main( int argc, char **argv )
 
     // block sqlite callback until ready ...
     {
-      
-        std::cout << this_id << " waiting for glock ..." << std::endl;
+        std::osyncstream(std::cout) << this_id << " waiting for glock ..." << endl;
         std::lock_guard glock( m );
-        std::cout << this_id << " got glock ..." << std::endl;
+        std::osyncstream(std::cout) << this_id << " got glock ..." << endl;
         ready = true;
         
-        //osyncstream(std::cout) << this_id << " sleeping...\n";
-        cout << this_id << "a" << " sleeping..." << endl;
+        std::osyncstream(std::cout) << this_id << " sleeping...\n";
+        std::osyncstream(std::cout) << this_id << "a" << " sleeping..." << endl;
         std::this_thread::sleep_for(3s);
-        //osyncstream(std::cout) << this_id << " awake..." << endl;
-        cout << this_id << "a" << " awake..." << endl;
-        std::cout << this_id << " releasing glock ..." << std::endl;
+        std::osyncstream(std::cout) << this_id << "a" << " awake..." << endl;
+        std::osyncstream(std::cout) << this_id << " releasing glock ..." << endl;
     }
-    std::cout << this_id << " released glock ..." << std::endl;
+    std::osyncstream(std::cout)<< this_id << " released glock ..." << endl;
 
     query_db( db_path, select_stmt );
-    std::cout << this_id << " notifying ready ..." << std::endl;
+    std::osyncstream(std::cout) << this_id << " notifying ready ..." << endl;
     cv.notify_one(); // signal sqlite, ready!
-    std::cout << this_id << " notified ready ..." << std::endl;
+    std::osyncstream(std::cout) << this_id << " notified ready ..." << endl;
 
     // now, wait for callback to finish
     {
-        std::cout << this_id << "a" << " waiting for ulock ..." << std::endl;
+        std::osyncstream(std::cout) << this_id << "a" << " waiting for ulock ..." << endl;
         std::unique_lock ulock( m );
-        std::cout << this_id << "a" << " got ulock ..." << std::endl;
-        std::cout << this_id << "a" << " waiting for processed ..." << std::endl;
+        std::osyncstream(std::cout) << this_id << "a" << " got ulock ..." << endl;
+        std::osyncstream(std::cout) << this_id << "a" << " waiting for processed signal ..." << endl;
         cv.wait( ulock, []{ return ready; } ); // wait for signal
-        std::cout << this_id << " got processed ..." << std::endl;
-        std::cout << this_id << "a" << " releasing ulock ..." << std::endl;
+        std::osyncstream(std::cout ) << this_id << " got processed signal ..." << endl;
+        std::osyncstream(std::cout) << this_id << "a" << " releasing ulock ..." << endl;
     }
-    std::cout << this_id << "a" << " released ulock ..." << std::endl;
+    std::osyncstream(std::cout) << this_id << "a" << " released ulock ..." << endl;
 
     GtkWidget* window;
     GtkWidget* view;

@@ -7,7 +7,7 @@
 
 CC= gcc
 CXX= g++
-CXXFLAGS= -Wall -std=c++17 -DEBUG -ggdb
+CXXFLAGS= -std=c++23 -DEBUG -ggdb
 LDFLAGS = -ltag -L/usr/local/lib/ -lz
 INCLUDES= -I/usr/local/include/taglib/
 
@@ -17,10 +17,10 @@ BLD=build
 CONFIG_PATH=$(HOME)/.music_shell
 BIN_PATH=$(HOME)/bin
 
-all: $(BLD)/sqlite_open $(BLD)/gtk_ex2 $(BLD)/main_wnd $(BLD)/sig_wait $(BLD)/sig_wait2 #$(BLD)/main_wnd2 #$(OBJ)/CXX) $(CXXFLAGS)allegro_play
+all: $(BLD)/sqlite_open $(BLD)/sql_test $(BLD)/gtk_ex2 $(BLD)/main_wnd $(BLD)/sig_wait $(BLD)/sig_wait2 $(BLD)/thread_join_ex #$(BLD)/main_wnd2 #$(OBJ)/CXX) $(CXXFLAGS)allegro_play
 
-$(BLD)/sql_test: $(SRC)/sql_test.cpp
-	$(CXX) $(CXXFLAGS) -lsqlite3 $(SRC)/sql_test.cpp -o $(BLD)/sql_test 
+$(BLD)/sql_test: $(SRC)/sql_test.cpp $(SRC)/track_record.cpp 
+	$(CXX) $(CXXFLAGS) $(SRC)/sql_test.cpp $(SRC)/track_record.cpp -lsqlite3 -o $(BLD)/sql_test 
 
 $(BLD)/ex2: $(SRC)/ex2.cpp
 	$(CXX) $(CXXFLAGS) -lsqlite3 $(SRC)/ex2.cpp -o $(BLD)/ex2 
@@ -31,7 +31,7 @@ $(BLD)/sqlite_open: $(SRC)/sqlite_open.c
 # $(BLD)/sql_test: $(SRC)/sql_test.c
 # 	$(CC) -o $(BLD)/sql_test $(SRC)/sql_test.c -lsqlite3
 
-# $(OBJ)/allegro_play: $(SRC)/allegro_play.c
+# $(OBJ)/allegro_play: $(SRC)/allegro_play.cmak
 # 	$(CXX) $(CXXFLAGS) $(SRC)/allegro_play.c -o $(BLD)/allegro_play
 
 $(BLD)/allegro_play: $(SRC)/allegro_play.c
@@ -46,6 +46,9 @@ $(OBJ)/sig_wait: $(SRC)/sig_wait.c
 $(OBJ)/sig_wait2: $(SRC)/sig_wait2.c
 	$(CC) $(SRC)/sig_wait2.c -o $(OBJ)/sig_wait2
 
+$(BLD)/thread_join_ex: $(SRC)/thread_join_ex.cpp
+	$(CXX) $(CXXFLAGS) $(SRC)/thread_join_ex.cpp -o $(BLD)/thread_join_ex
+
 # $(BLD)/main_wnd: $(SRC)/main_wnd.c
 # $(BLD)/main_wnd: $(SRC)/main_wnd.c
 # 	gcc $(CFLAGS) $(LDFLAGS) -o $(BLD)/main_wnd $(SRC)/main_wnd.c
@@ -54,7 +57,7 @@ $(BLD)/gtk_ex2: $(SRC)/gtk_ex2.c
 	gcc -o $(BLD)/gtk_ex2 $(SRC)/gtk_ex2.c `pkg-config --cflags --libs gtk+-3.0`
 
 $(BLD)/main_wnd: $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp lib/libutility.a
-	g++ -g -o $(BLD)/main_wnd $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp lib/libutility.a `pkg-config --cflags --libs gtk+-3.0` -lsqlite3
+	$(CXX) $(CXXFLAGS) -o $(BLD)/main_wnd $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp lib/libutility.a `pkg-config --cflags --libs gtk+-3.0` -lsqlite3
 
 # CFLAGS=-I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/cairo \
 # 	-I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include \
