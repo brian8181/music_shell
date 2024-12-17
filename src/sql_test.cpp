@@ -13,21 +13,19 @@
 using std::cout;
 using std::endl;
 
-bool query()
+bool query(string path, string sql)
 {
     int rc;
-    rc = sqlite3_initialize();   // Initializes the library. If the library has already been initialized it has no effect.
+    rc = sqlite3_initialize(); 
     if ( rc != SQLITE_OK )
     {
         cout << "sqlite3_initialize - failed ..." <<  endl;
         return false;
         
     }
-    sqlite3 * db =0;   // This is a pointer to an sqlite3 database
-    const char* vfs = 0;  // vfs stands for virtual file system which we are not using
+    sqlite3 * db =0;   
+    const char* vfs = 0;
 
-    std::string path = "/home/brian/db/music.db"; 
-    // Note the filespec is a C style string and the second parameter &db is a pointer to a pointer
     rc = sqlite3_open_v2( path.c_str(), &db, SQLITE_OPEN_READONLY, vfs );
     if ( rc != SQLITE_OK )
     {
@@ -37,11 +35,8 @@ bool query()
         return false;
     }
 
-    // Now we create an SQL command which is stored in an sqlite3_stmt data structure.
-    // Note symColName_ is a member of EquityDataLocator
     sqlite3_stmt * stmt = 0;
-    std::string s = "select * from cash limit 50;";
-    rc = sqlite3_prepare_v2( db, s.c_str(), s.size() + 1, &stmt, 0 );
+    rc = sqlite3_prepare_v2( db, sql.c_str(), sql.size() + 1, &stmt, 0 );
     if ( rc != SQLITE_OK )
     {
         cout << "sqlite3_prepare_v2 - failed ..." <<  endl;
@@ -50,7 +45,7 @@ bool query()
         return false;
     }
 
-    // Now we retrieve the row
+    // retrieve the row
     rc = sqlite3_step( stmt );
     if ( rc == SQLITE_ROW )
     {
@@ -85,8 +80,6 @@ static int on_sql_data( void *unused, int argc, char **argv, char **col_name )
     return 0;
 }
 
-
-
 void query_db( const string sql_path, const string& sql_stmt )
 {   
     sqlite3* db;
@@ -116,7 +109,7 @@ int parse_options(int argc, char* argv[])
     string  db_path = argv[1];
     string select_stmt = argv[2];
     //query_db( db_path, select_stmt );
-    query();
+    query(argv[1], argv[2]);
     return 0;
 }
 
