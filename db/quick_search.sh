@@ -34,7 +34,7 @@ if [[ -z "$COLOR_OPT" ]]; then
     echo "todo (color) ..."
 fi
 
-WHERE=$1
+SEARCH=$1
 LIMIT=$2
 # albums only, sorted
-sqlite3 ~/db/music.db "SELECT format('%s : %d - %s : %0d.%02d. %s -> %s', artist, year, album, disc, track, title, file) FROM cash WHERE location=='albums' ${WHERE:+" and $WHERE"} ORDER BY artist, year, album, disc, track, title ${LIMIT:+" LIMIT $LIMIT"};"
+sqlite3 ~/db/music.db "SELECT format('%s : %d - %s : %0d.%02d. %s -> %s', artist, year, album, disc, track, title, file) FROM cash WHERE artist LIKE '%${SEARCH}%' OR album LIKE '%${SEARCH}%' OR title LIKE '%${SEARCH}%' ORDER BY artist, year, album, disc, track, title ${LIMIT:+" LIMIT $LIMIT"};"
