@@ -37,9 +37,11 @@ fi
 source $HOME/bin/color.sh
 WHERE=$1
 LIMIT=$2
-# albums only, sorted
-sqlite3 ~/db/music.db "SELECT format('$(PrintGreen %s) $(PrintBright $(PrintWhite :)) $(PrintMagenta %d) $(PrintBright $(PrintWhite -)) $(PrintRed %s) $(PrintBright $(PrintWhite :)) $(PrintBlue %0d.%02d). $(PrintCyan %s) $(PrintBright $(PrintWhite -\>)) $(PrintGrey %s)', artist, year, album, disc, track, title, file) FROM cash WHERE location=='albums' ${WHERE:+" and $WHERE"} ORDER BY artist, year, album, disc, track, title ${LIMIT:+" LIMIT $LIMIT"};"
+FORMAT="$(PrintGreen %s) $(PrintBright $(PrintWhite :)) $(PrintMagenta %d) $(PrintBright $(PrintWhite -)) $(PrintRed %s) $(PrintBright $(PrintWhite :)) $(PrintBlue %0d.%02d). $(PrintCyan %s) $(PrintBright $(PrintWhite -\>)) $(PrintGrey %s)"
+DEBUG="SELECT format('$FORMAT', artist, year, album, disc, track, title, file) FROM cash WHERE location=='albums' ${WHERE:+" and $WHERE"} ORDER BY artist, year, album, disc, track, title${LIMIT:+" LIMIT $LIMIT"};"
+echo $DEBUG
 
-PrintGreen 
-"Testing2"
-cat tmp.txt
+# albums only, sorted
+sqlite3 ~/db/music.db "$DEBUG"
+
+
