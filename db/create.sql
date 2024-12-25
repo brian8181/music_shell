@@ -60,7 +60,7 @@ create table playlist_song
    insert_ts TIMESTAMP
 );
 
-create table audit
+create table audit_row
 (
    rowid INT PRIMARY KEY ASC,
    table_id int,
@@ -69,6 +69,15 @@ create table audit
    update_ts TIMESTAMP,
    insert_ts TIMESTAMP
 );
+
+create table audit_col
+{
+   rowid INT PRIMARY KEY ASC,
+   auto_row_id INT,
+   col_name TEXT,
+   update_ts TIMESTAMP,
+   insert_ts TIMESTAMP
+};
 
 create table cash
 (
@@ -172,5 +181,8 @@ ON audit
 BEGIN
    UPDATE audit SET insert_ts = datetime() where rowid = new.rowid;
 END;
+
+CREATE UNIQUE INDEX index_song_rowid ON song(rowid);
+CREATE UNIQUE INDEX index_cash_rowid ON cash(rowid);
 
 INSERT into user (rowid, user, password_hash, update_ts, insert_ts) values (1, 'admin', 'THE_HASH', datetime(), datetime());
