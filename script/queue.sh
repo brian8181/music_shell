@@ -73,7 +73,7 @@ do
     if [ $item = "exit" ]; then 
       exit 0;
     fi
-    echo $item | tee -a queue    
+    echo $item | tee -a $QUEUE    
 done
 
 # remove playing flag
