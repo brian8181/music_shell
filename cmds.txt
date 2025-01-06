@@ -1,0 +1,19 @@
+dnf group info virtualization # example
+dnf -v group info virtualizatio # verbose
+dnf group list
+dnf group list
+dnf group list --installed
+sudo dnf install @virtualization #exmaple
+sudo dnf group install virtualization # example
+sudo dnf --setopt=group_package_types="mandatory" group install Virtualization #example
+sudo dnf group install --with-optional virtualization #example
+sudo dnf group upgrade virtualization #example
+sudo dnf group remove virtualization #example
+
+systemctl list-units --type=service
+systemd-analyze # boot perf
+systemctl list-dependencies # for services
+systemd-cgls # ?
+systemd-cgtop # ?
+iostat # drive stats
+sudo smartctl -a /dev/sda

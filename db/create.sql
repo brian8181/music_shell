@@ -36,6 +36,7 @@ create table album
     disc_count TEXT,
     track_count TEXT,     
     -- triggered                
+     user_id INT,
     update_ts TIMESTAMP,
     insert_ts TIMESTAMP
 ); 
