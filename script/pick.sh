@@ -16,6 +16,7 @@ DEBUG=
 PREFIX="$HOME/.music_shell"
 DIFF=
 APPEND=
+INSERT=
 NO_DISP=
 ENQUEUE=
 SAVE_AS=
@@ -53,9 +54,7 @@ while getopts ${OPTSTRING} opt; do
             exit 0;
             ;;
         i)
-            # todo insert
-            ./insert_file_queue.sh 
-            exit 1;
+            INSERT="TRUE"
             ;;
         s)
             SAVE_AS=$OPTARG             
