@@ -113,7 +113,7 @@ fi
 
 if [[ -n $INSERT ]]; then
     pick_items
-    ./insert_file_queue $INDEX $TMP_FILE 
+    insert_file_queue.sh $INDEX $TMP_FILE 
 fi
 
 if [[ ! -z $SAVE_AS ]]; then
