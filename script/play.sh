@@ -42,22 +42,35 @@ CONFIG="$HOME/.music_shell"
 PREFIX="$HOME/music_backup/music-lib"
 PLAYING="$CONFIG/.PLAYING"
 QUEUE="$CONFIG/.QUEUE"
+declare -i QUEUE_IDX=1;
 
 # create playing flag
 echo "playing $1"
 
-while read -r line; do
-
-    touch $PLAYING
-	  echo "$PREFIX/$line" >> $PLAYING
-    ffplay -hide_banner $AUTOEXIT "$PREFIX/$line"
+while [ ! -f "$PLAYING" ]; 
+do
     
-    if [ ! -f "$PLAYING" ]
-    then
-        break
-    fi
+    TRACK=$(sed -n $QUEUE_IDXp $QUEUE)
+    touch $PLAYING
+	  echo "$PREFIX/$TRACK" >> $PLAYING
+    ffplay -hide_banner $AUTOEXIT "$PREFIX/$TRACK"
 
-done < "$QUEUE"
+    # advance index
+    QUEUE_IDX=$(($QUEUE_IDX + 1))
+done
+
+# while read -r line; do
+
+#     touch $PLAYING
+# 	  echo "$PREFIX/$line" >> $PLAYING
+#     ffplay -hide_banner $AUTOEXIT "$PREFIX/$line"
+    
+#     if [ ! -f "$PLAYING" ]
+#     then
+#         break
+#     fi
+
+# done < "$QUEUE"
 
 # remove playing flag
 rm $PLAYING
