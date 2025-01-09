@@ -16,11 +16,12 @@ DEBUG=
 PREFIX="$HOME/.music_shell"
 DIFF=
 APPEND=
+INSERT=
 NO_DISP=
 ENQUEUE=
 SAVE_AS=
 
-OPTSTRING="vahdqp:s:"
+OPTSTRING="vahdqp:s:i:"
 while getopts ${OPTSTRING} opt; do
     case ${opt} in
         v)
@@ -51,6 +52,9 @@ while getopts ${OPTSTRING} opt; do
                 cat "$PREFIX/$OPTARG"
             fi
             exit 0;
+            ;;
+        i)
+            INSERT="TRUE"
             ;;
         s)
             SAVE_AS=$OPTARG             
@@ -90,15 +94,26 @@ TMP_FILE="$PREFIX/$(dateN.sh)_PICK"
 #     exit 1
 # fi
 
+
+function pick_items
+{
+    cat $SRC_FILE | sed -n ${CMDS:-p;} > "$DST_FILE"
+    cp "$DST_FILE" "$TMP_FILE"
+}
+
 CMDS=$(echo $@ | sed -E "s/([0-9]+)( |$)/\1p;/g")
 #echo ${CMDS@Q}
 
 if [[ -z $APPEND ]]; then
-  cat $SRC_FILE | sed -n ${CMDS:-p;} > "$DST_FILE"
-  cp "$DST_FILE" "$TMP_FILE"
+  pick_items
 else
   cat $SRC_FILE | sed -n ${CMDS:-p;} >> "$DST_FILE"
   cp "$DST_FILE" "$TMP_FILE"
+fi
+
+if [[ -n $INSERT ]]; then
+    pick_items
+    insert_file_queue.sh $INDEX $TMP_FILE 
 fi
 
 if [[ ! -z $SAVE_AS ]]; then
