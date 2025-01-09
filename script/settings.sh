@@ -5,19 +5,20 @@
 # FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
 # INFO:
 
-export HOME="/home/brian"
-export STORE_PREFIX="/mnt/music/music-lib"
+export STORE_PREFIX="/run/media/brian/music_usb/music-lib"
 export CONFIG_PREFIX="$HOME/.music_shell"
-export CACHE_NAME="cache.m3u"
-export QUEUE_NAME="queue.m3u"
+export CACHE_NAME=".CASH"
+export QUEUE_NAME=".QUEU"
+export $FIFO="QUEUE_FIFO"
+export STATE=1
 
-# export CURRENT_PLAYLIST=$1
-# export CURRENT_SONG=$2
-# export CURRENT_POS=$3
-# export CONTINOUS_PLAY=$4
-# export RANMDON_PLAY=$5
-# export HISTORY_LEN=100
-# export NOW_PLAYING_LEN=$(cat ../cache/queue | wc -l)
+export CURRENT_PLAYLIST=""
+export CURRENT_SONG=""
+export declare -i QUEUE_IDX=1
+export CONTINOUS_PLAY=1
+export RANMDON_PLAY=0
+export HISTORY_LEN=0
+export NOW_PLAYING_LEN=$(cat ../cache/queue | wc -l)
 
 export FOLDER='1'
 export ARTIST='2'

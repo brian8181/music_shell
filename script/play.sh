@@ -38,11 +38,10 @@ while getopts ${OPTSTRING} opt; do
 done
 shift $(($OPTIND-1))
 
-CONFIG="$HOME/.music_shell"
-PREFIX="$HOME/music_backup/music-lib"
-PLAYING="$CONFIG/.PLAYING"
-QUEUE="$CONFIG/.QUEUE"
-declare -i QUEUE_IDX=1;
+local declare -i IDX=1
+source settings.sh;
+touch PLAYING
+echo $IDX > QUEUE_IDX
 
 # create playing flag
 echo "playing $1"
@@ -50,28 +49,15 @@ echo "playing $1"
 while [ ! -f "$PLAYING" ]; 
 do
     
-    TRACK=$(sed -n $QUEUE_IDXp $QUEUE)
-    touch $PLAYING
-	  echo "$PREFIX/$TRACK" >> $PLAYING
+    TRACK=$(sed -n $IDX $QUEUE_NAME)
+    echo "$PREFIX/$TRACK" > PLAYING
     ffplay -hide_banner $AUTOEXIT "$PREFIX/$TRACK"
-
     # advance index
-    QUEUE_IDX=$(($QUEUE_IDX + 1))
+    IDX=$(($QUEUE_IDX + 1))
 done
 
-# while read -r line; do
-
-#     touch $PLAYING
-# 	  echo "$PREFIX/$line" >> $PLAYING
-#     ffplay -hide_banner $AUTOEXIT "$PREFIX/$line"
-    
-#     if [ ! -f "$PLAYING" ]
-#     then
-#         break
-#     fi
-
-# done < "$QUEUE"
-
+# save index
+echo $IDX > QUEUE_IDX
 # remove playing flag
 rm $PLAYING
 echo "finished $1 ..."
