@@ -69,12 +69,72 @@ touch RUNNING
 
 while [ ! -f "exit" ]; 
 do
-    item=$(cat QUEUE_FIFO)
-    if [ $item = "exit" ]; then 
-      exit 0;
-    fi
-    echo $item | tee -a $QUEUE    
+
+    CMD=$(cat QUEUE_FIFO)
+    case ${CMD} in
+    "PLAY")
+
+        case ${STATE} in
+        "PLAYING")
+          ;;
+        "STOPPED")
+          ;;
+        "PAUSED")
+          ;;
+        ?)
+          ;;
+        esac
+
+      ;;
+    "STOP")
+
+        case ${STATE} in
+        "PLAYING")
+          ;;
+        "STOPPED")
+          ;;
+        "PAUSED")
+          ;;
+        ?)
+          ;;
+        esac
+
+      ;;
+    "PAUSE")
+
+        case ${STATE} in
+        "PLAYING")
+          ;;
+        "STOPPED")
+          ;;
+        "PAUSED")
+          ;;
+        ?)
+          ;;
+        esac
+
+      ;;
+    "EXIT")
+
+      INFO
+      echo -e "${FMT_FG_GREEN}${VERSION}${FMT_FG_RED} ${DEBUG:-debug}${FMT_RESET}"
+      exit 0
+      ;;
+    
+    :)
+      PRINT_DEBUG "Option -${OPTARG} requires an argument."
+      exit 1
+      ;;
+
+    ?)
+      PRINT_DEBUG "Invalid option: -${OPTARG}."
+      exit 1
+      ;;
+  esac
+
 done
+
+ 
 
 # remove playing flag
 echo "exit $1 ..."
