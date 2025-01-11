@@ -5,12 +5,50 @@
 # FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
 # INFO: insert item at index
 
+function VERSION
+{
+    echo -e "version: ${VERSION} - $(date)\n"
+}
+
+function HELP
+{
+    INFO
+    echo -e "\nUsage: \n" \
+              "$> insert.sh [-(v|h)] SRC DST SRC_IDX SRC_LEN DST_IDX DST_LEN\n"
+    echo -e "$(basename ${0}) - version: ${VERSION} - $(date)\n"
+}
+
+
+OPTSTRING="vh"
+while getopts ${OPTSTRING} opt; do
+  case ${opt} in
+    v)
+      VERSION
+      echo -e "${FMT_FG_GREEN}${VERSION}${FMT_FG_RED} ${DEBUG:-debug}${FMT_RESET}"
+      exit 0
+      ;;
+    h)
+      HELP
+      exit 0;
+      ;;
+    :)
+      PRINT_DEBUG "Option -${OPTARG} requires an argument."
+      exit 1
+      ;;
+    ?)
+      PRINT_DEBUG "Invalid option: -${OPTARG}."
+      exit 1
+      ;;
+  esac
+done
+shift $(($OPTIND-1))
+
 SRC=$1
 DST=$2
 SRC_IDX=$3
 SRC_LEN=$4
 DST_IDX=$5
-DST_LEN=$67
+DST_LEN=$6
 
 #  get length of file
 DST_FILE_LEN=$(cat "$DST" | wc -l)
