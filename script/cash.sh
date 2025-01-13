@@ -197,7 +197,6 @@ sed -Ei "s/${SRC_EXP}/${DST_EXP}/g" "${CACHE}"_SINGLES
 
 # validate cache lines
 VALIDATE_RECORD_RXP="(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)${DD__}(.*)"
-
 # combine into cache
 cat "${CACHE}"_ALBUMS "${CACHE}"_MISC "${CACHE}"_SINGLES | grep -E ${VALIDATE_RECORD_RXP} > "${CACHE}"
 rm  "${CACHE}"_ALBUMS "${CACHE}"_MISC "{$CACH}E"_SINGLES
