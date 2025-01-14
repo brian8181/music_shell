@@ -36,7 +36,7 @@ LIMIT=$2
 
 if [[ -z "$NO_COLOR" ]]; then
       FMT_GREEN_STR='$(PrintGreen %s)'
-      FORMAT="$(PrintGreen %s) $(PrintBright $(PrintWhite :)) $(PrintMagenta %d) $(PrintBright $(PrintWhite -)) $(PrintRed %s) $(PrintBright $(PrintWhite :)) $(PrintBlue %0d.%02d). $(PrintCyan %s) $(PrintBright $(PrintWhite -\>)) $(PrintGrey %s)"
+      FORMAT="$(PrintGreen %s) $(PrintBright $(PrintWhite :)) $(PrintMagenta %d) $(PrintBright $(PrintWhite -)) $(PrintRed %s) $(PrintBright $(PrintWhite :)) $(PrintYellow %0d.%02d). $(PrintCyan %s) $(PrintBright $(PrintWhite -\>)) $(PrintGrey %s)"
       DEBUG="SELECT format('$FORMAT', artist, year, album, disc, track, title, file) FROM cash WHERE location=='albums' ${WHERE:+" and $WHERE"} ORDER BY artist, year, album, disc, track, title${LIMIT:+" LIMIT $LIMIT"};"
       echo $DEBUG
       # albums only, sorted
