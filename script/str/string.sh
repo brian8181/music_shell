@@ -1,7 +1,32 @@
 #!/bin/bash
 
+# FILE: 'string.sh'
+# VERSION: '0.0.1'
+# FILE_DATE: 'Fri Jul 12 07:03:30 AM CDT 2024'
+# INFO: string functions
+
+
+# str, str_idx, str_len
+function SUBSTRING
+{
+    SRC=$1 # src file
+    SRC_IDX=$3
+    SRC_LEN=$4
+
+    #  get length of file
+    SRC_FILE_LEN=$(cat "$SRC" | wc -l)
+
+    # get src lines
+    tail -$(($SRC_FILE_LEN - $SRC_IDX)) | head -$SRC_LEN > $SRC.swp
+
+    # print substr
+    cat "$SRC.swp"
+    # remove tmp
+    rm  "$SRC.swp"
+}
+
 # src, dst, src_idx, src_len, dst_idx, dst_len
-function INSERT 
+function INSERT_FILE
 {
     SRC=$1 # src file
     DST=$2 # dst file
@@ -32,4 +57,48 @@ function INSERT
 
     # remove tmp file
     rm dst_tail.swp
+}
+
+function INSERT_STR
+{
+    
+}
+
+# src, dst, src_idx, src_len
+function APPEND_FILE
+{
+    SRC=$1 # src file
+    DST=$2 # dst file
+    SRC_IDX=$3
+    SRC_LEN=$4
+    DST_IDX=$5
+    DST_LEN=$6
+
+    #SUBSTR = $(SUBSTRING $SRC $SRC_IDX $SRC_LEN)
+    # insert back
+    INSERT_FILE $SRC $DST $SRC_IDX $SRC_LEN $DST_LEN $SRC_LEN
+}
+
+function APPEND_STR
+{
+
+}
+
+# src, dst, src_idx, src_len
+function PREPEND_FILE
+{
+    SRC=$1 # src file
+    DST=$2 # dst file
+    SRC_IDX=$3
+    SRC_LEN=$4
+    DST_IDX=$5
+    DST_LEN=$6
+
+    # insert front
+    INSERT $SRC $DST $SRC_IDX $SRC_LEN 0 0
+}
+
+function PREPEND_STR
+{
+
 }

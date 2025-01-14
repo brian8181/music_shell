@@ -43,8 +43,8 @@ while getopts ${OPTSTRING} opt; do
 done
 shift $(($OPTIND-1))
 
-SRC=$1
-DST=$2
+SRC=$1 # src file
+DST=$2 # dst file
 SRC_IDX=$3
 SRC_LEN=$4
 DST_IDX=$5
