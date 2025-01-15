@@ -34,9 +34,26 @@ source $HOME/bin/color.sh
 WHERE=$1
 LIMIT=$2
 
+
+function PrintDefault
+{
+    $(PrintBright $(PrintWhite $1))
+}
+
 if [[ -z "$NO_COLOR" ]]; then
       FMT_GREEN_STR='$(PrintGreen %s)'
-      FORMAT="$(PrintGreen %s) $(PrintBright $(PrintWhite :)) $(PrintMagenta %d) $(PrintBright $(PrintWhite -)) $(PrintRed %s) $(PrintBright $(PrintWhite :)) $(PrintYellow %0d.%02d). $(PrintCyan %s) $(PrintBright $(PrintWhite -\>)) $(PrintGrey %s)"
+
+      ARTIST="$(PrintGreen %s)"
+      YEAR="$(PrintMagenta %d)"
+      ALBUM="$(PrintRed %s)"
+      DISC_TRACK="$(PrintYellow %0d.%02d.)"
+      TITLE="$(PrintCyan %s)"
+      FILE="$(PrintGrey %s)"
+      SEPARATOR1="$(PrintDefault :)"
+      SEPARATOR2="$(PrintDefault -)"
+      SEPARATOR3="$(PrintDefault ->)"
+
+      FORMAT="$ARTIST $SEPARATOR1 $YEAR $SEPARATOR2 $ALBUM $SEPARATOR1 $DISC_TRACK $TITLE $SEPARATOR3 $FILE"
       DEBUG="SELECT format('$FORMAT', artist, year, album, disc, track, title, file) FROM cash WHERE location=='albums' ${WHERE:+" and $WHERE"} ORDER BY artist, year, album, disc, track, title${LIMIT:+" LIMIT $LIMIT"};"
       echo $DEBUG
       # albums only, sorted
