@@ -63,7 +63,6 @@ create_view_and_model (void)
   view = gtk_tree_view_new ();
 
   /* --- Column #1 --- */
-
   renderer = gtk_cell_renderer_text_new ();
   gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
                                                -1,      
@@ -73,7 +72,6 @@ create_view_and_model (void)
                                                NULL);
 
   /* --- Column #2 --- */
-
   renderer = gtk_cell_renderer_text_new ();
   gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (view),
                                                -1,      
@@ -96,23 +94,17 @@ create_view_and_model (void)
 }
 
 
-int
-main (int argc, char **argv)
+int main (int argc, char **argv)
 {
   GtkWidget *window;
   GtkWidget *view;
 
   gtk_init (&argc, &argv);
-
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   g_signal_connect (window, "delete_event", gtk_main_quit, NULL); /* dirty */
-
   view = create_view_and_model ();
-
   gtk_container_add (GTK_CONTAINER (window), view);
-
   gtk_widget_show_all (window);
-
   gtk_main ();
 
   return 0;
