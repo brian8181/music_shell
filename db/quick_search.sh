@@ -36,5 +36,14 @@ fi
 
 SEARCH=$1
 LIMIT=$2
+source $HOME/bin/color.sh
+source display_fmt_all.conf
+
+FORMAT="$ARTIST $SEPARATOR1 $YEAR $SEPARATOR2 $ALBUM $SEPARATOR1 $DISC_TRACK $TITLE $SEPARATOR3 $FILE"
+DEBUG="SELECT format('$FORMAT', artist, year, album, disc, track, title, file) FROM cash WHERE location=='albums' and artist LIKE '%${SEARCH}%' OR album LIKE '%${SEARCH}%' OR title LIKE '%${SEARCH}%' ORDER BY artist, year, album, disc, track, title ${LIMIT:+" LIMIT $LIMIT"};"
+echo $DEBUG
 # albums only, sorted
-sqlite3 ~/db/music.db "SELECT format('%s : %d - %s : %0d.%02d. %s -> %s', artist, year, album, disc, track, title, file) FROM cash WHERE artist LIKE '%${SEARCH}%' OR album LIKE '%${SEARCH}%' OR title LIKE '%${SEARCH}%' ORDER BY artist, year, album, disc, track, title ${LIMIT:+" LIMIT $LIMIT"};"
+sqlite3 ~/db/music.db "$DEBUG"
+
+# albums only, sorted
+#sqlite3 ~/db/music.db "SELECT format('%s : %d - %s : %0d.%02d. %s -> %s', artist, year, album, disc, track, title, file) FROM cash WHERE artist LIKE '%${SEARCH}%' OR album LIKE '%${SEARCH}%' OR title LIKE '%${SEARCH}%' ORDER BY artist, year, album, disc, track, title ${LIMIT:+" LIMIT $LIMIT"};"

@@ -8,17 +8,8 @@
 export STORE_PREFIX="/run/media/brian/music_usb/music-lib"
 export CONFIG_PREFIX="$HOME/.music_shell"
 export CACHE_NAME=".CASH"
-export QUEUE_NAME=".QUEU"
+export QUEUE_NAME=".QUEUE"
 export $FIFO="QUEUE_FIFO"
-export STATE=1
-
-export CURRENT_PLAYLIST=""
-export CURRENT_SONG=""
-export declare -i QUEUE_IDX=1
-export CONTINOUS_PLAY=1
-export RANMDON_PLAY=0
-export HISTORY_LEN=0
-export NOW_PLAYING_LEN=$(cat ../cache/queue | wc -l)
 
 export FOLDER='1'
 export ARTIST='2'
@@ -27,3 +18,12 @@ export ALBUM='4'
 export DISC='5'
 export TRACK='6'
 export TITLE='7'
+
+# export STATE=1
+# export CURRENT_PLAYLIST=""
+# export CURRENT_SONG=""
+# export declare -i QUEUE_IDX=1
+# export CONTINOUS_PLAY=1
+# export RANMDON_PLAY=0
+# export HISTORY_LEN=0
+# export NOW_PLAYING_LEN=$(cat ../cache/queue | wc -l)

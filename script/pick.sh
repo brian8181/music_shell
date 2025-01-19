@@ -95,24 +95,24 @@ TMP_FILE="$PREFIX/$(dateN.sh)_PICK"
 # fi
 
 
-function pick_items
+function PICK_ITEMS
 {
-    cat $SRC_FILE | sed -n ${CMDS:-p;} > "$DST_FILE"
-    cp "$DST_FILE" "$TMP_FILE"
+    cat $SRC_FILE | sed -n ${CMDS:-p;}
+    #cp "$DST_FILE" "$TMP_FILE"
 }
 
 CMDS=$(echo $@ | sed -E "s/([0-9]+)( |$)/\1p;/g")
-#echo ${CMDS@Q}
 
 if [[ -z $APPEND ]]; then
-  pick_items
+  PICK_ITEMS > $DST_FILE
+  #exit 0
 else
-  cat $SRC_FILE | sed -n ${CMDS:-p;} >> "$DST_FILE"
-  cp "$DST_FILE" "$TMP_FILE"
+  PICK_ITEMS >> "$DST_FILE"
+  exit 0
 fi
 
 if [[ -n $INSERT ]]; then
-    pick_items
+    PICK_ITEMS >> $TMP_FILE
     insert_file_queue.sh $INDEX $TMP_FILE 
 fi
 
