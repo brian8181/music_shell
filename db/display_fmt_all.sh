@@ -34,10 +34,9 @@ source $HOME/bin/color.sh
 WHERE=$1
 LIMIT=$2
 
-
 function PrintDefault
 {
-    $(PrintBright $(PrintWhite $1))
+    $(PrintBright "$(PrintWhite $1)")
 }
 
 if [[ -z "$NO_COLOR" ]]; then
