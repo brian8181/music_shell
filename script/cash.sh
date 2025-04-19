@@ -36,7 +36,7 @@ function PRINT_INFO
 
 function INFO
 {
-    echo 
+    echo
    	echo ${VERBOSE:+"File - ${FILE}"}
 	  echo ${VERBOSE:+"Version - ${VERSION}"}
 	  echo ${VERBOSE:+"Date - ${FILE_DATE}"}
@@ -93,7 +93,7 @@ while getopts ${OPTSTRING} opt; do
     d)
       # dst
       DST=${OPTARG}
-      INFO 
+      INFO
       exit 0
       ;;
     :)
@@ -155,9 +155,9 @@ ALBUM_ARTIST='\2'
 DISC='\6'
 TRACK='\7'
 
-#        (1     ) /     (2 )  /    (3      )   (4 )  /    ((6          ))   (8       )    /     (9  )   /   (10         ) 
+#         (1      ) /     (2 )  /     (3       )   (4 )  /     ((6           ))    (8        )     /     (9  )   /   (10         )
 SRC_EXP="${LOC_EXP}${SD__}(.*)${SD__}${YEAR_EXP} - (.*)${SD__}${DISC_TRACK_EXP}\. ${TITLE_EXP}"
-#        (1      )  |    (2  )  |    (3    )  |    (4   )  |    (5          )  |    (6  )  |    (7   )  |    (8-14       )
+#        (1        )  |     (2   )  |     (3     )  |     (4    )  |     (5           )  |    (6  )  |     (7    )  |     (8-14       )
 DST_EXP="{$LOCATION}${DD__}${YEAR}${DD__}${ARTIST}${DD__}${ALBUM}${DD__}${ALBUM_ARTIST}${DD__}$DISC${DD__}${TRACK}${DD__}${REPL_END_RXP}"
 
 PRINT_INFO "searching for albums ......."
@@ -171,9 +171,9 @@ ALBUM='\4'
 ALBUM_ARTIST='\7'
 DISC='\5'
 TRACK='\6'
-#        (1     )   /   (2      )   (3 )   /   (4            )   (5 )   (6       )
+#         (1      )   /    (2      )    (3 )   /    (4            )    (5 )   (6         )
 SRC_EXP="${LOC_EXP}${SD__}${YEAR_EXP} - (.*)${SD__}${DISC_TRACK_EXP}\. (.*) - ${TITLE_EXP}"
-#        (1      )  |    (2  )  |    (3    )  |    (4   )  |    (5          )  |    (6  )  |    (7   )  |    (8-14       )
+#         (1      )  |      (2  )  |      (3    )  |      (4   )  |      (5           )  |    (6  )  |     (7    )  |     (8-14        )
 DST_EXP="${LOCATION}${DD__}${YEAR}${DD__}${ARTIST}${DD__}${ALBUM}${DD__}${ALBUM_ARTIST}${DD__}$DISC${DD__}${TRACK}${DD__}${REPL_END_RXP}"
 
 PRINT_INFO "searching for misc & soundtrack ........."
@@ -187,7 +187,7 @@ ALBUM='\4'
 ALBUM_ARTIST='\7'
 DISC='\5'
 TRACK='\6'
-#         (1      )     (2 )   (3 )  ((5      ))    (6        )  (7 )
+#         (1      )       (2 )   (3 )  ((5         ))    (6        )  (7 )
 SRC_EXP="^(singles)${SD__}(.*) - (.*) \(${YEAR_EXP}\) - ${TITLE_EXP}"
 DST_EXP="\1${DD__}\4${DD__}\2${DD__}\3${DD__}\2${DD__}${DD__}${DD__}\5${DD__}\6${DD__}\"&\"${DD__}$HASH${DD__}${INSERT_TS}${DD__}${UPDATE_TS}"
 
