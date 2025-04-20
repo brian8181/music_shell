@@ -3,7 +3,7 @@
 # FILE: display_fmt_all.sh
 # VERSION: 0.0.1
 # FILE_DATE: Sat Apr 19 16:29:14 CDT 2025
-# INFO: dislay formated text from sqlite
+# INFO: display formated text from sqlite
 
 NO_COLOR=
 
