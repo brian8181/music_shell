@@ -2,7 +2,7 @@
 
 # FILE: create_m3u.sh
 # VERSION: 0.0.1
-# FILE_DATE: Mon Dec  2 03:27:12 PM CST 2024
+# FILE_DATE: Mon Dec  2 03:27:12 PM CST 
 # INFO: create play list in db 
 
 NAME=$1
