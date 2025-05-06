@@ -45,8 +45,8 @@ shift $(($OPTIND-1))
 
 SRC=$1 # src file
 DST=$2 # dst file
-DST_IDX=$5
-DST_LEN=$6
+DST_IDX=$3
+DST_LEN=$4
 
 #  get length of file
 DST_FILE_LEN=$(cat "$DST" | wc -l)

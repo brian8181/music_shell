@@ -10,8 +10,8 @@
 function SUBSTRING
 {
     SRC=$1 # src file
-    SRC_IDX=$3
-    SRC_LEN=$4
+    SRC_IDX=$2
+    SRC_LEN=$3
 
     #  get length of file
     SRC_FILE_LEN=$(cat "$SRC" | wc -l)
@@ -61,7 +61,13 @@ function INSERT_FILE
 
 function INSERT_STR
 {
-    
+    SRC=$1 # src str
+    DST=$2 # dst file
+    SRC_IDX=$3
+    SRC_LEN=$4
+    DST_IDX=$5
+    DST_LEN=$6
+
 }
 
 # src, dst, src_idx, src_len
@@ -71,17 +77,24 @@ function APPEND_FILE
     DST=$2 # dst file
     SRC_IDX=$3
     SRC_LEN=$4
-    DST_IDX=$5
-    DST_LEN=$6
+
+    DST_IDX_END=
+    DST_IDX=$DST_IDX_END
+    DST_LEN=0
 
     #SUBSTR = $(SUBSTRING $SRC $SRC_IDX $SRC_LEN)
     # insert back
-    INSERT_FILE $SRC $DST $SRC_IDX $SRC_LEN $DST_LEN $SRC_LEN
+    #INSERT_FILE $SRC $DST $SRC_IDX $SRC_LEN $DST_IDX $DST_LEN
 }
 
 function APPEND_STR
 {
-
+    SRC=$1 # src str
+    DST=$2 # dst file
+    SRC_IDX=$3
+    SRC_LEN=$4
+    DST_IDX=$5
+    DST_LEN=$6
 }
 
 # src, dst, src_idx, src_len
