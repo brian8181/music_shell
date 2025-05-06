@@ -19,11 +19,11 @@ BIN_PATH=$(HOME)/bin
 
 all: $(BLD)/sqlite_open $(BLD)/sql_test $(BLD)/gtk_ex2 $(BLD)/main_wnd $(BLD)/sig_wait $(BLD)/sig_wait2 $(BLD)/thread_join_ex #$(BLD)/main_wnd2 #$(OBJ)/CXX) $(CXXFLAGS)allegro_play
 
-$(BLD)/sql_test: $(SRC)/sql_test.cpp $(SRC)/track_record.cpp 
-	$(CXX) $(CXXFLAGS) $(SRC)/sql_test.cpp $(SRC)/track_record.cpp -lsqlite3 -o $(BLD)/sql_test 
+$(BLD)/sql_test: $(SRC)/sql_test.cpp $(SRC)/track_record.cpp
+	$(CXX) $(CXXFLAGS) $(SRC)/sql_test.cpp $(SRC)/track_record.cpp -lsqlite3 -o $(BLD)/sql_test
 
 $(BLD)/ex2: $(SRC)/ex2.cpp
-	$(CXX) $(CXXFLAGS) -lsqlite3 $(SRC)/ex2.cpp -o $(BLD)/ex2 
+	$(CXX) $(CXXFLAGS) -lsqlite3 $(SRC)/ex2.cpp -o $(BLD)/ex2
 
 $(BLD)/sqlite_open: $(SRC)/sqlite_open.c
 	$(CC) -o $(BLD)/sqlite_open $(SRC)/sqlite_open.c -lsqlite3
@@ -64,8 +64,8 @@ $(BLD)/main_wnd: $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp lib/libutility.a
 # 	-mfpmath=sse -msse -msse2 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/fribidi \
 # 	-I/usr/include/webp -I/usr/include/libxml2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -DWITH_GZFILEOP \
 # 	-I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -pthread
-	
-# LDFLAGS=-lgtk-3 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -lgdk_pixbuf-2.0 -lcairo-gobject -lcairo -lvulkan -lgraphene-1.0 -lgio-2.0 -lgobject-2.0 -lglib-2.
+
+# LDFLAGS=-lgtk-3 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -lgdk_pixbuf-2.0 -lcairo-gobject -lcairo -lvulkan -lgraphene-1.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
 
 # $(BLD)/main_wnd2: $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp
 # 	g++ -o $(CFLAGS) $(LDFLAGS) S$(BLD)/main_wnd2 $(SRC)/main_wnd.cpp $(SRC)/track_record.cpp `pkg-config --cflags --libs gtk+-2.0` -lsqlite3

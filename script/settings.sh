@@ -27,3 +27,4 @@ export TITLE='7'
 # export RANMDON_PLAY=0
 # export HISTORY_LEN=0
 # export NOW_PLAYING_LEN=$(cat ../cache/queue | wc -l)
+ 
