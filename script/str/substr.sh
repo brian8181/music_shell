@@ -44,8 +44,8 @@ done
 shift $(($OPTIND-1))
 
 SRC=$1 # src file
-SRC_IDX=$3
-SRC_LEN=$4
+SRC_IDX=$2
+SRC_LEN=$3
 
 #  get length of file
 SRC_FILE_LEN=$(cat "$SRC" | wc -l)
