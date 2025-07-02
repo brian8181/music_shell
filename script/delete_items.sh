@@ -12,4 +12,4 @@ END="${3:-${BEG}}"
 TIME_STAMP="$(date.sh)"
 cp "$FILE" "${FILE}.${TIME_STAMP}"
 
-sed -i "${BEG},${END}d" "${FILE}"
+sed -E -i "${BEG},${END}d" "${FILE}"
