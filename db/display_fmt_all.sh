@@ -31,7 +31,7 @@ done
 shift $(($OPTIND-1))
 
 source $HOME/bin/color.sh
-source $HOME/bin/display_fmt_all.conf
+source display_fmt_all.conf
 
 WHERE=$1
 LIMIT=$2
@@ -46,15 +46,15 @@ COLUMNS="artist, year, album, disc, track, title, file"
 if [[ -z "$NO_COLOR" ]]; then
       FMT_GREEN_STR='$(PrintGreen %s)'
 
-      # ARTIST="$(PrintGreen %s)"
-      # YEAR="$(PrintMagenta %d)"
-      # ALBUM="$(PrintRed %s)"
-      # DISC_TRACK="$(PrintYellow %0d.%02d.)"
-      # TITLE="$(PrintCyan %s)"
-      # FILE="$(PrintGrey %s)"
-      # SEPARATOR1="$(PrintDefault :)"
-      # SEPARATOR2="$(PrintDefault -)"
-      # SEPARATOR3="$(PrintDefault ->)"
+      ARTIST="$(PrintGreen %s)"
+      YEAR="$(PrintMagenta %d)"
+      ALBUM="$(PrintRed %s)"
+      DISC_TRACK="$(PrintYellow %0d.%02d.)"
+      TITLE="$(PrintCyan %s)"
+      FILE="$(PrintGrey %s)"
+      SEPARATOR1="$(PrintDefault :)"
+      SEPARATOR2="$(PrintDefault -)"
+      SEPARATOR3="$(PrintDefault ->)"
 
       FORMAT="$ARTIST $SEPARATOR1 $YEAR $SEPARATOR2 $ALBUM $SEPARATOR1 $DISC_TRACK $TITLE $SEPARATOR3 $FILE"
       DEBUG="SELECT format('$FORMAT', '$COLUMNS') FROM cash WHERE location=='albums' ${WHERE:+" and $WHERE"} ORDER BY $COLUMNS ${LIMIT:+" LIMIT $LIMIT"};"
@@ -65,8 +65,3 @@ if [[ -z "$NO_COLOR" ]]; then
       FORMAT="%s : %d - %s : %0d.%02d. %s -> %s"
       sqlite3 $DB_NAME "SELECT format('$FORMAT', $COLUMNS) FROM cash WHERE location=='albums' ${WHERE:+" and $WHERE"} ORDER BY $COLUMNS ${LIMIT:+" LIMIT $LIMIT"};"
 fi
-
-
-
-
- 

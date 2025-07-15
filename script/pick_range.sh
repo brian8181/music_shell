@@ -17,5 +17,3 @@ if [[ ${BEG} -le 0 || ${BEG} -gt END || $END -gt $LEN ]]; then
 fi
 
 cat -n $FILE | sed -n "${BEG},${END}p"
-
-

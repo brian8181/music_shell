@@ -138,4 +138,3 @@ done
 
 # remove playing flag
 echo "exit $1 ..."
-

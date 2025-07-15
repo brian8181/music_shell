@@ -20,4 +20,3 @@ cat $FILE | sed -E "s/([^\|]*)/${FMT_INVERT}${FMT_FG_GREEN}\1${FMT_RESET}/1; s/(
 # while read line; do
 # 	echo -e "$line"
 # done < "$DST_FILE"
-

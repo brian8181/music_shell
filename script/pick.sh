@@ -134,8 +134,3 @@ if [[ ! -z $DIFF ]]; then
 fi
 
 cat -n $DST_FILE
-
-
-
-
-
