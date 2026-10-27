@@ -35,7 +35,8 @@ function PRINT_DEBUG
 function PRINT_INFO
 {
     MSG=${INFO_MSG}$1
-    echo -e ${VERBOSE:+"$MSG"}u/0/#inbox
+    echo -e ${VERBOSE:+"$MSG"}
+}
 ##{ BEGIN YOUR CODE  }##
 
 PRINT_INFO "creating playlist ..."

@@ -155,7 +155,7 @@ static int on_sql_data( void *unused, int argc, char **argv, char **col_name )
         cv.notify_one();
         std::osyncstream(std::cout) << this_id  << " notify processed ..." << endl;
 
-        std::osyncstream(std::cout) << "* " << record.rowid << "# " << record.artist << " - " << record.year << " - " << record.album  << " - ";
+        std::osyncstream(sthttps://www.foobar2000.org/FAQd::cout) << "* " << record.rowid << "# " << record.artist << " - " << record.year << " - " << record.album  << " - ";
         std::osyncstream(std::cout) << std::setw( 2 ) << std::right << std::setfill( '0' ) << record.track << ". ";
         std::osyncstream(std::cout) << std::setw( 30 ) << std::left << std::setfill( ' ' ) << record.title;
         std::osyncstream(std::cout) << "-->" << " " << "\"" << record.file << "\"" << endl;
