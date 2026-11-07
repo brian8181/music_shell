@@ -46,6 +46,17 @@ void check_mpd() {
         std::cout << "\n--- MPD Response ---\n" << buffer;
     }
 
+    // 5. Send a command string (must terminate with \n)
+    std::string cmd2 = "status\n";
+    write(sock, cmd2.c_str(), cmd2.length());
+
+    // 6. Read response buffer
+    memset(buffer, 0, sizeof(buffer));
+    bytes_received = read(sock, buffer, sizeof(buffer) - 1);
+    if (bytes_received > 0) {
+        std::cout << "\n--- MPD Response ---\n" << buffer;
+    }
+
     // 7. Clean up connection context
     close(sock);
 }
