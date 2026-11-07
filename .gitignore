@@ -4,6 +4,9 @@
 src/queue
 src/cache/*
 src/.music_shell/cache/*
+mpd/obj/*
+mpd/build/*
+
 s
 sp
 *~

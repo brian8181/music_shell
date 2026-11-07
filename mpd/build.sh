@@ -1,2 +1,1 @@
-#!/bin/bash
-g++ main.cpp $(wx-config --cxxflags --libs) -o custom-mpd-client
+g++ --std=c++17 test_client.cpp -o build/test_client

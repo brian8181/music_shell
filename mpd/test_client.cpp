@@ -4,6 +4,7 @@
 #include <sys/un.h>
 #include <unistd.h>
 #include <cstdlib>
+#include <cstring>
 
 void check_mpd() {
     // 1. Create a standard Unix domain stream socket
@@ -18,7 +19,7 @@ void check_mpd() {
     addr.sun_family = AF_UNIX;
     
     std::string socket_path = std::string(std::getenv("HOME")) + "/.config/mpd/socket";
-    std::strncpy(addr.sun_path, socket_path.c_str(), sizeof(addr.sun_path) - 1);
+    strncpy(addr.sun_path, socket_path.c_str(), sizeof(addr.sun_path) - 1);
 
     // 3. Connect to the daemon
     if (connect(sock, (struct sockaddr*)&addr, sizeof(addr)) < 0) {
@@ -39,7 +40,7 @@ void check_mpd() {
     write(sock, cmd.c_str(), cmd.length());
 
     // 6. Read response buffer
-    std::memset(buffer, 0, sizeof(buffer));
+    memset(buffer, 0, sizeof(buffer));
     bytes_received = read(sock, buffer, sizeof(buffer) - 1);
     if (bytes_received > 0) {
         std::cout << "\n--- MPD Response ---\n" << buffer;
