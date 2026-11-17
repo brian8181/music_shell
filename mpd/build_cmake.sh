@@ -9,3 +9,4 @@ cmake ..
 
 # 3. Compile your native client binary
 cmake --build .
+git 

@@ -43,7 +43,7 @@ void check_mpd() {
     memset(buffer, 0, sizeof(buffer));
     bytes_received = read(sock, buffer, sizeof(buffer) - 1);
     if (bytes_received > 0) {
-        std::cout << "\n--- MPD Response ---\n" << buffer;
+        std::cout << "\n--- MPD Response 1 ---\n" << buffer;
     }
 
     // 5. Send a command string (must terminate with \n)
@@ -54,7 +54,18 @@ void check_mpd() {
     memset(buffer, 0, sizeof(buffer));
     bytes_received = read(sock, buffer, sizeof(buffer) - 1);
     if (bytes_received > 0) {
-        std::cout << "\n--- MPD Response ---\n" << buffer;
+        std::cout << "\n--- MPD Response 2 ---\n" << buffer;
+    }
+
+    // 5. Send a command string (must terminate with \n)
+    std::string cmd3 = "volume 50\n";
+    write(sock, cmd3.c_str(), cmd3.length());
+
+    // 6. Read response buffer
+    memset(buffer, 0, sizeof(buffer));
+    bytes_received = read(sock, buffer, sizeof(buffer) - 1);
+    if (bytes_received > 0) {
+        std::cout << "\n--- MPD Response Volume ---\n" << buffer;
     }
 
     // 7. Clean up connection context
