@@ -89,6 +89,9 @@ cp -v -f "${HOME}"/src/music_shell/utility/*.sh "$HOME/bin/" > /dev/null
 # ln -s -v "$HOME/bin/search.sh" "$HOME/bin/search"
 # PRINT_INFO "create link \"$HOME/bin/cpl\" ..."
 # ln -s -v "$HOME/bin/create_playlist.sh" "$HOME/bin/cpl"
+ln -sf "$HOME/bin/m3u-view.sh" "$HOME/bin/m3v"
+ln -sf "$HOME/bin/m3u-query.sh" "$HOME/bin/m3q"
+ln -sf "$HOME/bin/m3-clean.sh" "$HOME/bin/m3c"
 
 # db stuff to db
 if [ ! -d "$HOME/db" ]; then
