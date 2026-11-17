@@ -26,28 +26,49 @@ BEGIN {
 
 {
     idx++
-    artist = $2
-    album_dir = $3
-    file = $4
+    bucket = $1
+    year = "----"; num = "--.--"; title = ""; ext = ""
 
-    # Split "2012 - The Wall (Immersion Box Set)" -> year & album
-    if (match(album_dir, /^([0-9]{4}) - (.*)$/, a)) {
-        year  = a[1]
-        album = a[2]
+    if (bucket == "albums") {
+        artist = $2; album_dir = $3; file = $4
+    } else if (bucket == "soundtrack" || bucket == "misc") {
+        album_dir = $2; file = $3
+        artist = (bucket == "soundtrack") ? "[Soundtrack]" : "[Compilation]"
+    } else if (bucket == "singles") {
+        if (NF >= 3) {
+            artist = $2; album_dir = "[Single]"; file = $3
+        } else {
+            artist = "[Single]"; album_dir = "[Single]"; file = $2
+        }
     } else {
-        year  = "----"
+        artist = $2; album_dir = $3; file = $NF
+    }
+
+    # Parse "YYYY - Album" if present
+    if (match(album_dir, /^([0-9]{4}) - (.*)$/, a)) {
+        year = a[1]; album = a[2]
+    } else {
         album = album_dir
     }
 
-    # Split "1.01. Title.mp3" OR "01. Title.mp3" -> disc.track, title, ext
+    # Parse "1.01. Title.ext" or "01. Title.ext"
     if (match(file, /^(([0-9]+\.)?[0-9]+)\. (.*)(\.[^.]+)$/, f)) {
-        num   = f[1]
-        title = f[3]
-        ext   = f[4]
+        num = f[1]; title = f[3]; ext = f[4]
+    } else if (match(file, /^(.*)(\.[^.]+)$/, f)) {
+        title = f[1]; ext = f[2]
     } else {
-        num   = "--.--"
         title = file
-        ext   = ""
+    }
+
+    # For soundtracks/compilations: extract track artist from "Artist - Title"
+    if (bucket == "soundtrack" || bucket == "misc") {
+        if (match(title, /^(.+?) - (.*)$/, t)) {
+            artist = t[1]
+            title  = t[2]
+        } else {
+            # Fallback if a specific track filename has no "Artist - " separator
+            artist = (bucket == "soundtrack") ? "[OST]" : "[Various]"
+        }
     }
 
     if (show_num) {
@@ -62,4 +83,3 @@ BEGIN {
         C_TITLE, title, C_DIM, ext, C_RESET
 }
 ' "$@"
-
