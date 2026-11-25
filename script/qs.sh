@@ -53,5 +53,5 @@ else
   MSG="created playlist [$(cat $PLAYLIST | wc -l)] @ --> ${PLAYLIST} ..."
   #echo -e "$(PrintGreen ${MSG})"
   echo $MSG
-  fi
+fi
 

@@ -108,7 +108,7 @@ while getopts ${OPTSTRING} opt; do
 done
 shift $((${OPTIND}-1))
 
-STORE_PREFIX="${1:-/mnt/music/music-lib}"
+STORE_PREFIX="${1:-/mnt/music/}"
 CONFIG_PREFIX="${2:-$HOME/.music_shell}"
 TIME_STAMP="$(date.sh)"
 CACHE="${CONFIG_PREFIX}/${TIME_STAMP}_cache.txt"
