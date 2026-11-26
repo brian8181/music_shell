@@ -1,0 +1,1 @@
+/usr/lib64/ccache/c++ -Wl,--dependency-file=CMakeFiles/wxHello.dir/link.d CMakeFiles/wxHello.dir/main.cpp.o -o wxHello   -L/usr/local/lib64  -Wl,-rpath,/usr/local/lib64 -L/usr/local/lib64 -lwx_baseu_net-3.3 -lwx_gtk3u_core-3.3 -lwx_baseu-3.3

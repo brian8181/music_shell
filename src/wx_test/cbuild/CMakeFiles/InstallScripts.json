@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/brian/tmp/wx_test/cbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

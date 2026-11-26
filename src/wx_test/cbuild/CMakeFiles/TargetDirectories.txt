@@ -1,0 +1,3 @@
+/home/brian/tmp/wx_test/cbuild/CMakeFiles/wxHello.dir
+/home/brian/tmp/wx_test/cbuild/CMakeFiles/edit_cache.dir
+/home/brian/tmp/wx_test/cbuild/CMakeFiles/rebuild_cache.dir
