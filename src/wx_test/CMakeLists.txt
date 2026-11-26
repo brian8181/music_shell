@@ -11,3 +11,9 @@ include(${wxWidgets_USE_FILE})
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${wxWidgets_LIBRARIES})
 
+link_directories(/usr/local/lib)
+
+target_link_libraries(wxHello PRIVATE
+    ${wxWidgets_LIBRARIES}
+    sqlite3
+)
